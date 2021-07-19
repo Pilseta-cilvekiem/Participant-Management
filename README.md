@@ -1,1 +1,1 @@
-# Pilseta-Cilvekiem-Power-Apps
+# Power-Apps
