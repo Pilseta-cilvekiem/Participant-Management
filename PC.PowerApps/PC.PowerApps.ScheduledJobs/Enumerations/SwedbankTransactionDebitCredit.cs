@@ -1,4 +1,4 @@
-﻿namespace PC.PowerApps.BankCsvImport
+﻿namespace PC.PowerApps.ScheduledJobs.Enumerations
 {
     internal enum SwedbankTransactionDebitCredit
     {

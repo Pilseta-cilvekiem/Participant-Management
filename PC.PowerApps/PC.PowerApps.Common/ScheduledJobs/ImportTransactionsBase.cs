@@ -7,7 +7,7 @@ namespace PC.PowerApps.Common.ScheduledJobs
     {
         public Guid BankAccountId { get; set; }
 
-        protected override Task Execute()
+        public override Task Execute()
         {
             throw new NotImplementedException();
         }

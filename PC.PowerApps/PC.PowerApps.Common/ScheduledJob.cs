@@ -11,7 +11,7 @@ namespace PC.PowerApps.Common
         [JsonIgnore]
         public Context Context { get; set; }
 
-        protected abstract Task Execute();
+        public abstract Task Execute();
 
         public void Schedule()
         {

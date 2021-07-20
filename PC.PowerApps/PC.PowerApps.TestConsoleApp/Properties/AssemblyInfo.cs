@@ -1,15 +1,15 @@
-﻿using Microsoft.Extensions.Configuration.UserSecrets;
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PC.PowerApps.ClientBase")]
+[assembly: AssemblyTitle("PC.PowerApps.TestConsoleApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PC.PowerApps.ClientBase")]
+[assembly: AssemblyProduct("PC.PowerApps.TestConsoleApp")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("711fc05a-7ba1-4542-ba10-277c55b6b795")]
+[assembly: Guid("e626d5c3-e25e-4098-99f6-b9a7a4fd4900")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,5 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-[assembly: UserSecretsId("fed5bdae-f975-4935-a1f8-86a3cfe3978f")]
