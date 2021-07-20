@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PC.PowerApps.BankCsvImport")]
+[assembly: AssemblyTitle("PC.PowerApps.ScheduledJobs")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PC.PowerApps.BankCsvImport")]
+[assembly: AssemblyProduct("PC.PowerApps.ScheduledJobs")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("da019618-a886-4418-98e0-ebd08a257c6c")]
+[assembly: Guid("272be803-5081-426c-bd5a-554eb376124f")]
 
 // Version information for an assembly consists of the following four values:
 //

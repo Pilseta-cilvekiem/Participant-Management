@@ -1,6 +1,7 @@
-﻿using System;
+﻿using PC.PowerApps.ScheduledJobs.Enumerations;
+using System;
 
-namespace PC.PowerApps.BankCsvImport
+namespace PC.PowerApps.ScheduledJobs.Models
 {
     internal class SwedbankTransactionCsvRecord
     {
