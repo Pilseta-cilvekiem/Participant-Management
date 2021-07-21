@@ -18,7 +18,7 @@ namespace PC.PowerApps.FunctionApp
         [FunctionName("ProcessScheduledJobs")]
         [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "<Pending>")]
         [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
-        public static void Run([TimerTrigger("* */5 * * * *")] TimerInfo timerInfo, TraceWriter traceWriter)
+        public static void Run([TimerTrigger("0 */5 * * * *")] TimerInfo timerInfo, TraceWriter traceWriter)
         {
             IConfigurationRoot configurationRoot = new ConfigurationBuilder()
                 .AddEnvironmentVariables()

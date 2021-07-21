@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Tooling.Connector;
-using PC.PowerApps.Plugins;
+using PC.PowerApps.Common;
 using System;
 
 namespace PC.PowerApps.ClientBase
@@ -11,6 +11,10 @@ namespace PC.PowerApps.ClientBase
     {
         private readonly Lazy<CrmServiceClient> crmServiceClient;
         private bool disposedValue = false;
+
+        public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger<CrmServiceClientContext>> logger) : this(configuration, GetILogger(logger))
+        {
+        }
 
         public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger> logger) : this(GetCrmServiceClient(configuration), logger)
         {
@@ -28,6 +32,11 @@ namespace PC.PowerApps.ClientBase
                 string connectionString = configuration.Value.GetConnectionString("Dataverse");
                 return new CrmServiceClient(connectionString);
             });
+        }
+
+        private static Lazy<ILogger> GetILogger(Lazy<ILogger<CrmServiceClientContext>> logger)
+        {
+            return new Lazy<ILogger>(() => logger.Value);
         }
 
         private static Lazy<IOrganizationService> GetOrganizationService(Lazy<CrmServiceClient> crmServiceClient)

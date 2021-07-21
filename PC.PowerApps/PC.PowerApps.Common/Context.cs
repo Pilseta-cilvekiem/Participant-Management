@@ -2,7 +2,7 @@
 using Microsoft.Xrm.Sdk;
 using System;
 
-namespace PC.PowerApps.Plugins
+namespace PC.PowerApps.Common
 {
     public class Context : IDisposable
     {

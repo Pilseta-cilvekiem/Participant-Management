@@ -9,7 +9,7 @@ namespace PC.PowerApps.Common.Extensions
         private const string CollectionEmptyText = "Collection has no elements.";
         private const string CollectionHasMultipleElementsText = "Collection has multiple elements.";
 
-        public static T TakeSingle<T>(this IEnumerable<T> collection, string collectionEmptyText = CollectionEmptyText, string collectionHasMultipleElements = CollectionHasMultipleElementsText)
+        public static T TakeSingle<T>(this IEnumerable<T> collection, string collectionEmptyText = CollectionEmptyText, string collectionHasMultipleElementsText = CollectionHasMultipleElementsText)
         {
             List<T> firstTwoElements = collection
                 .Take(2)
@@ -18,13 +18,13 @@ namespace PC.PowerApps.Common.Extensions
             switch (firstTwoElements.Count)
             {
                 case 0:
-                    throw new CollectionEmptyException(CollectionEmptyText);
+                    throw new CollectionEmptyException(collectionEmptyText);
 
                 case 1:
                     return firstTwoElements[0];
 
                 default:
-                    throw new CollectionHasMultipleElementsException(CollectionHasMultipleElementsText);
+                    throw new CollectionHasMultipleElementsException(collectionHasMultipleElementsText);
             }
         }
     }
