@@ -4,7 +4,7 @@ using PC.PowerApps.Common.Extensions;
 using System;
 using System.Linq;
 
-namespace PC.PowerApps.Plugins
+namespace PC.PowerApps.Common
 {
     public class ServiceContext : ServiceContextBase
     {
