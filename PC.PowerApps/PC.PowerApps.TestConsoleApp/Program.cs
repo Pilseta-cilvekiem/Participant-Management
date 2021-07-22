@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PC.PowerApps.ClientBase;
 using Serilog;
 using Serilog.Core;
+using System;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp
@@ -33,6 +34,9 @@ namespace PC.PowerApps.TestConsoleApp
 
             TestApp testApp = container.Resolve<TestApp>();
             await testApp.Execute();
+
+            Console.Write("Press \"Enter\" to exit.");
+            Console.ReadLine();
         }
     }
 }

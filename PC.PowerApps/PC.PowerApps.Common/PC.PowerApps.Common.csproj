@@ -71,7 +71,7 @@
     <Compile Include="Extensions\IOrganizationServiceExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScheduledJob.cs" />
-    <Compile Include="ScheduledJobs\ImportTransactionsBase.cs" />
+    <Compile Include="ScheduledJobs\ImportSwedbankTransactionsBase.cs" />
     <Compile Include="ServiceContext.cs" />
   </ItemGroup>
   <ItemGroup>

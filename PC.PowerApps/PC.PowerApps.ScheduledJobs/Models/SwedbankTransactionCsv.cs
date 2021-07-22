@@ -3,7 +3,7 @@ using System;
 
 namespace PC.PowerApps.ScheduledJobs.Models
 {
-    internal class SwedbankTransactionCsvRecord
+    internal class SwedbankTransactionCsv
     {
         public string ClientAccount { get; set; }
         public int RowType { get; set; }
