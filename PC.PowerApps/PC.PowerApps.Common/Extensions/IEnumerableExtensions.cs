@@ -27,5 +27,24 @@ namespace PC.PowerApps.Common.Extensions
                     throw new CollectionHasMultipleElementsException(collectionHasMultipleElementsText);
             }
         }
+
+        public static T TakeSingleOrDefault<T>(this IEnumerable<T> collection, string collectionHasMultipleElementsText = CollectionHasMultipleElementsText)
+        {
+            List<T> firstTwoElements = collection
+                .Take(2)
+                .ToList();
+
+            switch (firstTwoElements.Count)
+            {
+                case 0:
+                    return default;
+
+                case 1:
+                    return firstTwoElements[0];
+
+                default:
+                    throw new CollectionHasMultipleElementsException(collectionHasMultipleElementsText);
+            }
+        }
     }
 }

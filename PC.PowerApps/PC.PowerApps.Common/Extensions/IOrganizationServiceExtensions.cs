@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PC.PowerApps.Common.Extensions
 {
-    internal static class IOrganizationServiceExtensions
+    public static class IOrganizationServiceExtensions
     {
         public static void CreateWithoutNulls(this IOrganizationService organizationService, Entity entity)
         {

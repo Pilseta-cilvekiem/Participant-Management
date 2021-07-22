@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace PC.PowerApps.Common.ScheduledJobs
 {
-    public class ImportTransactionsBase : ScheduledJob
+    public class ImportSwedbankTransactionsBase : ScheduledJob
     {
         public Guid BankAccountId { get; set; }
 
