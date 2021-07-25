@@ -73,6 +73,7 @@
     <Compile Include="ScheduledJob.cs" />
     <Compile Include="ScheduledJobs\ImportSwedbankTransactionsBase.cs" />
     <Compile Include="ServiceContext.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
