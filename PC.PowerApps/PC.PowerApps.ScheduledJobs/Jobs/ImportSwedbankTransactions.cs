@@ -45,7 +45,7 @@ namespace PC.PowerApps.ScheduledJobs.Jobs
             }
 
             bankAccount.pc_LastImportedTransactionDate = lastImportedTransactionDate;
-            //_ = Context.ServiceContext.UpdateModifiedAttributes();
+            _ = Context.ServiceContext.UpdateModifiedAttributes(bankAccount);
             return Task.CompletedTask;
         }
 

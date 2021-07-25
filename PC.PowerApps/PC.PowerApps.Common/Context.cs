@@ -4,7 +4,7 @@ using System;
 
 namespace PC.PowerApps.Common
 {
-    public class Context : IDisposable
+    public abstract class Context : IDisposable
     {
         private bool disposedValue;
         private readonly Lazy<ILogger> logger;
@@ -32,6 +32,11 @@ namespace PC.PowerApps.Common
             userServiceContext = userOrganizationService == organizationService
                 ? serviceContext
                 : new Lazy<ServiceContext>(() => new ServiceContext(UserOrganizationService));
+        }
+
+        public static InvalidPluginExecutionException CreateException(string message)
+        {
+            return new InvalidPluginExecutionException(message);
         }
 
         protected virtual void Dispose(bool disposing)
