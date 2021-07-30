@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xrm.Sdk;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
@@ -12,6 +10,7 @@ namespace PC.PowerApps.Common
         public static TEntity CopyEntity<TEntity>(TEntity sourceEntity) where TEntity : Entity, new()
         {
             TEntity targetEntity = new TEntity();
+            targetEntity.LogicalName = sourceEntity.LogicalName;
 
             foreach (KeyValuePair<string, object> sourceAttribute in sourceEntity.Attributes)
             {

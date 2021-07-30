@@ -1,9 +1,10 @@
-﻿using CrmEarlyBound;
-using Microsoft.Xrm.Sdk;
+﻿using Microsoft.Xrm.Sdk;
+using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace PC.PowerApps.Common
 {
@@ -24,27 +25,35 @@ namespace PC.PowerApps.Common
                 .TakeSingle($"{typeof(TEntity).Name} with ID {id} does not exist.");
         }
 
+        public TEntity Retrieve<TEntity>(EntityReference entityReference) where TEntity : Entity
+        {
+            if (entityReference == null)
+            {
+                return null;
+            }
+
+            FieldInfo entityLogicalNameField = typeof(TEntity).GetField("EntityLogicalName", BindingFlags.Public | BindingFlags.Static);
+            string entityLogicalName = (string)entityLogicalNameField.GetValue(null);
+
+            if (entityReference.LogicalName != entityLogicalName)
+            {
+                throw new ArgumentException($"Entity reference logical name is {entityReference.LogicalName}, expected: {entityLogicalName}.");
+            }
+
+            return Retrieve<TEntity>(entityReference.Id);
+        }
+
         protected override void OnBeginEntityTracking(Entity entity)
         {
             base.OnBeginEntityTracking(entity);
             Entity entityCopy = Utils.CopyEntity(entity);
             EntityReference entityRef = entity.ToEntityReference();
-            retrievedEntities.Add(entityRef, entityCopy);
+            retrievedEntities[entityRef] = entityCopy;
         }
 
         public bool UpdateModifiedAttributes<TEntity>(TEntity modifiedEntity) where TEntity : Entity, new()
         {
-            Entity retrievedEntity;
-
-            try
-            {
-                retrievedEntity = retrievedEntities[modifiedEntity.ToEntityReference()];
-            }
-            catch (KeyNotFoundException)
-            {
-                throw Context.CreateException($"Entity {modifiedEntity.LogicalName} with ID {modifiedEntity.Id} is not tracked.");
-            }
-
+            Entity retrievedEntity = retrievedEntities[modifiedEntity.ToEntityReference()];
             TEntity patchEntity = new TEntity();
             patchEntity.Id = modifiedEntity.Id;
             bool update = false;

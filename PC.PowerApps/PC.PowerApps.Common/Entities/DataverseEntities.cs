@@ -6,13 +6,13 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 // </auto-generated>
-// Created via this command line: "C:\Users\Mihails\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator\crmsvcutil.exe" /namespace:"CrmEarlyBound" /SuppressGeneratedCodeAttribute /out:"C:\Users\Mihails\source\repos\Power-Apps\PC.PowerApps\PC.PowerApps.Common\EarlyBound\Entities.cs" /servicecontextname:"ServiceContextBase" /codecustomization:"DLaB.CrmSvcUtilExtensions.Entity.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.Entity.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.Entity.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.Entity.MetadataProviderService,DLaB.CrmSvcUtilExtensions" /connectionstring:"AuthType=OAuth;Username=mihails.simvulidi@pilsetacilvekiem.lv;Url=https://pilsetacilvekiem.api.crm4.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145b91-0c36-4500-8554-080854f2ac97/;TokenCacheStorePath=C:\Users\Mihails\AppData\Local\Temp\{a8e5fc3e-a2be-4418-ba78-fd232f19ad4d};LoginPrompt=Auto" 
+// Created via this command line: "C:\Users\Mihails\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator\crmsvcutil.exe" /namespace:"PC.PowerApps.Common.Entities.Dataverse" /SuppressGeneratedCodeAttribute /out:"C:\Users\Mihails\source\repos\Power-Apps\PC.PowerApps\PC.PowerApps.Common\Entities\DataverseEntities.cs" /servicecontextname:"ServiceContextBase" /codecustomization:"DLaB.CrmSvcUtilExtensions.Entity.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.Entity.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.Entity.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.Entity.MetadataProviderService,DLaB.CrmSvcUtilExtensions" /connectionstring:"AuthType=OAuth;Username=mihails.simvulidi@pilsetacilvekiem.lv;Url=https://pilsetacilvekiem.api.crm4.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145b91-0c36-4500-8554-080854f2ac97/;TokenCacheStorePath=C:\Users\Mihails\AppData\Local\Temp\{bba94f33-cdc2-4ed2-9161-9b8bc593c537};LoginPrompt=Auto" 
 //------------------------------------------------------------------------------
 
 [assembly: Microsoft.Xrm.Sdk.Client.ProxyTypesAssemblyAttribute()]
 [assembly: System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.82")]
 
-namespace CrmEarlyBound
+namespace PC.PowerApps.Common.Entities.Dataverse
 {
 	
 	
@@ -545,18 +545,18 @@ namespace CrmEarlyBound
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("objectid")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("pc_bankaccount_Annotations")]
-		public CrmEarlyBound.pc_BankAccount pc_bankaccount_Annotations
+		public PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount pc_bankaccount_Annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<CrmEarlyBound.pc_BankAccount>("pc_bankaccount_Annotations", null);
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount>("pc_bankaccount_Annotations", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("pc_bankaccount_Annotations");
-				this.SetRelatedEntity<CrmEarlyBound.pc_BankAccount>("pc_bankaccount_Annotations", null, value);
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount>("pc_bankaccount_Annotations", null, value);
 				this.OnPropertyChanged("pc_bankaccount_Annotations");
 			}
 		}
@@ -898,7 +898,7 @@ namespace CrmEarlyBound
 		/// Status of the Bank Account
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<CrmEarlyBound.pc_BankAccountState> StateCode
+		public System.Nullable<PC.PowerApps.Common.Entities.Dataverse.pc_BankAccountState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -906,7 +906,7 @@ namespace CrmEarlyBound
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((CrmEarlyBound.pc_BankAccountState)(System.Enum.ToObject(typeof(CrmEarlyBound.pc_BankAccountState), optionSet.Value)));
+					return ((PC.PowerApps.Common.Entities.Dataverse.pc_BankAccountState)(System.Enum.ToObject(typeof(PC.PowerApps.Common.Entities.Dataverse.pc_BankAccountState), optionSet.Value)));
 				}
 				else
 				{
@@ -1006,18 +1006,18 @@ namespace CrmEarlyBound
 		/// 1:N pc_bankaccount_Annotations
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("pc_bankaccount_Annotations")]
-		public System.Collections.Generic.IEnumerable<CrmEarlyBound.Annotation> pc_bankaccount_Annotations
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.Annotation> pc_bankaccount_Annotations
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<CrmEarlyBound.Annotation>("pc_bankaccount_Annotations", null);
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.Annotation>("pc_bankaccount_Annotations", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("pc_bankaccount_Annotations");
-				this.SetRelatedEntities<CrmEarlyBound.Annotation>("pc_bankaccount_Annotations", null, value);
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.Annotation>("pc_bankaccount_Annotations", null, value);
 				this.OnPropertyChanged("pc_bankaccount_Annotations");
 			}
 		}
@@ -1026,18 +1026,18 @@ namespace CrmEarlyBound
 		/// 1:N pc_Transaction_BankAccount_BankAccount
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("pc_Transaction_BankAccount_BankAccount")]
-		public System.Collections.Generic.IEnumerable<CrmEarlyBound.pc_Transaction> pc_Transaction_BankAccount_BankAccount
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction> pc_Transaction_BankAccount_BankAccount
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntities<CrmEarlyBound.pc_Transaction>("pc_Transaction_BankAccount_BankAccount", null);
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction>("pc_Transaction_BankAccount_BankAccount", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("pc_Transaction_BankAccount_BankAccount");
-				this.SetRelatedEntities<CrmEarlyBound.pc_Transaction>("pc_Transaction_BankAccount_BankAccount", null, value);
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction>("pc_Transaction_BankAccount_BankAccount", null, value);
 				this.OnPropertyChanged("pc_Transaction_BankAccount_BankAccount");
 			}
 		}
@@ -1379,7 +1379,7 @@ namespace CrmEarlyBound
 		/// Status of the Scheduled Job
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<CrmEarlyBound.pc_ScheduledJobState> StateCode
+		public System.Nullable<PC.PowerApps.Common.Entities.Dataverse.pc_ScheduledJobState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -1387,7 +1387,7 @@ namespace CrmEarlyBound
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((CrmEarlyBound.pc_ScheduledJobState)(System.Enum.ToObject(typeof(CrmEarlyBound.pc_ScheduledJobState), optionSet.Value)));
+					return ((PC.PowerApps.Common.Entities.Dataverse.pc_ScheduledJobState)(System.Enum.ToObject(typeof(PC.PowerApps.Common.Entities.Dataverse.pc_ScheduledJobState), optionSet.Value)));
 				}
 				else
 				{
@@ -1554,7 +1554,7 @@ namespace CrmEarlyBound
 		{
 		}
 		
-		public const string AlternateKeys = "pc_transferreference";
+		public const string AlternateKeys = "pc_id";
 		
 		public const string EntityLogicalName = "pc_transaction";
 		
@@ -1804,26 +1804,6 @@ namespace CrmEarlyBound
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_beneficiarypayer")]
-		public string pc_BeneficiaryPayer
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("pc_beneficiarypayer");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("pc_BeneficiaryPayer");
-				this.SetAttributeValue("pc_beneficiarypayer", value);
-				this.OnPropertyChanged("pc_BeneficiaryPayer");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_date")]
 		public System.Nullable<System.DateTime> pc_Date
 		{
@@ -1862,6 +1842,26 @@ namespace CrmEarlyBound
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_id")]
+		public string pc_Id
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_id");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_Id");
+				this.SetAttributeValue("pc_id", value);
+				this.OnPropertyChanged("pc_Id");
+			}
+		}
+		
+		/// <summary>
 		/// Required name field
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_name")]
@@ -1878,6 +1878,79 @@ namespace CrmEarlyBound
 				this.OnPropertyChanging("pc_Name");
 				this.SetAttributeValue("pc_name", value);
 				this.OnPropertyChanged("pc_Name");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_payerid")]
+		public string pc_PayerId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_payerid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_PayerId");
+				this.SetAttributeValue("pc_payerid", value);
+				this.OnPropertyChanged("pc_PayerId");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_payername")]
+		public string pc_PayerName
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_payername");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_PayerName");
+				this.SetAttributeValue("pc_payername", value);
+				this.OnPropertyChanged("pc_PayerName");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_remainingamount")]
+		public Microsoft.Xrm.Sdk.Money pc_RemainingAmount
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.Money>("pc_remainingamount");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_RemainingAmount");
+				this.SetAttributeValue("pc_remainingamount", value);
+				this.OnPropertyChanged("pc_RemainingAmount");
+			}
+		}
+		
+		/// <summary>
+		/// Value of the Remaining Amount in base currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_remainingamount_base")]
+		public Microsoft.Xrm.Sdk.Money pc_remainingamount_Base
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.Money>("pc_remainingamount_base");
 			}
 		}
 		
@@ -1925,30 +1998,10 @@ namespace CrmEarlyBound
 		}
 		
 		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_transferreference")]
-		public string pc_TransferReference
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("pc_transferreference");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("pc_TransferReference");
-				this.SetAttributeValue("pc_transferreference", value);
-				this.OnPropertyChanged("pc_TransferReference");
-			}
-		}
-		
-		/// <summary>
 		/// Status of the Transaction
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
-		public System.Nullable<CrmEarlyBound.pc_TransactionState> StateCode
+		public System.Nullable<PC.PowerApps.Common.Entities.Dataverse.pc_TransactionState> StateCode
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
@@ -1956,7 +2009,7 @@ namespace CrmEarlyBound
 				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
 				if ((optionSet != null))
 				{
-					return ((CrmEarlyBound.pc_TransactionState)(System.Enum.ToObject(typeof(CrmEarlyBound.pc_TransactionState), optionSet.Value)));
+					return ((PC.PowerApps.Common.Entities.Dataverse.pc_TransactionState)(System.Enum.ToObject(typeof(PC.PowerApps.Common.Entities.Dataverse.pc_TransactionState), optionSet.Value)));
 				}
 				else
 				{
@@ -2077,19 +2130,40 @@ namespace CrmEarlyBound
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_bankaccount")]
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("pc_Transaction_BankAccount_BankAccount")]
-		public CrmEarlyBound.pc_BankAccount pc_Transaction_BankAccount_BankAccount
+		public PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount pc_Transaction_BankAccount_BankAccount
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetRelatedEntity<CrmEarlyBound.pc_BankAccount>("pc_Transaction_BankAccount_BankAccount", null);
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount>("pc_Transaction_BankAccount_BankAccount", null);
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
 				this.OnPropertyChanging("pc_Transaction_BankAccount_BankAccount");
-				this.SetRelatedEntity<CrmEarlyBound.pc_BankAccount>("pc_Transaction_BankAccount_BankAccount", null, value);
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount>("pc_Transaction_BankAccount_BankAccount", null, value);
 				this.OnPropertyChanged("pc_Transaction_BankAccount_BankAccount");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 TransactionCurrency_pc_Transaction
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("transactioncurrencyid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("TransactionCurrency_pc_Transaction")]
+		public PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency TransactionCurrency_pc_Transaction
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency>("TransactionCurrency_pc_Transaction", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TransactionCurrency_pc_Transaction");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency>("TransactionCurrency_pc_Transaction", null, value);
+				this.OnPropertyChanged("TransactionCurrency_pc_Transaction");
 			}
 		}
 		
@@ -2136,6 +2210,546 @@ namespace CrmEarlyBound
 		}
 	}
 	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum TransactionCurrencyState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Active = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Inactive = 1,
+	}
+	
+	/// <summary>
+	/// Currency in which a financial transaction is carried out.
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("transactioncurrency")]
+	public partial class TransactionCurrency : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		[System.Diagnostics.DebuggerNonUserCode()]
+		public TransactionCurrency() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "transactioncurrency";
+		
+		public const string EntitySchemaName = "TransactionCurrency";
+		
+		public const string PrimaryIdAttribute = "transactioncurrencyid";
+		
+		public const string PrimaryNameAttribute = "currencyname";
+		
+		public const string EntityLogicalCollectionName = "transactioncurrencies";
+		
+		public const string EntitySetName = "transactioncurrencies";
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		[System.Diagnostics.DebuggerNonUserCode()]
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		[System.Diagnostics.DebuggerNonUserCode()]
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who created the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the transaction currency was created.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdon")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("createdon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who created the transactioncurrency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedOnBehalfBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CreatedOnBehalfBy");
+				this.SetAttributeValue("createdonbehalfby", value);
+				this.OnPropertyChanged("CreatedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Name of the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("currencyname")]
+		public string CurrencyName
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("currencyname");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CurrencyName");
+				this.SetAttributeValue("currencyname", value);
+				this.OnPropertyChanged("CurrencyName");
+			}
+		}
+		
+		/// <summary>
+		/// Number of decimal places that can be used for currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("currencyprecision")]
+		public System.Nullable<int> CurrencyPrecision
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("currencyprecision");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CurrencyPrecision");
+				this.SetAttributeValue("currencyprecision", value);
+				this.OnPropertyChanged("CurrencyPrecision");
+			}
+		}
+		
+		/// <summary>
+		/// Symbol for the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("currencysymbol")]
+		public string CurrencySymbol
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("currencysymbol");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CurrencySymbol");
+				this.SetAttributeValue("currencysymbol", value);
+				this.OnPropertyChanged("CurrencySymbol");
+			}
+		}
+		
+		/// <summary>
+		/// The default image for the entity.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimage")]
+		public byte[] EntityImage
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<byte[]>("entityimage");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("EntityImage");
+				this.SetAttributeValue("entityimage", value);
+				this.OnPropertyChanged("EntityImage");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimage_timestamp")]
+		public System.Nullable<long> EntityImage_Timestamp
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("entityimage_timestamp");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimage_url")]
+		public string EntityImage_URL
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("entityimage_url");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimageid")]
+		public System.Nullable<System.Guid> EntityImageId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("entityimageid");
+			}
+		}
+		
+		/// <summary>
+		/// Exchange rate between the transaction currency and the base currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("exchangerate")]
+		public System.Nullable<decimal> ExchangeRate
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<decimal>>("exchangerate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ExchangeRate");
+				this.SetAttributeValue("exchangerate", value);
+				this.OnPropertyChanged("ExchangeRate");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the data import or data migration that created this record.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("importsequencenumber")]
+		public System.Nullable<int> ImportSequenceNumber
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("importsequencenumber");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ImportSequenceNumber");
+				this.SetAttributeValue("importsequencenumber", value);
+				this.OnPropertyChanged("ImportSequenceNumber");
+			}
+		}
+		
+		/// <summary>
+		/// ISO currency code for the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isocurrencycode")]
+		public string ISOCurrencyCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("isocurrencycode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ISOCurrencyCode");
+				this.SetAttributeValue("isocurrencycode", value);
+				this.OnPropertyChanged("ISOCurrencyCode");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who last modified the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the transaction currency was last modified.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedon")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("modifiedon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who last modified the transactioncurrency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedOnBehalfBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ModifiedOnBehalfBy");
+				this.SetAttributeValue("modifiedonbehalfby", value);
+				this.OnPropertyChanged("ModifiedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the organization associated with the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("organizationid")]
+		public Microsoft.Xrm.Sdk.EntityReference OrganizationId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("organizationid");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time that the record was migrated.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("overriddencreatedon")]
+		public System.Nullable<System.DateTime> OverriddenCreatedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("overriddencreatedon");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("OverriddenCreatedOn");
+				this.SetAttributeValue("overriddencreatedon", value);
+				this.OnPropertyChanged("OverriddenCreatedOn");
+			}
+		}
+		
+		/// <summary>
+		/// Status of the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
+		public System.Nullable<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrencyState> StateCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
+				if ((optionSet != null))
+				{
+					return ((PC.PowerApps.Common.Entities.Dataverse.TransactionCurrencyState)(System.Enum.ToObject(typeof(PC.PowerApps.Common.Entities.Dataverse.TransactionCurrencyState), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("StateCode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("statecode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("statecode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("StateCode");
+			}
+		}
+		
+		/// <summary>
+		/// Reason for the status of the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statuscode")]
+		public virtual TransactionCurrency_StatusCode? StatusCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((TransactionCurrency_StatusCode?)(EntityOptionSetEnum.GetEnum(this, "statuscode")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("StatusCode");
+				this.SetAttributeValue("statuscode", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("StatusCode");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("transactioncurrencyid")]
+		public System.Nullable<System.Guid> TransactionCurrencyId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("transactioncurrencyid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TransactionCurrencyId");
+				this.SetAttributeValue("transactioncurrencyid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("TransactionCurrencyId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("transactioncurrencyid")]
+		public override System.Guid Id
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return base.Id;
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.TransactionCurrencyId = value;
+			}
+		}
+		
+		/// <summary>
+		/// Version number of the transaction currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N TransactionCurrency_pc_Transaction
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("TransactionCurrency_pc_Transaction")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction> TransactionCurrency_pc_Transaction
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction>("TransactionCurrency_pc_Transaction", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TransactionCurrency_pc_Transaction");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction>("TransactionCurrency_pc_Transaction", null, value);
+				this.OnPropertyChanged("TransactionCurrency_pc_Transaction");
+			}
+		}
+		
+		/// <summary>
+		/// Constructor for populating via LINQ queries given a LINQ anonymous type
+		/// <param name="anonymousType">LINQ anonymous type.</param>
+		/// </summary>
+		[System.Diagnostics.DebuggerNonUserCode()]
+		public TransactionCurrency(object anonymousType) : 
+				this()
+		{
+            foreach (var p in anonymousType.GetType().GetProperties())
+            {
+                var value = p.GetValue(anonymousType, null);
+                var name = p.Name.ToLower();
+            
+                if (name.EndsWith("enum") && value.GetType().BaseType == typeof(System.Enum))
+                {
+                    value = new Microsoft.Xrm.Sdk.OptionSetValue((int) value);
+                    name = name.Remove(name.Length - "enum".Length);
+                }
+            
+                switch (name)
+                {
+                    case "id":
+                        base.Id = (System.Guid)value;
+                        Attributes["transactioncurrencyid"] = base.Id;
+                        break;
+                    case "transactioncurrencyid":
+                        var id = (System.Nullable<System.Guid>) value;
+                        if(id == null){ continue; }
+                        base.Id = id.Value;
+                        Attributes[name] = base.Id;
+                        break;
+                    case "formattedvalues":
+                        // Add Support for FormattedValues
+                        FormattedValues.AddRange((Microsoft.Xrm.Sdk.FormattedValueCollection)value);
+                        break;
+                    default:
+                        Attributes[name] = value;
+                        break;
+                }
+            }
+		}
+	}
+	
 	/// <summary>
 	/// Represents a source of entities bound to a CRM service. It tracks and manages changes made to the retrieved entities.
 	/// </summary>
@@ -2152,50 +2766,62 @@ namespace CrmEarlyBound
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="CrmEarlyBound.Annotation"/> entities.
+		/// Gets a binding to the set of all <see cref="PC.PowerApps.Common.Entities.Dataverse.Annotation"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<CrmEarlyBound.Annotation> AnnotationSet
+		public System.Linq.IQueryable<PC.PowerApps.Common.Entities.Dataverse.Annotation> AnnotationSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<CrmEarlyBound.Annotation>();
+				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.Annotation>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="CrmEarlyBound.pc_BankAccount"/> entities.
+		/// Gets a binding to the set of all <see cref="PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<CrmEarlyBound.pc_BankAccount> pc_BankAccountSet
+		public System.Linq.IQueryable<PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount> pc_BankAccountSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<CrmEarlyBound.pc_BankAccount>();
+				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.pc_BankAccount>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="CrmEarlyBound.pc_ScheduledJob"/> entities.
+		/// Gets a binding to the set of all <see cref="PC.PowerApps.Common.Entities.Dataverse.pc_ScheduledJob"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<CrmEarlyBound.pc_ScheduledJob> pc_ScheduledJobSet
+		public System.Linq.IQueryable<PC.PowerApps.Common.Entities.Dataverse.pc_ScheduledJob> pc_ScheduledJobSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<CrmEarlyBound.pc_ScheduledJob>();
+				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.pc_ScheduledJob>();
 			}
 		}
 		
 		/// <summary>
-		/// Gets a binding to the set of all <see cref="CrmEarlyBound.pc_Transaction"/> entities.
+		/// Gets a binding to the set of all <see cref="PC.PowerApps.Common.Entities.Dataverse.pc_Transaction"/> entities.
 		/// </summary>
-		public System.Linq.IQueryable<CrmEarlyBound.pc_Transaction> pc_TransactionSet
+		public System.Linq.IQueryable<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction> pc_TransactionSet
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.CreateQuery<CrmEarlyBound.pc_Transaction>();
+				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.pc_Transaction>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency> TransactionCurrencySet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency>();
 			}
 		}
 	}

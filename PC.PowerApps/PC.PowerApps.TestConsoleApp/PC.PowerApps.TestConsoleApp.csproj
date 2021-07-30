@@ -191,10 +191,6 @@
       <Project>{fd0aca0e-f3bd-4f0f-a993-7adc32b1db49}</Project>
       <Name>PC.PowerApps.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PC.PowerApps.ScheduledJobs\PC.PowerApps.ScheduledJobs.csproj">
-      <Project>{272be803-5081-426c-bd5a-554eb376124f}</Project>
-      <Name>PC.PowerApps.ScheduledJobs</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

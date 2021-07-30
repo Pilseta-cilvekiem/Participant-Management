@@ -6,10 +6,10 @@ namespace PC.PowerApps.Common.Extensions
 {
     public static class IEnumerableExtensions
     {
-        private const string CollectionEmptyText = "Collection has no elements.";
-        private const string CollectionHasMultipleElementsText = "Collection has multiple elements.";
+        private const string SequenceEmptyText = "Sequence has no elements.";
+        private const string SequenceHasMoreThanOneElementText = "Sequence has more than one element.";
 
-        public static T TakeSingle<T>(this IEnumerable<T> collection, string collectionEmptyText = CollectionEmptyText, string collectionHasMultipleElementsText = CollectionHasMultipleElementsText)
+        public static T TakeSingle<T>(this IEnumerable<T> collection, string sequenceEmpty = SequenceEmptyText, string sequenceHasMoreThanOneElement = SequenceHasMoreThanOneElementText)
         {
             List<T> firstTwoElements = collection
                 .Take(2)
@@ -18,17 +18,17 @@ namespace PC.PowerApps.Common.Extensions
             switch (firstTwoElements.Count)
             {
                 case 0:
-                    throw new CollectionEmptyException(collectionEmptyText);
+                    throw new SequenceEmptyException(sequenceEmpty);
 
                 case 1:
                     return firstTwoElements[0];
 
                 default:
-                    throw new CollectionHasMultipleElementsException(collectionHasMultipleElementsText);
+                    throw new SequenceHasMoreThanOneElementException(sequenceHasMoreThanOneElement);
             }
         }
 
-        public static T TakeSingleOrDefault<T>(this IEnumerable<T> collection, string collectionHasMultipleElementsText = CollectionHasMultipleElementsText)
+        public static T TakeSingleOrDefault<T>(this IEnumerable<T> collection, string sequenceHasMoreThanOneElement = SequenceHasMoreThanOneElementText)
         {
             List<T> firstTwoElements = collection
                 .Take(2)
@@ -43,7 +43,7 @@ namespace PC.PowerApps.Common.Extensions
                     return firstTwoElements[0];
 
                 default:
-                    throw new CollectionHasMultipleElementsException(collectionHasMultipleElementsText);
+                    throw new SequenceHasMoreThanOneElementException(sequenceHasMoreThanOneElement);
             }
         }
     }
