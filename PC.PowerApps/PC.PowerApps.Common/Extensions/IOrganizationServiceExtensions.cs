@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PC.PowerApps.Common.Extensions
 {
@@ -7,15 +8,22 @@ namespace PC.PowerApps.Common.Extensions
     {
         public static void CreateWithoutNulls(this IOrganizationService organizationService, Entity entity)
         {
-            foreach (KeyValuePair<string, object> attribute in entity.Attributes)
+            List<string> attributesToRemove = entity.Attributes
+                .Where(a => a.Value == null)
+                .Select(a => a.Key)
+                .ToList();
+
+            foreach (string attributeToRemove in attributesToRemove)
             {
-                if (attribute.Value == null)
-                {
-                    _ = entity.Attributes.Remove(attribute);
-                }
+                _ = entity.Attributes.Remove(attributeToRemove);
             }
 
             entity.Id = organizationService.Create(entity);
+        }
+
+        public static void Delete(this IOrganizationService organizationService, Entity entity)
+        {
+            organizationService.Delete(entity.LogicalName, entity.Id);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using PC.PowerApps.ClientBase;
-using PC.PowerApps.ScheduledJobs.Jobs;
+using PC.PowerApps.Common.Repositories;
 using System;
 using System.Threading.Tasks;
 
@@ -8,20 +8,17 @@ namespace PC.PowerApps.TestConsoleApp
     internal class TestApp
     {
         private readonly CrmServiceClientContext context;
+        private readonly TransactionRepository transactionRepository;
 
-        public TestApp(CrmServiceClientContext context)
+        public TestApp(CrmServiceClientContext context, TransactionRepository transactionRepository)
         {
             this.context = context;
+            this.transactionRepository = transactionRepository;
         }
 
         public Task Execute()
         {
-            ImportSwedbankTransactions importTransactionsBase = new ImportSwedbankTransactions
-            {
-                BankAccountId = new Guid("177b97ba-92e8-eb11-bacb-000d3abb9ce3"),
-                Context = context,
-            };
-            importTransactionsBase.Execute();
+            transactionRepository.ImportFromAnnotation(new Guid("56E11FE7-CE69-9BCC-B230-B2820280DED5"));
             return Task.CompletedTask;
         }
     }

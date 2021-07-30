@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PC.PowerApps.ClientBase;
+using PC.PowerApps.Common.Repositories;
 using Serilog;
 using Serilog.Core;
 using System;
@@ -27,9 +28,9 @@ namespace PC.PowerApps.TestConsoleApp
 
             ContainerBuilder containerBuilder = new ContainerBuilder();
             containerBuilder.Populate(serviceCollection);
-            _ = containerBuilder.RegisterType<CrmServiceClientContext>().SingleInstance();
+            _ = containerBuilder.RegisterModule<ClientBaseModule>();
+            _ = containerBuilder.RegisterType<TestApp>().SingleInstance();
             _ = containerBuilder.RegisterInstance(configurationRoot).As<IConfiguration>();
-            _ = containerBuilder.RegisterType<TestApp>().AsSelf().SingleInstance();
             using IContainer container = containerBuilder.Build();
 
             TestApp testApp = container.Resolve<TestApp>();

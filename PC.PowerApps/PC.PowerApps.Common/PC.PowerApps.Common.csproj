@@ -62,16 +62,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
-    <Compile Include="EarlyBound\Entities.cs" />
-    <Compile Include="EarlyBound\OptionSets.cs" />
+    <Compile Include="ActionQueue.cs" />
+    <Compile Include="Entities\DataverseEntities.cs" />
+    <Compile Include="Entities\DataverseOptionSets.cs" />
+    <Compile Include="Entities\Fidavista.cs" />
     <Compile Include="Enumerations\OrganizationServiceUser.cs" />
-    <Compile Include="Exceptions\CollectionEmptyException.cs" />
-    <Compile Include="Exceptions\CollectionHasMultipleElementsException.cs" />
+    <Compile Include="Exceptions\SequenceEmptyException.cs" />
+    <Compile Include="Exceptions\SequenceHasMoreThanOneElementException.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\IOrganizationServiceExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="ScheduledJob.cs" />
-    <Compile Include="ScheduledJobs\ImportSwedbankTransactionsBase.cs" />
+    <Compile Include="ScheduledJobs\ImportSwedbankTransactions.cs" />
     <Compile Include="ServiceContext.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
@@ -79,7 +82,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EarlyBound\DLaB.EarlyBoundGenerator.xml" />
+    <Content Include="Entities\DLaB.EarlyBoundGenerator.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

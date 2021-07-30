@@ -23,7 +23,8 @@
     <EntitiesWhitelist>annotation|
 pc_bankaccount|
 pc_scheduledjob|
-pc_transaction</EntitiesWhitelist>
+pc_transaction|
+transactioncurrency</EntitiesWhitelist>
     <EntityAttributeSpecifiedNames />
     <EntityPrefixesToSkip />
     <EntityPrefixesWhitelist />
@@ -190,7 +191,7 @@ salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <Argument>
       <SettingType>All</SettingType>
       <Name>namespace</Name>
-      <Value>CrmEarlyBound</Value>
+      <Value>PC.PowerApps.Common.Entities.Dataverse</Value>
       <Valueless>false</Valueless>
     </Argument>
     <Argument>
@@ -202,7 +203,7 @@ salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <Argument>
       <SettingType>Entities</SettingType>
       <Name>out</Name>
-      <Value>Entities.cs</Value>
+      <Value>DataverseEntities.cs</Value>
       <Valueless>false</Valueless>
     </Argument>
     <Argument>
@@ -214,7 +215,7 @@ salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <Argument>
       <SettingType>OptionSets</SettingType>
       <Name>out</Name>
-      <Value>OptionSets.cs</Value>
+      <Value>DataverseOptionSets.cs</Value>
       <Valueless>false</Valueless>
     </Argument>
   </UserArguments>

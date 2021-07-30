@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
+using PC.PowerApps.Common;
+using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 
@@ -9,9 +11,11 @@ namespace PC.PowerApps.Plugins.Contexts
     {
         private readonly Lazy<PluginMessage> message;
         private readonly Lazy<IPluginExecutionContext> pluginExecutionContext;
+        private readonly Lazy<TransactionRepository> transactionRepository;
 
         public PluginMessage Message => message.Value;
         public IPluginExecutionContext PluginExecutionContext => pluginExecutionContext.Value;
+        public TransactionRepository TransactionRepository => transactionRepository.Value;
 
         public PluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, userOrganizationServiceUser)
         {
@@ -21,6 +25,8 @@ namespace PC.PowerApps.Plugins.Contexts
         {
             message = new Lazy<PluginMessage>(() => (PluginMessage)Enum.Parse(typeof(PluginMessage), PluginExecutionContext.MessageName));
             this.pluginExecutionContext = pluginExecutionContext;
+            Lazy<Context> context = new Lazy<Context>(() => this);
+            transactionRepository = new Lazy<TransactionRepository>(() => new TransactionRepository(context));
         }
 
         private static Lazy<ILogger> GetTraceLogger(Lazy<ITracingService> tracingService)

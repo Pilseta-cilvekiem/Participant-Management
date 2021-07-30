@@ -34,11 +34,6 @@ namespace PC.PowerApps.Common
                 : new Lazy<ServiceContext>(() => new ServiceContext(UserOrganizationService));
         }
 
-        public static InvalidPluginExecutionException CreateException(string message)
-        {
-            return new InvalidPluginExecutionException(message);
-        }
-
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
