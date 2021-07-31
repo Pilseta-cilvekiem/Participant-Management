@@ -25,7 +25,7 @@ namespace PC.PowerApps.FunctionApp
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            Lazy<string> message = new Lazy<string>(() => formatter(state, exception));
+            Lazy<string> message = new(() => formatter(state, exception));
 
             switch (logLevel)
             {

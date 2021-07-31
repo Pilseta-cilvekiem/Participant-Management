@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common;
-using PC.PowerApps.Common.Repositories;
+using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 
@@ -11,11 +11,9 @@ namespace PC.PowerApps.Plugins.Contexts
     {
         private readonly Lazy<PluginMessage> message;
         private readonly Lazy<IPluginExecutionContext> pluginExecutionContext;
-        private readonly Lazy<TransactionRepository> transactionRepository;
 
         public PluginMessage Message => message.Value;
         public IPluginExecutionContext PluginExecutionContext => pluginExecutionContext.Value;
-        public TransactionRepository TransactionRepository => transactionRepository.Value;
 
         public PluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, userOrganizationServiceUser)
         {
@@ -25,8 +23,7 @@ namespace PC.PowerApps.Plugins.Contexts
         {
             message = new Lazy<PluginMessage>(() => (PluginMessage)Enum.Parse(typeof(PluginMessage), PluginExecutionContext.MessageName));
             this.pluginExecutionContext = pluginExecutionContext;
-            Lazy<Context> context = new Lazy<Context>(() => this);
-            transactionRepository = new Lazy<TransactionRepository>(() => new TransactionRepository(context));
+            Lazy<Context> context = new(() => this);
         }
 
         private static Lazy<ILogger> GetTraceLogger(Lazy<ITracingService> tracingService)
@@ -36,7 +33,13 @@ namespace PC.PowerApps.Plugins.Contexts
 
         private static Lazy<IOrganizationServiceFactory> GetOrganizationServiceFactory(IServiceProvider serviceProvider)
         {
-            return new Lazy<IOrganizationServiceFactory>(() => (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory)));
+            return new Lazy<IOrganizationServiceFactory>(() =>
+            {
+                IOrganizationServiceFactory organizationServiceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+                IProxyTypesAssemblyProvider proxyTypesAssemblyProvider = (IProxyTypesAssemblyProvider)organizationServiceFactory;
+                proxyTypesAssemblyProvider.ProxyTypesAssembly = typeof(ServiceContextBase).Assembly;
+                return organizationServiceFactory;
+            });
         }
 
         private static Lazy<IOrganizationService> GetOrganizationService(Lazy<IOrganizationServiceFactory> organizationServiceFactory, Lazy<IPluginExecutionContext> pluginExecutionContext, OrganizationServiceUser organizationServiceUser)

@@ -1293,6 +1293,86 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_completedon")]
+		public System.Nullable<System.DateTime> pc_CompletedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_completedon");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_CompletedOn");
+				this.SetAttributeValue("pc_completedon", value);
+				this.OnPropertyChanged("pc_CompletedOn");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_error")]
+		public string pc_Error
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_error");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_Error");
+				this.SetAttributeValue("pc_error", value);
+				this.OnPropertyChanged("pc_Error");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_executeon")]
+		public System.Nullable<System.DateTime> pc_ExecuteOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_executeon");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_ExecuteOn");
+				this.SetAttributeValue("pc_executeon", value);
+				this.OnPropertyChanged("pc_ExecuteOn");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_failures")]
+		public System.Nullable<int> pc_Failures
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("pc_failures");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_Failures");
+				this.SetAttributeValue("pc_failures", value);
+				this.OnPropertyChanged("pc_Failures");
+			}
+		}
+		
+		/// <summary>
 		/// Required name field
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_name")]
@@ -1372,6 +1452,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 			set
 			{
 				this.pc_ScheduledJobId = value;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_startedon")]
+		public System.Nullable<System.DateTime> pc_StartedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_startedon");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_StartedOn");
+				this.SetAttributeValue("pc_startedon", value);
+				this.OnPropertyChanged("pc_StartedOn");
 			}
 		}
 		

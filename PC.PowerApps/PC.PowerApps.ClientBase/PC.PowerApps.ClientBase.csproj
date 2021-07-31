@@ -191,6 +191,7 @@
     <Compile Include="ClientBaseModule.cs" />
     <Compile Include="CrmServiceClientContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduledJobProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

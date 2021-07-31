@@ -6,20 +6,11 @@ namespace PC.PowerApps.Common.ScheduledJobs
 {
     public class ImportSwedbankTransactions : ScheduledJob
     {
-        public Guid BankAccountId { get; set; }
-
-        private readonly Lazy<TransactionRepository> transactionRepository;
-
-        private TransactionRepository TransactionRepository => transactionRepository.Value;
-
-        public ImportSwedbankTransactions(Lazy<TransactionRepository> transactionRepository)
-        {
-            this.transactionRepository = transactionRepository;
-        }
+        public Guid AnnotationId { get; set; }
 
         public override Task Execute()
         {
-            TransactionRepository.ImportFromAnnotation(BankAccountId);
+            TransactionRepository.ImportFromAnnotation(Context, AnnotationId);
             return Task.CompletedTask;
         }
     }

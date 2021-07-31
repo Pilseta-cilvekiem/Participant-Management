@@ -24,11 +24,11 @@ namespace PC.PowerApps.FunctionApp
 
         private static List<BindingRedirect> GetBindingRedirects()
         {
-            List<BindingRedirect> result = new List<BindingRedirect>();
+            List<BindingRedirect> result = new();
             string bindingRedirectListJson = Environment.GetEnvironmentVariable("BindingRedirects");
-            using (MemoryStream memoryStream = new MemoryStream(Encoding.Unicode.GetBytes(bindingRedirectListJson)))
+            using (MemoryStream memoryStream = new(Encoding.Unicode.GetBytes(bindingRedirectListJson)))
             {
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<BindingRedirect>));
+                DataContractJsonSerializer serializer = new(typeof(List<BindingRedirect>));
                 result = (List<BindingRedirect>)serializer.ReadObject(memoryStream);
             }
             return result;
@@ -38,7 +38,7 @@ namespace PC.PowerApps.FunctionApp
         {
             Assembly handler(object sender, ResolveEventArgs args)
             {
-                AssemblyName requestedAssembly = new AssemblyName(args.Name);
+                AssemblyName requestedAssembly = new(args.Name);
                 if (requestedAssembly.Name != bindingRedirect.ShortName)
                 {
                     return null;

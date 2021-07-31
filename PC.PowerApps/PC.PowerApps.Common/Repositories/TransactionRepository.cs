@@ -11,51 +11,36 @@ using System.Xml.Serialization;
 
 namespace PC.PowerApps.Common.Repositories
 {
-    public class TransactionRepository
+    public static class TransactionRepository
     {
-        private readonly Lazy<Context> context;
-
-        public Context Context => context.Value;
-
-        public TransactionRepository(Lazy<Context> context)
+        public static void ImportFromAnnotation(Context context, Guid annotationId)
         {
-            this.context = context;
-        }
+            Annotation annotation = context.ServiceContext.Retrieve<Annotation>(annotationId, isOptional: true);
 
-        public void ImportFromAnnotation(Guid annotationId)
-        {
-            Annotation annotation = Context.ServiceContext.Retrieve<Annotation>(annotationId);
-
-            if (annotation.ObjectId == null)
+            if (annotation is null)
             {
-                Context.Logger.LogInformation("The note is not connected to an object.");
-                return;
-            }
-
-            if (annotation.ObjectId.LogicalName != pc_BankAccount.EntityLogicalName)
-            {
-                Context.Logger.LogInformation("The note is not connected to a bank account.");
+                context.Logger.LogInformation("The note does not exist.");
                 return;
             }
 
             if (annotation.IsDocument != true)
             {
-                Context.Logger.LogInformation("The note does not have a document.");
+                context.Logger.LogInformation("The note does not have a document.");
             }
             else
             {
-                pc_BankAccount bankAccount = Context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
+                pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
 
                 byte[] file = Convert.FromBase64String(annotation.DocumentBody);
                 using MemoryStream memoryStream = new MemoryStream(file);
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(FIDAVISTA));
                 FIDAVISTA document = (FIDAVISTA)xmlSerializer.Deserialize(memoryStream);
 
-                Lazy<TransactionCurrency> transactionCurrency = new Lazy<TransactionCurrency>(() => Context.ServiceContext.TransactionCurrencySet
+                Lazy<TransactionCurrency> transactionCurrency = new Lazy<TransactionCurrency>(() => context.ServiceContext.TransactionCurrencySet
                      .Where(tc => tc.ISOCurrencyCode == document.Statement.AccountSet.CcyStmt.Ccy)
-                     .TakeSingle());
+                     .Single());
 
-                Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => Context.ServiceContext.pc_TransactionSet
+                Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => context.ServiceContext.pc_TransactionSet
                     .Select(t => new pc_Transaction
                     {
                         pc_Id = t.pc_Id,
@@ -64,27 +49,27 @@ namespace PC.PowerApps.Common.Repositories
 
                 foreach (FIDAVISTAStatementAccountSetCcyStmtTrxSet bankTransaction in document.Statement.AccountSet.CcyStmt.TrxSet)
                 {
-                    ImportTransaction(bankTransaction, bankAccount, transactionCurrency, existingTransactions);
+                    ImportTransaction(context, bankTransaction, bankAccount, transactionCurrency, existingTransactions);
                 }
 
                 DateTime lastImportedTransactionDate = document.Statement.AccountSet.CcyStmt.TrxSet.Max(t => t.BookDate);
 
-                if (bankAccount.pc_LastImportedTransactionDate == null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
+                if (bankAccount.pc_LastImportedTransactionDate is null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
                 {
                     bankAccount.pc_LastImportedTransactionDate = lastImportedTransactionDate;
                 }
 
-                _ = Context.ServiceContext.UpdateModifiedAttributes(bankAccount);
+                _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
             }
 
-            Context.OrganizationService.Delete(annotation);
+            context.OrganizationService.Delete(annotation);
         }
 
-        private void ImportTransaction(FIDAVISTAStatementAccountSetCcyStmtTrxSet bankTransaction, pc_BankAccount bankAccount, Lazy<TransactionCurrency> transactionCurrency, Lazy<List<pc_Transaction>> existingTransactions)
+        private static void ImportTransaction(Context context, FIDAVISTAStatementAccountSetCcyStmtTrxSet bankTransaction, pc_BankAccount bankAccount, Lazy<TransactionCurrency> transactionCurrency, Lazy<List<pc_Transaction>> existingTransactions)
         {
             if (bankTransaction.TypeCode != "INP")
             {
-                Context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} is not an incoming payment.");
+                context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} is not an incoming payment.");
                 return;
             }
 
@@ -94,7 +79,7 @@ namespace PC.PowerApps.Common.Repositories
 
             if (transaction != null)
             {
-                Context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} is already imported.");
+                context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} is already imported.");
                 return;
             }
 
@@ -109,8 +94,8 @@ namespace PC.PowerApps.Common.Repositories
                 pc_PayerName = bankTransaction.CPartySet.AccHolder.Name,
                 TransactionCurrencyId = transactionCurrency.Value.ToEntityReference(),
             };
-            Context.OrganizationService.CreateWithoutNulls(transaction);
-            Context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} has been imported.");
+            context.OrganizationService.CreateWithoutNulls(transaction);
+            context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} has been imported.");
         }
     }
 }

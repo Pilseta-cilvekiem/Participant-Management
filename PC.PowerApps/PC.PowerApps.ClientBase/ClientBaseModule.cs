@@ -9,7 +9,7 @@ namespace PC.PowerApps.ClientBase
         protected override void Load(ContainerBuilder containerBuilder)
         {
             _ = containerBuilder.RegisterType<CrmServiceClientContext>().AsSelf().As<Context>().SingleInstance();
-            _ = containerBuilder.RegisterType<TransactionRepository>().SingleInstance();
+            _ = containerBuilder.RegisterType<ScheduledJobProcessor>().SingleInstance();
         }
     }
 }
