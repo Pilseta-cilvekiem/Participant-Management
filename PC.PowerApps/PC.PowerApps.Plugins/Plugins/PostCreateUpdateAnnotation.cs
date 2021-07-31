@@ -1,4 +1,5 @@
-﻿using CrmEarlyBound;
+﻿using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
@@ -10,11 +11,11 @@ namespace PC.PowerApps.Plugins.Plugins
         protected override void Execute(PluginContext pluginContext)
         {
             PostCreateUpdatePluginContext<Annotation> context = (PostCreateUpdatePluginContext<Annotation>)pluginContext;
-            Annotation annotation = context.CurrentImage;
+            Annotation annotation = context.PostImage;
 
-            if (context.Message == PluginMessage.Create)
+            if (context.Message == PluginMessage.Create || context.IsModifiedAnyAttribute(a => new { a.DocumentBody, a.ObjectId }))
             {
-
+                AnnotationRepository.ScheduleImportSwedbankTransactions(context, annotation);
             }
         }
 

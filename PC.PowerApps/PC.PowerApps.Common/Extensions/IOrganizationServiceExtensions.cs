@@ -8,12 +8,11 @@ namespace PC.PowerApps.Common.Extensions
     {
         public static void CreateWithoutNulls(this IOrganizationService organizationService, Entity entity)
         {
-            List<string> attributesToRemove = entity.Attributes
-                .Where(a => a.Value == null)
-                .Select(a => a.Key)
+            List<KeyValuePair<string, object>> attributesToRemove = entity.Attributes
+                .Where(a => a.Value is null)
                 .ToList();
 
-            foreach (string attributeToRemove in attributesToRemove)
+            foreach (KeyValuePair<string, object> attributeToRemove in attributesToRemove)
             {
                 _ = entity.Attributes.Remove(attributeToRemove);
             }

@@ -27,29 +27,24 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
-	public enum pc_DebitorType
-	{
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Organization", 1)]
-		Organization = 100000001,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Person", 0)]
-		Person = 100000000,
-	}
-	
-	[System.Runtime.Serialization.DataContractAttribute()]
 	public enum pc_ScheduledJob_StatusCode
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Active", 0)]
-		Active = 1,
+		[OptionSetMetadataAttribute("Completed", 3, "#0000ff")]
+		Completed = 2,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Inactive", 1)]
-		Inactive = 2,
+		[OptionSetMetadataAttribute("Failed", 0, "#0000ff")]
+		Failed = 947970001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("In Progress", 1, "#0000ff")]
+		InProgress = 947970000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Pending", 2, "#0000ff")]
+		Pending = 1,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]

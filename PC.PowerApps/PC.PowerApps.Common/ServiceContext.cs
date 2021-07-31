@@ -18,21 +18,22 @@ namespace PC.PowerApps.Common
             this.organizationService = organizationService;
         }
 
-        public TEntity Retrieve<TEntity>(Guid id) where TEntity : Entity
+        public TEntity Retrieve<TEntity>(Guid id, bool isOptional = false) where TEntity : Entity
         {
-            return CreateQuery<TEntity>()
-                .Where(e => e.Id == id)
-                .TakeSingle($"{typeof(TEntity).Name} with ID {id} does not exist.");
+            IQueryable<TEntity> entities = CreateQuery<TEntity>()
+                .Where(e => e.Id == id);
+
+            return isOptional ? entities.SingleOrDefault() : entities.Single();
         }
 
         public TEntity Retrieve<TEntity>(EntityReference entityReference) where TEntity : Entity
         {
-            if (entityReference == null)
+            if (entityReference is null)
             {
                 return null;
             }
 
-            FieldInfo entityLogicalNameField = typeof(TEntity).GetField("EntityLogicalName", BindingFlags.Public | BindingFlags.Static);
+            FieldInfo entityLogicalNameField = typeof(TEntity).GetField("EntityLogicalName");
             string entityLogicalName = (string)entityLogicalNameField.GetValue(null);
 
             if (entityReference.LogicalName != entityLogicalName)
