@@ -17,7 +17,7 @@ namespace PC.PowerApps.Common.Repositories
             bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Pending;
             _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
 
-            ImportSwedbankTransactions importSwedbankTransactions = new ImportSwedbankTransactions
+            ImportTransactions importSwedbankTransactions = new ImportTransactions
             {
                 AnnotationId = annotation.Id,
                 Context = context,

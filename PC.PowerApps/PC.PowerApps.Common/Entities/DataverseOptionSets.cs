@@ -397,6 +397,19 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum pc_ParticipationFeeExemption_StatusCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Active", 0)]
+		Active = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Inactive", 1)]
+		Inactive = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
 	public enum pc_ParticipationLevel
 	{
 		
@@ -407,6 +420,15 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Supporter", 1, "#0000ff")]
 		Supporter = 947970001,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum pc_Recurrence
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Monthly", 0)]
+		Monthly = 947970000,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
