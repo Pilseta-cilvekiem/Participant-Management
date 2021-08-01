@@ -17,3 +17,7 @@ export function formatGuid(guid: string) {
     const formattedGuid = guid.replace("{", "").replace("}", "");
     return formattedGuid;
 }
+
+export function sleep(timeout: number) {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+}

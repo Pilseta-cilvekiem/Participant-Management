@@ -12,6 +12,11 @@ namespace PC.PowerApps.Common.Repositories
                 return;
             }
 
+            pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
+            bankAccount.pc_TransactionImportError = null;
+            bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Pending;
+            _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
+
             ImportSwedbankTransactions importSwedbankTransactions = new ImportSwedbankTransactions
             {
                 AnnotationId = annotation.Id,

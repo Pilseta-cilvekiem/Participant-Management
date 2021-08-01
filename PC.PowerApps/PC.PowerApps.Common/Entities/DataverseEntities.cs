@@ -4989,6 +4989,46 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_transactionimporterror")]
+		public string pc_TransactionImportError
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_transactionimporterror");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_TransactionImportError");
+				this.SetAttributeValue("pc_transactionimporterror", value);
+				this.OnPropertyChanged("pc_TransactionImportError");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_transactionimportstatus")]
+		public virtual pc_TransactionImportStatus? pc_TransactionImportStatus
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((pc_TransactionImportStatus?)(EntityOptionSetEnum.GetEnum(this, "pc_transactionimportstatus")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_TransactionImportStatus");
+				this.SetAttributeValue("pc_transactionimportstatus", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("pc_TransactionImportStatus");
+			}
+		}
+		
+		/// <summary>
 		/// Status of the Bank Account
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
