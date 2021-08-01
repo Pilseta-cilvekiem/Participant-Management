@@ -14,6 +14,7 @@ namespace PC.PowerApps.Common
         private readonly Lazy<IOrganizationService> organizationService;
         private readonly Lazy<ServiceContext> serviceContext;
         private readonly Lazy<pc_Settings> settings;
+        private readonly Lazy<TimeZoneInfo> timeZoneInfo = new(() => TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
         private readonly Lazy<IOrganizationService> userOrganizationService;
         private readonly Lazy<ServiceContext> userServiceContext;
 
@@ -21,6 +22,7 @@ namespace PC.PowerApps.Common
         public IOrganizationService OrganizationService => organizationService.Value;
         public ServiceContext ServiceContext => serviceContext.Value;
         public pc_Settings Settings => settings.Value;
+        public TimeZoneInfo TimeZoneInfo => timeZoneInfo.Value;
         public IOrganizationService UserOrganizationService => userOrganizationService.Value;
         public ServiceContext UserServiceContext => userServiceContext.Value;
 
@@ -40,6 +42,12 @@ namespace PC.PowerApps.Common
             userServiceContext = userOrganizationService == organizationService
                 ? serviceContext
                 : new(() => new(UserOrganizationService));
+        }
+
+        public DateTime UtcToOrganizationTime(DateTime utcTime)
+        {
+            DateTime organizationTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, TimeZoneInfo);
+            return organizationTime;
         }
 
         protected virtual void Dispose(bool disposing)

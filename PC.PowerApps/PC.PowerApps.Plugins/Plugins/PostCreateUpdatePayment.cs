@@ -18,10 +18,10 @@ namespace PC.PowerApps.Plugins.Plugins
             {
                 if (context.IsModifiedAnyAttribute(p => p.pc_Transaction))
                 {
-                    TransactionRepository.CalculatePaymentTotalAmount(context, context.PreImage?.pc_Transaction);
+                    TransactionRepository.CalculatePaymentTotalAmount(context, context.PreImage?.pc_Transaction?.Id);
                 }
 
-                TransactionRepository.CalculatePaymentTotalAmount(context, payment.pc_Transaction);
+                TransactionRepository.CalculatePaymentTotalAmount(context, payment.pc_Transaction?.Id);
             }
         }
 

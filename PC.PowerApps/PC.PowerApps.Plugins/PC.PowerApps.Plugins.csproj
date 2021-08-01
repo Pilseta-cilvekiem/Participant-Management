@@ -83,8 +83,10 @@
     <Compile Include="PluginBase.cs" />
     <Compile Include="Plugins\MarkTransactionAsNonPayment.cs" />
     <Compile Include="Plugins\PostCreateUpdateAnnotation.cs" />
+    <Compile Include="Plugins\PostCreateUpdateParticipation.cs" />
     <Compile Include="Plugins\PostCreateUpdatePayment.cs" />
     <Compile Include="Plugins\PostCreateUpdateTransaction.cs" />
+    <Compile Include="Plugins\PostDeleteParticipation.cs" />
     <Compile Include="Plugins\PostDeletePayment.cs" />
     <Compile Include="Plugins\PreCreateUpdatePayment.cs" />
     <Compile Include="Plugins\PreCreateUpdateTransaction.cs" />

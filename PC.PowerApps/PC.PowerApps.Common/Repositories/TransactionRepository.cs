@@ -85,16 +85,16 @@ namespace PC.PowerApps.Common.Repositories
             transaction.pc_PaymentTotalAmount ??= new Money();
         }
 
-        public static void CalculatePaymentTotalAmount(Context context, EntityReference transactionReference)
+        public static void CalculatePaymentTotalAmount(Context context, Guid? transactionId)
         {
-            if (transactionReference is null)
+            if (transactionId is null)
             {
                 return;
             }
 
-            pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(transactionReference);
+            pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(transactionId.Value);
             transaction.pc_PaymentTotalAmount = new(context.ServiceContext.pc_PaymentSet
-                .Where(p => p.pc_Transaction.Id == transactionReference.Id && p.pc_Amount != null && p.pc_Amount.Value != 0)
+                .Where(p => p.pc_Transaction.Id == transactionId && p.pc_Amount != null && p.pc_Amount.Value != 0)
                 .Select(p => p.pc_Amount.Value)
                 .ToList()
                 .Sum());

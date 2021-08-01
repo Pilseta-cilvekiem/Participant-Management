@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PC.PowerApps.Common.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,13 +19,13 @@ namespace PC.PowerApps.Common.Extensions
             switch (firstTwoElements.Count)
             {
                 case 0:
-                    throw new InvalidOperationException(sequenceEmpty);
+                    throw new SequenceEmptyException(sequenceEmpty);
 
                 case 1:
                     return firstTwoElements[0];
 
                 default:
-                    throw new InvalidOperationException(sequenceHasMoreThanOneElement);
+                    throw new SequenceHasMoreThanOneElementException(sequenceHasMoreThanOneElement);
             }
         }
 
@@ -43,7 +44,7 @@ namespace PC.PowerApps.Common.Extensions
                     return firstTwoElements[0];
 
                 default:
-                    throw new InvalidOperationException(sequenceHasMoreThanOneElement);
+                    throw new SequenceHasMoreThanOneElementException(sequenceHasMoreThanOneElement);
             }
         }
     }
