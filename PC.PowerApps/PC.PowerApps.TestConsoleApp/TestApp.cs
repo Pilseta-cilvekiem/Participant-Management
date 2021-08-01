@@ -37,13 +37,15 @@ namespace PC.PowerApps.TestConsoleApp
 
             //List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet.ToList();
 
-            List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet.ToList();
+            List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet
+                .Where(t => t.StateCode == pc_TransactionState.Active)
+                .ToList();
 
             foreach (pc_Transaction transaction in transactions)
             {
-                //TransactionRepository.Process(Context, transaction);
-                TransactionRepository.SetDefaults(transaction);
-                TransactionRepository.CalculateRemainingAmount(transaction);
+                TransactionRepository.Process(Context, transaction);
+                //TransactionRepository.SetDefaults(transaction);
+                //TransactionRepository.CalculateRemainingAmount(transaction);
                 _ = Context.ServiceContext.UpdateModifiedAttributes(transaction);
                 Console.Write("+");
             }

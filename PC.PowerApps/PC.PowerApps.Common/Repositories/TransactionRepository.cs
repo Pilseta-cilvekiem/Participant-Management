@@ -44,7 +44,7 @@ namespace PC.PowerApps.Common.Repositories
                 Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => context.ServiceContext.pc_TransactionSet
                     .Select(t => new pc_Transaction
                     {
-                        pc_Id = t.pc_Id,
+                        pc_Name = t.pc_Name,
                     })
                     .ToList());
 
@@ -116,7 +116,7 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             pc_Transaction transaction = existingTransactions.Value
-                .Where(t => t.pc_Id == bankTransaction.BankRef)
+                .Where(t => t.pc_Name == bankTransaction.BankRef)
                 .FirstOrDefault();
 
             if (transaction is not null)
@@ -131,7 +131,7 @@ namespace PC.PowerApps.Common.Repositories
                 pc_BankAccount = bankAccount.ToEntityReference(),
                 pc_Date = bankTransaction.BookDate,
                 pc_Details = bankTransaction.PmtInfo,
-                pc_Id = bankTransaction.BankRef,
+                pc_Name = bankTransaction.BankRef,
                 pc_PayerId = bankTransaction.CPartySet.AccHolder.LegalId,
                 pc_PayerName = bankTransaction.CPartySet.AccHolder.Name,
                 TransactionCurrencyId = transactionCurrency.Value.ToEntityReference(),
@@ -142,15 +142,24 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void Process(Context context, pc_Transaction transaction)
         {
-            if (Utils.GetAmountOrZero(transaction.pc_RemainingAmount) == 0 || transaction.pc_Details is null)
+            context.Logger.LogInformation($"Processing the transaction {transaction.pc_Name}.");
+
+            if (Utils.GetAmountOrZero(transaction.pc_RemainingAmount) == 0)
             {
+                context.Logger.LogInformation("Transaction remaining amount is 0 - skipping.");
                 return;
             }
 
-            Lazy<Regex> participantFeeRegex = new(() => new($@"\b(?:{context.Settings.pc_ParticipantFeeRegularExpression})\b", RegexOptions.IgnoreCase));
-            Lazy<Regex> nonParticipantFeeRegex = new(() => new($@"\b(?:{context.Settings.pc_NonParticipantFeeRegularExpression})\b", RegexOptions.IgnoreCase));
+            if (transaction.pc_Details is null)
+            {
+                context.Logger.LogInformation("Transaction details are empty - skipping.");
+                return;
+            }
 
-            if (!string.IsNullOrEmpty(context.Settings.pc_ParticipantFeeRegularExpression) && participantFeeRegex.Value.IsMatch(transaction.pc_Details))
+            Lazy<Regex> participantFeeRegex = new(() => new($@"(?:{context.Settings.pc_ParticipantFeeRegularExpressions.Replace("\n", "|")})", RegexOptions.IgnoreCase));
+            Lazy<Regex> nonParticipantFeeRegex = new(() => new($@"(?:{context.Settings.pc_NonParticipantFeeRegularExpressions.Replace("\n", "|")})", RegexOptions.IgnoreCase));
+
+            if (!string.IsNullOrEmpty(context.Settings.pc_ParticipantFeeRegularExpressions) && participantFeeRegex.Value.IsMatch(transaction.pc_Details))
             {
                 HashSet<string> personalIdentityNumbers = new();
                 Lazy<Regex> personalIdentityNumberRegex = new(() => new(@"\b(\d{6})-?(\d{5})\b"));
@@ -163,6 +172,7 @@ namespace PC.PowerApps.Common.Repositories
 
                 if (contacts.Count != 1)
                 {
+                    context.Logger.LogInformation($"There are {contacts.Count} matching contacts - skipping.");
                     return;
                 }
 
@@ -173,12 +183,14 @@ namespace PC.PowerApps.Common.Repositories
                 };
                 context.OrganizationService.CreateWithoutNulls(payment);
 
+                context.Logger.LogInformation($"Created a payment for the contact {contacts[0].FullName}.");
                 return;
             }
 
-            if (!string.IsNullOrEmpty(context.Settings.pc_NonParticipantFeeRegularExpression) && nonParticipantFeeRegex.Value.IsMatch(transaction.pc_Details))
+            if (!string.IsNullOrEmpty(context.Settings.pc_NonParticipantFeeRegularExpressions) && nonParticipantFeeRegex.Value.IsMatch(transaction.pc_Details))
             {
                 transaction.pc_NonPaymentAmount = new(Utils.GetAmountOrZero(transaction.pc_RemainingAmount));
+                context.Logger.LogInformation($"Setting non-payment amount to {transaction.pc_NonPaymentAmount.Value}.");
             }
         }
 
