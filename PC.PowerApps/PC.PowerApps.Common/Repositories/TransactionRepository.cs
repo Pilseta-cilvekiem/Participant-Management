@@ -190,7 +190,8 @@ namespace PC.PowerApps.Common.Repositories
             if (!string.IsNullOrEmpty(context.Settings.pc_NonParticipantFeeRegularExpressions) && nonParticipantFeeRegex.Value.IsMatch(transaction.pc_Details))
             {
                 transaction.pc_NonPaymentAmount = new(Utils.GetAmountOrZero(transaction.pc_RemainingAmount));
-                context.Logger.LogInformation($"Setting non-payment amount to {transaction.pc_NonPaymentAmount.Value}.");
+                _ = context.ServiceContext.UpdateModifiedAttributes(transaction);
+                context.Logger.LogInformation($"Set non-payment amount to {transaction.pc_NonPaymentAmount.Value}.");
             }
         }
 
@@ -205,6 +206,11 @@ namespace PC.PowerApps.Common.Repositories
                     _ = personalIdentityNumbers.Add($"{match.Groups[1]}-{match.Groups[2]}");
                 }
             }
+        }
+
+        public static void MarkAsNonPayment(pc_Transaction transaction)
+        {
+            transaction.pc_NonPaymentAmount = new(Utils.GetAmountOrZero(transaction.pc_RemainingAmount));
         }
     }
 }

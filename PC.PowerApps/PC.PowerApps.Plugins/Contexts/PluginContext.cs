@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common;
-using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace PC.PowerApps.Plugins.Contexts
 {
-    public class DeletePluginContext<TEntity> : EntityPluginContext<TEntity> where TEntity : Entity
+    internal class DeletePluginContext<TEntity> : EntityPluginContext<TEntity> where TEntity : Entity
     {
         public EntityReference Target => (EntityReference)PluginExecutionContext.InputParameters
             .Where(ip => ip.Key == "Target")

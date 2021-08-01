@@ -38,7 +38,7 @@ namespace PC.PowerApps.TestConsoleApp
             //List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet.ToList();
 
             List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet
-                .Where(t => t.StateCode == pc_TransactionState.Active)
+                .Where(t => t.StateCode == pc_TransactionState.Active && t.pc_Name == "2021072200874094")
                 .ToList();
 
             foreach (pc_Transaction transaction in transactions)
