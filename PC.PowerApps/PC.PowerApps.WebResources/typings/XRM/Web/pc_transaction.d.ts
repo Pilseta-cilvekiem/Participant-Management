@@ -26,6 +26,7 @@ interface pc_Transaction_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface pc_Transaction_Relationships {
+  pc_BankAccount?: pc_BankAccount_Result | null;
 }
 interface pc_Transaction extends pc_Transaction_Base, pc_Transaction_Relationships {
   pc_BankAccount_bind$pc_bankaccounts?: string | null;
@@ -102,6 +103,7 @@ interface pc_Transaction_Filter {
   versionnumber: number;
 }
 interface pc_Transaction_Expand {
+  pc_BankAccount: WebExpand<pc_Transaction_Expand, pc_BankAccount_Select, pc_BankAccount_Filter, { pc_BankAccount: pc_BankAccount_Result }>;
 }
 interface pc_Transaction_FormattedResult {
   createdby_formatted?: string;
@@ -137,6 +139,7 @@ interface pc_Transaction_Result extends pc_Transaction_Base, pc_Transaction_Rela
   transactioncurrencyid_guid: string | null;
 }
 interface pc_Transaction_RelatedOne {
+  pc_BankAccount: WebMappingRetrieve<pc_BankAccount_Select,pc_BankAccount_Expand,pc_BankAccount_Filter,pc_BankAccount_Fixed,pc_BankAccount_Result,pc_BankAccount_FormattedResult>;
 }
 interface pc_Transaction_RelatedMany {
 }

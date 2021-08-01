@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,7 @@ namespace PC.PowerApps.ClientBase
             catch (Exception e)
             {
                 context.Logger.LogError(e, $"Scheduled job {scheduledJobRecord.pc_Name} has failed.");
-                scheduledJobRecord.pc_Error = e.ToString();
+                scheduledJobRecord.pc_Error = e.ToString().TakeFirst(Constants.MultilineTextMaxLength);
                 scheduledJobRecord.StatusCode = pc_ScheduledJob_StatusCode.Failed;
                 _ = context.ServiceContext.UpdateModifiedAttributes(scheduledJobRecord);
             }

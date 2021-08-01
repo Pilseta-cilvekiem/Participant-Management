@@ -24,42 +24,55 @@ namespace PC.PowerApps.Common.Repositories
                 return;
             }
 
-            if (annotation.IsDocument != true)
+            pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
+
+            try
             {
-                context.Logger.LogInformation("The note does not have a document.");
-            }
-            else
-            {
-                pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
+                bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.InProgress;
+                _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
 
-                byte[] file = Convert.FromBase64String(annotation.DocumentBody);
-                using MemoryStream memoryStream = new MemoryStream(file);
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(FIDAVISTA));
-                FIDAVISTA document = (FIDAVISTA)xmlSerializer.Deserialize(memoryStream);
+                if (annotation.IsDocument != true)
+                {
+                    context.Logger.LogInformation("The note does not have a document.");
+                }
+                else
+                {
+                    byte[] file = Convert.FromBase64String(annotation.DocumentBody);
+                    using MemoryStream memoryStream = new MemoryStream(file);
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(FIDAVISTA));
+                    FIDAVISTA document = (FIDAVISTA)xmlSerializer.Deserialize(memoryStream);
 
-                Lazy<TransactionCurrency> transactionCurrency = new Lazy<TransactionCurrency>(() => context.ServiceContext.TransactionCurrencySet
-                     .Where(tc => tc.ISOCurrencyCode == document.Statement.AccountSet.CcyStmt.Ccy)
-                     .TakeSingle());
+                    Lazy<TransactionCurrency> transactionCurrency = new Lazy<TransactionCurrency>(() => context.ServiceContext.TransactionCurrencySet
+                         .Where(tc => tc.ISOCurrencyCode == document.Statement.AccountSet.CcyStmt.Ccy)
+                         .TakeSingle());
 
-                Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => context.ServiceContext.pc_TransactionSet
-                    .Select(t => new pc_Transaction
+                    Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => context.ServiceContext.pc_TransactionSet
+                        .Select(t => new pc_Transaction
+                        {
+                            pc_Name = t.pc_Name,
+                        })
+                        .ToList());
+
+                    foreach (FIDAVISTAStatementAccountSetCcyStmtTrxSet bankTransaction in document.Statement.AccountSet.CcyStmt.TrxSet)
                     {
-                        pc_Name = t.pc_Name,
-                    })
-                    .ToList());
+                        Import(context, bankTransaction, bankAccount, transactionCurrency, existingTransactions);
+                    }
 
-                foreach (FIDAVISTAStatementAccountSetCcyStmtTrxSet bankTransaction in document.Statement.AccountSet.CcyStmt.TrxSet)
-                {
-                    Import(context, bankTransaction, bankAccount, transactionCurrency, existingTransactions);
+                    DateTime lastImportedTransactionDate = document.Statement.AccountSet.CcyStmt.TrxSet.Max(t => t.BookDate);
+
+                    if (bankAccount.pc_LastImportedTransactionDate is null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
+                    {
+                        bankAccount.pc_LastImportedTransactionDate = lastImportedTransactionDate;
+                    }
                 }
 
-                DateTime lastImportedTransactionDate = document.Statement.AccountSet.CcyStmt.TrxSet.Max(t => t.BookDate);
-
-                if (bankAccount.pc_LastImportedTransactionDate is null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
-                {
-                    bankAccount.pc_LastImportedTransactionDate = lastImportedTransactionDate;
-                }
-
+                bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Completed;
+                _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
+            }
+            catch (Exception e)
+            {
+                bankAccount.pc_TransactionImportError = e.ToString().TakeFirst(Constants.MultilineTextMaxLength);
+                bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Failed;
                 _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
             }
 

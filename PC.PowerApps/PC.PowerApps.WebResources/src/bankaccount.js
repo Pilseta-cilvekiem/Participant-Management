@@ -36,39 +36,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sleep = exports.formatGuid = exports.showError = void 0;
-function showError(error) {
+exports.onLoad = void 0;
+var common_1 = require("./lib/common");
+var form;
+function onLoad(executionContext) {
     return __awaiter(this, void 0, void 0, function () {
-        var message;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    message = getErrorMessage(error);
-                    return [4 /*yield*/, Xrm.Navigation.openAlertDialog({ text: message })];
+                    form = executionContext.getFormContext();
+                    _a.label = 1;
                 case 1:
+                    if (!true) return [3 /*break*/, 4];
+                    return [4 /*yield*/, common_1.sleep(15000)];
+                case 2:
                     _a.sent();
-                    return [2 /*return*/];
+                    return [4 /*yield*/, form.data.refresh()];
+                case 3:
+                    _a.sent();
+                    return [3 /*break*/, 1];
+                case 4: return [2 /*return*/];
             }
         });
     });
 }
-exports.showError = showError;
-function getErrorMessage(error) {
-    try {
-        var errorMessage = JSON.parse(error.message);
-        return errorMessage.error.message;
-    }
-    catch (_a) {
-    }
-    return error;
-}
-function formatGuid(guid) {
-    var formattedGuid = guid.replace("{", "").replace("}", "");
-    return formattedGuid;
-}
-exports.formatGuid = formatGuid;
-function sleep(timeout) {
-    return new Promise(function (resolve) { return setTimeout(resolve, timeout); });
-}
-exports.sleep = sleep;
-//# sourceMappingURL=common.js.map
+exports.onLoad = onLoad;
+//# sourceMappingURL=bankaccount.js.map
