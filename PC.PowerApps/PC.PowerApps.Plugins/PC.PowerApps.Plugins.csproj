@@ -71,13 +71,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexts\DeletePluginContext.cs" />
+    <Compile Include="Contexts\EntityPluginContext.cs" />
     <Compile Include="Contexts\PluginContext.cs" />
     <Compile Include="Contexts\CreateUpdatePluginContext.cs" />
     <Compile Include="Contexts\PostCreateUpdatePluginContext.cs" />
     <Compile Include="Contexts\PreCreateUpdatePluginContext.cs" />
-    <Compile Include="PluginBase.cs" />
     <Compile Include="Enumerations\PluginMessage.cs" />
+    <Compile Include="Extensions\IPluginExecutionContextExtensions.cs" />
+    <Compile Include="PluginBase.cs" />
     <Compile Include="Plugins\PostCreateUpdateAnnotation.cs" />
+    <Compile Include="Plugins\PostCreateUpdatePayment.cs" />
+    <Compile Include="Plugins\PostCreateUpdateTransaction.cs" />
+    <Compile Include="Plugins\PostDeletePayment.cs" />
+    <Compile Include="Plugins\PreCreateUpdatePayment.cs" />
+    <Compile Include="Plugins\PreCreateUpdateTransaction.cs" />
     <Compile Include="Plugins\PreCreateUpdateScheduledJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TraceLogger.cs" />

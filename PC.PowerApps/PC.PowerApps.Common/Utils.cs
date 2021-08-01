@@ -76,5 +76,10 @@ namespace PC.PowerApps.Common
             string primaryIdAttribute = (string)fieldInfo.GetValue(null);
             return primaryIdAttribute;
         }
+
+        public static decimal GetAmountOrZero(Money money)
+        {
+            return money is null ? 0 : money.Value;
+        }
     }
 }

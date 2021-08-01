@@ -7,21 +7,8 @@ using System.Linq.Expressions;
 
 namespace PC.PowerApps.Plugins.Contexts
 {
-    internal abstract class CreateUpdatePluginContext<TEntity> : PluginContext where TEntity : Entity
+    internal abstract class CreateUpdatePluginContext<TEntity> : EntityPluginContext<TEntity> where TEntity : Entity
     {
-        public TEntity PreImage
-        {
-            get
-            {
-                if (Message == PluginMessage.Create)
-                {
-                    return null;
-                }
-
-                return PluginExecutionContext.PreEntityImages["Image"].ToEntity<TEntity>();
-            }
-        }
-
         public abstract TEntity PostImage { get; }
 
         protected CreateUpdatePluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)

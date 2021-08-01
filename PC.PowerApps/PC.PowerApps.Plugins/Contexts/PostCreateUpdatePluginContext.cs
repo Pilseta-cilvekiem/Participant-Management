@@ -1,12 +1,24 @@
 ﻿using Microsoft.Xrm.Sdk;
+using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
+using System.Linq;
 
 namespace PC.PowerApps.Plugins.Contexts
 {
     internal class PostCreateUpdatePluginContext<TEntity> : CreateUpdatePluginContext<TEntity> where TEntity : Entity
     {
-        public override TEntity PostImage => PluginExecutionContext.PostEntityImages["Image"].ToEntity<TEntity>();
+        public override TEntity PostImage
+        {
+            get
+            {
+                return PluginExecutionContext.PostEntityImages
+                    .Where(i => i.Key == "Image")
+                    .TakeSingle("Post image does not exist.")
+                    .Value
+                    .ToEntity<TEntity>();
+            }
+        }
 
         public PostCreateUpdatePluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
         {

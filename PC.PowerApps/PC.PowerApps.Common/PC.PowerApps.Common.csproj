@@ -67,6 +67,7 @@
     <Compile Include="Entities\DataverseOptionSets.cs" />
     <Compile Include="Entities\Fidavista.cs" />
     <Compile Include="Enumerations\OrganizationServiceUser.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\IOrganizationServiceExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AnnotationRepository.cs" />
