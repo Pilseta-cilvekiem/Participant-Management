@@ -38,7 +38,7 @@
     <ILMergeAllowZeroPeKind></ILMergeAllowZeroPeKind>
 
     <!-- The assembly level attributes of each input assembly are copied over into the target assembly -->
-    <ILMergeCopyAttributes></ILMergeCopyAttributes>
+    <ILMergeCopyAttributes>True</ILMergeCopyAttributes>
     
     <!-- Creates a .pdb file for the output assembly and merges into it any .pdb files found for input assemblies, default=true -->
     <ILMergeDebugInfo></ILMergeDebugInfo>

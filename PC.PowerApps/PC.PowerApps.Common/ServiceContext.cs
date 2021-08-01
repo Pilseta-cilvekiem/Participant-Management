@@ -23,7 +23,7 @@ namespace PC.PowerApps.Common
             IQueryable<TEntity> entities = CreateQuery<TEntity>()
                 .Where(e => e.Id == id);
 
-            return isOptional ? entities.SingleOrDefault() : entities.Single();
+            return isOptional ? entities.TakeSingleOrDefault() : entities.TakeSingle($"{typeof(TEntity).Name} with ID {id} does not exist.");
         }
 
         public TEntity Retrieve<TEntity>(EntityReference entityReference) where TEntity : Entity

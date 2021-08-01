@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Messages;
-using Microsoft.Xrm.Sdk.Metadata;
+using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Extensions;
 using System;
+using System.Linq;
 
 namespace PC.PowerApps.Common
 {
@@ -12,12 +13,14 @@ namespace PC.PowerApps.Common
         private readonly Lazy<ILogger> logger;
         private readonly Lazy<IOrganizationService> organizationService;
         private readonly Lazy<ServiceContext> serviceContext;
+        private readonly Lazy<pc_Settings> settings;
         private readonly Lazy<IOrganizationService> userOrganizationService;
         private readonly Lazy<ServiceContext> userServiceContext;
 
         public ILogger Logger => logger.Value;
         public IOrganizationService OrganizationService => organizationService.Value;
         public ServiceContext ServiceContext => serviceContext.Value;
+        public pc_Settings Settings => settings.Value;
         public IOrganizationService UserOrganizationService => userOrganizationService.Value;
         public ServiceContext UserServiceContext => userServiceContext.Value;
 
@@ -29,11 +32,14 @@ namespace PC.PowerApps.Common
         {
             this.logger = logger;
             this.organizationService = organizationService;
-            serviceContext = new Lazy<ServiceContext>(() => new ServiceContext(OrganizationService));
+            serviceContext = new(() => new(OrganizationService));
+            settings = new(() => ServiceContext.pc_SettingsSet
+                .Where(s => s.StateCode == pc_SettingsState.Active)
+                .TakeSingle("Active settings do not exist", "There are more than one active settings."));
             this.userOrganizationService = userOrganizationService;
             userServiceContext = userOrganizationService == organizationService
                 ? serviceContext
-                : new Lazy<ServiceContext>(() => new ServiceContext(UserOrganizationService));
+                : new(() => new(UserOrganizationService));
         }
 
         protected virtual void Dispose(bool disposing)

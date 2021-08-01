@@ -21,8 +21,11 @@
     <DeleteFilesFromOutputFolders>false</DeleteFilesFromOutputFolders>
     <EntitiesToSkip />
     <EntitiesWhitelist>annotation|
+contact|
 pc_bankaccount|
+pc_payment|
 pc_scheduledjob|
+pc_settings|
 pc_transaction|
 transactioncurrency</EntitiesWhitelist>
     <EntityAttributeSpecifiedNames />
