@@ -16,7 +16,7 @@ namespace PC.PowerApps.Plugins.Plugins
 
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(payment.pc_Transaction) != true)
             {
-                TransactionRepository.CalculatePaymentTotalAmount(context, payment.pc_Transaction);
+                TransactionRepository.CalculatePaymentTotalAmount(context, payment.pc_Transaction?.Id);
             }
         }
 

@@ -3,6 +3,7 @@ using PC.PowerApps.Common.Entities.Dataverse;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -80,6 +81,11 @@ namespace PC.PowerApps.Common
         public static decimal GetAmountOrZero(Money money)
         {
             return money is null ? 0 : money.Value;
+        }
+
+        public static bool IsInNamespaces(Type type, params string[] namespaces)
+        {
+            return namespaces.Any(n => type.Namespace == n || type.Namespace.StartsWith($"{n}."));
         }
     }
 }
