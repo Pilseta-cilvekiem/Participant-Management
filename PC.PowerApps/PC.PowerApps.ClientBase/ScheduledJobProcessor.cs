@@ -22,8 +22,9 @@ namespace PC.PowerApps.ClientBase
 
         public async Task ExecuteAll()
         {
+            DateTime utcNow = DateTime.UtcNow;
             IQueryable<pc_ScheduledJob> scheduledJobs = context.ServiceContext.pc_ScheduledJobSet
-                .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= DateTime.UtcNow)
+                .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
                 .OrderBy(sj => sj.pc_ExecuteOn);
 
             foreach (pc_ScheduledJob scheduledJob in scheduledJobs)

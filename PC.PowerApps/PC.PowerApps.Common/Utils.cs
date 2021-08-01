@@ -49,6 +49,10 @@ namespace PC.PowerApps.Common
             {
                 AddMember(attributeNames, memberExpression);
             }
+            else if (attributeSelector.Body is UnaryExpression unaryExpression)
+            {
+                AddMember(attributeNames, (MemberExpression)unaryExpression.Operand);
+            }
             else if (attributeSelector.Body is NewExpression newExpression)
             {
                 foreach (Expression expression in newExpression.Arguments)

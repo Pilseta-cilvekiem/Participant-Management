@@ -50,7 +50,9 @@ namespace PC.PowerApps.TestConsoleApp
             //    Console.Write("+");
             //}
 
-            Console.WriteLine(Utils.IsInNamespaces(GetType(), "Microsoft.Xrm.Sdk", nameof(System)));
+            //Console.WriteLine(Utils.IsInNamespaces(GetType(), "Microsoft.Xrm.Sdk", nameof(System)));
+
+            await ContactRepository.UpdateRequiredParticipationFee(Context);
         }
     }
 }

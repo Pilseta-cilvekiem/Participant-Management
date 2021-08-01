@@ -44,6 +44,12 @@ namespace PC.PowerApps.Common
                 : new(() => new(UserOrganizationService));
         }
 
+        internal DateTime? OrganizationToUtcTime(DateTime organizationTime)
+        {
+            DateTime utcTime = TimeZoneInfo.ConvertTimeToUtc(organizationTime, TimeZoneInfo);
+            return utcTime;
+        }
+
         public DateTime UtcToOrganizationTime(DateTime utcTime)
         {
             DateTime organizationTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, TimeZoneInfo);

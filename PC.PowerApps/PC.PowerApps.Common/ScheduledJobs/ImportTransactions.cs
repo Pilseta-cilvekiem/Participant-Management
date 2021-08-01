@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PC.PowerApps.Common.ScheduledJobs
 {
-    public class ImportSwedbankTransactions : ScheduledJob
+    public class ImportTransactions : ScheduledJob
     {
         public Guid AnnotationId { get; set; }
 

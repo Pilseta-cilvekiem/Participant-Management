@@ -6,22 +6,22 @@ using System;
 
 namespace PC.PowerApps.Plugins.Plugins
 {
-    public class PreCreateUpdateScheduledJob : PluginBase
+    public class PostCreateUpdateScheduledJob : PluginBase
     {
         protected override void Execute(PluginContext pluginContext)
         {
-            PreCreateUpdatePluginContext<pc_ScheduledJob> context = (PreCreateUpdatePluginContext<pc_ScheduledJob>)pluginContext;
+            PostCreateUpdatePluginContext<pc_ScheduledJob> context = (PostCreateUpdatePluginContext<pc_ScheduledJob>)pluginContext;
             pc_ScheduledJob scheduledJob = context.PostImage;
 
-            if (context.IsModifiedAnyAttribute(sj => new { sj.StatusCode }))
+            if (context.IsModifiedAnyAttribute(sj => sj.StatusCode))
             {
-                ScheduledJobRepository.SetDefaults(scheduledJob);
+                ScheduledJobRepository.CreateNextOccurence(context, scheduledJob);
             }
         }
 
         protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
         {
-            return new PreCreateUpdatePluginContext<pc_ScheduledJob>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            return new PostCreateUpdatePluginContext<pc_ScheduledJob>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

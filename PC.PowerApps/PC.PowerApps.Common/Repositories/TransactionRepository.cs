@@ -94,7 +94,7 @@ namespace PC.PowerApps.Common.Repositories
 
             pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(transactionId.Value);
             transaction.pc_PaymentTotalAmount = new(context.ServiceContext.pc_PaymentSet
-                .Where(p => p.pc_Transaction.Id == transactionId && p.pc_Amount != null && p.pc_Amount.Value != 0)
+                .Where(p => p.pc_Transaction.Id == transactionId && p.StateCode == pc_PaymentState.Active && p.pc_Amount != null && p.pc_Amount.Value != 0)
                 .Select(p => p.pc_Amount.Value)
                 .ToList()
                 .Sum());
