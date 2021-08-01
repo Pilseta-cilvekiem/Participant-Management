@@ -39,7 +39,7 @@ namespace PC.PowerApps.Common.Repositories
 
                 Lazy<TransactionCurrency> transactionCurrency = new Lazy<TransactionCurrency>(() => context.ServiceContext.TransactionCurrencySet
                      .Where(tc => tc.ISOCurrencyCode == document.Statement.AccountSet.CcyStmt.Ccy)
-                     .Single());
+                     .TakeSingle());
 
                 Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => context.ServiceContext.pc_TransactionSet
                     .Select(t => new pc_Transaction
