@@ -6560,40 +6560,40 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_nonparticipantfeeregularexpression")]
-		public string pc_NonParticipantFeeRegularExpression
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_nonparticipantfeeregularexpressions")]
+		public string pc_NonParticipantFeeRegularExpressions
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("pc_nonparticipantfeeregularexpression");
+				return this.GetAttributeValue<string>("pc_nonparticipantfeeregularexpressions");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("pc_NonParticipantFeeRegularExpression");
-				this.SetAttributeValue("pc_nonparticipantfeeregularexpression", value);
-				this.OnPropertyChanged("pc_NonParticipantFeeRegularExpression");
+				this.OnPropertyChanging("pc_NonParticipantFeeRegularExpressions");
+				this.SetAttributeValue("pc_nonparticipantfeeregularexpressions", value);
+				this.OnPropertyChanged("pc_NonParticipantFeeRegularExpressions");
 			}
 		}
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_participantfeeregularexpression")]
-		public string pc_ParticipantFeeRegularExpression
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_participantfeeregularexpressions")]
+		public string pc_ParticipantFeeRegularExpressions
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<string>("pc_participantfeeregularexpression");
+				return this.GetAttributeValue<string>("pc_participantfeeregularexpressions");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("pc_ParticipantFeeRegularExpression");
-				this.SetAttributeValue("pc_participantfeeregularexpression", value);
-				this.OnPropertyChanged("pc_ParticipantFeeRegularExpression");
+				this.OnPropertyChanging("pc_ParticipantFeeRegularExpressions");
+				this.SetAttributeValue("pc_participantfeeregularexpressions", value);
+				this.OnPropertyChanged("pc_ParticipantFeeRegularExpressions");
 			}
 		}
 		
@@ -6819,7 +6819,7 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		{
 		}
 		
-		public const string AlternateKeys = "pc_id";
+		public const string AlternateKeys = "pc_name";
 		
 		public const string EntityLogicalName = "pc_transaction";
 		
@@ -7107,26 +7107,6 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_id")]
-		public string pc_Id
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("pc_id");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("pc_Id");
-				this.SetAttributeValue("pc_id", value);
-				this.OnPropertyChanged("pc_Id");
-			}
-		}
-		
-		/// <summary>
 		/// Required name field
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_name")]
@@ -7249,32 +7229,6 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 			get
 			{
 				return this.GetAttributeValue<Microsoft.Xrm.Sdk.Money>("pc_paymenttotalamount_base");
-			}
-		}
-		
-		/// <summary>
-		/// Last Updated time of rollup field Payment Total Amount.
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_paymenttotalamount_date")]
-		public System.Nullable<System.DateTime> pc_PaymentTotalAmount_Date
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_paymenttotalamount_date");
-			}
-		}
-		
-		/// <summary>
-		/// State of rollup field Payment Total Amount.
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_paymenttotalamount_state")]
-		public System.Nullable<int> pc_PaymentTotalAmount_State
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<int>>("pc_paymenttotalamount_state");
 			}
 		}
 		
