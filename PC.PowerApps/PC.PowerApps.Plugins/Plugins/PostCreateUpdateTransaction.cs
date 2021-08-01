@@ -17,6 +17,8 @@ namespace PC.PowerApps.Plugins.Plugins
             {
                 TransactionRepository.Process(context, transaction);
             }
+
+            _ = context.ServiceContext.UpdateModifiedAttributes(transaction);
         }
 
         protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)

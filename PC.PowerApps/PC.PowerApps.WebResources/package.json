@@ -1,0 +1,17 @@
+{
+  "author": "",
+  "dependencies": {},
+  "description": "",
+  "devDependencies": {
+    "exports-loader": "^3.0.0",
+    "idempotent-babel-polyfill": "^7.4.4",
+    "webpack": "^5.47.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "license": "ISC",
+  "name": "pc.powerapps.webresources",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

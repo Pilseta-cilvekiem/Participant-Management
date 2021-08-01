@@ -6,11 +6,12 @@ using System.Linq;
 
 namespace PC.PowerApps.Plugins.Contexts
 {
-    public abstract class EntityPluginContext<TEntity> : PluginContext where TEntity : Entity
+    internal abstract class EntityPluginContext<TEntity> : PluginContext where TEntity : Entity
     {
         protected EntityPluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
         {
         }
+
         public TEntity PreImage
         {
             get
