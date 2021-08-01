@@ -22,18 +22,14 @@ namespace PC.PowerApps.ClientBase
 
         public async Task ExecuteAll()
         {
-            List<pc_ScheduledJob> scheduledJobs = context.ServiceContext.pc_ScheduledJobSet
+            IQueryable<pc_ScheduledJob> scheduledJobs = context.ServiceContext.pc_ScheduledJobSet
                 .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= DateTime.UtcNow)
-                .OrderBy(sj => sj.pc_ExecuteOn)
-                .ToList();
-            context.Logger.LogInformation($"Retrieved {scheduledJobs.Count} scheduled jobs.");
+                .OrderBy(sj => sj.pc_ExecuteOn);
 
             foreach (pc_ScheduledJob scheduledJob in scheduledJobs)
             {
                 await ProcessScheduledJob(scheduledJob);
             }
-
-            context.Logger.LogInformation($"All scheduled jobs have been processed.");
         }
 
         private async Task ProcessScheduledJob(pc_ScheduledJob scheduledJobRecord)
