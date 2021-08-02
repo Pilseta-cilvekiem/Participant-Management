@@ -24,6 +24,7 @@ namespace PC.PowerApps.ClientBase
             DateTime utcNow = DateTime.UtcNow;
             IQueryable<pc_ScheduledJob> scheduledJobs = context.ServiceContext.pc_ScheduledJobSet
                 .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
+                .OrderBy(sj => sj.pc_ExecuteOn)
                 .Select(sj => new pc_ScheduledJob
                 {
                     pc_Name = sj.pc_Name,
@@ -31,8 +32,7 @@ namespace PC.PowerApps.ClientBase
                     pc_ScheduledJobId = sj.pc_ScheduledJobId,
                     StateCode = sj.StateCode,
                     StatusCode = sj.StatusCode,
-                })
-                .OrderBy(sj => sj.pc_ExecuteOn);
+                });
 
             foreach (pc_ScheduledJob scheduledJob in scheduledJobs)
             {
