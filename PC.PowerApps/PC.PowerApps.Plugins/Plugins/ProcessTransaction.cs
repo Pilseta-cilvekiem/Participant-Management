@@ -13,7 +13,6 @@ namespace PC.PowerApps.Plugins.Plugins
             CustomApiPluginContext context = (CustomApiPluginContext)pluginContext;
             pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(context.Target);
             TransactionRepository.Process(context, transaction);
-            _ = context.ServiceContext.UpdateModifiedAttributes(transaction);
         }
 
         protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)

@@ -24,6 +24,7 @@ namespace PC.PowerApps.Common.Repositories
             DateTime localNow = context.GetCurrentOrganizationTime();
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
             UpdateParticipationLevel(context, contact, localNow);
+            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
         private static void UpdateParticipationLevel(Context context, Contact contact, DateTime localNow)
