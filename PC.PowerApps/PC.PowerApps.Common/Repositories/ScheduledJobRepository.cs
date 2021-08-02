@@ -34,26 +34,27 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void CreateNextOccurence(Context context, pc_ScheduledJob scheduledJob)
         {
-            if (scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Completed || scheduledJob.pc_Recurrence is null || scheduledJob.pc_ExecuteOn is null)
+            if (scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Completed || scheduledJob.pc_Recurrence is null || scheduledJob.pc_ExecuteOn is null || scheduledJob.pc_ExecuteEvery is null)
             {
                 return;
             }
 
             DateTime modifiedOnLocal = context.UtcToOrganizationTime(scheduledJob.ModifiedOn.Value);
-            DateTime nextExecuteOnLocal= context.UtcToOrganizationTime(scheduledJob.pc_ExecuteOn.Value);
+            DateTime nextExecuteOnLocal = context.UtcToOrganizationTime(scheduledJob.pc_ExecuteOn.Value);
 
             do
             {
                 nextExecuteOnLocal = scheduledJob.pc_Recurrence switch
                 {
-                    pc_Recurrence.Daily => nextExecuteOnLocal.AddDays(1),
-                    pc_Recurrence.Monthly => nextExecuteOnLocal.AddMonths(1),
+                    pc_Recurrence.Day => nextExecuteOnLocal.AddDays(scheduledJob.pc_ExecuteEvery.Value),
+                    pc_Recurrence.Month => nextExecuteOnLocal.AddMonths(scheduledJob.pc_ExecuteEvery.Value),
                     _ => throw new InvalidOperationException($"Scheduled job recurrence {scheduledJob.pc_Recurrence} is not supported."),
                 };
             } while (nextExecuteOnLocal < modifiedOnLocal);
 
             pc_ScheduledJob newScheduledJob = new()
             {
+                pc_ExecuteEvery = scheduledJob.pc_ExecuteEvery,
                 pc_ExecuteOn = context.OrganizationToUtcTime(nextExecuteOnLocal),
                 pc_Name = scheduledJob.pc_Name,
                 pc_Parameters = scheduledJob.pc_Parameters,
