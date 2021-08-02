@@ -21,14 +21,19 @@ namespace PC.PowerApps.Common.Repositories
                 return;
             }
 
+            DateTime localNow = context.GetCurrentOrganizationTime();
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
-            DateTime localNow = context.UtcToOrganizationTime(DateTime.UtcNow);
+            UpdateParticipationLevel(context, contact, localNow);
+        }
+
+        private static void UpdateParticipationLevel(Context context, Contact contact, DateTime localNow)
+        {
             pc_Participation participation;
 
             try
             {
                 participation = context.ServiceContext.pc_ParticipationSet
-                    .Where(p => p.pc_Contact.Id == contactId && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
+                    .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
                     .TakeSingleOrDefault();
             }
             catch (SequenceHasMoreThanOneElementException)
@@ -37,12 +42,11 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             contact.pc_ParticipationLevel = participation?.pc_Level;
-            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
         public static async Task UpdateRequiredParticipationFee(Context context)
         {
-            DateTime localNow = context.UtcToOrganizationTime(DateTime.UtcNow);
+            DateTime localNow = context.GetCurrentOrganizationTime();
             ActionQueue actionQueue = new ActionQueue(context);
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
@@ -53,12 +57,14 @@ namespace PC.PowerApps.Common.Repositories
 
             actionQueue.AddForAll(contacts, contact =>
             {
-                return UpdateRequiredParticipationFee(context, contact, localNow);
+                UpdateRequiredParticipationFee(context, contact, localNow);
+                _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+                return Task.CompletedTask;
             });
             await actionQueue.ExecuteAll();
         }
 
-        private static Task UpdateRequiredParticipationFee(Context context, Contact contact, DateTime localNow)
+        private static void UpdateRequiredParticipationFee(Context context, Contact contact, DateTime localTime)
         {
             context.Logger.LogInformation($"Calculating a required participation fee for the contact {contact.Id}...");
             List<pc_Participation> participations = context.ServiceContext.pc_ParticipationSet
@@ -85,7 +91,7 @@ namespace PC.PowerApps.Common.Repositories
                 DateTime startDate = participations.Min(p => p.pc_From.Value);
                 DateTime fromDate = startDate >= participantFeePeriod1Start ? startDate : participantFeePeriod1Start;
                 DateTime? endDate = participations.Max(p => p.pc_Till);
-                DateTime toDate = endDate <= localNow ? endDate.Value : localNow;
+                DateTime toDate = endDate <= localTime ? endDate.Value : localTime;
                 DateTime toDateMonth = new DateTime(toDate.Year, toDate.Month, 1);
 
                 for (DateTime thisMonthStart = new(startDate.Year, startDate.Month, 1); thisMonthStart < toDateMonth; thisMonthStart = thisMonthStart.AddMonths(1))
@@ -115,19 +121,36 @@ namespace PC.PowerApps.Common.Repositories
                     contact.pc_RequiredParticipationFee.Value += participationFee;
                 }
             }
-
-            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
-            return Task.CompletedTask;
         }
 
-        private static decimal GetParticipationFee(DateTime date)
+        private static decimal GetParticipationFee(DateTime localDate)
         {
-            if (date < participantFeePeriod1Start)
+            if (localDate < participantFeePeriod1Start)
             {
                 return 0;
             }
 
             return 2;
+        }
+
+        public static async void UpdateParticipationLevels(Context context)
+        {
+            DateTime localNow = context.GetCurrentOrganizationTime();
+            ActionQueue actionQueue = new ActionQueue(context);
+            IQueryable<Contact> contacts = context.ServiceContext.ContactSet
+                .Select(c => new Contact
+                {
+                    ContactId = c.ContactId,
+                    pc_ParticipationLevel = c.pc_ParticipationLevel,
+                });
+
+            actionQueue.AddForAll(contacts, contact =>
+            {
+                UpdateParticipationLevel(context, contact, localNow);
+                _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+                return Task.CompletedTask;
+            });
+            await actionQueue.ExecuteAll();
         }
     }
 }

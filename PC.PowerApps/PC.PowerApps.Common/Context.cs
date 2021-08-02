@@ -44,16 +44,19 @@ namespace PC.PowerApps.Common
                 : new(() => new(UserOrganizationService));
         }
 
-        internal DateTime? OrganizationToUtcTime(DateTime organizationTime)
+        public DateTime GetCurrentOrganizationTime()
         {
-            DateTime utcTime = TimeZoneInfo.ConvertTimeToUtc(organizationTime, TimeZoneInfo);
-            return utcTime;
+            return UtcToOrganizationTime(DateTime.UtcNow);
+        }
+
+        public DateTime OrganizationToUtcTime(DateTime organizationTime)
+        {
+            return TimeZoneInfo.ConvertTimeToUtc(organizationTime, TimeZoneInfo);
         }
 
         public DateTime UtcToOrganizationTime(DateTime utcTime)
         {
-            DateTime organizationTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, TimeZoneInfo);
-            return organizationTime;
+            return TimeZoneInfo.ConvertTimeFromUtc(utcTime, TimeZoneInfo);
         }
 
         protected virtual void Dispose(bool disposing)

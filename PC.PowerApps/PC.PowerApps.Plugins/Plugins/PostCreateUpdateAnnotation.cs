@@ -15,7 +15,8 @@ namespace PC.PowerApps.Plugins.Plugins
 
             if (context.Message == PluginMessage.Create || context.IsModifiedAnyAttribute(a => new { a.DocumentBody, a.ObjectId }))
             {
-                AnnotationRepository.ScheduleImportSwedbankTransactions(context, annotation);
+                AnnotationRepository.ScheduleImportTransactions(context, annotation);
+                _ = context.ServiceContext.UpdateModifiedAttributes<pc_BankAccount>(annotation.ObjectId);
             }
         }
 

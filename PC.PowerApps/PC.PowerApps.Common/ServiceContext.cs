@@ -52,11 +52,22 @@ namespace PC.PowerApps.Common
             retrievedEntities[entityRef] = entityCopy;
         }
 
-        public bool UpdateModifiedAttributes<TEntity>(TEntity modifiedEntity) where TEntity : Entity, new()
+        public bool UpdateModifiedAttributes<TEntity>(EntityReference entityReference) where TEntity : Entity
+        {
+            TEntity modifiedEntity = Retrieve<TEntity>(entityReference);
+
+            if (modifiedEntity is null)
+            {
+                return false;
+            }
+
+            return UpdateModifiedAttributes(modifiedEntity);
+        }
+
+        public bool UpdateModifiedAttributes(Entity modifiedEntity)
         {
             Entity retrievedEntity = retrievedEntities[modifiedEntity.ToEntityReference()];
-            TEntity patchEntity = new TEntity();
-            patchEntity.Id = modifiedEntity.Id;
+            Entity patchEntity = new Entity(modifiedEntity.LogicalName, modifiedEntity.Id);
             bool update = false;
 
             foreach (KeyValuePair<string, object> attribute in modifiedEntity.Attributes)

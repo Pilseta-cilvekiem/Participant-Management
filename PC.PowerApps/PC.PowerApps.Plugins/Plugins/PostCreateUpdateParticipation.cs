@@ -18,9 +18,11 @@ namespace PC.PowerApps.Plugins.Plugins
                 if (context.IsModifiedAnyAttribute(p => p.pc_Contact))
                 {
                     ContactRepository.UpdateParticipationLevel(context, context.PreImage?.pc_Contact?.Id);
+                    _ = context.ServiceContext.UpdateModifiedAttributes<Contact>(context.PreImage?.pc_Contact);
                 }
 
                 ContactRepository.UpdateParticipationLevel(context, participation.pc_Contact?.Id);
+                _ = context.ServiceContext.UpdateModifiedAttributes<Contact>(participation.pc_Contact);
             }
         }
 
