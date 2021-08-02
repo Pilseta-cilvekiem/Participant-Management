@@ -3796,26 +3796,6 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_apartment")]
-		public string pc_Apartment
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("pc_apartment");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("pc_Apartment");
-				this.SetAttributeValue("pc_apartment", value);
-				this.OnPropertyChanged("pc_Apartment");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_debt")]
 		public Microsoft.Xrm.Sdk.Money pc_Debt
 		{
