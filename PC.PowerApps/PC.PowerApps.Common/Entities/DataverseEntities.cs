@@ -4001,6 +4001,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_sentdebtreminderon")]
+		public System.Nullable<System.DateTime> pc_SentDebtReminderOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_sentdebtreminderon");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_SentDebtReminderOn");
+				this.SetAttributeValue("pc_sentdebtreminderon", value);
+				this.OnPropertyChanged("pc_SentDebtReminderOn");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_wishestobeactive")]
 		public System.Nullable<bool> pc_WishesToBeActive
 		{
@@ -7170,6 +7190,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("pc_Error");
 				this.SetAttributeValue("pc_error", value);
 				this.OnPropertyChanged("pc_Error");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_executeevery")]
+		public System.Nullable<int> pc_ExecuteEvery
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("pc_executeevery");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_ExecuteEvery");
+				this.SetAttributeValue("pc_executeevery", value);
+				this.OnPropertyChanged("pc_ExecuteEvery");
 			}
 		}
 		
