@@ -1,10 +1,12 @@
 ﻿using PC.PowerApps.ClientBase;
-using PC.PowerApps.Common.Repositories;
+using PC.PowerApps.Common.Entities.Dataverse;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp
 {
+    [SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "<Pending>")]
     internal class TestApp
     {
         private readonly Lazy<CrmServiceClientContext> context;
@@ -48,7 +50,11 @@ namespace PC.PowerApps.TestConsoleApp
 
             //Console.WriteLine(Utils.IsInNamespaces(GetType(), "Microsoft.Xrm.Sdk", nameof(System)));
 
-            await ContactRepository.UpdateRequiredParticipationFee(Context);
+            //await ContactRepository.UpdateRequiredParticipationFee(Context);
+
+            Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
+            contact.Description = "Test";
+            _ = Context.ServiceContext.UpdateModifiedAttributes<Contact>(contact.ToEntityReference());
         }
     }
 }

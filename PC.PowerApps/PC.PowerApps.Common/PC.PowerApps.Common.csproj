@@ -80,6 +80,7 @@
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="ScheduledJob.cs" />
     <Compile Include="ScheduledJobs\ImportTransactions.cs" />
+    <Compile Include="ScheduledJobs\UpdateContactParticipationLevels.cs" />
     <Compile Include="ScheduledJobs\UpdateContactRequiredParticipationFee.cs" />
     <Compile Include="ServiceContext.cs" />
     <Compile Include="Utils.cs" />

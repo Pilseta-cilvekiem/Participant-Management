@@ -17,6 +17,7 @@ namespace PC.PowerApps.Plugins.Plugins
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(participation.pc_Contact) != true)
             {
                 ContactRepository.UpdateParticipationLevel(context, participation.pc_Contact?.Id);
+                _ = context.ServiceContext.UpdateModifiedAttributes<Contact>(participation.pc_Contact);
             }
         }
 

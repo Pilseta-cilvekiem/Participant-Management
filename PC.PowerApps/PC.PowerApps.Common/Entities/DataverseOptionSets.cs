@@ -427,7 +427,11 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Monthly", 0)]
+		[OptionSetMetadataAttribute("Daily", 0)]
+		Daily = 947970001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Monthly", 1)]
 		Monthly = 947970000,
 	}
 	

@@ -34,17 +34,24 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void CreateNextOccurence(Context context, pc_ScheduledJob scheduledJob)
         {
-            if (scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Completed || scheduledJob.pc_Recurrence == null || scheduledJob.pc_ExecuteOn == null)
+            if (scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Completed || scheduledJob.pc_Recurrence is null || scheduledJob.pc_ExecuteOn is null)
             {
                 return;
             }
 
-            DateTime executeOnLocal = context.UtcToOrganizationTime(scheduledJob.pc_ExecuteOn.Value);
-            DateTime nextExecuteOnLocal = scheduledJob.pc_Recurrence switch
+            DateTime modifiedOnLocal = context.UtcToOrganizationTime(scheduledJob.ModifiedOn.Value);
+            DateTime nextExecuteOnLocal= context.UtcToOrganizationTime(scheduledJob.pc_ExecuteOn.Value);
+
+            do
             {
-                pc_Recurrence.Monthly => executeOnLocal.AddMonths(1),
-                _ => throw new InvalidOperationException($"Scheduled job recurrence {scheduledJob.pc_Recurrence} is not supported."),
-            };
+                nextExecuteOnLocal = scheduledJob.pc_Recurrence switch
+                {
+                    pc_Recurrence.Daily => nextExecuteOnLocal.AddDays(1),
+                    pc_Recurrence.Monthly => nextExecuteOnLocal.AddMonths(1),
+                    _ => throw new InvalidOperationException($"Scheduled job recurrence {scheduledJob.pc_Recurrence} is not supported."),
+                };
+            } while (nextExecuteOnLocal < modifiedOnLocal);
+
             pc_ScheduledJob newScheduledJob = new()
             {
                 pc_ExecuteOn = context.OrganizationToUtcTime(nextExecuteOnLocal),

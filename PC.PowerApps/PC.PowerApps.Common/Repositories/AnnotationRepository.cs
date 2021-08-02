@@ -5,7 +5,7 @@ namespace PC.PowerApps.Common.Repositories
 {
     public static class AnnotationRepository
     {
-        public static void ScheduleImportSwedbankTransactions(Context context, Annotation annotation)
+        public static void ScheduleImportTransactions(Context context, Annotation annotation)
         {
             if (annotation.ObjectId is null || annotation.ObjectId.LogicalName != pc_BankAccount.EntityLogicalName)
             {
@@ -15,7 +15,6 @@ namespace PC.PowerApps.Common.Repositories
             pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
             bankAccount.pc_TransactionImportError = null;
             bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Pending;
-            _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
 
             ImportTransactions importSwedbankTransactions = new ImportTransactions
             {
