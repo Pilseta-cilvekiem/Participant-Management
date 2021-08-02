@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using PC.PowerApps.Common;
-using PC.PowerApps.Common.Repositories;
 
 namespace PC.PowerApps.ClientBase
 {

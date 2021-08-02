@@ -1,10 +1,6 @@
 ﻿using PC.PowerApps.ClientBase;
-using PC.PowerApps.Common;
-using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp

@@ -3,7 +3,6 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PC.PowerApps.ClientBase;
-using PC.PowerApps.Common.Repositories;
 using Serilog;
 using Serilog.Core;
 using System;
