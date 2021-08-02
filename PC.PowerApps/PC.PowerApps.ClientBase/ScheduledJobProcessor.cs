@@ -24,6 +24,14 @@ namespace PC.PowerApps.ClientBase
             DateTime utcNow = DateTime.UtcNow;
             IQueryable<pc_ScheduledJob> scheduledJobs = context.ServiceContext.pc_ScheduledJobSet
                 .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
+                .Select(sj => new pc_ScheduledJob
+                {
+                    pc_Name = sj.pc_Name,
+                    pc_Parameters = sj.pc_Parameters,
+                    pc_ScheduledJobId = sj.pc_ScheduledJobId,
+                    StateCode = sj.StateCode,
+                    StatusCode = sj.StatusCode,
+                })
                 .OrderBy(sj => sj.pc_ExecuteOn);
 
             foreach (pc_ScheduledJob scheduledJob in scheduledJobs)
@@ -45,6 +53,7 @@ namespace PC.PowerApps.ClientBase
                     ? Activator.CreateInstance(scheduledJobType)
                     : JsonConvert.DeserializeObject(scheduledJobRecord.pc_Parameters, scheduledJobType));
                 scheduledJob.Context = context;
+                context.ServiceContext.ClearChanges();
 
                 await scheduledJob.Execute();
 
