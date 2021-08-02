@@ -1,7 +1,10 @@
 ﻿using PC.PowerApps.ClientBase;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp
@@ -35,27 +38,26 @@ namespace PC.PowerApps.TestConsoleApp
 
             //List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet.ToList();
 
-            //List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet
-            //    .Where(t => t.StateCode == pc_TransactionState.Active && t.pc_Name == "2021072200874094")
-            //    .ToList();
+            List<pc_Transaction> transactions = Context.ServiceContext.pc_TransactionSet
+                .Where(t => t.StateCode == pc_TransactionState.Active && t.pc_Name == "2021080200010469")
+                .ToList();
 
-            //foreach (pc_Transaction transaction in transactions)
-            //{
-            //    TransactionRepository.Process(Context, transaction);
-            //    //TransactionRepository.SetDefaults(transaction);
-            //    //TransactionRepository.CalculateRemainingAmount(transaction);
-            //    _ = Context.ServiceContext.UpdateModifiedAttributes(transaction);
-            //    Console.Write("+");
-            //}
+            foreach (pc_Transaction transaction in transactions)
+            {
+                //TransactionRepository.Process(Context, transaction);
+                //TransactionRepository.SetDefaults(transaction);
+                TransactionRepository.CalculatePaymentTotalAmount(Context, transaction.Id);
+                //Console.Write("+");
+            }
 
             //Console.WriteLine(Utils.IsInNamespaces(GetType(), "Microsoft.Xrm.Sdk", nameof(System)));
 
             //await ContactRepository.UpdateRequiredParticipationFee(Context);
 
-            Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
-            //Context.ServiceContext.ClearChanges();
-            contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
-            _ = Context.ServiceContext.UpdateModifiedAttributes<Contact>(contact.ToEntityReference());
+            //Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
+            ////Context.ServiceContext.ClearChanges();
+            //contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
+            //_ = Context.ServiceContext.UpdateModifiedAttributes<Contact>(contact.ToEntityReference());
         }
     }
 }

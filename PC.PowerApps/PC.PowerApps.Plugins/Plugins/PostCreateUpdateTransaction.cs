@@ -13,12 +13,10 @@ namespace PC.PowerApps.Plugins.Plugins
             PostCreateUpdatePluginContext<pc_Transaction> context = (PostCreateUpdatePluginContext<pc_Transaction>)pluginContext;
             pc_Transaction transaction = context.PostImage;
 
-            if (context.Message == PluginMessage.Create)
+            if (context.Message == PluginMessage.Create && context.Settings.pc_AutomaticallyProcessTransactions == true)
             {
                 TransactionRepository.Process(context, transaction);
             }
-
-            _ = context.ServiceContext.UpdateModifiedAttributes(transaction);
         }
 
         protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)

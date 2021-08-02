@@ -7715,6 +7715,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_automaticallyprocesstransactions")]
+		public System.Nullable<bool> pc_AutomaticallyProcessTransactions
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("pc_automaticallyprocesstransactions");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_AutomaticallyProcessTransactions");
+				this.SetAttributeValue("pc_automaticallyprocesstransactions", value);
+				this.OnPropertyChanged("pc_AutomaticallyProcessTransactions");
+			}
+		}
+		
+		/// <summary>
 		/// Required name field
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_name")]

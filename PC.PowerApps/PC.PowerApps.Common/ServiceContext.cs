@@ -61,10 +61,16 @@ namespace PC.PowerApps.Common
                 return false;
             }
 
-            return UpdateModifiedAttributes(modifiedEntity);
+            return UpdateModifiedAttributesInternal(modifiedEntity);
         }
 
-        public bool UpdateModifiedAttributes(Entity modifiedEntity)
+        public bool UpdateModifiedAttributes<TEntity>(TEntity modifiedEntity) where TEntity : Entity
+        {
+            _ = Retrieve<TEntity>(modifiedEntity.Id);
+            return UpdateModifiedAttributesInternal(modifiedEntity);
+        }
+
+        private bool UpdateModifiedAttributesInternal(Entity modifiedEntity)
         {
             Entity retrievedEntity = retrievedEntities[modifiedEntity.ToEntityReference()];
             Entity patchEntity = new Entity(modifiedEntity.LogicalName, modifiedEntity.Id);

@@ -39,16 +39,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.onLoad = void 0;
 var common_1 = require("./lib/common");
 var form;
+var isLoaded = false;
 function onLoad(executionContext) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    if (isLoaded) {
+                        return [2 /*return*/];
+                    }
+                    isLoaded = true;
                     form = executionContext.getFormContext();
                     _a.label = 1;
                 case 1:
                     if (!true) return [3 /*break*/, 4];
-                    return [4 /*yield*/, common_1.sleep(15000)];
+                    return [4 /*yield*/, common_1.sleep(5000)];
                 case 2:
                     _a.sent();
                     return [4 /*yield*/, form.data.refresh()];
