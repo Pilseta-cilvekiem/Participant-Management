@@ -55,7 +55,7 @@ function sendDebtReminderFromGrid(grid, selectedIds) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, common_1.performActionFromGrid(grid, selectedIds, sendDebtReminder, function (i) { return "Sending debt reminders to " + i + " of " + selectedIds.length + " contacts..."; })];
+                case 0: return [4 /*yield*/, common_1.performActionFromGrid(grid, selectedIds, sendDebtReminder, function (i) { return "Sending a debt reminder to " + i + " of " + selectedIds.length + " contacts..."; })];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
