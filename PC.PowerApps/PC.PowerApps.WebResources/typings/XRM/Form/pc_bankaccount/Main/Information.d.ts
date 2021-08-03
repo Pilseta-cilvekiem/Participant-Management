@@ -3,6 +3,7 @@ declare namespace Form.pc_bankaccount.Main {
     namespace Tabs {
     }
     interface Attributes extends Xrm.AttributeCollectionBase {
+      get(name: "modifiedon"): Xrm.DateAttribute;
       get(name: "pc_lastimportedtransactiondate"): Xrm.DateAttribute;
       get(name: "pc_name"): Xrm.Attribute<string>;
       get(name: "pc_transactionimporterror"): Xrm.Attribute<string>;
@@ -13,6 +14,7 @@ declare namespace Form.pc_bankaccount.Main {
       get(chooser: (item: Xrm.Attribute<any>, index: number) => boolean): Xrm.Attribute<any>[];
     }
     interface Controls extends Xrm.ControlCollectionBase {
+      get(name: "modifiedon"): Xrm.DateControl;
       get(name: "notescontrol"): Xrm.BaseControl;
       get(name: "pc_lastimportedtransactiondate"): Xrm.DateControl;
       get(name: "pc_name"): Xrm.StringControl;
@@ -31,11 +33,13 @@ declare namespace Form.pc_bankaccount.Main {
     }
   }
   interface Information extends Xrm.PageBase<Information.Attributes,Information.Tabs,Information.Controls> {
+    getAttribute(attributeName: "modifiedon"): Xrm.DateAttribute;
     getAttribute(attributeName: "pc_lastimportedtransactiondate"): Xrm.DateAttribute;
     getAttribute(attributeName: "pc_name"): Xrm.Attribute<string>;
     getAttribute(attributeName: "pc_transactionimporterror"): Xrm.Attribute<string>;
     getAttribute(attributeName: "pc_transactionimportstatus"): Xrm.OptionSetAttribute<pc_transactionimportstatus>;
     getAttribute(attributeName: string): undefined;
+    getControl(controlName: "modifiedon"): Xrm.DateControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "pc_lastimportedtransactiondate"): Xrm.DateControl;
     getControl(controlName: "pc_name"): Xrm.StringControl;

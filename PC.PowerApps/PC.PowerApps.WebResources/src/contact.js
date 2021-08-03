@@ -36,13 +36,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.markAsNonPaymentFromGrid = exports.markAsNonPaymentFromForm = exports.processFromGrid = exports.processFromForm = void 0;
+exports.sendDebtReminderFromGrid = exports.sendDebtReminderFromForm = void 0;
 var common_1 = require("./lib/common");
-function processFromForm(form) {
+function sendDebtReminderFromForm(form) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, common_1.performActionFromForm(form, process, "Processing the transaction...")];
+                case 0: return [4 /*yield*/, common_1.performActionFromForm(form, sendDebtReminder, "Sending a debt reminder to the contact...")];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
@@ -50,12 +50,12 @@ function processFromForm(form) {
         });
     });
 }
-exports.processFromForm = processFromForm;
-function processFromGrid(grid, selectedIds) {
+exports.sendDebtReminderFromForm = sendDebtReminderFromForm;
+function sendDebtReminderFromGrid(grid, selectedIds) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, common_1.performActionFromGrid(grid, selectedIds, process, function (i) { return "Processing " + i + " of " + selectedIds.length + " transactions..."; })];
+                case 0: return [4 /*yield*/, common_1.performActionFromGrid(grid, selectedIds, sendDebtReminder, function (i) { return "Sending debt reminders to " + i + " of " + selectedIds.length + " contacts..."; })];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
@@ -63,12 +63,12 @@ function processFromGrid(grid, selectedIds) {
         });
     });
 }
-exports.processFromGrid = processFromGrid;
-function process(id) {
+exports.sendDebtReminderFromGrid = sendDebtReminderFromGrid;
+function sendDebtReminder(id) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, XrmQuery.promiseRequest("POST", "pc_transactions(" + common_1.formatGuid(id) + ")/Microsoft.Dynamics.CRM.pc_ProcessTransaction", null)];
+                case 0: return [4 /*yield*/, XrmQuery.promiseRequest("POST", "contacts(" + common_1.formatGuid(id) + ")/Microsoft.Dynamics.CRM.pc_SendDebtReminderToContact", null)];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];
@@ -76,42 +76,4 @@ function process(id) {
         });
     });
 }
-function markAsNonPaymentFromForm(form) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, common_1.performActionFromForm(form, markAsNonPayment, "Marking the transaction as non-payment...")];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.markAsNonPaymentFromForm = markAsNonPaymentFromForm;
-function markAsNonPaymentFromGrid(grid, selectedIds) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, common_1.performActionFromGrid(grid, selectedIds, markAsNonPayment, function (i) { return "Marking " + i + " of " + selectedIds.length + " transactions as non-payment..."; })];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.markAsNonPaymentFromGrid = markAsNonPaymentFromGrid;
-function markAsNonPayment(id) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, XrmQuery.promiseRequest("POST", "pc_transactions(" + common_1.formatGuid(id) + ")/Microsoft.Dynamics.CRM.pc_MarkTransactionAsNonPayment", null)];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-//# sourceMappingURL=transaction.js.map
+//# sourceMappingURL=contact.js.map

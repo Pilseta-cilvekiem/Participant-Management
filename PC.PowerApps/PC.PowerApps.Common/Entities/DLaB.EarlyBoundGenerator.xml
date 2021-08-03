@@ -20,8 +20,10 @@
     <CreateOneFilePerOptionSet>false</CreateOneFilePerOptionSet>
     <DeleteFilesFromOutputFolders>false</DeleteFilesFromOutputFolders>
     <EntitiesToSkip />
-    <EntitiesWhitelist>annotation|
+    <EntitiesWhitelist>activityparty|
+annotation|
 contact|
+email|
 pc_bankaccount|
 pc_payment|
 pc_participation|

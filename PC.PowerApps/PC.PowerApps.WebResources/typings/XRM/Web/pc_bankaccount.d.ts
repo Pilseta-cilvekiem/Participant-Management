@@ -15,7 +15,6 @@ interface pc_BankAccount_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface pc_BankAccount_Relationships {
-  pc_Transaction_BankAccount_BankAccount?: pc_Transaction_Result[] | null;
 }
 interface pc_BankAccount extends pc_BankAccount_Base, pc_BankAccount_Relationships {
 }
@@ -66,7 +65,6 @@ interface pc_BankAccount_Filter {
   versionnumber: number;
 }
 interface pc_BankAccount_Expand {
-  pc_Transaction_BankAccount_BankAccount: WebExpand<pc_BankAccount_Expand, pc_Transaction_Select, pc_Transaction_Filter, { pc_Transaction_BankAccount_BankAccount: pc_Transaction_Result[] }>;
 }
 interface pc_BankAccount_FormattedResult {
   createdby_formatted?: string;
@@ -93,7 +91,6 @@ interface pc_BankAccount_Result extends pc_BankAccount_Base, pc_BankAccount_Rela
 interface pc_BankAccount_RelatedOne {
 }
 interface pc_BankAccount_RelatedMany {
-  pc_Transaction_BankAccount_BankAccount: WebMappingRetrieve<pc_Transaction_Select,pc_Transaction_Expand,pc_Transaction_Filter,pc_Transaction_Fixed,pc_Transaction_Result,pc_Transaction_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   pc_bankaccounts: WebMappingRetrieve<pc_BankAccount_Select,pc_BankAccount_Expand,pc_BankAccount_Filter,pc_BankAccount_Fixed,pc_BankAccount_Result,pc_BankAccount_FormattedResult>;

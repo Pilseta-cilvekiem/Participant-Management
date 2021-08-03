@@ -18,7 +18,7 @@ namespace PC.PowerApps.Plugins.Contexts
         {
             postImage = new(() =>
             {
-                TEntity postImage = ((Entity)PluginExecutionContext.InputParameters["Target"]).ToEntity<TEntity>();
+                TEntity postImage = ((Entity)PluginExecutionContext.InputParameters[PluginConstants.TargetAttributeName]).ToEntity<TEntity>();
 
                 if (Message != PluginMessage.Create)
                 {

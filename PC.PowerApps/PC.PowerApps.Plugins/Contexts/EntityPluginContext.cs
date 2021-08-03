@@ -22,7 +22,7 @@ namespace PC.PowerApps.Plugins.Contexts
                 }
 
                 return PluginExecutionContext.PreEntityImages
-                    .Where(i => i.Key == "Image")
+                    .Where(i => i.Key == PluginConstants.EntityImageAlias)
                     .TakeSingle("Pre image does not exist.")
                     .Value
                     .ToEntity<TEntity>();

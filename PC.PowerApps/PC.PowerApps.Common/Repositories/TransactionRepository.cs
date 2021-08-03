@@ -71,7 +71,7 @@ namespace PC.PowerApps.Common.Repositories
             }
             catch (Exception e)
             {
-                bankAccount.pc_TransactionImportError = e.ToString().TakeFirst(Constants.MultilineTextMaxLength);
+                bankAccount.pc_TransactionImportError = e.ToString().TakeFirst(CommonConstants.MultilineTextMaxLength);
                 bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Failed;
                 _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
             }

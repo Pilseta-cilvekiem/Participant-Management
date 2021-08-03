@@ -9,7 +9,7 @@ namespace PC.PowerApps.Plugins.Contexts
     internal class CustomApiPluginContext : PluginContext
     {
         public EntityReference Target => (EntityReference)PluginExecutionContext.InputParameters
-            .Where(ip => ip.Key == "Target")
+            .Where(ip => ip.Key == PluginConstants.TargetAttributeName)
             .TakeSingle()
             .Value;
 

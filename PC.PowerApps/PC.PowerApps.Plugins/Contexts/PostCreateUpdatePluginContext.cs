@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Contexts
             get
             {
                 return PluginExecutionContext.PostEntityImages
-                    .Where(i => i.Key == "Image")
+                    .Where(i => i.Key == PluginConstants.EntityImageAlias)
                     .TakeSingle("Post image does not exist.")
                     .Value
                     .ToEntity<TEntity>();
