@@ -22,10 +22,8 @@ namespace PC.PowerApps.Common.Repositories
                 return;
             }
 
-            DateTime localNow = context.GetCurrentOrganizationTime();
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
-            UpdateParticipationLevel(context, contact, localNow);
-            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+            UpdateParticipationLevel(context, contact);
         }
 
         public static void SetSentDebtReminderOn(Context context, Email email)
@@ -40,8 +38,9 @@ namespace PC.PowerApps.Common.Repositories
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
-        private static void UpdateParticipationLevel(Context context, Contact contact, DateTime localNow)
+        private static void UpdateParticipationLevel(Context context, Contact contact)
         {
+            DateTime localNow = context.GetCurrentOrganizationTime();
             pc_Participation participation;
 
             try
@@ -56,11 +55,11 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             contact.pc_ParticipationLevel = participation?.pc_Level;
+            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
         public static async Task UpdateRequiredParticipationFee(Context context)
         {
-            DateTime localNow = context.GetCurrentOrganizationTime();
             ActionQueue actionQueue = new ActionQueue(context);
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
@@ -71,14 +70,13 @@ namespace PC.PowerApps.Common.Repositories
 
             actionQueue.AddForAll(contacts, contact =>
             {
-                UpdateRequiredParticipationFee(context, contact, localNow);
-                _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+                UpdateRequiredParticipationFee(context, contact);
                 return Task.CompletedTask;
             });
             await actionQueue.ExecuteAll();
         }
 
-        private static void UpdateRequiredParticipationFee(Context context, Contact contact, DateTime localTime)
+        public static void UpdateRequiredParticipationFee(Context context, Contact contact)
         {
             context.Logger.LogInformation($"Calculating a required participation fee for the contact {contact.Id}...");
             List<pc_Participation> participations = context.ServiceContext.pc_ParticipationSet
@@ -102,10 +100,11 @@ namespace PC.PowerApps.Common.Repositories
 
             if (participations.Count != 0)
             {
+                DateTime localNow = context.GetCurrentOrganizationTime();
                 DateTime startDate = participations.Min(p => p.pc_From.Value);
                 DateTime fromDate = startDate >= participantFeePeriod1Start ? startDate : participantFeePeriod1Start;
-                DateTime? endDate = participations.Max(p => p.pc_Till);
-                DateTime toDate = endDate <= localTime ? endDate.Value : localTime;
+                DateTime? endDate = participations.Any(p => p.pc_Till is null) ? null : participations.Max(p => p.pc_Till);
+                DateTime toDate = endDate <= localNow ? endDate.Value : localNow;
                 DateTime toDateMonth = new DateTime(toDate.Year, toDate.Month, 1);
 
                 for (DateTime thisMonthStart = new(startDate.Year, startDate.Month, 1); thisMonthStart < toDateMonth; thisMonthStart = thisMonthStart.AddMonths(1))
@@ -114,19 +113,19 @@ namespace PC.PowerApps.Common.Repositories
                     DateTime thisMonthEnd = nextMonthStart.AddDays(-1);
 
                     pc_ParticipationFeeExemption participationFeeExemption = participationFeeExemptions
-                        .Where(p => p.pc_From <= thisMonthStart && (p.pc_Till == null || p.pc_Till >= thisMonthEnd))
+                        .Where(p => p.pc_From <= thisMonthStart && (p.pc_Till is null || p.pc_Till >= thisMonthEnd))
                         .FirstOrDefault();
 
-                    if (participationFeeExemption != null)
+                    if (participationFeeExemption is not null)
                     {
                         continue;
                     }
 
                     pc_Participation participation = participations
-                        .Where(p => p.pc_From < nextMonthStart && (p.pc_Till == null || p.pc_Till >= thisMonthStart))
+                        .Where(p => p.pc_From < nextMonthStart && (p.pc_Till is null || p.pc_Till >= thisMonthStart))
                         .FirstOrDefault();
 
-                    if (participation == null)
+                    if (participation is null)
                     {
                         continue;
                     }
@@ -135,6 +134,8 @@ namespace PC.PowerApps.Common.Repositories
                     contact.pc_RequiredParticipationFee.Value += participationFee;
                 }
             }
+
+            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
         private static decimal GetParticipationFee(DateTime localDate)
@@ -149,7 +150,6 @@ namespace PC.PowerApps.Common.Repositories
 
         public static async void UpdateParticipationLevels(Context context)
         {
-            DateTime localNow = context.GetCurrentOrganizationTime();
             ActionQueue actionQueue = new ActionQueue(context);
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
@@ -160,8 +160,7 @@ namespace PC.PowerApps.Common.Repositories
 
             actionQueue.AddForAll(contacts, contact =>
             {
-                UpdateParticipationLevel(context, contact, localNow);
-                _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+                UpdateParticipationLevel(context, contact);
                 return Task.CompletedTask;
             });
             await actionQueue.ExecuteAll();
