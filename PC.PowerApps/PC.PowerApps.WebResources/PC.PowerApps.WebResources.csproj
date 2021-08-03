@@ -317,23 +317,19 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\bankaccount.ts" />
+    <TypeScriptCompile Include="src\contact.ts" />
     <TypeScriptCompile Include="src\lib\common.ts" />
     <TypeScriptCompile Include="src\transaction.ts" />
     <TypeScriptCompile Include="typings\XRM\dg.xrmquery.web.d.ts" />
     <TypeScriptCompile Include="typings\XRM\Form\pc_bankaccount\Main\Information.d.ts" />
     <TypeScriptCompile Include="typings\XRM\Form\pc_bankaccount\Quick\Information.d.ts" />
-    <TypeScriptCompile Include="typings\XRM\Form\pc_transaction\Main\Information.d.ts" />
-    <TypeScriptCompile Include="typings\XRM\Form\pc_transaction\Quick\Information.d.ts" />
     <TypeScriptCompile Include="typings\XRM\metadata.d.ts" />
     <TypeScriptCompile Include="typings\XRM\Web\pc_bankaccount.d.ts" />
-    <TypeScriptCompile Include="typings\XRM\Web\pc_transaction.d.ts" />
     <TypeScriptCompile Include="typings\XRM\xrm.d.ts" />
     <TypeScriptCompile Include="typings\XRM\_internal\Enum\LCID.d.ts" />
     <TypeScriptCompile Include="typings\XRM\_internal\Enum\pc_bankaccount_statecode.d.ts" />
     <TypeScriptCompile Include="typings\XRM\_internal\Enum\pc_bankaccount_statuscode.d.ts" />
     <TypeScriptCompile Include="typings\XRM\_internal\Enum\pc_transactionimportstatus.d.ts" />
-    <TypeScriptCompile Include="typings\XRM\_internal\Enum\pc_transaction_statecode.d.ts" />
-    <TypeScriptCompile Include="typings\XRM\_internal\Enum\pc_transaction_statuscode.d.ts" />
     <TypeScriptCompile Include="typings\XRM\_internal\sdk.d.ts" />
     <TypeScriptCompile Include="typings\XRM\_internal\web-entities.d.ts" />
     <TypeScriptCompile Include="typings\XRM\_internal\WebResources.d.ts" />

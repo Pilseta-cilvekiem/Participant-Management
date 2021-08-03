@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sleep = exports.formatGuid = exports.showError = void 0;
+exports.performActionFromGrid = exports.performActionFromForm = exports.sleep = exports.formatGuid = exports.showError = void 0;
 function showError(error) {
     return __awaiter(this, void 0, void 0, function () {
         var message;
@@ -71,4 +71,81 @@ function sleep(timeout) {
     return new Promise(function (resolve) { return setTimeout(resolve, timeout); });
 }
 exports.sleep = sleep;
+function performActionFromForm(form, action, message) {
+    return __awaiter(this, void 0, void 0, function () {
+        var id, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 6, , 8]);
+                    id = form.data.entity.getId();
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, , 3, 4]);
+                    Xrm.Utility.showProgressIndicator(message);
+                    return [4 /*yield*/, action(id)];
+                case 2:
+                    _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    Xrm.Utility.closeProgressIndicator();
+                    return [7 /*endfinally*/];
+                case 4: return [4 /*yield*/, form.data.refresh()];
+                case 5:
+                    _a.sent();
+                    return [3 /*break*/, 8];
+                case 6:
+                    error_1 = _a.sent();
+                    return [4 /*yield*/, showError(error_1)];
+                case 7:
+                    _a.sent();
+                    return [3 /*break*/, 8];
+                case 8: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.performActionFromForm = performActionFromForm;
+function performActionFromGrid(grid, selectedIds, action, message) {
+    return __awaiter(this, void 0, void 0, function () {
+        var i, id, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 8, , 10]);
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, , 6, 7]);
+                    i = 0;
+                    _a.label = 2;
+                case 2:
+                    if (!(i < selectedIds.length)) return [3 /*break*/, 5];
+                    id = selectedIds[i];
+                    Xrm.Utility.showProgressIndicator(message(i + 1));
+                    return [4 /*yield*/, action(id)];
+                case 3:
+                    _a.sent();
+                    _a.label = 4;
+                case 4:
+                    ++i;
+                    return [3 /*break*/, 2];
+                case 5: return [3 /*break*/, 7];
+                case 6:
+                    Xrm.Utility.closeProgressIndicator();
+                    return [7 /*endfinally*/];
+                case 7:
+                    grid.refresh();
+                    return [3 /*break*/, 10];
+                case 8:
+                    error_2 = _a.sent();
+                    return [4 /*yield*/, showError(error_2)];
+                case 9:
+                    _a.sent();
+                    return [3 /*break*/, 10];
+                case 10: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.performActionFromGrid = performActionFromGrid;
 //# sourceMappingURL=common.js.map

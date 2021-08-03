@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
+    <Compile Include="CommonConstants.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="ActionQueue.cs" />
     <Compile Include="Entities\DataverseEntities.cs" />

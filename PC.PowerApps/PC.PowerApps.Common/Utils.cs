@@ -1,4 +1,7 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using Microsoft.Crm.Sdk.Messages;
+using Microsoft.Xrm.Sdk;
+using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -89,6 +92,29 @@ namespace PC.PowerApps.Common
         public static bool IsInNamespaces(Type type, params string[] namespaces)
         {
             return namespaces.Any(n => type.Namespace == n || type.Namespace.StartsWith($"{n}."));
+        }
+
+        public static Email CreateEmailFromTemplate(Context context, Guid templateId, EntityReference objectReference)
+        {
+            InstantiateTemplateRequest instantiateTemplateRequest = new()
+            {
+                ObjectId = objectReference.Id,
+                ObjectType = objectReference.LogicalName,
+                TemplateId = templateId,
+            };
+            InstantiateTemplateResponse instantiateTemplateResponse = (InstantiateTemplateResponse)context.OrganizationService.Execute(instantiateTemplateRequest);
+            Entity entity = (Entity)instantiateTemplateResponse.EntityCollection.Entities.TakeSingle();
+            return entity.ToEntity<Email>();
+        }
+
+        public static void SendEmail(Context context, Email email)
+        {
+            SendEmailRequest sendEmailRequest = new()
+            {
+                EmailId = email.Id,
+                IssueSend = true,
+            };
+            _ = context.OrganizationService.Execute(sendEmailRequest);
         }
     }
 }

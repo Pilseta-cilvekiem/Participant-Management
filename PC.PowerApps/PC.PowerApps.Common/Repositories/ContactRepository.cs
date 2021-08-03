@@ -12,6 +12,7 @@ namespace PC.PowerApps.Common.Repositories
 {
     public static class ContactRepository
     {
+        private static readonly Guid debtReminderEmailTemplateId = new Guid("f190362f-cdf3-eb11-94ef-002248834145");
         private static readonly DateTime participantFeePeriod1Start = new DateTime(2019, 4, 1);
 
         public static void UpdateParticipationLevel(Context context, Guid? contactId)
@@ -24,6 +25,18 @@ namespace PC.PowerApps.Common.Repositories
             DateTime localNow = context.GetCurrentOrganizationTime();
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
             UpdateParticipationLevel(context, contact, localNow);
+            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+        }
+
+        public static void SetSentDebtReminderOn(Context context, Email email)
+        {
+            if (email.StatusCode != Email_StatusCode.PendingSend || email.pc_Category != pc_EmailCategory.DebtReminder)
+            {
+                return;
+            }
+
+            Contact contact = context.ServiceContext.Retrieve<Contact>(email.RegardingObjectId);
+            contact.pc_SentDebtReminderOn = email.ModifiedOn;
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
@@ -152,6 +165,25 @@ namespace PC.PowerApps.Common.Repositories
                 return Task.CompletedTask;
             });
             await actionQueue.ExecuteAll();
+        }
+
+        public static void SendDebtReminder(Context context, Guid contactId)
+        {
+            Contact contact = context.ServiceContext.Retrieve<Contact>(contactId);
+
+            if (contact.pc_Debt is null || contact.pc_Debt.Value <= 0)
+            {
+                return;
+            }
+
+            EntityReference contactReference = contact.ToEntityReference();
+            Email email = Utils.CreateEmailFromTemplate(context, debtReminderEmailTemplateId, contactReference);
+            email.From = new List<ActivityParty> { new() { PartyId = context.Settings.pc_EmailSender } };
+            email.pc_Category = pc_EmailCategory.DebtReminder;
+            email.RegardingObjectId = contactReference;
+            email.To = new List<ActivityParty> { new() { PartyId = contactReference } };
+            context.OrganizationService.CreateWithoutNulls(email);
+            Utils.SendEmail(context, email);
         }
     }
 }

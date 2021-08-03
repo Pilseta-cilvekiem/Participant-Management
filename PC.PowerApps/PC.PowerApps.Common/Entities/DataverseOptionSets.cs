@@ -14,6 +14,97 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum ActivityParty_InstanceTypeCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Not Recurring", 0)]
+		NotRecurring = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Recurring Exception", 3)]
+		RecurringException = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Recurring Future Exception", 4)]
+		RecurringFutureException = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Recurring Instance", 2)]
+		RecurringInstance = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Recurring Master", 1)]
+		RecurringMaster = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum ActivityParty_ParticipationTypeMask
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("BCC Recipient", 3)]
+		BCCRecipient = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("CC Recipient", 2)]
+		CCRecipient = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Customer", 10)]
+		Customer = 11,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Optional attendee", 5)]
+		Optionalattendee = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Organizer", 6)]
+		Organizer = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Owner", 8)]
+		Owner = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Regarding", 7)]
+		Regarding = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Required attendee", 4)]
+		Requiredattendee = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Resource", 9)]
+		Resource = 10,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Sender", 0)]
+		Sender = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("To Recipient", 1)]
+		ToRecipient = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum activitypointer_DeliveryPriorityCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("High", 2)]
+		High = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Low", 0)]
+		Low = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Normal", 1)]
+		Normal = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
 	public enum Contact_AccountRoleCode
 	{
 		
@@ -358,6 +449,154 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Email_CorrelationMethod
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("ConversationIndex", 5)]
+		ConversationIndex = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("CustomCorrelation", 7)]
+		CustomCorrelation = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("InReplyTo", 3)]
+		InReplyTo = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("None", 0)]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Skipped", 1)]
+		Skipped = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("SmartMatching", 6)]
+		SmartMatching = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("TrackingToken", 4)]
+		TrackingToken = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("XHeader", 2)]
+		XHeader = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Email_EmailReminderStatus
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("NotSet", 0)]
+		NotSet = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("ReminderExpired", 2)]
+		ReminderExpired = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("ReminderInvalid", 3)]
+		ReminderInvalid = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("ReminderSet", 1)]
+		ReminderSet = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Email_EmailReminderType
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("If I do not receive a reply by", 0)]
+		IfIdonotreceiveareplyby = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("If the email is not opened by", 1)]
+		Iftheemailisnotopenedby = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Remind me anyways at", 2)]
+		Remindmeanywaysat = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Email_Notifications
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("None", 0)]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("The message was saved as a Microsoft Dynamics 365 email record, but not all the a" +
+			"ttachments could be saved with it. An attachment cannot be saved if it is blocke" +
+			"d or if its file type is invalid.", 1)]
+		ThemessagewassavedasaMicrosoftDynamics365emailrecordbutnotalltheattachmentscouldbesavedwithitAnattachmentcannotbesavedifitisblockedorifitsfiletypeisinvalid = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Truncated body.", 2)]
+		Truncatedbody = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Email_PriorityCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("High", 2)]
+		High = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Low", 0)]
+		Low = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Normal", 1)]
+		Normal = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Email_StatusCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Canceled", 4, "#666666")]
+		Canceled = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Completed", 1, "#358717")]
+		Completed = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Draft", 0, "#3b79b7")]
+		Draft = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Failed", 7, "#ea0600")]
+		Failed = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Pending Send", 5, "#bf991f")]
+		PendingSend = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Received", 3, "#358717")]
+		Received = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Sending", 6, "#bf991f")]
+		Sending = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Sent", 2, "#358717")]
+		Sent = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
 	public enum pc_BankAccount_StatusCode
 	{
 		
@@ -368,6 +607,15 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Inactive", 1)]
 		Inactive = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum pc_EmailCategory
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Debt Reminder", 0)]
+		DebtReminder = 947970000,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]

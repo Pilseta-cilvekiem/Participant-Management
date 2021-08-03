@@ -58,6 +58,8 @@ namespace PC.PowerApps.TestConsoleApp
             ////Context.ServiceContext.ClearChanges();
             //contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
             //_ = Context.ServiceContext.UpdateModifiedAttributes<Contact>(contact.ToEntityReference());
+
+            ContactRepository.SendDebtReminder(Context, new Guid("1a9490aa-40ed-eb11-bacb-000d3a3a2279"));
         }
     }
 }

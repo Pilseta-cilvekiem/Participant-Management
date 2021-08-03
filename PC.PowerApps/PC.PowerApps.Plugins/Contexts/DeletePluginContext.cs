@@ -9,7 +9,7 @@ namespace PC.PowerApps.Plugins.Contexts
     internal class DeletePluginContext<TEntity> : EntityPluginContext<TEntity> where TEntity : Entity
     {
         public EntityReference Target => (EntityReference)PluginExecutionContext.InputParameters
-            .Where(ip => ip.Key == "Target")
+            .Where(ip => ip.Key == PluginConstants.TargetAttributeName)
             .TakeSingle()
             .Value;
 

@@ -21,3 +21,38 @@ export function formatGuid(guid: string) {
 export function sleep(timeout: number) {
     return new Promise(resolve => setTimeout(resolve, timeout));
 }
+
+export async function performActionFromForm(form: Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>, action: (recordId: string) => Promise<void>, message: string) {
+    try {
+        const id = form.data.entity.getId();
+
+        try {
+            Xrm.Utility.showProgressIndicator(message);
+            await action(id);
+        } finally {
+            Xrm.Utility.closeProgressIndicator();
+        }
+
+        await form.data.refresh();
+    } catch (error) {
+        await showError(error);
+    }
+}
+
+export async function performActionFromGrid(grid: Xrm.SubGridControl<any>, selectedIds: string[], action: (recordId: string) => Promise<void>, message: (sequenceNumber: number) => string) {
+    try {
+        try {
+            for (let i = 0; i < selectedIds.length; ++i) {
+                const id = selectedIds[i];
+                Xrm.Utility.showProgressIndicator(message(i + 1));
+                await action(id);
+            }
+        } finally {
+            Xrm.Utility.closeProgressIndicator();
+        }
+
+        grid.refresh();
+    } catch (error) {
+        await showError(error);
+    }
+}

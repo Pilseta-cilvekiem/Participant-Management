@@ -81,8 +81,10 @@
     <Compile Include="Enumerations\PluginMessage.cs" />
     <Compile Include="Extensions\IPluginExecutionContextExtensions.cs" />
     <Compile Include="PluginBase.cs" />
+    <Compile Include="PluginConstants.cs" />
     <Compile Include="Plugins\MarkTransactionAsNonPayment.cs" />
     <Compile Include="Plugins\PostCreateUpdateAnnotation.cs" />
+    <Compile Include="Plugins\PostCreateUpdateEmail.cs" />
     <Compile Include="Plugins\PostCreateUpdateParticipation.cs" />
     <Compile Include="Plugins\PostCreateUpdatePayment.cs" />
     <Compile Include="Plugins\PostCreateUpdateScheduledJob.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Plugins\PreCreateUpdateTransaction.cs" />
     <Compile Include="Plugins\PreCreateUpdateScheduledJob.cs" />
     <Compile Include="Plugins\ProcessTransaction.cs" />
+    <Compile Include="Plugins\SendDebtReminderToContact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TraceLogger.cs" />
   </ItemGroup>
