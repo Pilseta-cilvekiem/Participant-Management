@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Exceptions;
 using PC.PowerApps.Common.Extensions;
+using PC.PowerApps.Common.ScheduledJobs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,23 @@ namespace PC.PowerApps.Common.Repositories
             UpdateParticipationLevel(context, contact);
         }
 
+        public static void CalculatePaidParticipationFee(Context context, Guid? contactId)
+        {
+            if (contactId is null)
+            {
+                return;
+            }
+
+            context.Logger.LogInformation($"Calculating a paid participation fee for the contact {contactId}.");
+            Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
+            contact.pc_PaidParticipationFee = new(context.ServiceContext.pc_PaymentSet
+                .Where(p => p.pc_Contact.Id == contactId && p.StateCode == pc_PaymentState.Active && p.pc_Amount != null)
+                .Select(p => p.pc_Amount.Value)
+                .ToList()
+                .Sum());
+            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+        }
+
         public static void SetSentDebtReminderOn(Context context, Email email)
         {
             if (email.StatusCode != Email_StatusCode.PendingSend || email.pc_Category != pc_EmailCategory.DebtReminder)
@@ -46,7 +64,7 @@ namespace PC.PowerApps.Common.Repositories
             try
             {
                 participation = context.ServiceContext.pc_ParticipationSet
-                    .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
+                    .Where(p => p.pc_Contact.Id == contact.Id && p.StateCode == pc_ParticipationState.Active && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
                     .TakeSingleOrDefault();
             }
             catch (SequenceHasMoreThanOneElementException)
@@ -183,6 +201,25 @@ namespace PC.PowerApps.Common.Repositories
             email.To = new List<ActivityParty> { new() { PartyId = contactReference } };
             context.OrganizationService.CreateWithoutNulls(email);
             Utils.SendEmail(context, email);
+        }
+
+        public static void ScheduleSynchronizeGoogleSupporterGroupMembers(Context context)
+        {
+            SynchronizeGoogleSupporterGroupMembersBase synchronizeGoogleSupporterGroupMembersBase = new()
+            {
+                Context = context,
+            };
+            synchronizeGoogleSupporterGroupMembersBase.Schedule();
+        }
+
+        public static bool IsValidForGoogleSupporterGroup(Contact contact)
+        {
+            return contact != null && contact.StateCode == ContactState.Active && contact.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && contact.pc_WishesToBeActive == true && contact.pc_PaidParticipationFee.Value > 0 && contact.EMailAddress1 != null && contact.EMailAddress1 != string.Empty;
+        }
+
+        public static void SetDefaults(Contact contact)
+        {
+            contact.pc_PaidParticipationFee ??= new();
         }
     }
 }
