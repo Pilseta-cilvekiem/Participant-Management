@@ -46,7 +46,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void SetSentDebtReminderOn(Context context, Email email)
         {
-            if (email.StatusCode != Email_StatusCode.PendingSend || email.pc_Category != pc_EmailCategory.DebtReminder)
+            if (email.StatusCode != Email_StatusCode.Sent || email.pc_Category != pc_EmailCategory.DebtReminder)
             {
                 return;
             }
