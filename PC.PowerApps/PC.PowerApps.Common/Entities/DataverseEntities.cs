@@ -4292,20 +4292,20 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_hasaccesstointernalsystems")]
-		public System.Nullable<bool> pc_HasAccessToInternalSystems
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_isinvitedtoslack")]
+		public System.Nullable<bool> pc_IsInvitedToSlack
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<System.Nullable<bool>>("pc_hasaccesstointernalsystems");
+				return this.GetAttributeValue<System.Nullable<bool>>("pc_isinvitedtoslack");
 			}
 			[System.Diagnostics.DebuggerNonUserCode()]
 			set
 			{
-				this.OnPropertyChanging("pc_HasAccessToInternalSystems");
-				this.SetAttributeValue("pc_hasaccesstointernalsystems", value);
-				this.OnPropertyChanged("pc_HasAccessToInternalSystems");
+				this.OnPropertyChanging("pc_IsInvitedToSlack");
+				this.SetAttributeValue("pc_isinvitedtoslack", value);
+				this.OnPropertyChanged("pc_IsInvitedToSlack");
 			}
 		}
 		
