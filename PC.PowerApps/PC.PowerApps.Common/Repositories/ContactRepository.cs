@@ -12,8 +12,8 @@ namespace PC.PowerApps.Common.Repositories
 {
     public static class ContactRepository
     {
-        private static readonly Guid debtReminderEmailTemplateId = new Guid("f190362f-cdf3-eb11-94ef-002248834145");
-        private static readonly DateTime participantFeePeriod1Start = new DateTime(2019, 4, 1);
+        private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
+        private static readonly DateTime participantFeePeriod1Start = new(2019, 4, 1);
 
         public static void UpdateParticipationLevel(Context context, Guid? contactId)
         {
@@ -60,7 +60,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static async Task UpdateRequiredParticipationFee(Context context)
         {
-            ActionQueue actionQueue = new ActionQueue(context);
+            ActionQueue actionQueue = new(context);
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
                 {
@@ -105,7 +105,7 @@ namespace PC.PowerApps.Common.Repositories
                 DateTime fromDate = startDate >= participantFeePeriod1Start ? startDate : participantFeePeriod1Start;
                 DateTime? endDate = participations.Any(p => p.pc_Till is null) ? null : participations.Max(p => p.pc_Till);
                 DateTime toDate = endDate <= localNow ? endDate.Value : localNow;
-                DateTime toDateMonth = new DateTime(toDate.Year, toDate.Month, 1);
+                DateTime toDateMonth = new(toDate.Year, toDate.Month, 1);
 
                 for (DateTime thisMonthStart = new(startDate.Year, startDate.Month, 1); thisMonthStart < toDateMonth; thisMonthStart = thisMonthStart.AddMonths(1))
                 {
@@ -150,7 +150,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static async void UpdateParticipationLevels(Context context)
         {
-            ActionQueue actionQueue = new ActionQueue(context);
+            ActionQueue actionQueue = new(context);
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
                 {
