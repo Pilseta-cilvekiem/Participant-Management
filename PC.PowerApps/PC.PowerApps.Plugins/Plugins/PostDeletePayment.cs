@@ -14,6 +14,11 @@ namespace PC.PowerApps.Plugins.Plugins
             DeletePluginContext<pc_Payment> context = (DeletePluginContext<pc_Payment>)pluginContext;
             pc_Payment payment = context.PreImage;
 
+            if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(payment.pc_Contact) != true)
+            {
+                ContactRepository.CalculatePaidParticipationFee(context, payment.pc_Contact?.Id);
+            }
+
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(payment.pc_Transaction) != true)
             {
                 TransactionRepository.CalculatePaymentTotalAmount(context, payment.pc_Transaction?.Id);

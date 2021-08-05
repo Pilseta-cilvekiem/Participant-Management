@@ -4312,6 +4312,52 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_lastpaymentdate")]
+		public System.Nullable<System.DateTime> pc_LastPaymentDate
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_lastpaymentdate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_LastPaymentDate");
+				this.SetAttributeValue("pc_lastpaymentdate", value);
+				this.OnPropertyChanged("pc_LastPaymentDate");
+			}
+		}
+		
+		/// <summary>
+		/// Last Updated time of rollup field Last Payment Date.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_lastpaymentdate_date")]
+		public System.Nullable<System.DateTime> pc_LastPaymentDate_Date
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_lastpaymentdate_date");
+			}
+		}
+		
+		/// <summary>
+		/// State of rollup field Last Payment Date.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_lastpaymentdate_state")]
+		public System.Nullable<int> pc_LastPaymentDate_State
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("pc_lastpaymentdate_state");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_neighbourhood")]
 		public string pc_Neighbourhood
 		{
@@ -4363,28 +4409,48 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
-		/// Last Updated time of rollup field Paid Participation Fee.
+		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_paidparticipationfee_date")]
-		public System.Nullable<System.DateTime> pc_PaidParticipationFee_Date
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_participantfrom")]
+		public System.Nullable<System.DateTime> pc_ParticipantFrom
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_paidparticipationfee_date");
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_participantfrom");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_ParticipantFrom");
+				this.SetAttributeValue("pc_participantfrom", value);
+				this.OnPropertyChanged("pc_ParticipantFrom");
 			}
 		}
 		
 		/// <summary>
-		/// State of rollup field Paid Participation Fee.
+		/// Last Updated time of rollup field Participant From.
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_paidparticipationfee_state")]
-		public System.Nullable<int> pc_PaidParticipationFee_State
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_participantfrom_date")]
+		public System.Nullable<System.DateTime> pc_ParticipantFrom_Date
 		{
 			[System.Diagnostics.DebuggerNonUserCode()]
 			get
 			{
-				return this.GetAttributeValue<System.Nullable<int>>("pc_paidparticipationfee_state");
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_participantfrom_date");
+			}
+		}
+		
+		/// <summary>
+		/// State of rollup field Participant From.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_participantfrom_state")]
+		public System.Nullable<int> pc_ParticipantFrom_State
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("pc_participantfrom_state");
 			}
 		}
 		
@@ -10440,6 +10506,66 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("pc_EmailSender");
 				this.SetAttributeValue("pc_emailsender", value);
 				this.OnPropertyChanged("pc_EmailSender");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_googleadminemail")]
+		public string pc_GoogleAdminEmail
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_googleadminemail");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_GoogleAdminEmail");
+				this.SetAttributeValue("pc_googleadminemail", value);
+				this.OnPropertyChanged("pc_GoogleAdminEmail");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_googleserviceaccountkey")]
+		public string pc_GoogleServiceAccountKey
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_googleserviceaccountkey");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_GoogleServiceAccountKey");
+				this.SetAttributeValue("pc_googleserviceaccountkey", value);
+				this.OnPropertyChanged("pc_GoogleServiceAccountKey");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_googlesupportergroup")]
+		public string pc_GoogleSupporterGroup
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_googlesupportergroup");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_GoogleSupporterGroup");
+				this.SetAttributeValue("pc_googlesupportergroup", value);
+				this.OnPropertyChanged("pc_GoogleSupporterGroup");
 			}
 		}
 		

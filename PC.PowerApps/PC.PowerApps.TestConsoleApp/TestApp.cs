@@ -1,4 +1,5 @@
 ﻿using PC.PowerApps.ClientBase;
+using PC.PowerApps.ClientBase.Repositories;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using System;
@@ -54,8 +55,8 @@ namespace PC.PowerApps.TestConsoleApp
 
             //await ContactRepository.UpdateRequiredParticipationFee(Context);
 
-            Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("1c9490aa-40ed-eb11-bacb-000d3a3a2279"));
-            ContactRepository.UpdateRequiredParticipationFee(Context, contact);
+            //Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("1c9490aa-40ed-eb11-bacb-000d3a3a2279"));
+            //ContactRepository.UpdateRequiredParticipationFee(Context, contact);
 
             //Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
             ////Context.ServiceContext.ClearChanges();
@@ -63,6 +64,15 @@ namespace PC.PowerApps.TestConsoleApp
             //_ = Context.ServiceContext.UpdateModifiedAttributes<Contact>(contact.ToEntityReference());
 
             //ContactRepository.SendDebtReminder(Context, new Guid("1a9490aa-40ed-eb11-bacb-000d3a3a2279"));
+
+            //await GoogleGroupMemberRepository.SynchronizeSupporters(Context);
+
+            List<Contact> contacts = Context.ServiceContext.ContactSet.ToList();
+
+            foreach (Contact contact in contacts)
+            {
+                ContactRepository.CalculatePaidParticipationFee(Context, contact.Id);
+            }
         }
     }
 }

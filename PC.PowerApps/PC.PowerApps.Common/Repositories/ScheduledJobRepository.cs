@@ -12,6 +12,7 @@ namespace PC.PowerApps.Common.Repositories
             {
                 case pc_ScheduledJob_StatusCode.Completed:
                     scheduledJob.pc_CompletedOn = scheduledJob.ModifiedOn;
+                    scheduledJob.pc_Error = null;
                     break;
 
                 case pc_ScheduledJob_StatusCode.Failed:
@@ -26,6 +27,7 @@ namespace PC.PowerApps.Common.Repositories
 
                 case pc_ScheduledJob_StatusCode.Pending:
                     scheduledJob.pc_CompletedOn = null;
+                    scheduledJob.pc_Error = null;
                     scheduledJob.pc_ExecuteOn ??= scheduledJob.ModifiedOn;
                     scheduledJob.pc_Failures ??= 0;
                     break;

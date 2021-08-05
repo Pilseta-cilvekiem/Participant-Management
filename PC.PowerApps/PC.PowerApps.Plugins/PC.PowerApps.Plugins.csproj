@@ -84,13 +84,16 @@
     <Compile Include="PluginConstants.cs" />
     <Compile Include="Plugins\MarkTransactionAsNonPayment.cs" />
     <Compile Include="Plugins\PostCreateUpdateAnnotation.cs" />
+    <Compile Include="Plugins\PostCreateUpdateContact.cs" />
     <Compile Include="Plugins\PostCreateUpdateEmail.cs" />
     <Compile Include="Plugins\PostCreateUpdateParticipation.cs" />
     <Compile Include="Plugins\PostCreateUpdatePayment.cs" />
     <Compile Include="Plugins\PostCreateUpdateScheduledJob.cs" />
     <Compile Include="Plugins\PostCreateUpdateTransaction.cs" />
+    <Compile Include="Plugins\PostDeleteContact.cs" />
     <Compile Include="Plugins\PostDeleteParticipation.cs" />
     <Compile Include="Plugins\PostDeletePayment.cs" />
+    <Compile Include="Plugins\PreCreateUpdateContact.cs" />
     <Compile Include="Plugins\PreCreateUpdatePayment.cs" />
     <Compile Include="Plugins\PreCreateUpdateTransaction.cs" />
     <Compile Include="Plugins\PreCreateUpdateScheduledJob.cs" />

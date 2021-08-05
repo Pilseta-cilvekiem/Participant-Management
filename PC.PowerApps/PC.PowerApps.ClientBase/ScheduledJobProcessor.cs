@@ -48,10 +48,13 @@ namespace PC.PowerApps.ClientBase
                 scheduledJobRecord.StatusCode = pc_ScheduledJob_StatusCode.InProgress;
                 _ = context.ServiceContext.UpdateModifiedAttributes(scheduledJobRecord);
 
-                Type scheduledJobType = typeof(ScheduledJob).Assembly.GetType(scheduledJobRecord.pc_Name);
+                Type scheduledJobBaseType = typeof(ScheduledJob).Assembly.GetType(scheduledJobRecord.pc_Name);
+                Type scheduledJobDerivedType = typeof(ScheduledJobProcessor).Assembly.GetTypes()
+                    .Where(t => scheduledJobBaseType.IsAssignableFrom(t))
+                    .TakeSingleOrDefault() ?? scheduledJobBaseType;
                 ScheduledJob scheduledJob = (ScheduledJob)(scheduledJobRecord.pc_Parameters is null
-                    ? Activator.CreateInstance(scheduledJobType)
-                    : JsonConvert.DeserializeObject(scheduledJobRecord.pc_Parameters, scheduledJobType));
+                    ? Activator.CreateInstance(scheduledJobDerivedType)
+                    : JsonConvert.DeserializeObject(scheduledJobRecord.pc_Parameters, scheduledJobDerivedType));
                 scheduledJob.Context = context;
                 context.ServiceContext.ClearChanges();
 

@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Plugins
             PostCreateUpdatePluginContext<pc_Participation> context = (PostCreateUpdatePluginContext<pc_Participation>)pluginContext;
             pc_Participation participation = context.PostImage;
 
-            if (context.IsModifiedAnyAttribute(p => new { p.pc_Contact, p.pc_From, p.pc_Level, p.pc_Till }))
+            if (context.IsModifiedAnyAttribute(p => new { p.pc_Contact, p.pc_From, p.pc_Level, p.pc_Till, p.StateCode }))
             {
                 if (context.IsModifiedAnyAttribute(p => p.pc_Contact))
                 {

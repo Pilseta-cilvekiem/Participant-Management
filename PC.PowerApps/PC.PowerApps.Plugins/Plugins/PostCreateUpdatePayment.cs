@@ -14,6 +14,16 @@ namespace PC.PowerApps.Plugins.Plugins
             PostCreateUpdatePluginContext<pc_Payment> context = (PostCreateUpdatePluginContext<pc_Payment>)pluginContext;
             pc_Payment payment = context.PostImage;
 
+            if (context.IsModifiedAnyAttribute(p => p.pc_Contact) || Utils.GetAmountOrZero(payment.pc_Amount) != Utils.GetAmountOrZero(context.PreImage?.pc_Amount))
+            {
+                if (context.IsModifiedAnyAttribute(p => p.pc_Contact))
+                {
+                    ContactRepository.CalculatePaidParticipationFee(context, context.PreImage?.pc_Contact?.Id);
+                }
+
+                ContactRepository.CalculatePaidParticipationFee(context, payment.pc_Contact?.Id);
+            }
+
             if (context.IsModifiedAnyAttribute(p => p.pc_Transaction) || Utils.GetAmountOrZero(payment.pc_Amount) != Utils.GetAmountOrZero(context.PreImage?.pc_Amount))
             {
                 if (context.IsModifiedAnyAttribute(p => p.pc_Transaction))
