@@ -17,7 +17,7 @@ namespace PC.PowerApps.Plugins.Contexts
 
         public bool IsModifiedAnyAttribute(Expression<Func<TEntity, object>> attributeSelector)
         {
-            List<string> attributeNames = Utils.GetAttributeNames(attributeSelector);
+            List<string> attributeNames = Utils.GetAttributeLogicalNames(attributeSelector);
 
             foreach (string attributeName in attributeNames)
             {

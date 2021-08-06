@@ -16,6 +16,8 @@ namespace PC.PowerApps.ClientBase.Repositories
     {
         public static async Task SynchronizeSupporters(Context context)
         {
+            context.VerifyAttributesNotEmpty(context, context.Settings, s => new { s.pc_GoogleAdminEmail, s.pc_GoogleServiceAccountKey, s.pc_GoogleSupporterGroup });
+
             using MemoryStream memoryStream = new();
             using StreamWriter streamWriter = new(memoryStream);
             await streamWriter.WriteAsync(context.Settings.pc_GoogleServiceAccountKey);

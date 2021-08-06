@@ -1,9 +1,12 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Metadata;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace PC.PowerApps.Common
 {
@@ -57,6 +60,33 @@ namespace PC.PowerApps.Common
         public DateTime UtcToOrganizationTime(DateTime utcTime)
         {
             return TimeZoneInfo.ConvertTimeFromUtc(utcTime, TimeZoneInfo);
+        }
+
+        public void VerifyAttributesNotEmpty<TEntity>(Context context, TEntity entity, Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
+        {
+            List<object> valuesToCheck = new() { null, string.Empty };
+            List<string> attributeLogicalNamesToCheck = Utils.GetAttributeLogicalNames(attributeSelector);
+            List<string> emptyAttributeDisplayNames = attributeLogicalNamesToCheck
+                .Where(a => valuesToCheck.Contains(entity.GetAttributeValue<object>(a)))
+                .Select(a => Utils.GetAttributeMetadata(context, entity.LogicalName, a))
+                .Select(am => $"\"{Utils.GetLabelValue(am.DisplayName)}\"")
+                .ToList();
+
+            if (emptyAttributeDisplayNames.Count == 0)
+            {
+                return;
+            }
+
+            EntityMetadata entityMetadata = Utils.GetEntityMetadata(context, entity.LogicalName);
+            string entityDisplayName = Utils.GetLabelValue(entityMetadata.DisplayName);
+            string emptyAttributeDisplayNameString = string.Join(", ", emptyAttributeDisplayNames);
+
+            if (emptyAttributeDisplayNames.Count == 1)
+            {
+                throw new InvalidPluginExecutionException($"{entityDisplayName} column {emptyAttributeDisplayNameString} cannot be empty.");
+            }
+
+            throw new InvalidPluginExecutionException($"{entityDisplayName} columns {emptyAttributeDisplayNameString} cannot be empty.");
         }
 
         protected virtual void Dispose(bool disposing)
