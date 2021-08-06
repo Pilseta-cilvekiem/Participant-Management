@@ -1,6 +1,6 @@
 ﻿import { sleep } from "./lib/common";
 
-let form: Form.pc_bankaccount.Main.Information;
+let form: Xrm.PageBase<Xrm.AttributeCollectionBase, Xrm.TabCollectionBase, Xrm.ControlCollectionBase>;
 let isLoaded = false;
 
 export async function onLoad(executionContext: Xrm.ExecutionContext<any, any>) {
@@ -10,7 +10,7 @@ export async function onLoad(executionContext: Xrm.ExecutionContext<any, any>) {
 
     isLoaded = true;
 
-    form = <Form.pc_bankaccount.Main.Information>executionContext.getFormContext();
+    form = executionContext.getFormContext();
 
     while (true) {
         await sleep(5000);

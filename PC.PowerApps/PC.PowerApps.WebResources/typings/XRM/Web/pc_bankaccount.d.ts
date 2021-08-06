@@ -15,6 +15,15 @@ interface pc_BankAccount_Base extends WebEntity {
   versionnumber?: number | null;
 }
 interface pc_BankAccount_Relationships {
+  pc_Transaction_BankAccount_BankAccount?: pc_Transaction_Result[] | null;
+  pc_bankaccount_Annotations?: Annotation_Result[] | null;
+  pc_bankaccount_AsyncOperations?: AsyncOperation_Result[] | null;
+  pc_bankaccount_BulkDeleteFailures?: BulkDeleteFailure_Result[] | null;
+  pc_bankaccount_MailboxTrackingFolders?: MailboxTrackingFolder_Result[] | null;
+  pc_bankaccount_PrincipalObjectAttributeAccesses?: PrincipalObjectAttributeAccess_Result[] | null;
+  pc_bankaccount_ProcessSession?: ProcessSession_Result[] | null;
+  pc_bankaccount_SyncErrors?: SyncError_Result[] | null;
+  pc_bankaccount_UserEntityInstanceDatas?: UserEntityInstanceData_Result[] | null;
 }
 interface pc_BankAccount extends pc_BankAccount_Base, pc_BankAccount_Relationships {
 }
@@ -65,6 +74,20 @@ interface pc_BankAccount_Filter {
   versionnumber: number;
 }
 interface pc_BankAccount_Expand {
+  createdby: WebExpand<pc_BankAccount_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
+  createdonbehalfby: WebExpand<pc_BankAccount_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
+  modifiedby: WebExpand<pc_BankAccount_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
+  modifiedonbehalfby: WebExpand<pc_BankAccount_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
+  organizationid: WebExpand<pc_BankAccount_Expand, Organization_Select, Organization_Filter, { organizationid: Organization_Result }>;
+  pc_Transaction_BankAccount_BankAccount: WebExpand<pc_BankAccount_Expand, pc_Transaction_Select, pc_Transaction_Filter, { pc_Transaction_BankAccount_BankAccount: pc_Transaction_Result[] }>;
+  pc_bankaccount_Annotations: WebExpand<pc_BankAccount_Expand, Annotation_Select, Annotation_Filter, { pc_bankaccount_Annotations: Annotation_Result[] }>;
+  pc_bankaccount_AsyncOperations: WebExpand<pc_BankAccount_Expand, AsyncOperation_Select, AsyncOperation_Filter, { pc_bankaccount_AsyncOperations: AsyncOperation_Result[] }>;
+  pc_bankaccount_BulkDeleteFailures: WebExpand<pc_BankAccount_Expand, BulkDeleteFailure_Select, BulkDeleteFailure_Filter, { pc_bankaccount_BulkDeleteFailures: BulkDeleteFailure_Result[] }>;
+  pc_bankaccount_MailboxTrackingFolders: WebExpand<pc_BankAccount_Expand, MailboxTrackingFolder_Select, MailboxTrackingFolder_Filter, { pc_bankaccount_MailboxTrackingFolders: MailboxTrackingFolder_Result[] }>;
+  pc_bankaccount_PrincipalObjectAttributeAccesses: WebExpand<pc_BankAccount_Expand, PrincipalObjectAttributeAccess_Select, PrincipalObjectAttributeAccess_Filter, { pc_bankaccount_PrincipalObjectAttributeAccesses: PrincipalObjectAttributeAccess_Result[] }>;
+  pc_bankaccount_ProcessSession: WebExpand<pc_BankAccount_Expand, ProcessSession_Select, ProcessSession_Filter, { pc_bankaccount_ProcessSession: ProcessSession_Result[] }>;
+  pc_bankaccount_SyncErrors: WebExpand<pc_BankAccount_Expand, SyncError_Select, SyncError_Filter, { pc_bankaccount_SyncErrors: SyncError_Result[] }>;
+  pc_bankaccount_UserEntityInstanceDatas: WebExpand<pc_BankAccount_Expand, UserEntityInstanceData_Select, UserEntityInstanceData_Filter, { pc_bankaccount_UserEntityInstanceDatas: UserEntityInstanceData_Result[] }>;
 }
 interface pc_BankAccount_FormattedResult {
   createdby_formatted?: string;
@@ -89,8 +112,22 @@ interface pc_BankAccount_Result extends pc_BankAccount_Base, pc_BankAccount_Rela
   organizationid_guid: string | null;
 }
 interface pc_BankAccount_RelatedOne {
+  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
+  organizationid: WebMappingRetrieve<Organization_Select,Organization_Expand,Organization_Filter,Organization_Fixed,Organization_Result,Organization_FormattedResult>;
 }
 interface pc_BankAccount_RelatedMany {
+  pc_Transaction_BankAccount_BankAccount: WebMappingRetrieve<pc_Transaction_Select,pc_Transaction_Expand,pc_Transaction_Filter,pc_Transaction_Fixed,pc_Transaction_Result,pc_Transaction_FormattedResult>;
+  pc_bankaccount_Annotations: WebMappingRetrieve<Annotation_Select,Annotation_Expand,Annotation_Filter,Annotation_Fixed,Annotation_Result,Annotation_FormattedResult>;
+  pc_bankaccount_AsyncOperations: WebMappingRetrieve<AsyncOperation_Select,AsyncOperation_Expand,AsyncOperation_Filter,AsyncOperation_Fixed,AsyncOperation_Result,AsyncOperation_FormattedResult>;
+  pc_bankaccount_BulkDeleteFailures: WebMappingRetrieve<BulkDeleteFailure_Select,BulkDeleteFailure_Expand,BulkDeleteFailure_Filter,BulkDeleteFailure_Fixed,BulkDeleteFailure_Result,BulkDeleteFailure_FormattedResult>;
+  pc_bankaccount_MailboxTrackingFolders: WebMappingRetrieve<MailboxTrackingFolder_Select,MailboxTrackingFolder_Expand,MailboxTrackingFolder_Filter,MailboxTrackingFolder_Fixed,MailboxTrackingFolder_Result,MailboxTrackingFolder_FormattedResult>;
+  pc_bankaccount_PrincipalObjectAttributeAccesses: WebMappingRetrieve<PrincipalObjectAttributeAccess_Select,PrincipalObjectAttributeAccess_Expand,PrincipalObjectAttributeAccess_Filter,PrincipalObjectAttributeAccess_Fixed,PrincipalObjectAttributeAccess_Result,PrincipalObjectAttributeAccess_FormattedResult>;
+  pc_bankaccount_ProcessSession: WebMappingRetrieve<ProcessSession_Select,ProcessSession_Expand,ProcessSession_Filter,ProcessSession_Fixed,ProcessSession_Result,ProcessSession_FormattedResult>;
+  pc_bankaccount_SyncErrors: WebMappingRetrieve<SyncError_Select,SyncError_Expand,SyncError_Filter,SyncError_Fixed,SyncError_Result,SyncError_FormattedResult>;
+  pc_bankaccount_UserEntityInstanceDatas: WebMappingRetrieve<UserEntityInstanceData_Select,UserEntityInstanceData_Expand,UserEntityInstanceData_Filter,UserEntityInstanceData_Fixed,UserEntityInstanceData_Result,UserEntityInstanceData_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   pc_bankaccounts: WebMappingRetrieve<pc_BankAccount_Select,pc_BankAccount_Expand,pc_BankAccount_Filter,pc_BankAccount_Fixed,pc_BankAccount_Result,pc_BankAccount_FormattedResult>;
