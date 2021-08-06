@@ -30,6 +30,7 @@ namespace PC.PowerApps.Common.Repositories
                     scheduledJob.pc_Error = null;
                     scheduledJob.pc_ExecuteOn ??= scheduledJob.ModifiedOn;
                     scheduledJob.pc_Failures ??= 0;
+                    scheduledJob.pc_Parameters ??= "{}";
                     break;
             }
         }

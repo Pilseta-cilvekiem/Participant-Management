@@ -52,9 +52,7 @@ namespace PC.PowerApps.ClientBase
                 Type scheduledJobDerivedType = typeof(ScheduledJobProcessor).Assembly.GetTypes()
                     .Where(t => scheduledJobBaseType.IsAssignableFrom(t))
                     .TakeSingleOrDefault() ?? scheduledJobBaseType;
-                ScheduledJob scheduledJob = (ScheduledJob)(scheduledJobRecord.pc_Parameters is null
-                    ? Activator.CreateInstance(scheduledJobDerivedType)
-                    : JsonConvert.DeserializeObject(scheduledJobRecord.pc_Parameters, scheduledJobDerivedType));
+                ScheduledJob scheduledJob = (ScheduledJob)JsonConvert.DeserializeObject(scheduledJobRecord.pc_Parameters, scheduledJobDerivedType);
                 scheduledJob.Context = context;
                 context.ServiceContext.ClearChanges();
 

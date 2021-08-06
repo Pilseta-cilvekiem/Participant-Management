@@ -243,7 +243,7 @@ namespace PC.PowerApps.Common.Repositories
             {
                 Context = context,
             };
-            synchronizeGoogleSupporterGroupMembersBase.Schedule();
+            synchronizeGoogleSupporterGroupMembersBase.Schedule(allowDuplicates: false);
         }
 
         public static bool IsValidForGoogleSupporterGroup(Contact contact)
