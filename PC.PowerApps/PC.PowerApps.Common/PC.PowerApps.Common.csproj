@@ -70,6 +70,7 @@
     <Compile Include="Enumerations\OrganizationServiceUser.cs" />
     <Compile Include="Exceptions\SequenceEmptyException.cs" />
     <Compile Include="Exceptions\SequenceHasMoreThanOneElementException.cs" />
+    <Compile Include="Extensions\EntityExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\IOrganizationServiceExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

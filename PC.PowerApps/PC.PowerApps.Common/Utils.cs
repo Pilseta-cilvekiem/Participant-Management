@@ -49,19 +49,19 @@ namespace PC.PowerApps.Common
         {
             List<string> attributeNames = new();
 
-            if (attributeSelector.Body is MemberExpression memberExpression)
+            string attributeName = GetAttributeLogicalNameInternal(attributeSelector.Body);
+
+            if (attributeName is not null)
             {
-                AddMember(attributeNames, memberExpression);
-            }
-            else if (attributeSelector.Body is UnaryExpression unaryExpression)
-            {
-                AddMember(attributeNames, (MemberExpression)unaryExpression.Operand);
+                attributeNames.Add(attributeName);
             }
             else if (attributeSelector.Body is NewExpression newExpression)
             {
                 foreach (Expression expression in newExpression.Arguments)
                 {
-                    AddMember(attributeNames, (MemberExpression)expression);
+                    MemberExpression memberExpression = (MemberExpression)expression;
+                    string attributeLogicalName = GetAttributeLogicalNameInternal(memberExpression);
+                    attributeNames.Add(attributeLogicalName);
                 }
             }
             else
@@ -72,10 +72,46 @@ namespace PC.PowerApps.Common
             return attributeNames;
         }
 
-        private static void AddMember(List<string> attributeNames, MemberExpression memberExpression)
+        public static string GetAttributeLogicalName<TEntity>(Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
+        {
+            if (attributeSelector.Body is MemberExpression memberExpression)
+            {
+                string attributeLogicalName = GetAttributeLogicalNameInternal(memberExpression);
+                return attributeLogicalName;
+            }
+
+            if (attributeSelector.Body is UnaryExpression unaryExpression)
+            {
+                MemberExpression unaryExpressionOperand = (MemberExpression)unaryExpression.Operand;
+                string attributeLogicalName = GetAttributeLogicalNameInternal(unaryExpressionOperand);
+                return attributeLogicalName;
+            }
+
+            throw new ArgumentException($"{attributeSelector.Body.GetType()} is not supported.");
+        }
+
+        private static string GetAttributeLogicalNameInternal(Expression expression)
+        {
+            if (expression is MemberExpression memberExpression)
+            {
+                string attributeLogicalName = GetAttributeLogicalNameInternal(memberExpression);
+                return attributeLogicalName;
+            }
+
+            if (expression is UnaryExpression unaryExpression)
+            {
+                MemberExpression unaryExpressionOperand = (MemberExpression)unaryExpression.Operand;
+                string attributeLogicalName = GetAttributeLogicalNameInternal(unaryExpressionOperand);
+                return attributeLogicalName;
+            }
+
+            return null;
+        }
+
+        private static string GetAttributeLogicalNameInternal(MemberExpression memberExpression)
         {
             AttributeLogicalNameAttribute attribute = (AttributeLogicalNameAttribute)memberExpression.Member.GetCustomAttribute(typeof(AttributeLogicalNameAttribute));
-            attributeNames.Add(attribute.LogicalName);
+            return attribute.LogicalName;
         }
 
         public static string GetPrimaryIdAttribute(Entity entity)
@@ -106,7 +142,9 @@ namespace PC.PowerApps.Common
             };
             InstantiateTemplateResponse instantiateTemplateResponse = (InstantiateTemplateResponse)context.OrganizationService.Execute(instantiateTemplateRequest);
             Entity entity = (Entity)instantiateTemplateResponse.EntityCollection.Entities.TakeSingle();
-            return entity.ToEntity<Email>();
+            Email email = entity.ToEntity<Email>();
+            email.From = new List<ActivityParty> { new() { PartyId = context.Settings.pc_EmailSender } };
+            return email;
         }
 
         public static void SendEmail(Context context, Email email)
