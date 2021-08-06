@@ -72,18 +72,6 @@
   <ItemGroup>
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <None Include="packages.config" />
-    <Content Include="src\lib\dg.xrmquery.web.js" />
-    <Content Include="src\lib\dg.xrmquery.web.min.js" />
-    <Content Include="src\lib\dg.xrmquery.web.promise.min.js" />
-    <Content Include="tsconfig.json" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <Content Include="webpack.config.js" />
     <Content Include="XrmDefinitelyTyped\FSharp.Core.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.Crm.Sdk.Proxy.dll" />
     <Content Include="XrmDefinitelyTyped\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" />
@@ -191,14 +179,26 @@
     <Content Include="XrmDefinitelyTyped\System.Xml.XPath.dll" />
     <Content Include="XrmDefinitelyTyped\System.Xml.XPath.XDocument.dll" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe" />
+    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
+    <None Include="packages.config" />
+    <Content Include="src\lib\dg.xrmquery.web.js" />
+    <Content Include="src\lib\dg.xrmquery.web.min.js" />
+    <Content Include="src\lib\dg.xrmquery.web.promise.min.js" />
+    <Content Include="tsconfig.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="webpack.config.js" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe.config" />
+    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.config" />
     <Content Include="XrmDefinitelyTyped\Run.ps1" />
     <Content Include="XrmDefinitelyTyped\Run.fsx" />
-    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
-    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -311,8 +311,8 @@
     <Reference Include="System.Workflow.Runtime" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="XrmDefinitelyTyped, Version=5.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Delegate.XrmDefinitelyTyped.5.5.2\lib\net462\XrmDefinitelyTyped.exe</HintPath>
+    <Reference Include="XrmDefinitelyTyped, Version=5.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Delegate.XrmDefinitelyTyped.5.6.0\lib\net462\XrmDefinitelyTyped.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

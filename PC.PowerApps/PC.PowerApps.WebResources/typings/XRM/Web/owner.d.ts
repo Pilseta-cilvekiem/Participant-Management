@@ -1,0 +1,315 @@
+interface Owner_Base extends WebEntity {
+  name?: string | null;
+  ownerid?: string | null;
+  owneridtype?: string | null;
+  versionnumber?: number | null;
+}
+interface Owner_Relationships {
+  ActionCardUserState_Owner?: ActionCardUserState_Result[] | null;
+  owner_SocialProfile?: SocialProfile_Result[] | null;
+  owner_SyncError?: SyncError_Result[] | null;
+  owner_accounts?: Account_Result[] | null;
+  owner_actioncards?: ActionCard_Result[] | null;
+  owner_actioncardusersettings?: ActionCardUserSettings_Result[] | null;
+  owner_activityfileattachment?: activityfileattachment_Result[] | null;
+  owner_activitypointers?: ActivityPointer_Result[] | null;
+  owner_annotations?: Annotation_Result[] | null;
+  owner_appnotification?: appnotification_Result[] | null;
+  owner_appointments?: Appointment_Result[] | null;
+  owner_asyncoperations?: AsyncOperation_Result[] | null;
+  owner_bot?: bot_Result[] | null;
+  owner_botcomponent?: botcomponent_Result[] | null;
+  owner_callbackregistration?: CallbackRegistration_Result[] | null;
+  owner_canvasapp?: CanvasApp_Result[] | null;
+  owner_canvasappextendedmetadata?: CanvasAppExtendedMetadata_Result[] | null;
+  owner_categories?: Category_Result[] | null;
+  owner_channelaccessprofile?: ChannelAccessProfile_Result[] | null;
+  owner_connectionreference?: connectionreference_Result[] | null;
+  owner_connections?: Connection_Result[] | null;
+  owner_connector?: connector_Result[] | null;
+  owner_contacts?: Contact_Result[] | null;
+  owner_conversationtranscript?: conversationtranscript_Result[] | null;
+  owner_convertrule?: ConvertRule_Result[] | null;
+  owner_customapi?: CustomAPI_Result[] | null;
+  owner_customapirequestparameter?: CustomAPIRequestParameter_Result[] | null;
+  owner_customapiresponseproperty?: CustomAPIResponseProperty_Result[] | null;
+  owner_customerrelationships?: CustomerRelationship_Result[] | null;
+  owner_datalakefolder?: datalakefolder_Result[] | null;
+  owner_datalakefolderpermission?: datalakefolderpermission_Result[] | null;
+  owner_duplicaterules?: DuplicateRule_Result[] | null;
+  owner_emails?: Email_Result[] | null;
+  owner_emailserverprofile?: EmailServerProfile_Result[] | null;
+  owner_emailsignatures?: EmailSignature_Result[] | null;
+  owner_environmentvariabledefinition?: EnvironmentVariableDefinition_Result[] | null;
+  owner_environmentvariablevalue?: EnvironmentVariableValue_Result[] | null;
+  owner_exchangesyncidmapping?: ExchangeSyncIdMapping_Result[] | null;
+  owner_exportsolutionupload?: ExportSolutionUpload_Result[] | null;
+  owner_externalparty?: ExternalParty_Result[] | null;
+  owner_faxes?: Fax_Result[] | null;
+  owner_featurecontrolsetting?: featurecontrolsetting_Result[] | null;
+  owner_feedback?: Feedback_Result[] | null;
+  owner_flowmachine?: flowmachine_Result[] | null;
+  owner_flowmachinegroup?: flowmachinegroup_Result[] | null;
+  owner_flowsession?: flowsession_Result[] | null;
+  owner_goal?: Goal_Result[] | null;
+  owner_goalrollupquery?: GoalRollupQuery_Result[] | null;
+  owner_importdatas?: ImportData_Result[] | null;
+  owner_importfiles?: ImportFile_Result[] | null;
+  owner_importlogs?: ImportLog_Result[] | null;
+  owner_importmaps?: ImportMap_Result[] | null;
+  owner_imports?: Import_Result[] | null;
+  owner_keyvaultreference?: KeyVaultReference_Result[] | null;
+  owner_knowledgearticle?: KnowledgeArticle_Result[] | null;
+  owner_letters?: Letter_Result[] | null;
+  owner_mailbox?: Mailbox_Result[] | null;
+  owner_mailboxtrackingcategory?: MailboxTrackingCategory_Result[] | null;
+  owner_mailboxtrackingfolder?: MailboxTrackingFolder_Result[] | null;
+  owner_mailmergetemplates?: MailMergeTemplate_Result[] | null;
+  owner_managedidentity?: ManagedIdentity_Result[] | null;
+  owner_msdyn_aibdataset?: msdyn_AIBDataset_Result[] | null;
+  owner_msdyn_aibdatasetfile?: msdyn_AIBDatasetFile_Result[] | null;
+  owner_msdyn_aibdatasetrecord?: msdyn_AIBDatasetRecord_Result[] | null;
+  owner_msdyn_aibdatasetscontainer?: msdyn_AIBDatasetsContainer_Result[] | null;
+  owner_msdyn_aibfile?: msdyn_AIBFile_Result[] | null;
+  owner_msdyn_aibfileattacheddata?: msdyn_AIBFileAttachedData_Result[] | null;
+  owner_msdyn_aiconfiguration?: msdyn_AIConfiguration_Result[] | null;
+  owner_msdyn_aifptrainingdocument?: msdyn_AIFpTrainingDocument_Result[] | null;
+  owner_msdyn_aimodel?: msdyn_AIModel_Result[] | null;
+  owner_msdyn_aiodimage?: msdyn_AIOdImage_Result[] | null;
+  owner_msdyn_aiodlabel?: msdyn_AIOdLabel_Result[] | null;
+  owner_msdyn_aiodtrainingboundingbox?: msdyn_AIOdTrainingBoundingBox_Result[] | null;
+  owner_msdyn_aiodtrainingimage?: msdyn_AIOdTrainingImage_Result[] | null;
+  owner_msdyn_aitemplate?: msdyn_AITemplate_Result[] | null;
+  owner_msdyn_analysiscomponent?: msdyn_analysiscomponent_Result[] | null;
+  owner_msdyn_analysisjob?: msdyn_analysisjob_Result[] | null;
+  owner_msdyn_analysisresult?: msdyn_analysisresult_Result[] | null;
+  owner_msdyn_analysisresultdetail?: msdyn_analysisresultdetail_Result[] | null;
+  owner_msdyn_dataflow?: msdyn_dataflow_Result[] | null;
+  owner_msdyn_federatedarticle?: msdyn_federatedarticle_Result[] | null;
+  owner_msdyn_kalanguagesetting?: msdyn_kalanguagesetting_Result[] | null;
+  owner_msdyn_kmfederatedsearchconfig?: msdyn_kmfederatedsearchconfig_Result[] | null;
+  owner_msdyn_knowledgearticleimage?: msdyn_knowledgearticleimage_Result[] | null;
+  owner_msdyn_knowledgearticletemplate?: msdyn_knowledgearticletemplate_Result[] | null;
+  owner_msdyn_knowledgeinteractioninsight?: msdyn_knowledgeinteractioninsight_Result[] | null;
+  owner_msdyn_knowledgepersonalfilter?: msdyn_knowledgepersonalfilter_Result[] | null;
+  owner_msdyn_knowledgesearchfilter?: msdyn_knowledgesearchfilter_Result[] | null;
+  owner_msdyn_knowledgesearchinsight?: msdyn_knowledgesearchinsight_Result[] | null;
+  owner_msdyn_pminferredtask?: msdyn_pminferredtask_Result[] | null;
+  owner_msdyn_pmrecording?: msdyn_pmrecording_Result[] | null;
+  owner_msdyn_richtextfile?: msdyn_richtextfile_Result[] | null;
+  owner_msdyn_serviceconfiguration?: msdyn_serviceconfiguration_Result[] | null;
+  owner_msdyn_slakpi?: msdyn_slakpi_Result[] | null;
+  owner_msdyn_solutionhealthrule?: msdyn_solutionhealthrule_Result[] | null;
+  owner_msdyn_solutionhealthruleargument?: msdyn_solutionhealthruleargument_Result[] | null;
+  owner_msdynce_botcontent?: msdynce_botcontent_Result[] | null;
+  owner_new_interactionforemail?: InteractionForEmail_Result[] | null;
+  owner_officedocument?: OfficeDocument_Result[] | null;
+  owner_pdfsetting?: PDFSetting_Result[] | null;
+  owner_personaldocumenttemplates?: PersonalDocumentTemplate_Result[] | null;
+  owner_phonecalls?: PhoneCall_Result[] | null;
+  owner_postfollows?: PostFollow_Result[] | null;
+  owner_principalattributeaccessmap?: PrincipalAttributeAccessMap_Result[] | null;
+  owner_principalentitybusinessunitmap?: PrincipalEntityBusinessUnitMap_Result[] | null;
+  owner_principalentitymap?: PrincipalEntityMap_Result[] | null;
+  owner_processsessions?: ProcessSession_Result[] | null;
+  owner_processstageparameter?: processstageparameter_Result[] | null;
+  owner_profilerule?: ChannelAccessProfileRule_Result[] | null;
+  owner_queues?: Queue_Result[] | null;
+  owner_recurrencerules?: RecurrenceRule_Result[] | null;
+  owner_recurringappointmentmasters?: RecurringAppointmentMaster_Result[] | null;
+  owner_reports?: Report_Result[] | null;
+  owner_revokeinheritedaccessrecordstracker?: revokeinheritedaccessrecordstracker_Result[] | null;
+  owner_routingrule?: RoutingRule_Result[] | null;
+  owner_sharepointdocument?: SharePointDocument_Result[] | null;
+  owner_sharepointdocumentlocation?: SharePointDocumentLocation_Result[] | null;
+  owner_sharepointsite?: SharePointSite_Result[] | null;
+  owner_slas?: SLA_Result[] | null;
+  owner_socialactivities?: SocialActivity_Result[] | null;
+  owner_solutioncomponentbatchconfiguration?: solutioncomponentbatchconfiguration_Result[] | null;
+  owner_stagesolutionupload?: StageSolutionUpload_Result[] | null;
+  owner_tasks?: Task_Result[] | null;
+  owner_templates?: Template_Result[] | null;
+  owner_untrackedemails?: UntrackedEmail_Result[] | null;
+  owner_userapplicationmetadata?: UserApplicationMetadata_Result[] | null;
+  owner_userentityinstancedata?: UserEntityInstanceData_Result[] | null;
+  owner_userentityuisettings?: UserEntityUISettings_Result[] | null;
+  owner_userform?: UserForm_Result[] | null;
+  owner_userquerys?: UserQuery_Result[] | null;
+  owner_userqueryvisualizations?: UserQueryVisualization_Result[] | null;
+  owner_workflowbinary?: workflowbinary_Result[] | null;
+  owner_workflows?: Workflow_Result[] | null;
+  slakpiinstance_owner?: SLAKPIInstance_Result[] | null;
+}
+interface Owner extends Owner_Base, Owner_Relationships {
+}
+interface Owner_Create extends Owner {
+}
+interface Owner_Update extends Owner {
+}
+interface Owner_Select {
+  name: WebAttribute<Owner_Select, { name: string | null }, {  }>;
+  ownerid: WebAttribute<Owner_Select, { ownerid: string | null }, {  }>;
+  owneridtype: WebAttribute<Owner_Select, { owneridtype: string | null }, {  }>;
+  versionnumber: WebAttribute<Owner_Select, { versionnumber: number | null }, {  }>;
+}
+interface Owner_Filter {
+  name: string;
+  ownerid: XQW.Guid;
+  owneridtype: string;
+  versionnumber: number;
+}
+interface Owner_Expand {
+  owner_principalattributeaccessmap: WebExpand<Owner_Expand, appnotification_Select & msdyn_solutionhealthruleargument_Select & msdyn_solutionhealthrule_Select & msdyn_analysisresultdetail_Select & msdyn_analysisresult_Select & msdyn_analysisjob_Select & msdyn_analysiscomponent_Select & msdyn_pmrecording_Select & msdyn_pminferredtask_Select & msdyn_richtextfile_Select & ManagedIdentity_Select & KeyVaultReference_Select & msdyn_knowledgesearchfilter_Select & msdyn_knowledgepersonalfilter_Select & msdyn_knowledgearticletemplate_Select & msdyn_kalanguagesetting_Select & msdyn_knowledgesearchinsight_Select & msdyn_knowledgeinteractioninsight_Select & msdyn_knowledgearticleimage_Select & msdyn_kmfederatedsearchconfig_Select & msdyn_federatedarticle_Select & msdyn_slakpi_Select & msdyn_serviceconfiguration_Select & activityfileattachment_Select & PDFSetting_Select & botcomponent_Select & bot_Select & conversationtranscript_Select & msdynce_botcontent_Select & connectionreference_Select & workflowbinary_Select & flowsession_Select & processstageparameter_Select & flowmachinegroup_Select & flowmachine_Select & EnvironmentVariableValue_Select & EnvironmentVariableDefinition_Select & msdyn_AIBFileAttachedData_Select & msdyn_AIBFile_Select & msdyn_AIBDatasetsContainer_Select & msdyn_AIBDatasetRecord_Select & msdyn_AIBDatasetFile_Select & msdyn_AIBDataset_Select & msdyn_AIOdTrainingImage_Select & msdyn_AIOdTrainingBoundingBox_Select & msdyn_AIOdLabel_Select & msdyn_AIOdImage_Select & msdyn_AIFpTrainingDocument_Select & msdyn_AITemplate_Select & msdyn_AIModel_Select & msdyn_AIConfiguration_Select & connector_Select & CanvasAppExtendedMetadata_Select & revokeinheritedaccessrecordstracker_Select & PrincipalEntityBusinessUnitMap_Select & msdyn_dataflow_Select & datalakefolderpermission_Select & datalakefolder_Select & CustomAPIResponseProperty_Select & CustomAPIRequestParameter_Select & CustomAPI_Select & featurecontrolsetting_Select & ExportSolutionUpload_Select & StageSolutionUpload_Select & solutioncomponentbatchconfiguration_Select & CanvasApp_Select & CallbackRegistration_Select & ActionCardUserState_Select & Appointment_Select & UntrackedEmail_Select & SocialActivity_Select & RecurringAppointmentMaster_Select & Task_Select & PhoneCall_Select & Letter_Select & Fax_Select & Email_Select & MailboxTrackingCategory_Select & OfficeDocument_Select & Import_Select & ActivityPointer_Select & Template_Select & SharePointDocument_Select & Category_Select & MailboxTrackingFolder_Select & RoutingRule_Select & ImportLog_Select & UserEntityInstanceData_Select & ImportData_Select & SLA_Select & EmailSignature_Select & UserQueryVisualization_Select & UserForm_Select & CustomerRelationship_Select & GoalRollupQuery_Select & ActionCard_Select & RecurrenceRule_Select & Connection_Select & Report_Select & Feedback_Select & UserApplicationMetadata_Select & PersonalDocumentTemplate_Select & Account_Select & SLAKPIInstance_Select & AsyncOperation_Select & SyncError_Select & ActionCardUserSettings_Select & MailMergeTemplate_Select & Annotation_Select & SocialProfile_Select & DuplicateRule_Select & EmailServerProfile_Select & Queue_Select & PostFollow_Select & ProcessSession_Select & Workflow_Select & ImportMap_Select & PrincipalEntityMap_Select & ConvertRule_Select & UserQuery_Select & UserEntityUISettings_Select & Contact_Select & ImportFile_Select & ChannelAccessProfileRule_Select & ExternalParty_Select & ChannelAccessProfile_Select & Mailbox_Select & Goal_Select & SharePointDocumentLocation_Select & SharePointSite_Select & KnowledgeArticle_Select & InteractionForEmail_Select & ExchangeSyncIdMapping_Select & PrincipalAttributeAccessMap_Select, appnotification_Filter & msdyn_solutionhealthruleargument_Filter & msdyn_solutionhealthrule_Filter & msdyn_analysisresultdetail_Filter & msdyn_analysisresult_Filter & msdyn_analysisjob_Filter & msdyn_analysiscomponent_Filter & msdyn_pmrecording_Filter & msdyn_pminferredtask_Filter & msdyn_richtextfile_Filter & ManagedIdentity_Filter & KeyVaultReference_Filter & msdyn_knowledgesearchfilter_Filter & msdyn_knowledgepersonalfilter_Filter & msdyn_knowledgearticletemplate_Filter & msdyn_kalanguagesetting_Filter & msdyn_knowledgesearchinsight_Filter & msdyn_knowledgeinteractioninsight_Filter & msdyn_knowledgearticleimage_Filter & msdyn_kmfederatedsearchconfig_Filter & msdyn_federatedarticle_Filter & msdyn_slakpi_Filter & msdyn_serviceconfiguration_Filter & activityfileattachment_Filter & PDFSetting_Filter & botcomponent_Filter & bot_Filter & conversationtranscript_Filter & msdynce_botcontent_Filter & connectionreference_Filter & workflowbinary_Filter & flowsession_Filter & processstageparameter_Filter & flowmachinegroup_Filter & flowmachine_Filter & EnvironmentVariableValue_Filter & EnvironmentVariableDefinition_Filter & msdyn_AIBFileAttachedData_Filter & msdyn_AIBFile_Filter & msdyn_AIBDatasetsContainer_Filter & msdyn_AIBDatasetRecord_Filter & msdyn_AIBDatasetFile_Filter & msdyn_AIBDataset_Filter & msdyn_AIOdTrainingImage_Filter & msdyn_AIOdTrainingBoundingBox_Filter & msdyn_AIOdLabel_Filter & msdyn_AIOdImage_Filter & msdyn_AIFpTrainingDocument_Filter & msdyn_AITemplate_Filter & msdyn_AIModel_Filter & msdyn_AIConfiguration_Filter & connector_Filter & CanvasAppExtendedMetadata_Filter & revokeinheritedaccessrecordstracker_Filter & PrincipalEntityBusinessUnitMap_Filter & msdyn_dataflow_Filter & datalakefolderpermission_Filter & datalakefolder_Filter & CustomAPIResponseProperty_Filter & CustomAPIRequestParameter_Filter & CustomAPI_Filter & featurecontrolsetting_Filter & ExportSolutionUpload_Filter & StageSolutionUpload_Filter & solutioncomponentbatchconfiguration_Filter & CanvasApp_Filter & CallbackRegistration_Filter & ActionCardUserState_Filter & Appointment_Filter & UntrackedEmail_Filter & SocialActivity_Filter & RecurringAppointmentMaster_Filter & Task_Filter & PhoneCall_Filter & Letter_Filter & Fax_Filter & Email_Filter & MailboxTrackingCategory_Filter & OfficeDocument_Filter & Import_Filter & ActivityPointer_Filter & Template_Filter & SharePointDocument_Filter & Category_Filter & MailboxTrackingFolder_Filter & RoutingRule_Filter & ImportLog_Filter & UserEntityInstanceData_Filter & ImportData_Filter & SLA_Filter & EmailSignature_Filter & UserQueryVisualization_Filter & UserForm_Filter & CustomerRelationship_Filter & GoalRollupQuery_Filter & ActionCard_Filter & RecurrenceRule_Filter & Connection_Filter & Report_Filter & Feedback_Filter & UserApplicationMetadata_Filter & PersonalDocumentTemplate_Filter & Account_Filter & SLAKPIInstance_Filter & AsyncOperation_Filter & SyncError_Filter & ActionCardUserSettings_Filter & MailMergeTemplate_Filter & Annotation_Filter & SocialProfile_Filter & DuplicateRule_Filter & EmailServerProfile_Filter & Queue_Filter & PostFollow_Filter & ProcessSession_Filter & Workflow_Filter & ImportMap_Filter & PrincipalEntityMap_Filter & ConvertRule_Filter & UserQuery_Filter & UserEntityUISettings_Filter & Contact_Filter & ImportFile_Filter & ChannelAccessProfileRule_Filter & ExternalParty_Filter & ChannelAccessProfile_Filter & Mailbox_Filter & Goal_Filter & SharePointDocumentLocation_Filter & SharePointSite_Filter & KnowledgeArticle_Filter & InteractionForEmail_Filter & ExchangeSyncIdMapping_Filter & PrincipalAttributeAccessMap_Filter, { owner_appnotification: appnotification_Result[] } & { owner_msdyn_solutionhealthruleargument: msdyn_solutionhealthruleargument_Result[] } & { owner_msdyn_solutionhealthrule: msdyn_solutionhealthrule_Result[] } & { owner_msdyn_analysisresultdetail: msdyn_analysisresultdetail_Result[] } & { owner_msdyn_analysisresult: msdyn_analysisresult_Result[] } & { owner_msdyn_analysisjob: msdyn_analysisjob_Result[] } & { owner_msdyn_analysiscomponent: msdyn_analysiscomponent_Result[] } & { owner_msdyn_pmrecording: msdyn_pmrecording_Result[] } & { owner_msdyn_pminferredtask: msdyn_pminferredtask_Result[] } & { owner_msdyn_richtextfile: msdyn_richtextfile_Result[] } & { owner_managedidentity: ManagedIdentity_Result[] } & { owner_keyvaultreference: KeyVaultReference_Result[] } & { owner_msdyn_knowledgesearchfilter: msdyn_knowledgesearchfilter_Result[] } & { owner_msdyn_knowledgepersonalfilter: msdyn_knowledgepersonalfilter_Result[] } & { owner_msdyn_knowledgearticletemplate: msdyn_knowledgearticletemplate_Result[] } & { owner_msdyn_kalanguagesetting: msdyn_kalanguagesetting_Result[] } & { owner_msdyn_knowledgesearchinsight: msdyn_knowledgesearchinsight_Result[] } & { owner_msdyn_knowledgeinteractioninsight: msdyn_knowledgeinteractioninsight_Result[] } & { owner_msdyn_knowledgearticleimage: msdyn_knowledgearticleimage_Result[] } & { owner_msdyn_kmfederatedsearchconfig: msdyn_kmfederatedsearchconfig_Result[] } & { owner_msdyn_federatedarticle: msdyn_federatedarticle_Result[] } & { owner_msdyn_slakpi: msdyn_slakpi_Result[] } & { owner_msdyn_serviceconfiguration: msdyn_serviceconfiguration_Result[] } & { owner_activityfileattachment: activityfileattachment_Result[] } & { owner_pdfsetting: PDFSetting_Result[] } & { owner_botcomponent: botcomponent_Result[] } & { owner_bot: bot_Result[] } & { owner_conversationtranscript: conversationtranscript_Result[] } & { owner_msdynce_botcontent: msdynce_botcontent_Result[] } & { owner_connectionreference: connectionreference_Result[] } & { owner_workflowbinary: workflowbinary_Result[] } & { owner_flowsession: flowsession_Result[] } & { owner_processstageparameter: processstageparameter_Result[] } & { owner_flowmachinegroup: flowmachinegroup_Result[] } & { owner_flowmachine: flowmachine_Result[] } & { owner_environmentvariablevalue: EnvironmentVariableValue_Result[] } & { owner_environmentvariabledefinition: EnvironmentVariableDefinition_Result[] } & { owner_msdyn_aibfileattacheddata: msdyn_AIBFileAttachedData_Result[] } & { owner_msdyn_aibfile: msdyn_AIBFile_Result[] } & { owner_msdyn_aibdatasetscontainer: msdyn_AIBDatasetsContainer_Result[] } & { owner_msdyn_aibdatasetrecord: msdyn_AIBDatasetRecord_Result[] } & { owner_msdyn_aibdatasetfile: msdyn_AIBDatasetFile_Result[] } & { owner_msdyn_aibdataset: msdyn_AIBDataset_Result[] } & { owner_msdyn_aiodtrainingimage: msdyn_AIOdTrainingImage_Result[] } & { owner_msdyn_aiodtrainingboundingbox: msdyn_AIOdTrainingBoundingBox_Result[] } & { owner_msdyn_aiodlabel: msdyn_AIOdLabel_Result[] } & { owner_msdyn_aiodimage: msdyn_AIOdImage_Result[] } & { owner_msdyn_aifptrainingdocument: msdyn_AIFpTrainingDocument_Result[] } & { owner_msdyn_aitemplate: msdyn_AITemplate_Result[] } & { owner_msdyn_aimodel: msdyn_AIModel_Result[] } & { owner_msdyn_aiconfiguration: msdyn_AIConfiguration_Result[] } & { owner_connector: connector_Result[] } & { owner_canvasappextendedmetadata: CanvasAppExtendedMetadata_Result[] } & { owner_revokeinheritedaccessrecordstracker: revokeinheritedaccessrecordstracker_Result[] } & { owner_principalentitybusinessunitmap: PrincipalEntityBusinessUnitMap_Result[] } & { owner_msdyn_dataflow: msdyn_dataflow_Result[] } & { owner_datalakefolderpermission: datalakefolderpermission_Result[] } & { owner_datalakefolder: datalakefolder_Result[] } & { owner_customapiresponseproperty: CustomAPIResponseProperty_Result[] } & { owner_customapirequestparameter: CustomAPIRequestParameter_Result[] } & { owner_customapi: CustomAPI_Result[] } & { owner_featurecontrolsetting: featurecontrolsetting_Result[] } & { owner_exportsolutionupload: ExportSolutionUpload_Result[] } & { owner_stagesolutionupload: StageSolutionUpload_Result[] } & { owner_solutioncomponentbatchconfiguration: solutioncomponentbatchconfiguration_Result[] } & { owner_canvasapp: CanvasApp_Result[] } & { owner_callbackregistration: CallbackRegistration_Result[] } & { ActionCardUserState_Owner: ActionCardUserState_Result[] } & { owner_appointments: Appointment_Result[] } & { owner_untrackedemails: UntrackedEmail_Result[] } & { owner_socialactivities: SocialActivity_Result[] } & { owner_recurringappointmentmasters: RecurringAppointmentMaster_Result[] } & { owner_tasks: Task_Result[] } & { owner_phonecalls: PhoneCall_Result[] } & { owner_letters: Letter_Result[] } & { owner_faxes: Fax_Result[] } & { owner_emails: Email_Result[] } & { owner_mailboxtrackingcategory: MailboxTrackingCategory_Result[] } & { owner_officedocument: OfficeDocument_Result[] } & { owner_imports: Import_Result[] } & { owner_activitypointers: ActivityPointer_Result[] } & { owner_templates: Template_Result[] } & { owner_sharepointdocument: SharePointDocument_Result[] } & { owner_categories: Category_Result[] } & { owner_mailboxtrackingfolder: MailboxTrackingFolder_Result[] } & { owner_routingrule: RoutingRule_Result[] } & { owner_importlogs: ImportLog_Result[] } & { owner_userentityinstancedata: UserEntityInstanceData_Result[] } & { owner_importdatas: ImportData_Result[] } & { owner_slas: SLA_Result[] } & { owner_emailsignatures: EmailSignature_Result[] } & { owner_userqueryvisualizations: UserQueryVisualization_Result[] } & { owner_userform: UserForm_Result[] } & { owner_customerrelationships: CustomerRelationship_Result[] } & { owner_goalrollupquery: GoalRollupQuery_Result[] } & { owner_actioncards: ActionCard_Result[] } & { owner_recurrencerules: RecurrenceRule_Result[] } & { owner_connections: Connection_Result[] } & { owner_reports: Report_Result[] } & { owner_feedback: Feedback_Result[] } & { owner_userapplicationmetadata: UserApplicationMetadata_Result[] } & { owner_personaldocumenttemplates: PersonalDocumentTemplate_Result[] } & { owner_accounts: Account_Result[] } & { slakpiinstance_owner: SLAKPIInstance_Result[] } & { owner_asyncoperations: AsyncOperation_Result[] } & { owner_SyncError: SyncError_Result[] } & { owner_actioncardusersettings: ActionCardUserSettings_Result[] } & { owner_mailmergetemplates: MailMergeTemplate_Result[] } & { owner_annotations: Annotation_Result[] } & { owner_SocialProfile: SocialProfile_Result[] } & { owner_duplicaterules: DuplicateRule_Result[] } & { owner_emailserverprofile: EmailServerProfile_Result[] } & { owner_queues: Queue_Result[] } & { owner_postfollows: PostFollow_Result[] } & { owner_processsessions: ProcessSession_Result[] } & { owner_workflows: Workflow_Result[] } & { owner_importmaps: ImportMap_Result[] } & { owner_principalentitymap: PrincipalEntityMap_Result[] } & { owner_convertrule: ConvertRule_Result[] } & { owner_userquerys: UserQuery_Result[] } & { owner_userentityuisettings: UserEntityUISettings_Result[] } & { owner_contacts: Contact_Result[] } & { owner_importfiles: ImportFile_Result[] } & { owner_profilerule: ChannelAccessProfileRule_Result[] } & { owner_externalparty: ExternalParty_Result[] } & { owner_channelaccessprofile: ChannelAccessProfile_Result[] } & { owner_mailbox: Mailbox_Result[] } & { owner_goal: Goal_Result[] } & { owner_sharepointdocumentlocation: SharePointDocumentLocation_Result[] } & { owner_sharepointsite: SharePointSite_Result[] } & { owner_knowledgearticle: KnowledgeArticle_Result[] } & { owner_new_interactionforemail: InteractionForEmail_Result[] } & { owner_exchangesyncidmapping: ExchangeSyncIdMapping_Result[] } & { owner_principalattributeaccessmap: PrincipalAttributeAccessMap_Result[] }>;
+}
+interface Owner_FormattedResult {
+}
+interface Owner_Result extends Owner_Base, Owner_Relationships {
+  "@odata.etag": string;
+}
+interface Owner_RelatedOne {
+}
+interface Owner_RelatedMany {
+  ActionCardUserState_Owner: WebMappingRetrieve<ActionCardUserState_Select,ActionCardUserState_Expand,ActionCardUserState_Filter,ActionCardUserState_Fixed,ActionCardUserState_Result,ActionCardUserState_FormattedResult>;
+  owner_SocialProfile: WebMappingRetrieve<SocialProfile_Select,SocialProfile_Expand,SocialProfile_Filter,SocialProfile_Fixed,SocialProfile_Result,SocialProfile_FormattedResult>;
+  owner_SyncError: WebMappingRetrieve<SyncError_Select,SyncError_Expand,SyncError_Filter,SyncError_Fixed,SyncError_Result,SyncError_FormattedResult>;
+  owner_accounts: WebMappingRetrieve<Account_Select,Account_Expand,Account_Filter,Account_Fixed,Account_Result,Account_FormattedResult>;
+  owner_actioncards: WebMappingRetrieve<ActionCard_Select,ActionCard_Expand,ActionCard_Filter,ActionCard_Fixed,ActionCard_Result,ActionCard_FormattedResult>;
+  owner_actioncardusersettings: WebMappingRetrieve<ActionCardUserSettings_Select,ActionCardUserSettings_Expand,ActionCardUserSettings_Filter,ActionCardUserSettings_Fixed,ActionCardUserSettings_Result,ActionCardUserSettings_FormattedResult>;
+  owner_activityfileattachment: WebMappingRetrieve<activityfileattachment_Select,activityfileattachment_Expand,activityfileattachment_Filter,activityfileattachment_Fixed,activityfileattachment_Result,activityfileattachment_FormattedResult>;
+  owner_activitypointers: WebMappingRetrieve<ActivityPointer_Select,ActivityPointer_Expand,ActivityPointer_Filter,ActivityPointer_Fixed,ActivityPointer_Result,ActivityPointer_FormattedResult>;
+  owner_annotations: WebMappingRetrieve<Annotation_Select,Annotation_Expand,Annotation_Filter,Annotation_Fixed,Annotation_Result,Annotation_FormattedResult>;
+  owner_appnotification: WebMappingRetrieve<appnotification_Select,appnotification_Expand,appnotification_Filter,appnotification_Fixed,appnotification_Result,appnotification_FormattedResult>;
+  owner_appointments: WebMappingRetrieve<Appointment_Select,Appointment_Expand,Appointment_Filter,Appointment_Fixed,Appointment_Result,Appointment_FormattedResult>;
+  owner_asyncoperations: WebMappingRetrieve<AsyncOperation_Select,AsyncOperation_Expand,AsyncOperation_Filter,AsyncOperation_Fixed,AsyncOperation_Result,AsyncOperation_FormattedResult>;
+  owner_bot: WebMappingRetrieve<bot_Select,bot_Expand,bot_Filter,bot_Fixed,bot_Result,bot_FormattedResult>;
+  owner_botcomponent: WebMappingRetrieve<botcomponent_Select,botcomponent_Expand,botcomponent_Filter,botcomponent_Fixed,botcomponent_Result,botcomponent_FormattedResult>;
+  owner_callbackregistration: WebMappingRetrieve<CallbackRegistration_Select,CallbackRegistration_Expand,CallbackRegistration_Filter,CallbackRegistration_Fixed,CallbackRegistration_Result,CallbackRegistration_FormattedResult>;
+  owner_canvasapp: WebMappingRetrieve<CanvasApp_Select,CanvasApp_Expand,CanvasApp_Filter,CanvasApp_Fixed,CanvasApp_Result,CanvasApp_FormattedResult>;
+  owner_canvasappextendedmetadata: WebMappingRetrieve<CanvasAppExtendedMetadata_Select,CanvasAppExtendedMetadata_Expand,CanvasAppExtendedMetadata_Filter,CanvasAppExtendedMetadata_Fixed,CanvasAppExtendedMetadata_Result,CanvasAppExtendedMetadata_FormattedResult>;
+  owner_categories: WebMappingRetrieve<Category_Select,Category_Expand,Category_Filter,Category_Fixed,Category_Result,Category_FormattedResult>;
+  owner_channelaccessprofile: WebMappingRetrieve<ChannelAccessProfile_Select,ChannelAccessProfile_Expand,ChannelAccessProfile_Filter,ChannelAccessProfile_Fixed,ChannelAccessProfile_Result,ChannelAccessProfile_FormattedResult>;
+  owner_connectionreference: WebMappingRetrieve<connectionreference_Select,connectionreference_Expand,connectionreference_Filter,connectionreference_Fixed,connectionreference_Result,connectionreference_FormattedResult>;
+  owner_connections: WebMappingRetrieve<Connection_Select,Connection_Expand,Connection_Filter,Connection_Fixed,Connection_Result,Connection_FormattedResult>;
+  owner_connector: WebMappingRetrieve<connector_Select,connector_Expand,connector_Filter,connector_Fixed,connector_Result,connector_FormattedResult>;
+  owner_contacts: WebMappingRetrieve<Contact_Select,Contact_Expand,Contact_Filter,Contact_Fixed,Contact_Result,Contact_FormattedResult>;
+  owner_conversationtranscript: WebMappingRetrieve<conversationtranscript_Select,conversationtranscript_Expand,conversationtranscript_Filter,conversationtranscript_Fixed,conversationtranscript_Result,conversationtranscript_FormattedResult>;
+  owner_convertrule: WebMappingRetrieve<ConvertRule_Select,ConvertRule_Expand,ConvertRule_Filter,ConvertRule_Fixed,ConvertRule_Result,ConvertRule_FormattedResult>;
+  owner_customapi: WebMappingRetrieve<CustomAPI_Select,CustomAPI_Expand,CustomAPI_Filter,CustomAPI_Fixed,CustomAPI_Result,CustomAPI_FormattedResult>;
+  owner_customapirequestparameter: WebMappingRetrieve<CustomAPIRequestParameter_Select,CustomAPIRequestParameter_Expand,CustomAPIRequestParameter_Filter,CustomAPIRequestParameter_Fixed,CustomAPIRequestParameter_Result,CustomAPIRequestParameter_FormattedResult>;
+  owner_customapiresponseproperty: WebMappingRetrieve<CustomAPIResponseProperty_Select,CustomAPIResponseProperty_Expand,CustomAPIResponseProperty_Filter,CustomAPIResponseProperty_Fixed,CustomAPIResponseProperty_Result,CustomAPIResponseProperty_FormattedResult>;
+  owner_customerrelationships: WebMappingRetrieve<CustomerRelationship_Select,CustomerRelationship_Expand,CustomerRelationship_Filter,CustomerRelationship_Fixed,CustomerRelationship_Result,CustomerRelationship_FormattedResult>;
+  owner_datalakefolder: WebMappingRetrieve<datalakefolder_Select,datalakefolder_Expand,datalakefolder_Filter,datalakefolder_Fixed,datalakefolder_Result,datalakefolder_FormattedResult>;
+  owner_datalakefolderpermission: WebMappingRetrieve<datalakefolderpermission_Select,datalakefolderpermission_Expand,datalakefolderpermission_Filter,datalakefolderpermission_Fixed,datalakefolderpermission_Result,datalakefolderpermission_FormattedResult>;
+  owner_duplicaterules: WebMappingRetrieve<DuplicateRule_Select,DuplicateRule_Expand,DuplicateRule_Filter,DuplicateRule_Fixed,DuplicateRule_Result,DuplicateRule_FormattedResult>;
+  owner_emails: WebMappingRetrieve<Email_Select,Email_Expand,Email_Filter,Email_Fixed,Email_Result,Email_FormattedResult>;
+  owner_emailserverprofile: WebMappingRetrieve<EmailServerProfile_Select,EmailServerProfile_Expand,EmailServerProfile_Filter,EmailServerProfile_Fixed,EmailServerProfile_Result,EmailServerProfile_FormattedResult>;
+  owner_emailsignatures: WebMappingRetrieve<EmailSignature_Select,EmailSignature_Expand,EmailSignature_Filter,EmailSignature_Fixed,EmailSignature_Result,EmailSignature_FormattedResult>;
+  owner_environmentvariabledefinition: WebMappingRetrieve<EnvironmentVariableDefinition_Select,EnvironmentVariableDefinition_Expand,EnvironmentVariableDefinition_Filter,EnvironmentVariableDefinition_Fixed,EnvironmentVariableDefinition_Result,EnvironmentVariableDefinition_FormattedResult>;
+  owner_environmentvariablevalue: WebMappingRetrieve<EnvironmentVariableValue_Select,EnvironmentVariableValue_Expand,EnvironmentVariableValue_Filter,EnvironmentVariableValue_Fixed,EnvironmentVariableValue_Result,EnvironmentVariableValue_FormattedResult>;
+  owner_exchangesyncidmapping: WebMappingRetrieve<ExchangeSyncIdMapping_Select,ExchangeSyncIdMapping_Expand,ExchangeSyncIdMapping_Filter,ExchangeSyncIdMapping_Fixed,ExchangeSyncIdMapping_Result,ExchangeSyncIdMapping_FormattedResult>;
+  owner_exportsolutionupload: WebMappingRetrieve<ExportSolutionUpload_Select,ExportSolutionUpload_Expand,ExportSolutionUpload_Filter,ExportSolutionUpload_Fixed,ExportSolutionUpload_Result,ExportSolutionUpload_FormattedResult>;
+  owner_externalparty: WebMappingRetrieve<ExternalParty_Select,ExternalParty_Expand,ExternalParty_Filter,ExternalParty_Fixed,ExternalParty_Result,ExternalParty_FormattedResult>;
+  owner_faxes: WebMappingRetrieve<Fax_Select,Fax_Expand,Fax_Filter,Fax_Fixed,Fax_Result,Fax_FormattedResult>;
+  owner_featurecontrolsetting: WebMappingRetrieve<featurecontrolsetting_Select,featurecontrolsetting_Expand,featurecontrolsetting_Filter,featurecontrolsetting_Fixed,featurecontrolsetting_Result,featurecontrolsetting_FormattedResult>;
+  owner_feedback: WebMappingRetrieve<Feedback_Select,Feedback_Expand,Feedback_Filter,Feedback_Fixed,Feedback_Result,Feedback_FormattedResult>;
+  owner_flowmachine: WebMappingRetrieve<flowmachine_Select,flowmachine_Expand,flowmachine_Filter,flowmachine_Fixed,flowmachine_Result,flowmachine_FormattedResult>;
+  owner_flowmachinegroup: WebMappingRetrieve<flowmachinegroup_Select,flowmachinegroup_Expand,flowmachinegroup_Filter,flowmachinegroup_Fixed,flowmachinegroup_Result,flowmachinegroup_FormattedResult>;
+  owner_flowsession: WebMappingRetrieve<flowsession_Select,flowsession_Expand,flowsession_Filter,flowsession_Fixed,flowsession_Result,flowsession_FormattedResult>;
+  owner_goal: WebMappingRetrieve<Goal_Select,Goal_Expand,Goal_Filter,Goal_Fixed,Goal_Result,Goal_FormattedResult>;
+  owner_goalrollupquery: WebMappingRetrieve<GoalRollupQuery_Select,GoalRollupQuery_Expand,GoalRollupQuery_Filter,GoalRollupQuery_Fixed,GoalRollupQuery_Result,GoalRollupQuery_FormattedResult>;
+  owner_importdatas: WebMappingRetrieve<ImportData_Select,ImportData_Expand,ImportData_Filter,ImportData_Fixed,ImportData_Result,ImportData_FormattedResult>;
+  owner_importfiles: WebMappingRetrieve<ImportFile_Select,ImportFile_Expand,ImportFile_Filter,ImportFile_Fixed,ImportFile_Result,ImportFile_FormattedResult>;
+  owner_importlogs: WebMappingRetrieve<ImportLog_Select,ImportLog_Expand,ImportLog_Filter,ImportLog_Fixed,ImportLog_Result,ImportLog_FormattedResult>;
+  owner_importmaps: WebMappingRetrieve<ImportMap_Select,ImportMap_Expand,ImportMap_Filter,ImportMap_Fixed,ImportMap_Result,ImportMap_FormattedResult>;
+  owner_imports: WebMappingRetrieve<Import_Select,Import_Expand,Import_Filter,Import_Fixed,Import_Result,Import_FormattedResult>;
+  owner_keyvaultreference: WebMappingRetrieve<KeyVaultReference_Select,KeyVaultReference_Expand,KeyVaultReference_Filter,KeyVaultReference_Fixed,KeyVaultReference_Result,KeyVaultReference_FormattedResult>;
+  owner_knowledgearticle: WebMappingRetrieve<KnowledgeArticle_Select,KnowledgeArticle_Expand,KnowledgeArticle_Filter,KnowledgeArticle_Fixed,KnowledgeArticle_Result,KnowledgeArticle_FormattedResult>;
+  owner_letters: WebMappingRetrieve<Letter_Select,Letter_Expand,Letter_Filter,Letter_Fixed,Letter_Result,Letter_FormattedResult>;
+  owner_mailbox: WebMappingRetrieve<Mailbox_Select,Mailbox_Expand,Mailbox_Filter,Mailbox_Fixed,Mailbox_Result,Mailbox_FormattedResult>;
+  owner_mailboxtrackingcategory: WebMappingRetrieve<MailboxTrackingCategory_Select,MailboxTrackingCategory_Expand,MailboxTrackingCategory_Filter,MailboxTrackingCategory_Fixed,MailboxTrackingCategory_Result,MailboxTrackingCategory_FormattedResult>;
+  owner_mailboxtrackingfolder: WebMappingRetrieve<MailboxTrackingFolder_Select,MailboxTrackingFolder_Expand,MailboxTrackingFolder_Filter,MailboxTrackingFolder_Fixed,MailboxTrackingFolder_Result,MailboxTrackingFolder_FormattedResult>;
+  owner_mailmergetemplates: WebMappingRetrieve<MailMergeTemplate_Select,MailMergeTemplate_Expand,MailMergeTemplate_Filter,MailMergeTemplate_Fixed,MailMergeTemplate_Result,MailMergeTemplate_FormattedResult>;
+  owner_managedidentity: WebMappingRetrieve<ManagedIdentity_Select,ManagedIdentity_Expand,ManagedIdentity_Filter,ManagedIdentity_Fixed,ManagedIdentity_Result,ManagedIdentity_FormattedResult>;
+  owner_msdyn_aibdataset: WebMappingRetrieve<msdyn_AIBDataset_Select,msdyn_AIBDataset_Expand,msdyn_AIBDataset_Filter,msdyn_AIBDataset_Fixed,msdyn_AIBDataset_Result,msdyn_AIBDataset_FormattedResult>;
+  owner_msdyn_aibdatasetfile: WebMappingRetrieve<msdyn_AIBDatasetFile_Select,msdyn_AIBDatasetFile_Expand,msdyn_AIBDatasetFile_Filter,msdyn_AIBDatasetFile_Fixed,msdyn_AIBDatasetFile_Result,msdyn_AIBDatasetFile_FormattedResult>;
+  owner_msdyn_aibdatasetrecord: WebMappingRetrieve<msdyn_AIBDatasetRecord_Select,msdyn_AIBDatasetRecord_Expand,msdyn_AIBDatasetRecord_Filter,msdyn_AIBDatasetRecord_Fixed,msdyn_AIBDatasetRecord_Result,msdyn_AIBDatasetRecord_FormattedResult>;
+  owner_msdyn_aibdatasetscontainer: WebMappingRetrieve<msdyn_AIBDatasetsContainer_Select,msdyn_AIBDatasetsContainer_Expand,msdyn_AIBDatasetsContainer_Filter,msdyn_AIBDatasetsContainer_Fixed,msdyn_AIBDatasetsContainer_Result,msdyn_AIBDatasetsContainer_FormattedResult>;
+  owner_msdyn_aibfile: WebMappingRetrieve<msdyn_AIBFile_Select,msdyn_AIBFile_Expand,msdyn_AIBFile_Filter,msdyn_AIBFile_Fixed,msdyn_AIBFile_Result,msdyn_AIBFile_FormattedResult>;
+  owner_msdyn_aibfileattacheddata: WebMappingRetrieve<msdyn_AIBFileAttachedData_Select,msdyn_AIBFileAttachedData_Expand,msdyn_AIBFileAttachedData_Filter,msdyn_AIBFileAttachedData_Fixed,msdyn_AIBFileAttachedData_Result,msdyn_AIBFileAttachedData_FormattedResult>;
+  owner_msdyn_aiconfiguration: WebMappingRetrieve<msdyn_AIConfiguration_Select,msdyn_AIConfiguration_Expand,msdyn_AIConfiguration_Filter,msdyn_AIConfiguration_Fixed,msdyn_AIConfiguration_Result,msdyn_AIConfiguration_FormattedResult>;
+  owner_msdyn_aifptrainingdocument: WebMappingRetrieve<msdyn_AIFpTrainingDocument_Select,msdyn_AIFpTrainingDocument_Expand,msdyn_AIFpTrainingDocument_Filter,msdyn_AIFpTrainingDocument_Fixed,msdyn_AIFpTrainingDocument_Result,msdyn_AIFpTrainingDocument_FormattedResult>;
+  owner_msdyn_aimodel: WebMappingRetrieve<msdyn_AIModel_Select,msdyn_AIModel_Expand,msdyn_AIModel_Filter,msdyn_AIModel_Fixed,msdyn_AIModel_Result,msdyn_AIModel_FormattedResult>;
+  owner_msdyn_aiodimage: WebMappingRetrieve<msdyn_AIOdImage_Select,msdyn_AIOdImage_Expand,msdyn_AIOdImage_Filter,msdyn_AIOdImage_Fixed,msdyn_AIOdImage_Result,msdyn_AIOdImage_FormattedResult>;
+  owner_msdyn_aiodlabel: WebMappingRetrieve<msdyn_AIOdLabel_Select,msdyn_AIOdLabel_Expand,msdyn_AIOdLabel_Filter,msdyn_AIOdLabel_Fixed,msdyn_AIOdLabel_Result,msdyn_AIOdLabel_FormattedResult>;
+  owner_msdyn_aiodtrainingboundingbox: WebMappingRetrieve<msdyn_AIOdTrainingBoundingBox_Select,msdyn_AIOdTrainingBoundingBox_Expand,msdyn_AIOdTrainingBoundingBox_Filter,msdyn_AIOdTrainingBoundingBox_Fixed,msdyn_AIOdTrainingBoundingBox_Result,msdyn_AIOdTrainingBoundingBox_FormattedResult>;
+  owner_msdyn_aiodtrainingimage: WebMappingRetrieve<msdyn_AIOdTrainingImage_Select,msdyn_AIOdTrainingImage_Expand,msdyn_AIOdTrainingImage_Filter,msdyn_AIOdTrainingImage_Fixed,msdyn_AIOdTrainingImage_Result,msdyn_AIOdTrainingImage_FormattedResult>;
+  owner_msdyn_aitemplate: WebMappingRetrieve<msdyn_AITemplate_Select,msdyn_AITemplate_Expand,msdyn_AITemplate_Filter,msdyn_AITemplate_Fixed,msdyn_AITemplate_Result,msdyn_AITemplate_FormattedResult>;
+  owner_msdyn_analysiscomponent: WebMappingRetrieve<msdyn_analysiscomponent_Select,msdyn_analysiscomponent_Expand,msdyn_analysiscomponent_Filter,msdyn_analysiscomponent_Fixed,msdyn_analysiscomponent_Result,msdyn_analysiscomponent_FormattedResult>;
+  owner_msdyn_analysisjob: WebMappingRetrieve<msdyn_analysisjob_Select,msdyn_analysisjob_Expand,msdyn_analysisjob_Filter,msdyn_analysisjob_Fixed,msdyn_analysisjob_Result,msdyn_analysisjob_FormattedResult>;
+  owner_msdyn_analysisresult: WebMappingRetrieve<msdyn_analysisresult_Select,msdyn_analysisresult_Expand,msdyn_analysisresult_Filter,msdyn_analysisresult_Fixed,msdyn_analysisresult_Result,msdyn_analysisresult_FormattedResult>;
+  owner_msdyn_analysisresultdetail: WebMappingRetrieve<msdyn_analysisresultdetail_Select,msdyn_analysisresultdetail_Expand,msdyn_analysisresultdetail_Filter,msdyn_analysisresultdetail_Fixed,msdyn_analysisresultdetail_Result,msdyn_analysisresultdetail_FormattedResult>;
+  owner_msdyn_dataflow: WebMappingRetrieve<msdyn_dataflow_Select,msdyn_dataflow_Expand,msdyn_dataflow_Filter,msdyn_dataflow_Fixed,msdyn_dataflow_Result,msdyn_dataflow_FormattedResult>;
+  owner_msdyn_federatedarticle: WebMappingRetrieve<msdyn_federatedarticle_Select,msdyn_federatedarticle_Expand,msdyn_federatedarticle_Filter,msdyn_federatedarticle_Fixed,msdyn_federatedarticle_Result,msdyn_federatedarticle_FormattedResult>;
+  owner_msdyn_kalanguagesetting: WebMappingRetrieve<msdyn_kalanguagesetting_Select,msdyn_kalanguagesetting_Expand,msdyn_kalanguagesetting_Filter,msdyn_kalanguagesetting_Fixed,msdyn_kalanguagesetting_Result,msdyn_kalanguagesetting_FormattedResult>;
+  owner_msdyn_kmfederatedsearchconfig: WebMappingRetrieve<msdyn_kmfederatedsearchconfig_Select,msdyn_kmfederatedsearchconfig_Expand,msdyn_kmfederatedsearchconfig_Filter,msdyn_kmfederatedsearchconfig_Fixed,msdyn_kmfederatedsearchconfig_Result,msdyn_kmfederatedsearchconfig_FormattedResult>;
+  owner_msdyn_knowledgearticleimage: WebMappingRetrieve<msdyn_knowledgearticleimage_Select,msdyn_knowledgearticleimage_Expand,msdyn_knowledgearticleimage_Filter,msdyn_knowledgearticleimage_Fixed,msdyn_knowledgearticleimage_Result,msdyn_knowledgearticleimage_FormattedResult>;
+  owner_msdyn_knowledgearticletemplate: WebMappingRetrieve<msdyn_knowledgearticletemplate_Select,msdyn_knowledgearticletemplate_Expand,msdyn_knowledgearticletemplate_Filter,msdyn_knowledgearticletemplate_Fixed,msdyn_knowledgearticletemplate_Result,msdyn_knowledgearticletemplate_FormattedResult>;
+  owner_msdyn_knowledgeinteractioninsight: WebMappingRetrieve<msdyn_knowledgeinteractioninsight_Select,msdyn_knowledgeinteractioninsight_Expand,msdyn_knowledgeinteractioninsight_Filter,msdyn_knowledgeinteractioninsight_Fixed,msdyn_knowledgeinteractioninsight_Result,msdyn_knowledgeinteractioninsight_FormattedResult>;
+  owner_msdyn_knowledgepersonalfilter: WebMappingRetrieve<msdyn_knowledgepersonalfilter_Select,msdyn_knowledgepersonalfilter_Expand,msdyn_knowledgepersonalfilter_Filter,msdyn_knowledgepersonalfilter_Fixed,msdyn_knowledgepersonalfilter_Result,msdyn_knowledgepersonalfilter_FormattedResult>;
+  owner_msdyn_knowledgesearchfilter: WebMappingRetrieve<msdyn_knowledgesearchfilter_Select,msdyn_knowledgesearchfilter_Expand,msdyn_knowledgesearchfilter_Filter,msdyn_knowledgesearchfilter_Fixed,msdyn_knowledgesearchfilter_Result,msdyn_knowledgesearchfilter_FormattedResult>;
+  owner_msdyn_knowledgesearchinsight: WebMappingRetrieve<msdyn_knowledgesearchinsight_Select,msdyn_knowledgesearchinsight_Expand,msdyn_knowledgesearchinsight_Filter,msdyn_knowledgesearchinsight_Fixed,msdyn_knowledgesearchinsight_Result,msdyn_knowledgesearchinsight_FormattedResult>;
+  owner_msdyn_pminferredtask: WebMappingRetrieve<msdyn_pminferredtask_Select,msdyn_pminferredtask_Expand,msdyn_pminferredtask_Filter,msdyn_pminferredtask_Fixed,msdyn_pminferredtask_Result,msdyn_pminferredtask_FormattedResult>;
+  owner_msdyn_pmrecording: WebMappingRetrieve<msdyn_pmrecording_Select,msdyn_pmrecording_Expand,msdyn_pmrecording_Filter,msdyn_pmrecording_Fixed,msdyn_pmrecording_Result,msdyn_pmrecording_FormattedResult>;
+  owner_msdyn_richtextfile: WebMappingRetrieve<msdyn_richtextfile_Select,msdyn_richtextfile_Expand,msdyn_richtextfile_Filter,msdyn_richtextfile_Fixed,msdyn_richtextfile_Result,msdyn_richtextfile_FormattedResult>;
+  owner_msdyn_serviceconfiguration: WebMappingRetrieve<msdyn_serviceconfiguration_Select,msdyn_serviceconfiguration_Expand,msdyn_serviceconfiguration_Filter,msdyn_serviceconfiguration_Fixed,msdyn_serviceconfiguration_Result,msdyn_serviceconfiguration_FormattedResult>;
+  owner_msdyn_slakpi: WebMappingRetrieve<msdyn_slakpi_Select,msdyn_slakpi_Expand,msdyn_slakpi_Filter,msdyn_slakpi_Fixed,msdyn_slakpi_Result,msdyn_slakpi_FormattedResult>;
+  owner_msdyn_solutionhealthrule: WebMappingRetrieve<msdyn_solutionhealthrule_Select,msdyn_solutionhealthrule_Expand,msdyn_solutionhealthrule_Filter,msdyn_solutionhealthrule_Fixed,msdyn_solutionhealthrule_Result,msdyn_solutionhealthrule_FormattedResult>;
+  owner_msdyn_solutionhealthruleargument: WebMappingRetrieve<msdyn_solutionhealthruleargument_Select,msdyn_solutionhealthruleargument_Expand,msdyn_solutionhealthruleargument_Filter,msdyn_solutionhealthruleargument_Fixed,msdyn_solutionhealthruleargument_Result,msdyn_solutionhealthruleargument_FormattedResult>;
+  owner_msdynce_botcontent: WebMappingRetrieve<msdynce_botcontent_Select,msdynce_botcontent_Expand,msdynce_botcontent_Filter,msdynce_botcontent_Fixed,msdynce_botcontent_Result,msdynce_botcontent_FormattedResult>;
+  owner_new_interactionforemail: WebMappingRetrieve<InteractionForEmail_Select,InteractionForEmail_Expand,InteractionForEmail_Filter,InteractionForEmail_Fixed,InteractionForEmail_Result,InteractionForEmail_FormattedResult>;
+  owner_officedocument: WebMappingRetrieve<OfficeDocument_Select,OfficeDocument_Expand,OfficeDocument_Filter,OfficeDocument_Fixed,OfficeDocument_Result,OfficeDocument_FormattedResult>;
+  owner_pdfsetting: WebMappingRetrieve<PDFSetting_Select,PDFSetting_Expand,PDFSetting_Filter,PDFSetting_Fixed,PDFSetting_Result,PDFSetting_FormattedResult>;
+  owner_personaldocumenttemplates: WebMappingRetrieve<PersonalDocumentTemplate_Select,PersonalDocumentTemplate_Expand,PersonalDocumentTemplate_Filter,PersonalDocumentTemplate_Fixed,PersonalDocumentTemplate_Result,PersonalDocumentTemplate_FormattedResult>;
+  owner_phonecalls: WebMappingRetrieve<PhoneCall_Select,PhoneCall_Expand,PhoneCall_Filter,PhoneCall_Fixed,PhoneCall_Result,PhoneCall_FormattedResult>;
+  owner_postfollows: WebMappingRetrieve<PostFollow_Select,PostFollow_Expand,PostFollow_Filter,PostFollow_Fixed,PostFollow_Result,PostFollow_FormattedResult>;
+  owner_principalattributeaccessmap: WebMappingRetrieve<PrincipalAttributeAccessMap_Select,PrincipalAttributeAccessMap_Expand,PrincipalAttributeAccessMap_Filter,PrincipalAttributeAccessMap_Fixed,PrincipalAttributeAccessMap_Result,PrincipalAttributeAccessMap_FormattedResult>;
+  owner_principalentitybusinessunitmap: WebMappingRetrieve<PrincipalEntityBusinessUnitMap_Select,PrincipalEntityBusinessUnitMap_Expand,PrincipalEntityBusinessUnitMap_Filter,PrincipalEntityBusinessUnitMap_Fixed,PrincipalEntityBusinessUnitMap_Result,PrincipalEntityBusinessUnitMap_FormattedResult>;
+  owner_principalentitymap: WebMappingRetrieve<PrincipalEntityMap_Select,PrincipalEntityMap_Expand,PrincipalEntityMap_Filter,PrincipalEntityMap_Fixed,PrincipalEntityMap_Result,PrincipalEntityMap_FormattedResult>;
+  owner_processsessions: WebMappingRetrieve<ProcessSession_Select,ProcessSession_Expand,ProcessSession_Filter,ProcessSession_Fixed,ProcessSession_Result,ProcessSession_FormattedResult>;
+  owner_processstageparameter: WebMappingRetrieve<processstageparameter_Select,processstageparameter_Expand,processstageparameter_Filter,processstageparameter_Fixed,processstageparameter_Result,processstageparameter_FormattedResult>;
+  owner_profilerule: WebMappingRetrieve<ChannelAccessProfileRule_Select,ChannelAccessProfileRule_Expand,ChannelAccessProfileRule_Filter,ChannelAccessProfileRule_Fixed,ChannelAccessProfileRule_Result,ChannelAccessProfileRule_FormattedResult>;
+  owner_queues: WebMappingRetrieve<Queue_Select,Queue_Expand,Queue_Filter,Queue_Fixed,Queue_Result,Queue_FormattedResult>;
+  owner_recurrencerules: WebMappingRetrieve<RecurrenceRule_Select,RecurrenceRule_Expand,RecurrenceRule_Filter,RecurrenceRule_Fixed,RecurrenceRule_Result,RecurrenceRule_FormattedResult>;
+  owner_recurringappointmentmasters: WebMappingRetrieve<RecurringAppointmentMaster_Select,RecurringAppointmentMaster_Expand,RecurringAppointmentMaster_Filter,RecurringAppointmentMaster_Fixed,RecurringAppointmentMaster_Result,RecurringAppointmentMaster_FormattedResult>;
+  owner_reports: WebMappingRetrieve<Report_Select,Report_Expand,Report_Filter,Report_Fixed,Report_Result,Report_FormattedResult>;
+  owner_revokeinheritedaccessrecordstracker: WebMappingRetrieve<revokeinheritedaccessrecordstracker_Select,revokeinheritedaccessrecordstracker_Expand,revokeinheritedaccessrecordstracker_Filter,revokeinheritedaccessrecordstracker_Fixed,revokeinheritedaccessrecordstracker_Result,revokeinheritedaccessrecordstracker_FormattedResult>;
+  owner_routingrule: WebMappingRetrieve<RoutingRule_Select,RoutingRule_Expand,RoutingRule_Filter,RoutingRule_Fixed,RoutingRule_Result,RoutingRule_FormattedResult>;
+  owner_sharepointdocument: WebMappingRetrieve<SharePointDocument_Select,SharePointDocument_Expand,SharePointDocument_Filter,SharePointDocument_Fixed,SharePointDocument_Result,SharePointDocument_FormattedResult>;
+  owner_sharepointdocumentlocation: WebMappingRetrieve<SharePointDocumentLocation_Select,SharePointDocumentLocation_Expand,SharePointDocumentLocation_Filter,SharePointDocumentLocation_Fixed,SharePointDocumentLocation_Result,SharePointDocumentLocation_FormattedResult>;
+  owner_sharepointsite: WebMappingRetrieve<SharePointSite_Select,SharePointSite_Expand,SharePointSite_Filter,SharePointSite_Fixed,SharePointSite_Result,SharePointSite_FormattedResult>;
+  owner_slas: WebMappingRetrieve<SLA_Select,SLA_Expand,SLA_Filter,SLA_Fixed,SLA_Result,SLA_FormattedResult>;
+  owner_socialactivities: WebMappingRetrieve<SocialActivity_Select,SocialActivity_Expand,SocialActivity_Filter,SocialActivity_Fixed,SocialActivity_Result,SocialActivity_FormattedResult>;
+  owner_solutioncomponentbatchconfiguration: WebMappingRetrieve<solutioncomponentbatchconfiguration_Select,solutioncomponentbatchconfiguration_Expand,solutioncomponentbatchconfiguration_Filter,solutioncomponentbatchconfiguration_Fixed,solutioncomponentbatchconfiguration_Result,solutioncomponentbatchconfiguration_FormattedResult>;
+  owner_stagesolutionupload: WebMappingRetrieve<StageSolutionUpload_Select,StageSolutionUpload_Expand,StageSolutionUpload_Filter,StageSolutionUpload_Fixed,StageSolutionUpload_Result,StageSolutionUpload_FormattedResult>;
+  owner_tasks: WebMappingRetrieve<Task_Select,Task_Expand,Task_Filter,Task_Fixed,Task_Result,Task_FormattedResult>;
+  owner_templates: WebMappingRetrieve<Template_Select,Template_Expand,Template_Filter,Template_Fixed,Template_Result,Template_FormattedResult>;
+  owner_untrackedemails: WebMappingRetrieve<UntrackedEmail_Select,UntrackedEmail_Expand,UntrackedEmail_Filter,UntrackedEmail_Fixed,UntrackedEmail_Result,UntrackedEmail_FormattedResult>;
+  owner_userapplicationmetadata: WebMappingRetrieve<UserApplicationMetadata_Select,UserApplicationMetadata_Expand,UserApplicationMetadata_Filter,UserApplicationMetadata_Fixed,UserApplicationMetadata_Result,UserApplicationMetadata_FormattedResult>;
+  owner_userentityinstancedata: WebMappingRetrieve<UserEntityInstanceData_Select,UserEntityInstanceData_Expand,UserEntityInstanceData_Filter,UserEntityInstanceData_Fixed,UserEntityInstanceData_Result,UserEntityInstanceData_FormattedResult>;
+  owner_userentityuisettings: WebMappingRetrieve<UserEntityUISettings_Select,UserEntityUISettings_Expand,UserEntityUISettings_Filter,UserEntityUISettings_Fixed,UserEntityUISettings_Result,UserEntityUISettings_FormattedResult>;
+  owner_userform: WebMappingRetrieve<UserForm_Select,UserForm_Expand,UserForm_Filter,UserForm_Fixed,UserForm_Result,UserForm_FormattedResult>;
+  owner_userquerys: WebMappingRetrieve<UserQuery_Select,UserQuery_Expand,UserQuery_Filter,UserQuery_Fixed,UserQuery_Result,UserQuery_FormattedResult>;
+  owner_userqueryvisualizations: WebMappingRetrieve<UserQueryVisualization_Select,UserQueryVisualization_Expand,UserQueryVisualization_Filter,UserQueryVisualization_Fixed,UserQueryVisualization_Result,UserQueryVisualization_FormattedResult>;
+  owner_workflowbinary: WebMappingRetrieve<workflowbinary_Select,workflowbinary_Expand,workflowbinary_Filter,workflowbinary_Fixed,workflowbinary_Result,workflowbinary_FormattedResult>;
+  owner_workflows: WebMappingRetrieve<Workflow_Select,Workflow_Expand,Workflow_Filter,Workflow_Fixed,Workflow_Result,Workflow_FormattedResult>;
+  slakpiinstance_owner: WebMappingRetrieve<SLAKPIInstance_Select,SLAKPIInstance_Expand,SLAKPIInstance_Filter,SLAKPIInstance_Fixed,SLAKPIInstance_Result,SLAKPIInstance_FormattedResult>;
+}
+interface WebEntitiesRetrieve {
+  owners: WebMappingRetrieve<Owner_Select,Owner_Expand,Owner_Filter,Owner_Fixed,Owner_Result,Owner_FormattedResult>;
+}
+interface WebEntitiesRelated {
+  owners: WebMappingRelated<Owner_RelatedOne,Owner_RelatedMany>;
+}
+interface WebEntitiesCUDA {
+  owners: WebMappingCUDA<Owner_Create,Owner_Update,Owner_Select>;
+}

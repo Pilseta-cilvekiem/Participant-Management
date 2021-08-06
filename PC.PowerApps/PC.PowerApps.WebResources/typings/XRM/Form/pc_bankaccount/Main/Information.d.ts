@@ -39,6 +39,7 @@ declare namespace Form.pc_bankaccount.Main {
     getAttribute(attributeName: "pc_transactionimporterror"): Xrm.Attribute<string>;
     getAttribute(attributeName: "pc_transactionimportstatus"): Xrm.OptionSetAttribute<pc_transactionimportstatus>;
     getAttribute(attributeName: string): undefined;
+    getAttribute(delegateFunction: Xrm.Collection.MatchingDelegate<Xrm.Attribute<any>>): Xrm.Attribute<any>[];
     getControl(controlName: "modifiedon"): Xrm.DateControl;
     getControl(controlName: "notescontrol"): Xrm.BaseControl;
     getControl(controlName: "pc_lastimportedtransactiondate"): Xrm.DateControl;
@@ -46,5 +47,6 @@ declare namespace Form.pc_bankaccount.Main {
     getControl(controlName: "pc_transactionimporterror"): Xrm.StringControl;
     getControl(controlName: "pc_transactionimportstatus"): Xrm.OptionSetControl<pc_transactionimportstatus>;
     getControl(controlName: string): undefined;
+    getControl(delegateFunction: Xrm.Collection.MatchingDelegate<Xrm.Control<any>>): Xrm.Control<any>[];
   }
 }
