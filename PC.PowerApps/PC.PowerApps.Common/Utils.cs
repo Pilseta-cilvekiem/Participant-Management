@@ -1,5 +1,7 @@
 ﻿using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Messages;
+using Microsoft.Xrm.Sdk.Metadata;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;
@@ -43,7 +45,7 @@ namespace PC.PowerApps.Common
             return Equals(object1, object2);
         }
 
-        public static List<string> GetAttributeNames<TEntity>(Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
+        public static List<string> GetAttributeLogicalNames<TEntity>(Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
         {
             List<string> attributeNames = new();
 
@@ -115,6 +117,32 @@ namespace PC.PowerApps.Common
                 IssueSend = true,
             };
             _ = context.OrganizationService.Execute(sendEmailRequest);
+        }
+
+        public static AttributeMetadata GetAttributeMetadata(Context context, string entityLogicalName, string attributeLogicalName)
+        {
+            RetrieveAttributeRequest retrieveAttributeRequest = new()
+            {
+                EntityLogicalName = entityLogicalName,
+                LogicalName = attributeLogicalName,
+            };
+            RetrieveAttributeResponse retrieveAttributeResponse = (RetrieveAttributeResponse)context.OrganizationService.Execute(retrieveAttributeRequest);
+            return retrieveAttributeResponse.AttributeMetadata;
+        }
+
+        public static EntityMetadata GetEntityMetadata(Context context, string entityLogicalName)
+        {
+            RetrieveEntityRequest retrieveEntityRequest = new()
+            {
+                LogicalName = entityLogicalName,
+            };
+            RetrieveEntityResponse retrieveEntityResponse = (RetrieveEntityResponse)context.OrganizationService.Execute(retrieveEntityRequest);
+            return retrieveEntityResponse.EntityMetadata;
+        }
+
+        public static string GetLabelValue(Label label)
+        {
+            return label.UserLocalizedLabel.Label;
         }
     }
 }

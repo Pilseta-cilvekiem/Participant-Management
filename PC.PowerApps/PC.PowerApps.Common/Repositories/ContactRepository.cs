@@ -186,6 +186,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void SendDebtReminder(Context context, Guid contactId)
         {
+            context.VerifyAttributesNotEmpty(context, context.Settings, s => new { s.pc_EmailSender });
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId);
 
             if (contact.pc_Debt is null || contact.pc_Debt.Value <= 0)
