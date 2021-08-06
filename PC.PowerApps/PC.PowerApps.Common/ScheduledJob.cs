@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,8 +22,9 @@ namespace PC.PowerApps.Common
 
             if (!allowDuplicates)
             {
+                DateTime utcNow = DateTime.UtcNow;
                 scheduledJob = Context.ServiceContext.pc_ScheduledJobSet
-                    .Where(sj => sj.pc_Name == name && sj.pc_Parameters == parameters && sj.StatusCode == pc_ScheduledJob_StatusCode.Pending)
+                    .Where(sj => sj.pc_Name == name && sj.pc_Parameters == parameters && sj.StatusCode == pc_ScheduledJob_StatusCode.Pending && sj.pc_ExecuteOn <= DateTime.UtcNow)
                     .FirstOrDefault();
 
                 if (scheduledJob is not null)
