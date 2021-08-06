@@ -24,7 +24,7 @@ namespace PC.PowerApps.Common
             {
                 DateTime utcNow = DateTime.UtcNow;
                 scheduledJob = Context.ServiceContext.pc_ScheduledJobSet
-                    .Where(sj => sj.pc_Name == name && sj.pc_Parameters == parameters && sj.StatusCode == pc_ScheduledJob_StatusCode.Pending && sj.pc_ExecuteOn <= DateTime.UtcNow)
+                    .Where(sj => sj.pc_Name == name && sj.pc_Parameters == parameters && (sj.StatusCode == pc_ScheduledJob_StatusCode.Pending || sj.StatusCode == pc_ScheduledJob_StatusCode.Failed) && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
                     .FirstOrDefault();
 
                 if (scheduledJob is not null)
