@@ -616,6 +616,10 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Debt Reminder", 0)]
 		DebtReminder = 947970000,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Supporter Welcome Email", 1)]
+		SupporterWelcomeEmail = 947970001,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]

@@ -17,6 +17,11 @@ namespace PC.PowerApps.Plugins.Plugins
             {
                 ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
             }
+
+            if (context.IsModifiedAnyAttribute(c => new { c.pc_ParticipationLevel, c.StateCode }))
+            {
+                ContactRepository.SendWelcomeEmail(context, contact);
+            }
         }
 
         protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)

@@ -15,6 +15,7 @@ namespace PC.PowerApps.Common.Repositories
     {
         private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
         private static readonly DateTime participantFeePeriod1Start = new(2019, 4, 1);
+        private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
 
         public static void UpdateParticipationLevel(Context context, Guid? contactId)
         {
@@ -25,6 +26,28 @@ namespace PC.PowerApps.Common.Repositories
 
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
             UpdateParticipationLevel(context, contact);
+        }
+
+        public static void SendWelcomeEmail(Context context, Contact contact)
+        {
+            if (contact.StateCode != ContactState.Active || contact.pc_ParticipationLevel != pc_ParticipationLevel.Supporter || contact.pc_SentSupporterWelcomeEmailOn is not null)
+            {
+                return;
+            }
+
+            pc_Participation participation = context.ServiceContext.pc_ParticipationSet
+                .Where(p => p.pc_Contact.Id == contact.Id && p.StateCode == pc_ParticipationState.Active && p.pc_Level == pc_ParticipationLevel.Supporter)
+                .OrderByDescending(p => p.pc_From)
+                .TakeSingle();
+            EntityReference contactReference = contact.ToEntityReference();
+            Email email = Utils.CreateEmailFromTemplate(context, supporterWelcomeEmailTemplateId, contactReference);
+            string supporterFrom = participation.GetFormattedValue(p => p.pc_From);
+            email.Description = email.Description.Replace("{!SupporterFrom;}", supporterFrom);
+            email.pc_Category = pc_EmailCategory.SupporterWelcomeEmail;
+            email.RegardingObjectId = contactReference;
+            email.To = new List<ActivityParty> { new() { PartyId = contactReference } };
+            context.OrganizationService.CreateWithoutNulls(email);
+            Utils.SendEmail(context, email);
         }
 
         public static void CalculatePaidParticipationFee(Context context, Guid? contactId)
@@ -46,14 +69,25 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void SetSentDebtReminderOn(Context context, Email email)
         {
-            if (email.StatusCode != Email_StatusCode.Sent || email.pc_Category != pc_EmailCategory.DebtReminder)
+            if (email.StatusCode != Email_StatusCode.PendingSend)
             {
                 return;
             }
 
-            Contact contact = context.ServiceContext.Retrieve<Contact>(email.RegardingObjectId);
-            contact.pc_SentDebtReminderOn = email.ModifiedOn;
-            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
+            switch (email.pc_Category)
+            {
+                case pc_EmailCategory.DebtReminder:
+                    Contact debtReminderContact = context.ServiceContext.Retrieve<Contact>(email.RegardingObjectId);
+                    debtReminderContact.pc_SentDebtReminderOn = email.ModifiedOn;
+                    _ = context.ServiceContext.UpdateModifiedAttributes(debtReminderContact);
+                    break;
+
+                case pc_EmailCategory.SupporterWelcomeEmail:
+                    Contact supporterWelcomeEmailContact = context.ServiceContext.Retrieve<Contact>(email.RegardingObjectId);
+                    supporterWelcomeEmailContact.pc_SentSupporterWelcomeEmailOn = email.ModifiedOn;
+                    _ = context.ServiceContext.UpdateModifiedAttributes(supporterWelcomeEmailContact);
+                    break;
+            }
         }
 
         private static void UpdateParticipationLevel(Context context, Contact contact)
@@ -196,7 +230,6 @@ namespace PC.PowerApps.Common.Repositories
 
             EntityReference contactReference = contact.ToEntityReference();
             Email email = Utils.CreateEmailFromTemplate(context, debtReminderEmailTemplateId, contactReference);
-            email.From = new List<ActivityParty> { new() { PartyId = context.Settings.pc_EmailSender } };
             email.pc_Category = pc_EmailCategory.DebtReminder;
             email.RegardingObjectId = contactReference;
             email.To = new List<ActivityParty> { new() { PartyId = contactReference } };
@@ -215,7 +248,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static bool IsValidForGoogleSupporterGroup(Contact contact)
         {
-            return contact != null && contact.StateCode == ContactState.Active && contact.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && contact.pc_WishesToBeActive == true && contact.pc_PaidParticipationFee.Value > 0 && contact.EMailAddress1 != null && contact.EMailAddress1 != string.Empty;
+            return contact != null && contact.StateCode == ContactState.Active && contact.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && contact.pc_WishesToBeActive == true && contact.pc_PaidParticipationFee.Value >= 2 && contact.EMailAddress1 != null && contact.EMailAddress1 != string.Empty;
         }
 
         public static void SetDefaults(Contact contact)

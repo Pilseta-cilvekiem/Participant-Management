@@ -37,7 +37,7 @@ namespace PC.PowerApps.ClientBase.Repositories
                 .Select(m => m.Email)
                 .ToHashSet();
             List<Contact> activeSupporters = context.ServiceContext.ContactSet
-                .Where(c => c.StateCode == ContactState.Active && c.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && c.pc_WishesToBeActive == true && c.pc_PaidParticipationFee.Value > 0 && c.EMailAddress1 != null && c.EMailAddress1 != string.Empty)
+                .Where(c => c.StateCode == ContactState.Active && c.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && c.pc_WishesToBeActive == true && c.pc_PaidParticipationFee.Value >= 2 && c.EMailAddress1 != null && c.EMailAddress1 != string.Empty)
                 .Select(c => new Contact
                 {
                     ContactId = c.ContactId,
