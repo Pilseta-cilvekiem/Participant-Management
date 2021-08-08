@@ -255,5 +255,19 @@ namespace PC.PowerApps.Common.Repositories
         {
             contact.pc_PaidParticipationFee ??= new();
         }
+
+        public static void SetStatusCode(Contact contact)
+        {
+            if (contact.pc_ParticipationLevel is null)
+            {
+                contact.StateCode = ContactState.Inactive;
+                contact.StatusCode = Contact_StatusCode.Inactive;
+            }
+            else
+            {
+                contact.StateCode = ContactState.Active;
+                contact.StatusCode = Contact_StatusCode.Active;
+            }
+        }
     }
 }
