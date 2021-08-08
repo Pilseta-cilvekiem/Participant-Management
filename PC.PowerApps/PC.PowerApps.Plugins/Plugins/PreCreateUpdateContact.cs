@@ -17,6 +17,11 @@ namespace PC.PowerApps.Plugins.Plugins
             {
                 ContactRepository.SetDefaults(contact);
             }
+
+            if (context.IsModifiedAnyAttribute(c => c.pc_ParticipationLevel))
+            {
+                ContactRepository.SetStatusCode(contact);
+            }
         }
 
         protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
