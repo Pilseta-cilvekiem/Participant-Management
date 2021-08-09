@@ -4,9 +4,9 @@ using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 
-namespace PC.PowerApps.Plugins.Plugins
+namespace PC.PowerApps.Plugins.Bound.Payments
 {
-    public class PreCreateUpdatePayment : PluginBase
+    public class PreCreateUpdate : PluginBase
     {
         protected override void Execute(PluginContext pluginContext)
         {
@@ -16,9 +16,9 @@ namespace PC.PowerApps.Plugins.Plugins
             if (context.IsAnyAttributeModified(p => p.pc_Transaction))
             {
                 pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(payment.pc_Transaction);
-                payment.pc_Amount ??= new(Utils.GetAmountOrZero(transaction.pc_RemainingAmount));
+                payment.pc_Amount ??= new(Utils.GetAmountOrZero(transaction?.pc_RemainingAmount));
                 payment.pc_Date = transaction?.pc_Date;
-                payment.TransactionCurrencyId = transaction.TransactionCurrencyId;
+                payment.TransactionCurrencyId = transaction?.TransactionCurrencyId;
             }
         }
 

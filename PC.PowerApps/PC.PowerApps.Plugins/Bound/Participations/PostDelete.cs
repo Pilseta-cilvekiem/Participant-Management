@@ -5,9 +5,9 @@ using PC.PowerApps.Plugins.Enumerations;
 using PC.PowerApps.Plugins.Extensions;
 using System;
 
-namespace PC.PowerApps.Plugins.Plugins
+namespace PC.PowerApps.Plugins.Bound.Participations
 {
-    public class PostDeleteParticipation : PluginBase
+    public class PostDelete : PluginBase
     {
         protected override void Execute(PluginContext pluginContext)
         {
