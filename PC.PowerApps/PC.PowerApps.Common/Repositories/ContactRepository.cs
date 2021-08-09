@@ -248,7 +248,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static bool IsValidForGoogleSupporterGroup(Contact contact)
         {
-            return contact != null && contact.StateCode == ContactState.Active && contact.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && contact.pc_WishesToBeActive == true && contact.pc_PaidParticipationFee.Value >= 2 && contact.EMailAddress1 != null && contact.EMailAddress1 != string.Empty;
+            return contact != null && contact.StateCode == ContactState.Active && contact.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && contact.pc_WishesToBeActive == true && contact.pc_PaidParticipationFee.Value >= 2 && !string.IsNullOrEmpty(contact.EMailAddress1);
         }
 
         public static void SetDefaults(Contact contact)

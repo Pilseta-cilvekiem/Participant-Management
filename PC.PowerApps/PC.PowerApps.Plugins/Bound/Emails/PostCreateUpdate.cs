@@ -4,9 +4,9 @@ using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 
-namespace PC.PowerApps.Plugins.Plugins
+namespace PC.PowerApps.Plugins.Bound.Emails
 {
-    public class PostCreateUpdateEmail : PluginBase
+    public class PostCreateUpdate : PluginBase
     {
         protected override void Execute(PluginContext pluginContext)
         {
