@@ -1,27 +1,17 @@
 ﻿using PC.PowerApps.Common.Entities.Dataverse;
-using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 
 namespace PC.PowerApps.Plugins.Bound.Contacts
 {
-    public class PreCreateUpdate : PluginBase
+    public class PreValidateCreateUpdate : PluginBase
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
             PreCreateUpdatePluginContext<Contact> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
-            Contact contact = context.PostImage;
-
-            if (context.Message == PluginMessage.Create)
-            {
-                ContactRepository.SetDefaults(contact);
-            }
-
-            if (context.GetIsAnyAttributeModified(c => c.pc_ParticipationLevel))
-            {
-                ContactRepository.SetStatusCode(contact);
-            }
+            context.EnsureAttributesNotModified(c => new { c.pc_PaidParticipationFee, c.pc_ParticipationLevel, c.pc_RequiredParticipationFee, c.pc_SentDebtReminderOn, c.pc_SentSupporterWelcomeEmailOn, c.StatusCode });
+            context.EnsureModifiedAttributesNotEmpty(c => new { c.Description, c.EMailAddress1, c.FirstName, c.LastName, c.pc_PersonalIdentityNumber });
         }
     }
 }

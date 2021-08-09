@@ -1,26 +1,36 @@
-﻿using PC.PowerApps.ClientBase;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Xrm.Sdk.Query;
+using Microsoft.Xrm.Tooling.Connector;
+using PC.PowerApps.ClientBase;
+using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp
 {
+    [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
     [SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "<Pending>")]
+    [SuppressMessage("CodeQuality", "IDE0079:Remove unnecessary suppression", Justification = "<Pending>")]
     internal class TestApp
     {
         private readonly Lazy<CrmServiceClientContext> context;
         private readonly Lazy<ScheduledJobProcessor> scheduledJobProcessor;
+        private readonly IConfiguration configuration;
 
         private CrmServiceClientContext Context => context.Value;
 
-        public TestApp(Lazy<CrmServiceClientContext> context, Lazy<ScheduledJobProcessor> scheduledJobProcessor)
+        public TestApp(Lazy<CrmServiceClientContext> context, Lazy<ScheduledJobProcessor> scheduledJobProcessor, IConfiguration configuration)
         {
             this.context = context;
             this.scheduledJobProcessor = scheduledJobProcessor;
+            this.configuration = configuration;
         }
 
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
@@ -66,12 +76,26 @@ namespace PC.PowerApps.TestConsoleApp
 
             //await GoogleGroupMemberRepository.SynchronizeSupporters(Context);
 
-            List<Contact> contacts = Context.ServiceContext.ContactSet.ToList();
+            //List<Contact> contacts = Context.ServiceContext.ContactSet.ToList();
 
-            foreach (Contact contact in contacts)
-            {
-                ContactRepository.CalculatePaidParticipationFee(Context, contact.Id);
-            }
+            //foreach (Contact contact in contacts)
+            //{
+            //    ContactRepository.CalculatePaidParticipationFee(Context, contact.Id);
+            //}
+
+            //CrmServiceClient crmServiceClient = new(configuration.GetConnectionString("Dataverse"));
+            ////QueryExpression queryExpression = new(SystemUser.EntityLogicalName);
+            ////queryExpression.Criteria.AddCondition("systemuserid", ConditionOperator.EqualUserId);
+            //Stopwatch stopwatch = Stopwatch.StartNew();
+            //_ = crmServiceClient.GetMyCrmUserId();
+            ////crmServiceClient.RetrieveMultiple(queryExpression);
+            //Console.WriteLine($"{stopwatch.Elapsed.TotalMilliseconds}");
+
+            Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
+            contact.FirstName = "Test";
+            Context.ServiceContext.UpdateModifiedAttributes(contact);
+
+            //ContactRepository.UpdateParticipationLevels(Context);
         }
     }
 }

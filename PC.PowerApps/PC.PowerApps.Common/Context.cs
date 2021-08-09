@@ -12,37 +12,44 @@ namespace PC.PowerApps.Common
     public abstract class Context : IDisposable
     {
         private bool disposedValue;
-        private readonly Lazy<ILogger> logger;
-        private readonly Lazy<IOrganizationService> organizationService;
-        private readonly Lazy<ServiceContext> serviceContext;
-        private readonly Lazy<pc_Settings> settings;
-        private readonly Lazy<TimeZoneInfo> timeZoneInfo = new(() => TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
-        private readonly Lazy<IOrganizationService> userOrganizationService;
-        private readonly Lazy<ServiceContext> userServiceContext;
+        private readonly Lazy<ILogger> lazyLogger;
+        private readonly Lazy<Organization> lazyOrganization;
+        private readonly Lazy<IOrganizationService> lazyOrganizationService;
+        private readonly Lazy<ServiceContext> lazyServiceContext;
+        private readonly Lazy<pc_Settings> lazySettings;
+        private readonly Lazy<TimeZoneInfo> lazyTimeZoneInfo = new(() => TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
+        private readonly Lazy<SystemUser> lazyUser;
+        private readonly Lazy<IOrganizationService> lazyUserOrganizationService;
+        private readonly Lazy<ServiceContext> lazyUserServiceContext;
 
-        public ILogger Logger => logger.Value;
-        public IOrganizationService OrganizationService => organizationService.Value;
-        public ServiceContext ServiceContext => serviceContext.Value;
-        public pc_Settings Settings => settings.Value;
-        public TimeZoneInfo TimeZoneInfo => timeZoneInfo.Value;
-        public IOrganizationService UserOrganizationService => userOrganizationService.Value;
-        public ServiceContext UserServiceContext => userServiceContext.Value;
+        public ILogger Logger => lazyLogger.Value;
+        public Organization Organization => lazyOrganization.Value;
+        public IOrganizationService OrganizationService => lazyOrganizationService.Value;
+        public ServiceContext ServiceContext => lazyServiceContext.Value;
+        public pc_Settings Settings => lazySettings.Value;
+        public TimeZoneInfo TimeZoneInfo => lazyTimeZoneInfo.Value;
+        public abstract Guid UserId { get; }
+        public IOrganizationService UserOrganizationService => lazyUserOrganizationService.Value;
+        public ServiceContext UserServiceContext => lazyUserServiceContext.Value;
+        public SystemUser User => lazyUser.Value;
 
-        protected Context(Lazy<IOrganizationService> organizationService, Lazy<ILogger> logger) : this(organizationService, organizationService, logger)
+        protected Context(Lazy<IOrganizationService> lazyOrganizationService, Lazy<ILogger> lazyLogger) : this(lazyOrganizationService, lazyOrganizationService, lazyLogger)
         {
         }
 
-        protected Context(Lazy<IOrganizationService> organizationService, Lazy<IOrganizationService> userOrganizationService, Lazy<ILogger> logger)
+        protected Context(Lazy<IOrganizationService> lazyOrganizationService, Lazy<IOrganizationService> lazyUserOrganizationService, Lazy<ILogger> lazyLogger)
         {
-            this.logger = logger;
-            this.organizationService = organizationService;
-            serviceContext = new(() => new(OrganizationService));
-            settings = new(() => ServiceContext.pc_SettingsSet
+            this.lazyLogger = lazyLogger;
+            lazyOrganization = new(() => ServiceContext.OrganizationSet.TakeSingle());
+            this.lazyOrganizationService = lazyOrganizationService;
+            lazyServiceContext = new(() => new(OrganizationService));
+            lazySettings = new(() => ServiceContext.pc_SettingsSet
                 .Where(s => s.StateCode == pc_SettingsState.Active)
                 .TakeSingle("Active settings do not exist", "There are more than one active settings."));
-            this.userOrganizationService = userOrganizationService;
-            userServiceContext = userOrganizationService == organizationService
-                ? serviceContext
+            lazyUser = new(() => ServiceContext.Retrieve<SystemUser>(UserId));
+            this.lazyUserOrganizationService = lazyUserOrganizationService;
+            lazyUserServiceContext = lazyUserOrganizationService == lazyOrganizationService
+                ? lazyServiceContext
                 : new(() => new(UserOrganizationService));
         }
 
@@ -67,7 +74,7 @@ namespace PC.PowerApps.Common
             List<string> emptyAttributeLogicalNames = attributeLogicalNamesToCheck
                 .Where(aln => Utils.IsEmptyValue(aln))
                 .ToList();
-            Utils.EnsureNoAttributes(this, entity.LogicalName, emptyAttributeLogicalNames, "cannot be empty");
+            Utils.EnsureNoAttributes(this, entity.LogicalName, emptyAttributeLogicalNames, CommonConstants.CannotBeEmpty, CommonConstants.CannotBeEmpty);
         }
 
         protected virtual void Dispose(bool disposing)
@@ -76,7 +83,7 @@ namespace PC.PowerApps.Common
             {
                 if (disposing)
                 {
-                    if (serviceContext.IsValueCreated)
+                    if (lazyServiceContext.IsValueCreated)
                     {
                         ServiceContext.Dispose();
                     }

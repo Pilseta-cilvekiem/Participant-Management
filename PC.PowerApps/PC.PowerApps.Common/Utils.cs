@@ -197,7 +197,7 @@ namespace PC.PowerApps.Common
             return entityDisplayName;
         }
 
-        public static void EnsureNoAttributes(Context context, string entityLogicalName, List<string> attributeLogicalNames, string text)
+        public static void EnsureNoAttributes(Context context, string entityLogicalName, List<string> attributeLogicalNames, string textSingle, string textMultiple)
         {
             if (attributeLogicalNames.Count == 0)
             {
@@ -213,10 +213,10 @@ namespace PC.PowerApps.Common
 
             if (attributeDisplayNames.Count == 1)
             {
-                throw new InvalidPluginExecutionException($"{entityDisplayName} column {attributeDisplayNameString} {text}.");
+                throw new InvalidPluginExecutionException($"{entityDisplayName} column {attributeDisplayNameString} {textSingle}.");
             }
 
-            throw new InvalidPluginExecutionException($"{entityDisplayName} columns {attributeDisplayNameString} {text}.");
+            throw new InvalidPluginExecutionException($"{entityDisplayName} columns {attributeDisplayNameString} {textMultiple}.");
         }
 
         public static bool IsEmptyValue(object @object)

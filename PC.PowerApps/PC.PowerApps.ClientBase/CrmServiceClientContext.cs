@@ -11,6 +11,9 @@ namespace PC.PowerApps.ClientBase
     {
         private readonly Lazy<CrmServiceClient> crmServiceClient;
         private bool disposedValue = false;
+        private readonly Lazy<Guid> lazyUserId;
+
+        public override Guid UserId => lazyUserId.Value;
 
         public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger<CrmServiceClientContext>> logger) : this(configuration, GetILogger(logger))
         {
@@ -23,6 +26,7 @@ namespace PC.PowerApps.ClientBase
         private CrmServiceClientContext(Lazy<CrmServiceClient> crmServiceClient, Lazy<ILogger> logger) : base(GetOrganizationService(crmServiceClient), logger)
         {
             this.crmServiceClient = crmServiceClient;
+            lazyUserId = new(() => crmServiceClient.Value.GetMyCrmUserId());
         }
 
         private static Lazy<CrmServiceClient> GetCrmServiceClient(Lazy<IConfiguration> configuration)

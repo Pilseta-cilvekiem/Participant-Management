@@ -8,17 +8,12 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
 {
     public class MarkAsNonPayment : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            CustomApiPluginContext context = (CustomApiPluginContext)pluginContext;
+            CustomApiPluginContext context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(context.Target);
             TransactionRepository.MarkAsNonPayment(transaction);
             _ = context.ServiceContext.UpdateModifiedAttributes(transaction);
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new CustomApiPluginContext(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

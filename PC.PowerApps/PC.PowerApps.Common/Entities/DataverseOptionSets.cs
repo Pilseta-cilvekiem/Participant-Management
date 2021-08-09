@@ -597,6 +597,365 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_CurrencyDisplayOption
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Currency code", 1)]
+		Currencycode = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Currency symbol", 0)]
+		Currencysymbol = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_CurrencyFormatCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("123$", 1)]
+		_123CurrencySymbol__1 = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("123 $", 3)]
+		_123CurrencySymbol__3 = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("$123", 0)]
+		CurrencySymbol_123_0 = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("$ 123", 2)]
+		CurrencySymbol_123_2 = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_DefaultRecurrenceEndRangeType
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("End By Date", 2)]
+		EndByDate = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("No End Date", 0)]
+		NoEndDate = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Number of Occurrences", 1)]
+		NumberofOccurrences = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_DiscountCalculationMethod
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Line item", 0)]
+		Lineitem = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Per unit", 1)]
+		Perunit = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_EmailConnectionChannel
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Microsoft Dynamics 365 Email Router", 1)]
+		MicrosoftDynamics365EmailRouter = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Server-Side Synchronization", 0)]
+		ServerSideSynchronization = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_FiscalYearFormatYear
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("GGYY", 2)]
+		GGYY = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("YY", 1)]
+		YY = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("YYYY", 0)]
+		YYYY = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_FiscalYearFormatPrefix
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("", 1)]
+		_2 = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("FY", 0)]
+		FY = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_FiscalYearFormatSuffix
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("", 2)]
+		_3 = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute(" Fiscal Year", 1)]
+		FiscalYear = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("FY", 0)]
+		FY = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_FiscalPeriodFormatPeriod
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("M{0}", 4)]
+		M0 = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Month {0}", 3)]
+		Month0 = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Month Name", 6)]
+		MonthName = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("P{0}", 2)]
+		P0 = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Q{0}", 1)]
+		Q0 = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Quarter {0}", 0)]
+		Quarter0 = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Semester {0}", 5)]
+		Semester0 = 6,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_FullNameConventionCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("First Name", 1)]
+		FirstName = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("First Name, Middle Initial, Last Name", 3)]
+		FirstNameMiddleInitialLastName = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("First Name, Middle Name, Last Name", 5)]
+		FirstNameMiddleNameLastName = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Last Name, First Name", 0)]
+		LastNameFirstName = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Last Name, First Name, Middle Initial", 2)]
+		LastNameFirstNameMiddleInitial = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Last Name, First Name, Middle Name", 4)]
+		LastNameFirstNameMiddleName = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Last Name, no space, First Name", 7)]
+		LastNamenospaceFirstName = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Last Name, space, First Name", 6)]
+		LastNamespaceFirstName = 6,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_ISVIntegrationCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("All", 7)]
+		All = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("None", 0)]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Outlook", 6)]
+		Outlook = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Outlook Laptop Client", 4)]
+		OutlookLaptopClient = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Outlook Workstation Client", 2)]
+		OutlookWorkstationClient = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Web", 1)]
+		Web = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Web; Outlook Laptop Client", 5)]
+		WebOutlookLaptopClient = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Web; Outlook Workstation Client", 3)]
+		WebOutlookWorkstationClient = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_YammerPostMethod
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Private", 1)]
+		Private = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Public", 0)]
+		Public = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_NegativeFormatCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Brackets", 0)]
+		Brackets = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Dash", 1)]
+		Dash = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Dash plus Space", 2)]
+		DashplusSpace = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Space plus Trailing Dash", 4)]
+		SpaceplusTrailingDash = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Trailing Dash", 3)]
+		TrailingDash = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_OrganizationState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Active", 3)]
+		Active = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Creating", 0)]
+		Creating = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Updating", 2)]
+		Updating = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Upgrading", 1)]
+		Upgrading = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_PluginTraceLogSetting
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("All", 2)]
+		All = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Exception", 1)]
+		Exception = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Off", 0)]
+		Off = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_ReportScriptErrors
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Ask me for permission to send an error report to Microsoft", 1)]
+		AskmeforpermissiontosendanerrorreporttoMicrosoft = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Automatically send an error report to Microsoft without asking me for permission", 2)]
+		AutomaticallysendanerrorreporttoMicrosoftwithoutaskingmeforpermission = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Never send an error report to Microsoft about Microsoft Dynamics 365", 3)]
+		NeversendanerrorreporttoMicrosoftaboutMicrosoftDynamics365 = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("No preference for sending an error report to Microsoft about Microsoft Dynamics 3" +
+			"65", 0)]
+		NopreferenceforsendinganerrorreporttoMicrosoftaboutMicrosoftDynamics365 = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_SharePointDeploymentType
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Online", 0)]
+		Online = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("On-Premises", 1)]
+		OnPremises = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum Organization_SyncOptInSelectionStatus
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Failed", 2)]
+		Failed = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Passed", 1)]
+		Passed = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Processing", 0)]
+		Processing = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
 	public enum pc_BankAccount_StatusCode
 	{
 		
@@ -753,6 +1112,276 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Pending", 0)]
 		Pending = 947970000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum pc_WelcomeMeetingStatus
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Done", 1)]
+		Done = 947970001,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Pending", 0)]
+		Pending = 947970000,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_AccessMode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Administrative", 1)]
+		Administrative = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Delegated Admin", 5)]
+		DelegatedAdmin = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Non-interactive", 4)]
+		Noninteractive = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Read", 2)]
+		Read = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Read-Write", 0)]
+		ReadWrite = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Support User", 3)]
+		SupportUser = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_Address1_AddressTypeCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Default Value", 0)]
+		DefaultValue = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_Address1_ShippingMethodCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Default Value", 0)]
+		DefaultValue = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_Address2_AddressTypeCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Default Value", 0)]
+		DefaultValue = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_Address2_ShippingMethodCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Default Value", 0)]
+		DefaultValue = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_CALType
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Administrative", 1)]
+		Administrative = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Basic", 2)]
+		Basic = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Device Basic", 4)]
+		DeviceBasic = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Device Enterprise", 8)]
+		DeviceEnterprise = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Device Essential", 6)]
+		DeviceEssential = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Device Professional", 3)]
+		DeviceProfessional = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Enterprise", 7)]
+		Enterprise = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Essential", 5)]
+		Essential = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Field Service", 11)]
+		FieldService = 11,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Professional", 0)]
+		Professional = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Project Service", 12)]
+		ProjectService = 12,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Sales", 9)]
+		Sales = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Service", 10)]
+		Service = 10,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_EmailRouterAccessApproval
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Approved", 1)]
+		Approved = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Empty", 0)]
+		Empty = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Pending Approval", 2)]
+		PendingApproval = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Rejected", 3)]
+		Rejected = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_IncomingEmailDeliveryMethod
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Forward Mailbox", 3)]
+		ForwardMailbox = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Microsoft Dynamics 365 for Outlook", 1)]
+		MicrosoftDynamics365forOutlook = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("None", 0)]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Server-Side Synchronization or Email Router", 2)]
+		ServerSideSynchronizationorEmailRouter = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_InviteStatusCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Invitation Accepted", 4)]
+		InvitationAccepted = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Invitation Expired", 3)]
+		InvitationExpired = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Invitation Near Expired", 2)]
+		InvitationNearExpired = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Invitation Not Sent", 0)]
+		InvitationNotSent = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Invitation Rejected", 5)]
+		InvitationRejected = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Invitation Revoked", 6)]
+		InvitationRevoked = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Invited", 1)]
+		Invited = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_OutgoingEmailDeliveryMethod
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Microsoft Dynamics 365 for Outlook", 1)]
+		MicrosoftDynamics365forOutlook = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("None", 0)]
+		None = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Server-Side Synchronization or Email Router", 2)]
+		ServerSideSynchronizationorEmailRouter = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_PreferredAddressCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Mailing Address", 0)]
+		MailingAddress = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Other Address", 1)]
+		OtherAddress = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_PreferredEmailCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Default Value", 0)]
+		DefaultValue = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_PreferredPhoneCode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Home Phone", 2)]
+		HomePhone = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Main Phone", 0)]
+		MainPhone = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Mobile Phone", 3)]
+		MobilePhone = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Other Phone", 1)]
+		OtherPhone = 2,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]

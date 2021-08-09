@@ -15,7 +15,8 @@ namespace PC.PowerApps.TestConsoleApp
         private static async Task Main()
         {
             IConfigurationRoot configurationRoot = new ConfigurationBuilder()
-               .AddUserSecrets<CrmServiceClientContext>()
+               .AddUserSecrets<CrmServiceClientContext>(optional: true, reloadOnChange: false)
+               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
                .Build();
 
             using Logger logger = new LoggerConfiguration()
@@ -25,7 +26,7 @@ namespace PC.PowerApps.TestConsoleApp
             IServiceCollection serviceCollection = new ServiceCollection()
                 .AddLogging(lb => lb.AddSerilog(logger, dispose: true));
 
-            ContainerBuilder containerBuilder = new ContainerBuilder();
+            ContainerBuilder containerBuilder = new();
             containerBuilder.Populate(serviceCollection);
             _ = containerBuilder.RegisterModule<ClientBaseModule>();
             _ = containerBuilder.RegisterType<TestApp>().SingleInstance();

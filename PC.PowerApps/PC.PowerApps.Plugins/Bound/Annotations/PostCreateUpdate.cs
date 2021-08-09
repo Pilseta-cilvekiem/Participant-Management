@@ -8,20 +8,15 @@ namespace PC.PowerApps.Plugins.Bound.Annotations
 {
     public class PostCreateUpdate : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<Annotation> context = (PostCreateUpdatePluginContext<Annotation>)pluginContext;
+            PostCreateUpdatePluginContext<Annotation> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             Annotation annotation = context.PostImage;
 
-            if (context.IsAnyAttributeModified(a => new { a.ObjectId }))
+            if (context.GetIsAnyAttributeModified(a => new { a.ObjectId }))
             {
                 AnnotationRepository.ScheduleImportTransactions(context, annotation);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new PostCreateUpdatePluginContext<Annotation>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

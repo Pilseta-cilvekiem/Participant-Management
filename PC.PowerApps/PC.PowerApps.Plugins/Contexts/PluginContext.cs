@@ -8,56 +8,62 @@ namespace PC.PowerApps.Plugins.Contexts
 {
     public class PluginContext : Context
     {
-        private readonly Lazy<PluginMessage> message;
-        private readonly Lazy<IPluginExecutionContext> pluginExecutionContext;
+        public PluginMessage Message { get; }
+        public IPluginExecutionContext PluginExecutionContext { get; }
+        public override Guid UserId { get; }
 
-        public PluginMessage Message => message.Value;
-        public IPluginExecutionContext PluginExecutionContext => pluginExecutionContext.Value;
-
-        public PluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, userOrganizationServiceUser)
+        public PluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser)
+            : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, userOrganizationServiceUser)
         {
         }
 
-        private PluginContext(Lazy<IOrganizationServiceFactory> organizationServiceFactory, Lazy<IPluginExecutionContext> pluginExecutionContext, Lazy<ITracingService> tracingService, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(GetOrganizationService(organizationServiceFactory, pluginExecutionContext, organizationServiceUser), GetOrganizationService(organizationServiceFactory, pluginExecutionContext, userOrganizationServiceUser), GetTraceLogger(tracingService))
+        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, IPluginExecutionContext pluginExecutionContext, ITracingService tracingService, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser)
+            : this(organizationServiceFactory, GetUserId(pluginExecutionContext, organizationServiceUser), GetUserId(pluginExecutionContext, userOrganizationServiceUser), GetLazyLogger(tracingService))
         {
-            message = new(() => (PluginMessage)Enum.Parse(typeof(PluginMessage), PluginExecutionContext.MessageName));
-            this.pluginExecutionContext = pluginExecutionContext;
-            Lazy<Context> context = new(() => this);
+            Message = (PluginMessage)Enum.Parse(typeof(PluginMessage), pluginExecutionContext.MessageName);
+            PluginExecutionContext = pluginExecutionContext;
         }
 
-        private static Lazy<ILogger> GetTraceLogger(Lazy<ITracingService> tracingService)
+        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, Guid? organizationServiceUserId, Guid? userOrganizationServiceUserId, Lazy<ILogger> lazyLogger)
+            : base(LazyCreateOrganizationService(organizationServiceFactory, organizationServiceUserId), LazyCreateOrganizationService(organizationServiceFactory, userOrganizationServiceUserId), lazyLogger)
         {
-            return new(() => new TraceLogger(tracingService.Value));
+            UserId = userOrganizationServiceUserId.Value;
         }
 
-        private static Lazy<IOrganizationServiceFactory> GetOrganizationServiceFactory(IServiceProvider serviceProvider)
+        private static Lazy<ILogger> GetLazyLogger(ITracingService tracingService)
         {
-            return new(() => (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory)));
+            return new(() => new TraceLogger(tracingService));
         }
 
-        private static Lazy<IOrganizationService> GetOrganizationService(Lazy<IOrganizationServiceFactory> organizationServiceFactory, Lazy<IPluginExecutionContext> pluginExecutionContext, OrganizationServiceUser organizationServiceUser)
+        private static IOrganizationServiceFactory GetOrganizationServiceFactory(IServiceProvider serviceProvider)
         {
-            return new(() =>
-           {
-               Guid? userId = organizationServiceUser switch
-               {
-                   OrganizationServiceUser.InitiatingUser => pluginExecutionContext.Value.InitiatingUserId,
-                   OrganizationServiceUser.System => null,
-                   OrganizationServiceUser.User => Guid.Empty,
-                   _ => throw new NotImplementedException($"Unknown {nameof(OrganizationServiceUser)} value {organizationServiceUser}."),
-               };
-               return organizationServiceFactory.Value.CreateOrganizationService(userId);
-           });
+            return (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
         }
 
-        private static Lazy<IPluginExecutionContext> GetPluginExecutionContext(IServiceProvider serviceProvider)
+        private static Lazy<IOrganizationService> LazyCreateOrganizationService(IOrganizationServiceFactory organizationServiceFactory, Guid? organizationServiceUserId)
         {
-            return new(() => (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext)));
+            return new(() => organizationServiceFactory.CreateOrganizationService(organizationServiceUserId));
         }
 
-        private static Lazy<ITracingService> GetTracingService(IServiceProvider serviceProvider)
+        private static Guid? GetUserId(IPluginExecutionContext pluginExecutionContext, OrganizationServiceUser organizationServiceUser)
         {
-            return new(() => (ITracingService)serviceProvider.GetService(typeof(ITracingService)));
+            return organizationServiceUser switch
+            {
+                OrganizationServiceUser.InitiatingUser => pluginExecutionContext.InitiatingUserId,
+                OrganizationServiceUser.System => null,
+                OrganizationServiceUser.User => pluginExecutionContext.UserId,
+                _ => throw new NotImplementedException($"Unknown {nameof(OrganizationServiceUser)} value {organizationServiceUser}."),
+            };
+        }
+
+        private static IPluginExecutionContext GetPluginExecutionContext(IServiceProvider serviceProvider)
+        {
+            return (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+        }
+
+        private static ITracingService GetTracingService(IServiceProvider serviceProvider)
+        {
+            return (ITracingService)serviceProvider.GetService(typeof(ITracingService));
         }
     }
 }
