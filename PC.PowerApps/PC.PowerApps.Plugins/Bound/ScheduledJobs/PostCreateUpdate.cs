@@ -8,20 +8,15 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
 {
     public class PostCreateUpdate : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<pc_ScheduledJob> context = (PostCreateUpdatePluginContext<pc_ScheduledJob>)pluginContext;
+            PostCreateUpdatePluginContext<pc_ScheduledJob> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             pc_ScheduledJob scheduledJob = context.PostImage;
 
-            if (context.IsAnyAttributeModified(sj => sj.StatusCode))
+            if (context.GetIsAnyAttributeModified(sj => sj.StatusCode))
             {
                 ScheduledJobRepository.CreateNextOccurence(context, scheduledJob);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new PostCreateUpdatePluginContext<pc_ScheduledJob>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

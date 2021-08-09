@@ -9,14 +9,14 @@ namespace PC.PowerApps.Plugins.Bound.Payments
 {
     public class PostCreateUpdate : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<pc_Payment> context = (PostCreateUpdatePluginContext<pc_Payment>)pluginContext;
+            PostCreateUpdatePluginContext<pc_Payment> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             pc_Payment payment = context.PostImage;
 
-            if (context.IsAnyAttributeModified(p => p.pc_Contact) || Utils.GetAmountOrZero(payment.pc_Amount) != Utils.GetAmountOrZero(context.PreImage?.pc_Amount))
+            if (context.GetIsAnyAttributeModified(p => p.pc_Contact) || Utils.GetAmountOrZero(payment.pc_Amount) != Utils.GetAmountOrZero(context.PreImage?.pc_Amount))
             {
-                if (context.IsAnyAttributeModified(p => p.pc_Contact))
+                if (context.GetIsAnyAttributeModified(p => p.pc_Contact))
                 {
                     ContactRepository.CalculatePaidParticipationFee(context, context.PreImage?.pc_Contact?.Id);
                 }
@@ -24,20 +24,15 @@ namespace PC.PowerApps.Plugins.Bound.Payments
                 ContactRepository.CalculatePaidParticipationFee(context, payment.pc_Contact?.Id);
             }
 
-            if (context.IsAnyAttributeModified(p => p.pc_Transaction) || Utils.GetAmountOrZero(payment.pc_Amount) != Utils.GetAmountOrZero(context.PreImage?.pc_Amount))
+            if (context.GetIsAnyAttributeModified(p => p.pc_Transaction) || Utils.GetAmountOrZero(payment.pc_Amount) != Utils.GetAmountOrZero(context.PreImage?.pc_Amount))
             {
-                if (context.IsAnyAttributeModified(p => p.pc_Transaction))
+                if (context.GetIsAnyAttributeModified(p => p.pc_Transaction))
                 {
                     TransactionRepository.CalculatePaymentTotalAmount(context, context.PreImage?.pc_Transaction?.Id);
                 }
 
                 TransactionRepository.CalculatePaymentTotalAmount(context, payment.pc_Transaction?.Id);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new PostCreateUpdatePluginContext<pc_Payment>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

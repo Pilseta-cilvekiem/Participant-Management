@@ -8,20 +8,15 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
 {
     public class PostDelete : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            DeletePluginContext<Contact> context = (DeletePluginContext<Contact>)pluginContext;
+            DeletePluginContext<Contact> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             Contact contact = context.PreImage;
 
             if (ContactRepository.IsValidForGoogleSupporterGroup(contact))
             {
                 ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new DeletePluginContext<Contact>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

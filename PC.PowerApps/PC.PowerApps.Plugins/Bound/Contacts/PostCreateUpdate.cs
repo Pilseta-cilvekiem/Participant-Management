@@ -8,9 +8,9 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
 {
     public class PostCreateUpdate : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<Contact> context = (PostCreateUpdatePluginContext<Contact>)pluginContext;
+            PostCreateUpdatePluginContext<Contact> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             Contact contact = context.PostImage;
 
             if (!ContactRepository.IsValidForGoogleSupporterGroup(context.PreImage) != ContactRepository.IsValidForGoogleSupporterGroup(contact))
@@ -18,15 +18,10 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
                 ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
             }
 
-            if (context.IsAnyAttributeModified(c => new { c.pc_ParticipationLevel, c.StateCode }))
+            if (context.GetIsAnyAttributeModified(c => new { c.pc_ParticipationLevel }))
             {
                 ContactRepository.SendWelcomeEmail(context, contact);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new PostCreateUpdatePluginContext<Contact>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

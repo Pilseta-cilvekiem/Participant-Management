@@ -30,7 +30,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void SendWelcomeEmail(Context context, Contact contact)
         {
-            if (contact.StateCode != ContactState.Active || contact.pc_ParticipationLevel != pc_ParticipationLevel.Supporter || contact.pc_SentSupporterWelcomeEmailOn is not null)
+            if (contact.pc_ParticipationLevel != pc_ParticipationLevel.Supporter || contact.pc_SentSupporterWelcomeEmailOn is not null)
             {
                 return;
             }
@@ -92,6 +92,7 @@ namespace PC.PowerApps.Common.Repositories
 
         private static void UpdateParticipationLevel(Context context, Contact contact)
         {
+            context.Logger.LogInformation($"Calculating participation level for the contact {contact.Id}...");
             DateTime localNow = context.GetCurrentOrganizationTime();
             pc_Participation participation;
 
@@ -248,7 +249,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static bool IsValidForGoogleSupporterGroup(Contact contact)
         {
-            return contact != null && contact.StateCode == ContactState.Active && contact.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && contact.pc_WishesToBeActive == true && contact.pc_PaidParticipationFee.Value >= 2 && !string.IsNullOrEmpty(contact.EMailAddress1);
+            return contact != null && contact.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && contact.pc_WishesToBeActive == true && contact.pc_PaidParticipationFee.Value >= 2 && !string.IsNullOrEmpty(contact.EMailAddress1);
         }
 
         public static void SetDefaults(Contact contact)

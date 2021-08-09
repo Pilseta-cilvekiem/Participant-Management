@@ -8,9 +8,9 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
 {
     public class PreCreateUpdate : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PreCreateUpdatePluginContext<pc_Transaction> context = (PreCreateUpdatePluginContext<pc_Transaction>)pluginContext;
+            PreCreateUpdatePluginContext<pc_Transaction> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             pc_Transaction transaction = context.PostImage;
 
             if (context.Message == PluginMessage.Create)
@@ -18,20 +18,15 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
                 TransactionRepository.SetDefaults(transaction);
             }
 
-            if (context.IsAnyAttributeModified(t => new { t.pc_Amount, t.pc_PaymentTotalAmount, t.pc_NonPaymentAmount }))
+            if (context.GetIsAnyAttributeModified(t => new { t.pc_Amount, t.pc_PaymentTotalAmount, t.pc_NonPaymentAmount }))
             {
                 TransactionRepository.CalculateRemainingAmount(transaction);
             }
 
-            if (context.IsAnyAttributeModified(t => t.pc_RemainingAmount))
+            if (context.GetIsAnyAttributeModified(t => t.pc_RemainingAmount))
             {
                 TransactionRepository.SetStatusCode(transaction);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new PreCreateUpdatePluginContext<pc_Transaction>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

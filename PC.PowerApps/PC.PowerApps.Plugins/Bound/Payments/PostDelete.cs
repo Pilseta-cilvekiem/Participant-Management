@@ -9,9 +9,9 @@ namespace PC.PowerApps.Plugins.Bound.Payments
 {
     public class PostDelete : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            DeletePluginContext<pc_Payment> context = (DeletePluginContext<pc_Payment>)pluginContext;
+            DeletePluginContext<pc_Payment> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             pc_Payment payment = context.PreImage;
 
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(payment.pc_Contact) != true)
@@ -23,11 +23,6 @@ namespace PC.PowerApps.Plugins.Bound.Payments
             {
                 TransactionRepository.CalculatePaymentTotalAmount(context, payment.pc_Transaction?.Id);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new DeletePluginContext<pc_Payment>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

@@ -16,16 +16,16 @@ namespace PC.PowerApps.Plugins.Contexts
         {
         }
 
-        public bool IsAnyAttributeModified(Expression<Func<TEntity, object>> attributeSelector)
+        public bool GetIsAnyAttributeModified(Expression<Func<TEntity, object>> attributeSelector)
         {
             HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
             IEnumerable<string> modifiedAttributeLogicalNames = attributeLogicalNames
-                .Where(aln => IsAttributeModified(aln));
+                .Where(aln => GetIsAttributeModified(aln));
             bool isAnyAttributeModified = modifiedAttributeLogicalNames.Any();
             return isAnyAttributeModified;
         }
 
-        protected bool IsAttributeModified(string attributeLogicalName)
+        protected bool GetIsAttributeModified(string attributeLogicalName)
         {
             object oldValue = PreImage?.GetAttributeValue<object>(attributeLogicalName);
             object newValue = PostImage.GetAttributeValue<object>(attributeLogicalName);

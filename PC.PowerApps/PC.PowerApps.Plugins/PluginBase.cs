@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common;
-using PC.PowerApps.Plugins.Contexts;
 using System;
 
 namespace PC.PowerApps.Plugins
@@ -11,8 +10,7 @@ namespace PC.PowerApps.Plugins
         {
             try
             {
-                using PluginContext pluginContext = GetPluginContext(serviceProvider);
-                Execute(pluginContext);
+                ExecuteInternal(serviceProvider);
             }
             catch (Exception e)
             when (!Utils.IsInNamespaces(e.GetType(), "Microsoft.Xrm.Sdk", nameof(System)))
@@ -21,8 +19,6 @@ namespace PC.PowerApps.Plugins
             }
         }
 
-        protected abstract void Execute(PluginContext pluginContext);
-
-        protected abstract PluginContext GetPluginContext(IServiceProvider serviceProvider);
+        protected abstract void ExecuteInternal(IServiceProvider serviceProvider);
     }
 }

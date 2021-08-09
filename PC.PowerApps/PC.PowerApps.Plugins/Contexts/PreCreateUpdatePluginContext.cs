@@ -11,50 +11,60 @@ namespace PC.PowerApps.Plugins.Contexts
     internal class PreCreateUpdatePluginContext<TEntity> : CreateUpdatePluginContext<TEntity> where TEntity : Entity
     {
         private bool disposedValue;
-        private readonly Lazy<TEntity> postImage;
 
-        public override TEntity PostImage => postImage.Value;
+        public override TEntity PostImage { get; }
 
         public PreCreateUpdatePluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
         {
-            postImage = new(() =>
-            {
-                TEntity postImage = ((Entity)PluginExecutionContext.InputParameters[PluginConstants.TargetAttributeName]).ToEntity<TEntity>();
+            PostImage = ((Entity)PluginExecutionContext.InputParameters[PluginConstants.TargetAttributeName]).ToEntity<TEntity>();
 
-                if (Message != PluginMessage.Create)
+            if (Message != PluginMessage.Create)
+            {
+                foreach (KeyValuePair<string, object> attribute in PreImage.Attributes)
                 {
-                    foreach (KeyValuePair<string, object> attribute in PreImage.Attributes)
+                    if (!PostImage.Contains(attribute.Key))
                     {
-                        if (!postImage.Contains(attribute.Key))
-                        {
-                            postImage.Attributes.Add(attribute.Key, attribute.Value);
-                        }
+                        PostImage.Attributes.Add(attribute.Key, attribute.Value);
                     }
                 }
-
-                return postImage;
-            });
+            }
         }
 
-        public void EnsureAttributesNotChanged(Expression<Func<TEntity, object>> attributeSelector)
+        public void EnsureAttributesNotModified(Expression<Func<TEntity, object>> attributeSelector)
         {
+            if (!GetIsValidationEnabled())
+            {
+                return;
+            }
+
             HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
-                .Where(aln => IsAttributeModified(aln))
+                .Where(aln => GetIsAttributeModified(aln))
                 .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, "are read-only");
+            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, "is read-only", "are read-only");
         }
 
         public void EnsureModifiedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
         {
+            if (!GetIsValidationEnabled())
+            {
+                return;
+            }
+
             HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
-                .Where(aln => IsAttributeModified(aln))
+                .Where(aln => GetIsAttributeModified(aln))
                 .ToList();
             List<string> modifiedEmptyAttributeLogicalNames = modifiedAttributeLogicalNames
                 .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))
                 .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, "cannot be empty");
+            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, CommonConstants.CannotBeEmpty, CommonConstants.CannotBeEmpty);
+        }
+
+        private bool GetIsValidationEnabled()
+        {
+            bool isValidationDisabled = UserId == Organization.SystemUserId || DateTime.UtcNow < User.pc_DisableValidationTill;
+            return !isValidationDisabled;
         }
 
         protected override void Dispose(bool disposing)
@@ -63,7 +73,7 @@ namespace PC.PowerApps.Plugins.Contexts
             {
                 if (disposing)
                 {
-                    if (postImage.IsValueCreated && Message != PluginMessage.Create)
+                    if (Message != PluginMessage.Create)
                     {
                         string primaryIdAttribute = Utils.GetPrimaryIdAttribute(PostImage);
                         string[] attributesToKeep = new[] { primaryIdAttribute, /*"modifiedby", "modifiedon", "modifiedonbehalfby", "owningbusinessunit"*/ };

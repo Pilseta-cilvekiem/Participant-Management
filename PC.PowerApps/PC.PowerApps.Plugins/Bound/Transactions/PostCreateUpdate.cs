@@ -8,20 +8,15 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
 {
     public class PostCreateUpdate : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<pc_Transaction> context = (PostCreateUpdatePluginContext<pc_Transaction>)pluginContext;
+            PostCreateUpdatePluginContext<pc_Transaction> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             pc_Transaction transaction = context.PostImage;
 
             if (context.Message == PluginMessage.Create && context.Settings.pc_AutomaticallyProcessTransactions == true)
             {
                 TransactionRepository.Process(context, transaction);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new PostCreateUpdatePluginContext<pc_Transaction>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

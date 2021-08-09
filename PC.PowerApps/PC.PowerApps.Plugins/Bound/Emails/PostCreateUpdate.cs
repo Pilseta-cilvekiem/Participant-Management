@@ -8,20 +8,15 @@ namespace PC.PowerApps.Plugins.Bound.Emails
 {
     public class PostCreateUpdate : PluginBase
     {
-        protected override void Execute(PluginContext pluginContext)
+        protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<Email> context = (PostCreateUpdatePluginContext<Email>)pluginContext;
+            PostCreateUpdatePluginContext<Email> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
             Email email = context.PostImage;
 
-            if (context.IsAnyAttributeModified(e => e.StatusCode))
+            if (context.GetIsAnyAttributeModified(e => e.StatusCode))
             {
                 ContactRepository.SetSentDebtReminderOn(context, email);
             }
-        }
-
-        protected override PluginContext GetPluginContext(IServiceProvider serviceProvider)
-        {
-            return new PostCreateUpdatePluginContext<Email>(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
         }
     }
 }

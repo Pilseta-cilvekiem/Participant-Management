@@ -24,6 +24,7 @@
 annotation|
 contact|
 email|
+organization|
 pc_bankaccount|
 pc_payment|
 pc_participation|
@@ -31,6 +32,7 @@ pc_participationfeeexemption|
 pc_scheduledjob|
 pc_settings|
 pc_transaction|
+systemuser|
 transactioncurrency</EntitiesWhitelist>
     <EntityAttributeSpecifiedNames />
     <EntityPrefixesToSkip />
