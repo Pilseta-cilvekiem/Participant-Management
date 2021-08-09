@@ -1,5 +1,4 @@
 ﻿using PC.PowerApps.ClientBase;
-using PC.PowerApps.ClientBase.Repositories;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using System;

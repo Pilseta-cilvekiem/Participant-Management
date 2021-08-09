@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Metadata;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;

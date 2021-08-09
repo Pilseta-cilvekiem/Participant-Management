@@ -4,6 +4,7 @@ using PC.PowerApps.Plugins.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace PC.PowerApps.Plugins.Contexts
 {
@@ -33,6 +34,27 @@ namespace PC.PowerApps.Plugins.Contexts
 
                 return postImage;
             });
+        }
+
+        public void EnsureAttributesNotChanged(Expression<Func<TEntity, object>> attributeSelector)
+        {
+            HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
+            List<string> modifiedAttributeLogicalNames = attributeLogicalNames
+                .Where(aln => IsAttributeModified(aln))
+                .ToList();
+            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, "are read-only");
+        }
+
+        public void EnsureModifiedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
+        {
+            HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
+            List<string> modifiedAttributeLogicalNames = attributeLogicalNames
+                .Where(aln => IsAttributeModified(aln))
+                .ToList();
+            List<string> modifiedEmptyAttributeLogicalNames = modifiedAttributeLogicalNames
+                .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))
+                .ToList();
+            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, "cannot be empty");
         }
 
         protected override void Dispose(bool disposing)

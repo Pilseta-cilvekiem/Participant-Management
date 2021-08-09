@@ -25,33 +25,12 @@ namespace PC.PowerApps.Plugins.Contexts
             return isAnyAttributeModified;
         }
 
-        private bool IsAttributeModified(string attributeLogicalName)
+        protected bool IsAttributeModified(string attributeLogicalName)
         {
             object oldValue = PreImage?.GetAttributeValue<object>(attributeLogicalName);
             object newValue = PostImage.GetAttributeValue<object>(attributeLogicalName);
             bool isModified = !Utils.AreEqual(oldValue, newValue);
             return isModified;
-        }
-
-        public void EnsureAttributesNotChanged(Expression<Func<TEntity, object>> attributeSelector)
-        {
-            HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
-            List<string> modifiedAttributeLogicalNames = attributeLogicalNames
-                .Where(aln => IsAttributeModified(aln))
-                .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, "are read-only");
-        }
-
-        public void EnsureModifiedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
-        {
-            HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
-            List<string> modifiedAttributeLogicalNames = attributeLogicalNames
-                .Where(aln => IsAttributeModified(aln))
-                .ToList();
-            List<string> modifiedEmptyAttributeLogicalNames = modifiedAttributeLogicalNames
-                .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))
-                .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, "cannot be empty");
         }
     }
 }
