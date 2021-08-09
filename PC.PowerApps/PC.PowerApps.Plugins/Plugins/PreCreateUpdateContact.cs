@@ -18,7 +18,7 @@ namespace PC.PowerApps.Plugins.Plugins
                 ContactRepository.SetDefaults(contact);
             }
 
-            if (context.IsModifiedAnyAttribute(c => c.pc_ParticipationLevel))
+            if (context.IsAnyAttributeModified(c => c.pc_ParticipationLevel))
             {
                 ContactRepository.SetStatusCode(contact);
             }

@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Plugins
             PostCreateUpdatePluginContext<pc_ScheduledJob> context = (PostCreateUpdatePluginContext<pc_ScheduledJob>)pluginContext;
             pc_ScheduledJob scheduledJob = context.PostImage;
 
-            if (context.IsModifiedAnyAttribute(sj => sj.StatusCode))
+            if (context.IsAnyAttributeModified(sj => sj.StatusCode))
             {
                 ScheduledJobRepository.CreateNextOccurence(context, scheduledJob);
             }

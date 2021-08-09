@@ -45,9 +45,9 @@ namespace PC.PowerApps.Common
             return Equals(object1, object2);
         }
 
-        public static List<string> GetAttributeLogicalNames<TEntity>(Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
+        public static HashSet<string> GetAttributeLogicalNames<TEntity>(Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
         {
-            List<string> attributeNames = new();
+            HashSet<string> attributeNames = new();
 
             string attributeName = GetAttributeLogicalNameInternal(attributeSelector.Body);
 
@@ -157,7 +157,7 @@ namespace PC.PowerApps.Common
             _ = context.OrganizationService.Execute(sendEmailRequest);
         }
 
-        public static AttributeMetadata GetAttributeMetadata(Context context, string entityLogicalName, string attributeLogicalName)
+        private static AttributeMetadata GetAttributeMetadata(Context context, string entityLogicalName, string attributeLogicalName)
         {
             RetrieveAttributeRequest retrieveAttributeRequest = new()
             {
@@ -168,7 +168,7 @@ namespace PC.PowerApps.Common
             return retrieveAttributeResponse.AttributeMetadata;
         }
 
-        public static EntityMetadata GetEntityMetadata(Context context, string entityLogicalName)
+        private static EntityMetadata GetEntityMetadata(Context context, string entityLogicalName)
         {
             RetrieveEntityRequest retrieveEntityRequest = new()
             {
@@ -178,9 +178,50 @@ namespace PC.PowerApps.Common
             return retrieveEntityResponse.EntityMetadata;
         }
 
-        public static string GetLabelValue(Label label)
+        private static string GetLabelValue(Label label)
         {
             return label.UserLocalizedLabel.Label;
+        }
+
+        private static string GetAttributeDisplayName(Context context, string entityLogicalName, string attributeLogicalName)
+        {
+            AttributeMetadata attributeMetadata = GetAttributeMetadata(context, entityLogicalName, attributeLogicalName);
+            string attributeDisplayName = GetLabelValue(attributeMetadata.DisplayName);
+            return attributeDisplayName;
+        }
+
+        private static string GetEntityDisplayName(Context context, string entityLogicalName)
+        {
+            EntityMetadata entityMetadata = GetEntityMetadata(context, entityLogicalName);
+            string entityDisplayName = GetLabelValue(entityMetadata.DisplayName);
+            return entityDisplayName;
+        }
+
+        public static void EnsureNoAttributes(Context context, string entityLogicalName, List<string> attributeLogicalNames, string text)
+        {
+            if (attributeLogicalNames.Count == 0)
+            {
+                return;
+            }
+
+            List<string> attributeDisplayNames = attributeLogicalNames
+                .Select(aln => $"\"{GetAttributeDisplayName(context, entityLogicalName, aln)}\"")
+                .ToList();
+
+            string entityDisplayName = GetEntityDisplayName(context, entityLogicalName);
+            string attributeDisplayNameString = string.Join(", ", attributeDisplayNames);
+
+            if (attributeDisplayNames.Count == 1)
+            {
+                throw new InvalidPluginExecutionException($"{entityDisplayName} column {attributeDisplayNameString} {text}.");
+            }
+
+            throw new InvalidPluginExecutionException($"{entityDisplayName} columns {attributeDisplayNameString} {text}.");
+        }
+
+        public static bool IsEmptyValue(object @object)
+        {
+            return @object is null || (@object is string @string && @string.Length == 0);
         }
     }
 }

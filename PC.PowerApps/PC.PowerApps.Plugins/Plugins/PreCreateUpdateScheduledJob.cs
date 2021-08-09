@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Plugins
             PreCreateUpdatePluginContext<pc_ScheduledJob> context = (PreCreateUpdatePluginContext<pc_ScheduledJob>)pluginContext;
             pc_ScheduledJob scheduledJob = context.PostImage;
 
-            if (context.IsModifiedAnyAttribute(sj => new { sj.StatusCode }))
+            if (context.IsAnyAttributeModified(sj => new { sj.StatusCode }))
             {
                 ScheduledJobRepository.SetDefaults(scheduledJob);
             }

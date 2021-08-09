@@ -18,12 +18,12 @@ namespace PC.PowerApps.Plugins.Plugins
                 TransactionRepository.SetDefaults(transaction);
             }
 
-            if (context.IsModifiedAnyAttribute(t => new { t.pc_Amount, t.pc_PaymentTotalAmount, t.pc_NonPaymentAmount }))
+            if (context.IsAnyAttributeModified(t => new { t.pc_Amount, t.pc_PaymentTotalAmount, t.pc_NonPaymentAmount }))
             {
                 TransactionRepository.CalculateRemainingAmount(transaction);
             }
 
-            if (context.IsModifiedAnyAttribute(t => t.pc_RemainingAmount))
+            if (context.IsAnyAttributeModified(t => t.pc_RemainingAmount))
             {
                 TransactionRepository.SetStatusCode(transaction);
             }
