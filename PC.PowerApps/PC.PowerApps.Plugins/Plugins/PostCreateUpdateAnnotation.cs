@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Plugins
             PostCreateUpdatePluginContext<Annotation> context = (PostCreateUpdatePluginContext<Annotation>)pluginContext;
             Annotation annotation = context.PostImage;
 
-            if (context.IsModifiedAnyAttribute(a => new { a.DocumentBody, a.ObjectId }))
+            if (context.IsAnyAttributeModified(a => new { a.DocumentBody, a.ObjectId }))
             {
                 AnnotationRepository.ScheduleImportTransactions(context, annotation);
             }

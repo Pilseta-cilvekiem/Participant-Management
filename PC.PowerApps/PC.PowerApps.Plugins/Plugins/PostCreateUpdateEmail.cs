@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Plugins
             PostCreateUpdatePluginContext<Email> context = (PostCreateUpdatePluginContext<Email>)pluginContext;
             Email email = context.PostImage;
 
-            if (context.IsModifiedAnyAttribute(e => e.StatusCode))
+            if (context.IsAnyAttributeModified(e => e.StatusCode))
             {
                 ContactRepository.SetSentDebtReminderOn(context, email);
             }

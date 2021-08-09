@@ -62,31 +62,13 @@ namespace PC.PowerApps.Common
             return TimeZoneInfo.ConvertTimeFromUtc(utcTime, TimeZoneInfo);
         }
 
-        public void VerifyAttributesNotEmpty<TEntity>(Context context, TEntity entity, Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
+        public void EnsureAttributesNotEmpty<TEntity>(TEntity entity, Expression<Func<TEntity, object>> attributeSelector) where TEntity : Entity
         {
-            List<object> valuesToCheck = new() { null, string.Empty };
-            List<string> attributeLogicalNamesToCheck = Utils.GetAttributeLogicalNames(attributeSelector);
-            List<string> emptyAttributeDisplayNames = attributeLogicalNamesToCheck
-                .Where(a => valuesToCheck.Contains(entity.GetAttributeValue<object>(a)))
-                .Select(a => Utils.GetAttributeMetadata(context, entity.LogicalName, a))
-                .Select(am => $"\"{Utils.GetLabelValue(am.DisplayName)}\"")
+            HashSet<string> attributeLogicalNamesToCheck = Utils.GetAttributeLogicalNames(attributeSelector);
+            List<string> emptyAttributeLogicalNames = attributeLogicalNamesToCheck
+                .Where(aln => Utils.IsEmptyValue(aln))
                 .ToList();
-
-            if (emptyAttributeDisplayNames.Count == 0)
-            {
-                return;
-            }
-
-            EntityMetadata entityMetadata = Utils.GetEntityMetadata(context, entity.LogicalName);
-            string entityDisplayName = Utils.GetLabelValue(entityMetadata.DisplayName);
-            string emptyAttributeDisplayNameString = string.Join(", ", emptyAttributeDisplayNames);
-
-            if (emptyAttributeDisplayNames.Count == 1)
-            {
-                throw new InvalidPluginExecutionException($"{entityDisplayName} column {emptyAttributeDisplayNameString} cannot be empty.");
-            }
-
-            throw new InvalidPluginExecutionException($"{entityDisplayName} columns {emptyAttributeDisplayNameString} cannot be empty.");
+            Utils.EnsureNoAttributes(this, entity.LogicalName, emptyAttributeLogicalNames, "cannot be empty");
         }
 
         protected virtual void Dispose(bool disposing)

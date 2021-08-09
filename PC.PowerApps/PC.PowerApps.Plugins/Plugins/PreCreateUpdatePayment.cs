@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Plugins
             PreCreateUpdatePluginContext<pc_Payment> context = (PreCreateUpdatePluginContext<pc_Payment>)pluginContext;
             pc_Payment payment = context.PostImage;
 
-            if (context.IsModifiedAnyAttribute(p => p.pc_Transaction))
+            if (context.IsAnyAttributeModified(p => p.pc_Transaction))
             {
                 pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(payment.pc_Transaction);
                 payment.pc_Amount ??= new(Utils.GetAmountOrZero(transaction.pc_RemainingAmount));
