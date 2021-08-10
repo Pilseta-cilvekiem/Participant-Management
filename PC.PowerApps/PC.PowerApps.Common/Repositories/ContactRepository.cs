@@ -257,10 +257,19 @@ namespace PC.PowerApps.Common.Repositories
             contact.pc_PaidParticipationFee ??= new();
         }
 
-        public static void SetStatusCode(Contact contact)
+        public static void SetStatusCodeAndUpdateInfo(Contact contact)
         {
             if (contact.pc_ParticipationLevel is null)
             {
+                contact.Address1_City = null;
+                contact.Address1_Country = null;
+                contact.Address1_County = null;
+                contact.Address1_Line1 = null;
+                contact.Address1_PostalCode = null;
+                contact.Address1_StateOrProvince = null;
+                contact.Description = "Bijušais dalībnieks.";
+                contact.pc_Neighbourhood = null;
+                contact.pc_WishesToBeActive = false;
                 contact.StateCode = ContactState.Inactive;
                 contact.StatusCode = Contact_StatusCode.Inactive;
             }
