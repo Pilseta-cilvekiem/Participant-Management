@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xrm.Sdk;
+using PC.PowerApps.Common;
 using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace PC.PowerApps.Plugins.Contexts
 {
@@ -27,6 +29,13 @@ namespace PC.PowerApps.Plugins.Contexts
                     .Value
                     .ToEntity<TEntity>();
             }
+        }
+
+        public string GetAttributeDisplayName(Expression<Func<TEntity, object>> attributeSelector)
+        {
+            string attributeLogicalName = Utils.GetAttributeLogicalName(attributeSelector);
+            string attributeDisplayName = Utils.GetAttributeDisplayName(this, PluginExecutionContext.PrimaryEntityName, attributeLogicalName);
+            return attributeDisplayName;
         }
     }
 }

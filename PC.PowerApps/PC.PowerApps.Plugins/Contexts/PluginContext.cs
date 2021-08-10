@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Metadata;
 using PC.PowerApps.Common;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
@@ -8,8 +9,12 @@ namespace PC.PowerApps.Plugins.Contexts
 {
     public class PluginContext : Context
     {
+        private readonly Lazy<EntityMetadata> lazyPrimaryEntityMetadata;
+
         public PluginMessage Message { get; }
         public IPluginExecutionContext PluginExecutionContext { get; }
+        public string PrimaryEntityDisplayName => Utils.GetLabelValue(PrimaryEntityMetadata.DisplayName);
+        public EntityMetadata PrimaryEntityMetadata => lazyPrimaryEntityMetadata.Value;
         public override Guid UserId { get; }
 
         public PluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser)
@@ -20,6 +25,7 @@ namespace PC.PowerApps.Plugins.Contexts
         private PluginContext(IOrganizationServiceFactory organizationServiceFactory, IPluginExecutionContext pluginExecutionContext, ITracingService tracingService, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser)
             : this(organizationServiceFactory, GetUserId(pluginExecutionContext, organizationServiceUser), GetUserId(pluginExecutionContext, userOrganizationServiceUser), GetLazyLogger(tracingService))
         {
+            lazyPrimaryEntityMetadata = new(() => Utils.GetEntityMetadata(this, PluginExecutionContext.PrimaryEntityName));
             Message = (PluginMessage)Enum.Parse(typeof(PluginMessage), pluginExecutionContext.MessageName);
             PluginExecutionContext = pluginExecutionContext;
         }

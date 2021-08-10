@@ -74,7 +74,7 @@ namespace PC.PowerApps.Common
             List<string> emptyAttributeLogicalNames = attributeLogicalNamesToCheck
                 .Where(aln => Utils.IsEmptyValue(aln))
                 .ToList();
-            Utils.EnsureNoAttributes(this, entity.LogicalName, emptyAttributeLogicalNames, CommonConstants.CannotBeEmpty, CommonConstants.CannotBeEmpty);
+            Utils.EnsureNoAttributes(this, entity.LogicalName, emptyAttributeLogicalNames, CommonConstants.CannotBeEmptyText, CommonConstants.CannotBeEmptyText);
         }
 
         protected virtual void Dispose(bool disposing)

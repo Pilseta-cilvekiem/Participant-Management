@@ -168,7 +168,7 @@ namespace PC.PowerApps.Common
             return retrieveAttributeResponse.AttributeMetadata;
         }
 
-        private static EntityMetadata GetEntityMetadata(Context context, string entityLogicalName)
+        public static EntityMetadata GetEntityMetadata(Context context, string entityLogicalName)
         {
             RetrieveEntityRequest retrieveEntityRequest = new()
             {
@@ -178,19 +178,19 @@ namespace PC.PowerApps.Common
             return retrieveEntityResponse.EntityMetadata;
         }
 
-        private static string GetLabelValue(Label label)
+        public static string GetLabelValue(Label label)
         {
             return label.UserLocalizedLabel.Label;
         }
 
-        private static string GetAttributeDisplayName(Context context, string entityLogicalName, string attributeLogicalName)
+        public static string GetAttributeDisplayName(Context context, string entityLogicalName, string attributeLogicalName)
         {
             AttributeMetadata attributeMetadata = GetAttributeMetadata(context, entityLogicalName, attributeLogicalName);
             string attributeDisplayName = GetLabelValue(attributeMetadata.DisplayName);
             return attributeDisplayName;
         }
 
-        private static string GetEntityDisplayName(Context context, string entityLogicalName)
+        public static string GetEntityDisplayName(Context context, string entityLogicalName)
         {
             EntityMetadata entityMetadata = GetEntityMetadata(context, entityLogicalName);
             string entityDisplayName = GetLabelValue(entityMetadata.DisplayName);
@@ -213,10 +213,10 @@ namespace PC.PowerApps.Common
 
             if (attributeDisplayNames.Count == 1)
             {
-                throw new InvalidPluginExecutionException($"{entityDisplayName} column {attributeDisplayNameString} {textSingle}.");
+                throw new InvalidPluginExecutionException($"{entityDisplayName} {CommonConstants.AttributeText} {attributeDisplayNameString} {textSingle}.");
             }
 
-            throw new InvalidPluginExecutionException($"{entityDisplayName} columns {attributeDisplayNameString} {textMultiple}.");
+            throw new InvalidPluginExecutionException($"{entityDisplayName} {CommonConstants.AttributesText} {attributeDisplayNameString} {textMultiple}.");
         }
 
         public static bool IsEmptyValue(object @object)

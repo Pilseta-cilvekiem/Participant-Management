@@ -36,7 +36,7 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             pc_Participation participation = context.ServiceContext.pc_ParticipationSet
-                .Where(p => p.pc_Contact.Id == contact.Id && p.StateCode == pc_ParticipationState.Active && p.pc_Level == pc_ParticipationLevel.Supporter)
+                .Where(p => p.pc_Contact.Id == contact.Id && p.pc_Level == pc_ParticipationLevel.Supporter)
                 .OrderByDescending(p => p.pc_From)
                 .TakeSingle();
             EntityReference contactReference = contact.ToEntityReference();
@@ -60,7 +60,7 @@ namespace PC.PowerApps.Common.Repositories
             context.Logger.LogInformation($"Calculating a paid participation fee for the contact {contactId}.");
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
             contact.pc_PaidParticipationFee = new(context.ServiceContext.pc_PaymentSet
-                .Where(p => p.pc_Contact.Id == contactId && p.StateCode == pc_PaymentState.Active && p.pc_Amount != null)
+                .Where(p => p.pc_Contact.Id == contactId && p.pc_Amount != null)
                 .Select(p => p.pc_Amount.Value)
                 .ToList()
                 .Sum());
@@ -99,7 +99,7 @@ namespace PC.PowerApps.Common.Repositories
             try
             {
                 participation = context.ServiceContext.pc_ParticipationSet
-                    .Where(p => p.pc_Contact.Id == contact.Id && p.StateCode == pc_ParticipationState.Active && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
+                    .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
                     .TakeSingleOrDefault();
             }
             catch (SequenceHasMoreThanOneElementException)
@@ -133,7 +133,7 @@ namespace PC.PowerApps.Common.Repositories
         {
             context.Logger.LogInformation($"Calculating a required participation fee for the contact {contact.Id}...");
             List<pc_Participation> participations = context.ServiceContext.pc_ParticipationSet
-                .Where(p => p.pc_Contact.Id == contact.Id && p.StateCode == pc_ParticipationState.Active && p.pc_From != null)
+                .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From != null)
                 .Select(p => new pc_Participation
                 {
                     pc_From = p.pc_From,
@@ -141,7 +141,7 @@ namespace PC.PowerApps.Common.Repositories
                 })
                 .ToList();
             List<pc_ParticipationFeeExemption> participationFeeExemptions = context.ServiceContext.pc_ParticipationFeeExemptionSet
-                .Where(pfe => pfe.pc_Contact.Id == contact.Id && pfe.StateCode == pc_ParticipationFeeExemptionState.Active && pfe.pc_From != null)
+                .Where(pfe => pfe.pc_Contact.Id == contact.Id && pfe.pc_From != null)
                 .Select(p => new pc_ParticipationFeeExemption
                 {
                     pc_From = p.pc_From,
@@ -257,7 +257,7 @@ namespace PC.PowerApps.Common.Repositories
             contact.pc_PaidParticipationFee ??= new();
         }
 
-        public static void SetStatusCodeAndUpdateInfo(Contact contact)
+        public static void UpdateParticipationInfo(Contact contact)
         {
             if (contact.pc_ParticipationLevel is null)
             {
