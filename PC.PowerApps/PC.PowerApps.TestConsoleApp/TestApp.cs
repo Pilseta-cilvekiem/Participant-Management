@@ -91,11 +91,15 @@ namespace PC.PowerApps.TestConsoleApp
             ////crmServiceClient.RetrieveMultiple(queryExpression);
             //Console.WriteLine($"{stopwatch.Elapsed.TotalMilliseconds}");
 
-            Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
-            contact.FirstName = "Test";
-            Context.ServiceContext.UpdateModifiedAttributes(contact);
+            //Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3"));
+            //contact.FirstName = "Test";
+            //Context.ServiceContext.UpdateModifiedAttributes(contact);
 
             //ContactRepository.UpdateParticipationLevels(Context);
+
+            pc_Payment payment = Context.ServiceContext.Retrieve<pc_Payment>(new Guid("04a7a7b1-d3f9-eb11-94ef-000d3a4bfac3"));
+            payment.pc_Amount = new(-1);
+            _ = Context.ServiceContext.UpdateModifiedAttributes(payment);
         }
     }
 }
