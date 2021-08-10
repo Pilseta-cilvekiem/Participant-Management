@@ -41,7 +41,7 @@ namespace PC.PowerApps.Plugins.Contexts
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
                 .Where(aln => GetIsAttributeModified(aln))
                 .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, "is read-only", "are read-only");
+            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, CommonConstants.IsReadOnlyText, CommonConstants.AreReadOnlyText);
         }
 
         public void EnsureModifiedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
@@ -58,7 +58,7 @@ namespace PC.PowerApps.Plugins.Contexts
             List<string> modifiedEmptyAttributeLogicalNames = modifiedAttributeLogicalNames
                 .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))
                 .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, CommonConstants.CannotBeEmpty, CommonConstants.CannotBeEmpty);
+            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, CommonConstants.CannotBeEmptyText, CommonConstants.CannotBeEmptyText);
         }
 
         private bool GetIsValidationEnabled()
