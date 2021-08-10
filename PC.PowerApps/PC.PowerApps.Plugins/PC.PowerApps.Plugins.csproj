@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Bound\Contacts\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Emails\PreValidateCreateUpdate.cs" />
+    <Compile Include="Bound\Participations\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Payments\PreValidateCreateUpdate.cs" />
     <Compile Include="Contexts\CustomApiPluginContext.cs" />
     <Compile Include="Contexts\DeletePluginContext.cs" />

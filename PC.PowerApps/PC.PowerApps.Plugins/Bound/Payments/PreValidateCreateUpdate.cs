@@ -18,11 +18,11 @@ namespace PC.PowerApps.Plugins.Bound.Payments
                 context.EnsureAttributesNotModified(p => p.StatusCode);
             }
 
-            context.EnsureModifiedAttributesNotEmpty(p => new { p.pc_Contact, p.pc_Transaction });
+            context.EnsureCreatedOrUpdatedAttributesNotEmpty(p => new { p.pc_Contact, p.pc_Transaction });
 
             if (!context.GetIsAnyAttributeModified(p => p.pc_Transaction))
             {
-                context.EnsureModifiedAttributesNotEmpty(p => p.pc_Amount);
+                context.EnsureCreatedOrUpdatedAttributesNotEmpty(p => p.pc_Amount);
             }
         }
     }

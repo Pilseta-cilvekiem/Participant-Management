@@ -44,7 +44,7 @@ namespace PC.PowerApps.Plugins.Contexts
             Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, CommonConstants.IsReadOnlyText, CommonConstants.AreReadOnlyText);
         }
 
-        public void EnsureModifiedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
+        public void EnsureCreatedOrUpdatedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
         {
             if (!GetIsValidationEnabled())
             {
@@ -53,7 +53,7 @@ namespace PC.PowerApps.Plugins.Contexts
 
             HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
-                .Where(aln => GetIsAttributeModified(aln))
+                .Where(aln => Message == PluginMessage.Create || GetIsAttributeModified(aln))
                 .ToList();
             List<string> modifiedEmptyAttributeLogicalNames = modifiedAttributeLogicalNames
                 .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))

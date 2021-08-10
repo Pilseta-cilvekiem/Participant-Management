@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.Connector;
 using PC.PowerApps.ClientBase;
@@ -97,9 +98,17 @@ namespace PC.PowerApps.TestConsoleApp
 
             //ContactRepository.UpdateParticipationLevels(Context);
 
-            pc_Payment payment = Context.ServiceContext.Retrieve<pc_Payment>(new Guid("04a7a7b1-d3f9-eb11-94ef-000d3a4bfac3"));
-            payment.pc_Amount = new(-1);
-            _ = Context.ServiceContext.UpdateModifiedAttributes(payment);
+            //pc_Payment payment = Context.ServiceContext.Retrieve<pc_Payment>(new Guid("04a7a7b1-d3f9-eb11-94ef-000d3a4bfac3"));
+            //payment.pc_Amount = new(-1);
+            //_ = Context.ServiceContext.UpdateModifiedAttributes(payment);
+
+            pc_Participation participation = new()
+            {
+                pc_Contact = new EntityReference(Contact.EntityLogicalName, new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3")),
+                pc_From = new DateTime(2017, 9, 25),
+                pc_Till = new DateTime(2021, 9, 26),
+            };
+            _ = ParticipationRepository.GetParticipationWithinSamePeriod(Context, participation);
         }
     }
 }
