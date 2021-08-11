@@ -21,21 +21,19 @@ namespace PC.PowerApps.ClientBase
 
         public async Task ExecuteAll()
         {
-            DateTime utcNow = DateTime.UtcNow;
-            IQueryable<pc_ScheduledJob> scheduledJobs = context.ServiceContext.pc_ScheduledJobSet
-                .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
-                .OrderBy(sj => sj.pc_ExecuteOn)
-                .Select(sj => new pc_ScheduledJob
-                {
-                    pc_Name = sj.pc_Name,
-                    pc_Parameters = sj.pc_Parameters,
-                    pc_ScheduledJobId = sj.pc_ScheduledJobId,
-                    StateCode = sj.StateCode,
-                    StatusCode = sj.StatusCode,
-                });
-
-            foreach (pc_ScheduledJob scheduledJob in scheduledJobs)
+            while (true)
             {
+                DateTime utcNow = DateTime.UtcNow;
+                pc_ScheduledJob scheduledJob = context.ServiceContext.pc_ScheduledJobSet
+                    .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
+                    .OrderBy(sj => sj.pc_ExecuteOn)
+                    .FirstOrDefault();
+
+                if (scheduledJob is null)
+                {
+                    break;
+                }
+
                 await ProcessScheduledJob(scheduledJob);
             }
         }
