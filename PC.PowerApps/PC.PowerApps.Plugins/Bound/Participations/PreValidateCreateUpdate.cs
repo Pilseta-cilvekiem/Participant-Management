@@ -39,7 +39,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
 
                 if (otherParticipation is not null)
                 {
-                    throw new InvalidPluginExecutionException($"There is another participation for this contact within the same period.");
+                    throw new InvalidPluginExecutionException($"There is another Participation for this Contact within the same period.");
                 }
             }
         }
