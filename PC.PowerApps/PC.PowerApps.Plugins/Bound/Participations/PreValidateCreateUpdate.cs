@@ -28,13 +28,13 @@ namespace PC.PowerApps.Plugins.Bound.Participations
 
             context.EnsureCreatedOrUpdatedAttributesNotEmpty(p => new { p.pc_Contact, p.pc_From, p.pc_Level });
 
+            if (context.GetIsAnyAttributeModified(p => new { p.pc_From, p.pc_Till }) && participation.pc_From > participation.pc_Till)
+            {
+                throw new InvalidPluginExecutionException($"Participation From must be less than or equal to Till.");
+            }
+
             if (context.GetIsAnyAttributeModified(p => new { p.pc_From, p.pc_Till }))
             {
-                if (participation.pc_From > participation.pc_Till)
-                {
-                    throw new InvalidPluginExecutionException($"Participation From must be less than or equal to Till.");
-                }
-
                 pc_Participation otherParticipation = ParticipationRepository.GetParticipationWithinSamePeriod(context, participation);
 
                 if (otherParticipation is not null)
