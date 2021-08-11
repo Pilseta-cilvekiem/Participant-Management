@@ -9,9 +9,10 @@ namespace PC.PowerApps.Plugins.Contexts
 {
     public class PluginContext : Context
     {
+        private readonly Lazy<PluginMessage> lazyMessage;
         private readonly Lazy<EntityMetadata> lazyPrimaryEntityMetadata;
 
-        public PluginMessage Message { get; }
+        public PluginMessage Message => lazyMessage.Value;
         public IPluginExecutionContext PluginExecutionContext { get; }
         public string PrimaryEntityDisplayName => Utils.GetLabelValue(PrimaryEntityMetadata.DisplayName);
         public EntityMetadata PrimaryEntityMetadata => lazyPrimaryEntityMetadata.Value;
@@ -25,8 +26,8 @@ namespace PC.PowerApps.Plugins.Contexts
         private PluginContext(IOrganizationServiceFactory organizationServiceFactory, IPluginExecutionContext pluginExecutionContext, ITracingService tracingService, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser)
             : this(organizationServiceFactory, GetUserId(pluginExecutionContext, organizationServiceUser), GetUserId(pluginExecutionContext, userOrganizationServiceUser), GetLazyLogger(tracingService))
         {
+            lazyMessage = new(() => (PluginMessage)Enum.Parse(typeof(PluginMessage), PluginExecutionContext.MessageName));
             lazyPrimaryEntityMetadata = new(() => Utils.GetEntityMetadata(this, PluginExecutionContext.PrimaryEntityName));
-            Message = (PluginMessage)Enum.Parse(typeof(PluginMessage), pluginExecutionContext.MessageName);
             PluginExecutionContext = pluginExecutionContext;
         }
 

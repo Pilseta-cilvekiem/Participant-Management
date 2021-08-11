@@ -158,9 +158,9 @@ namespace PC.PowerApps.Common.Repositories
         {
             context.Logger.LogInformation($"Processing the transaction {transaction.pc_Name}.");
 
-            if (Utils.GetAmountOrZero(transaction.pc_RemainingAmount) == 0)
+            if (Utils.GetAmountOrZero(transaction.pc_RemainingAmount) <= 0)
             {
-                context.Logger.LogInformation("Transaction remaining amount is 0 - skipping.");
+                context.Logger.LogInformation("Transaction remaining amount is less than or equal to 0 - skipping.");
                 return;
             }
 
