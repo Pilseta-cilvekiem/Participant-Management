@@ -80,6 +80,7 @@
     <Compile Include="Repositories\ParticipationFeeExemptionRepository.cs" />
     <Compile Include="Repositories\ParticipationRepository.cs" />
     <Compile Include="Repositories\ScheduledJobRepository.cs" />
+    <Compile Include="Repositories\SettingsRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="ScheduledJob.cs" />
     <Compile Include="ScheduledJobs\ImportTransactions.cs" />
