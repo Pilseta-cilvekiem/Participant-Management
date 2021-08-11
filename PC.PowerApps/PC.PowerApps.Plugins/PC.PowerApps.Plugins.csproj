@@ -79,6 +79,7 @@
     <Compile Include="Bound\Payments\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\ScheduledJobs\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\ScheduledJobs\PreValidateDelete.cs" />
+    <Compile Include="Bound\Settings\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Transactions\PreValidateCreateUpdate.cs" />
     <Compile Include="Contexts\CustomApiPluginContext.cs" />
     <Compile Include="Contexts\DeletePluginContext.cs" />
