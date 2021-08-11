@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xrm.Sdk;
-using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
@@ -12,12 +11,6 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
             PreCreateUpdatePluginContext<pc_Transaction> context = new(serviceProvider, User.System, User.User);
-            pc_Transaction transaction = context.PostImage;
-
-            if (context.GetIsAnyAttributeModified(t => new { t.pc_Amount, t.pc_NonPaymentAmount, t.pc_PaymentTotalAmount }) && Utils.GetAmountOrZero(transaction.pc_PaymentTotalAmount) + Utils.GetAmountOrZero(transaction.pc_NonPaymentAmount) > Utils.GetAmountOrZero(transaction.pc_Amount))
-            {
-                throw new InvalidPluginExecutionException("Sum of Transaction Payment Total Amount and Non-Payment Amount cannot be greater than Amount.");
-            }
 
             if (!context.GetIsValidationEnabled())
             {
