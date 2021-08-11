@@ -1,6 +1,6 @@
 ﻿namespace PC.PowerApps.Plugins.Enumerations
 {
-    public enum OrganizationServiceUser
+    public enum User
     {
         System,
         User,

@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            CustomApiPluginContext context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            CustomApiPluginContext context = new(serviceProvider, User.System, User.User);
             pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(context.Target);
             TransactionRepository.Process(context, transaction);
         }

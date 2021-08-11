@@ -75,6 +75,7 @@
     <Compile Include="Bound\Emails\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Participations\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Payments\PreValidateCreateUpdate.cs" />
+    <Compile Include="Bound\Transactions\PreValidateCreateUpdate.cs" />
     <Compile Include="Contexts\CustomApiPluginContext.cs" />
     <Compile Include="Contexts\DeletePluginContext.cs" />
     <Compile Include="Contexts\EntityPluginContext.cs" />

@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Contexts
             .TakeSingle()
             .Value;
 
-        public DeletePluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
+        public DeletePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
         {
         }
     }

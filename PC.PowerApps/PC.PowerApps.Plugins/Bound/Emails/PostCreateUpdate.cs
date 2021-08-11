@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.Emails
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<Email> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PostCreateUpdatePluginContext<Email> context = new(serviceProvider, User.System, User.User);
             Email email = context.PostImage;
 
             if (context.GetIsAnyAttributeModified(e => e.StatusCode))

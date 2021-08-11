@@ -14,7 +14,7 @@ namespace PC.PowerApps.Plugins.Contexts
 
         public override TEntity PostImage { get; }
 
-        public PreCreateUpdatePluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
+        public PreCreateUpdatePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
         {
             PostImage = ((Entity)PluginExecutionContext.InputParameters[PluginConstants.TargetAttributeName]).ToEntity<TEntity>();
 
@@ -32,11 +32,6 @@ namespace PC.PowerApps.Plugins.Contexts
 
         public void EnsureAttributesNotModified(Expression<Func<TEntity, object>> attributeSelector)
         {
-            if (!GetIsValidationEnabled())
-            {
-                return;
-            }
-
             HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
                 .Where(aln => GetIsAttributeModified(aln))
@@ -46,11 +41,6 @@ namespace PC.PowerApps.Plugins.Contexts
 
         public void EnsureCreatedOrUpdatedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
         {
-            if (!GetIsValidationEnabled())
-            {
-                return;
-            }
-
             HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
                 .Where(aln => Message == PluginMessage.Create || GetIsAttributeModified(aln))
@@ -61,7 +51,7 @@ namespace PC.PowerApps.Plugins.Contexts
             Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, CommonConstants.CannotBeEmptyText, CommonConstants.CannotBeEmptyText);
         }
 
-        private bool GetIsValidationEnabled()
+        public bool GetIsValidationEnabled()
         {
             bool isValidationDisabled = UserId == Organization.SystemUserId || DateTime.UtcNow < User.pc_DisableValidationTill;
             return !isValidationDisabled;

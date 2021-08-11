@@ -9,7 +9,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            CustomApiPluginContext context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            CustomApiPluginContext context = new(serviceProvider, User.System, User.User);
             ContactRepository.SendDebtReminder(context, context.Target.Id);
         }
     }

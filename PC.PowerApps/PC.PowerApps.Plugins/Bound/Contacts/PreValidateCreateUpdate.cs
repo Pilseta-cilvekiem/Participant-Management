@@ -9,7 +9,13 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PreCreateUpdatePluginContext<Contact> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PreCreateUpdatePluginContext<Contact> context = new(serviceProvider, User.System, User.User);
+
+            if (!context.GetIsValidationEnabled())
+            {
+                return;
+            }
+
             context.EnsureAttributesNotModified(c => new { c.pc_PaidParticipationFee, c.pc_ParticipationLevel, c.pc_RequiredParticipationFee, c.pc_SentDebtReminderOn, c.pc_SentSupporterWelcomeEmailOn });
             Contact contact = context.PostImage;
 

@@ -18,12 +18,12 @@ namespace PC.PowerApps.Plugins.Contexts
         public EntityMetadata PrimaryEntityMetadata => lazyPrimaryEntityMetadata.Value;
         public override Guid UserId { get; }
 
-        public PluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser)
+        public PluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser)
             : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, userOrganizationServiceUser)
         {
         }
 
-        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, IPluginExecutionContext pluginExecutionContext, ITracingService tracingService, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser)
+        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, IPluginExecutionContext pluginExecutionContext, ITracingService tracingService, User organizationServiceUser, User userOrganizationServiceUser)
             : this(organizationServiceFactory, GetUserId(pluginExecutionContext, organizationServiceUser), GetUserId(pluginExecutionContext, userOrganizationServiceUser), GetLazyLogger(tracingService))
         {
             lazyMessage = new(() => (PluginMessage)Enum.Parse(typeof(PluginMessage), PluginExecutionContext.MessageName));
@@ -52,14 +52,14 @@ namespace PC.PowerApps.Plugins.Contexts
             return new(() => organizationServiceFactory.CreateOrganizationService(organizationServiceUserId));
         }
 
-        private static Guid? GetUserId(IPluginExecutionContext pluginExecutionContext, OrganizationServiceUser organizationServiceUser)
+        private static Guid? GetUserId(IPluginExecutionContext pluginExecutionContext, User organizationServiceUser)
         {
             return organizationServiceUser switch
             {
-                OrganizationServiceUser.InitiatingUser => pluginExecutionContext.InitiatingUserId,
-                OrganizationServiceUser.System => null,
-                OrganizationServiceUser.User => pluginExecutionContext.UserId,
-                _ => throw new NotImplementedException($"Unknown {nameof(OrganizationServiceUser)} value {organizationServiceUser}."),
+                Enumerations.User.InitiatingUser => pluginExecutionContext.InitiatingUserId,
+                Enumerations.User.System => null,
+                Enumerations.User.User => pluginExecutionContext.UserId,
+                _ => throw new NotImplementedException($"Unknown {nameof(Enumerations.User)} value {organizationServiceUser}."),
             };
         }
 

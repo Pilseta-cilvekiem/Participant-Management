@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<pc_ScheduledJob> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PostCreateUpdatePluginContext<pc_ScheduledJob> context = new(serviceProvider, User.System, User.User);
             pc_ScheduledJob scheduledJob = context.PostImage;
 
             if (context.GetIsAnyAttributeModified(sj => sj.StatusCode))

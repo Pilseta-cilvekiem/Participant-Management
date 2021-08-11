@@ -11,7 +11,7 @@ namespace PC.PowerApps.Plugins.Bound.Payments
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            DeletePluginContext<pc_Payment> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            DeletePluginContext<pc_Payment> context = new(serviceProvider, User.System, User.User);
             pc_Payment payment = context.PreImage;
 
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(payment.pc_Contact) != true)

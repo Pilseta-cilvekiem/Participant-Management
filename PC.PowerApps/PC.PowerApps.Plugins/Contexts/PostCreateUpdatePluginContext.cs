@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Contexts
     {
         public override TEntity PostImage { get; }
 
-        public PostCreateUpdatePluginContext(IServiceProvider serviceProvider, OrganizationServiceUser organizationServiceUser, OrganizationServiceUser userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
+        public PostCreateUpdatePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
         {
             PostImage = PluginExecutionContext.PostEntityImages
                 .Where(i => i.Key == PluginConstants.EntityImageAlias)

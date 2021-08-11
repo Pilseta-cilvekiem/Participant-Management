@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<Contact> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PostCreateUpdatePluginContext<Contact> context = new(serviceProvider, User.System, User.User);
             Contact contact = context.PostImage;
 
             if (!ContactRepository.IsValidForGoogleSupporterGroup(context.PreImage) != ContactRepository.IsValidForGoogleSupporterGroup(contact))

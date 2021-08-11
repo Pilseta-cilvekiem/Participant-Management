@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<pc_Participation> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PostCreateUpdatePluginContext<pc_Participation> context = new(serviceProvider, User.System, User.User);
             pc_Participation participation = context.PostImage;
 
             if (context.GetIsAnyAttributeModified(p => new { p.pc_Contact, p.pc_From, p.pc_Level, p.pc_Till, p.StateCode }))
