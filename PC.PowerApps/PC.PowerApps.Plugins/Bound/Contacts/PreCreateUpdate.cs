@@ -20,7 +20,12 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
 
             if (context.GetIsAnyAttributeModified(c => c.pc_ParticipationLevel))
             {
-                ContactRepository.UpdateParticipationInfo(contact);
+                ContactRepository.UpdateStatusCode(contact);
+            }
+
+            if (context.GetIsAnyAttributeModified(c => c.StatusCode))
+            {
+                ContactRepository.ClearParticipantInfo(contact);
             }
         }
     }
