@@ -11,7 +11,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            DeletePluginContext<pc_Participation> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            DeletePluginContext<pc_Participation> context = new(serviceProvider, User.System, User.User);
             pc_Participation participation = context.PreImage;
 
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(participation.pc_Contact) != true)

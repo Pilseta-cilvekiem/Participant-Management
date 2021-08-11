@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            DeletePluginContext<Contact> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            DeletePluginContext<Contact> context = new(serviceProvider, User.System, User.User);
             Contact contact = context.PreImage;
 
             if (ContactRepository.IsValidForGoogleSupporterGroup(contact))

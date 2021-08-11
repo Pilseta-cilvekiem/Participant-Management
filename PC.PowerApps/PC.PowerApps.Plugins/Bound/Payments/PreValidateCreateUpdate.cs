@@ -9,7 +9,13 @@ namespace PC.PowerApps.Plugins.Bound.Payments
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PreCreateUpdatePluginContext<pc_Payment> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PreCreateUpdatePluginContext<pc_Payment> context = new(serviceProvider, User.System, User.User);
+
+            if (!context.GetIsValidationEnabled())
+            {
+                return;
+            }
+
             context.EnsureAttributesNotModified(p => p.pc_Date);
             pc_Payment payment = context.PostImage;
 

@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.Annotations
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PostCreateUpdatePluginContext<Annotation> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PostCreateUpdatePluginContext<Annotation> context = new(serviceProvider, User.System, User.User);
             Annotation annotation = context.PostImage;
 
             if (context.GetIsAnyAttributeModified(a => new { a.ObjectId }))

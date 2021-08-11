@@ -9,7 +9,13 @@ namespace PC.PowerApps.Plugins.Bound.Emails
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PreCreateUpdatePluginContext<Email> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PreCreateUpdatePluginContext<Email> context = new(serviceProvider, User.System, User.User);
+
+            if (!context.GetIsValidationEnabled())
+            {
+                return;
+            }
+
             context.EnsureAttributesNotModified(e => e.pc_Category);
         }
     }

@@ -12,7 +12,13 @@ namespace PC.PowerApps.Plugins.Bound.Participations
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PreCreateUpdatePluginContext<pc_Participation> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PreCreateUpdatePluginContext<pc_Participation> context = new(serviceProvider, User.System, User.User);
+
+            if (!context.GetIsValidationEnabled())
+            {
+                return;
+            }
+
             pc_Participation participation = context.PostImage;
 
             if (participation.StatusCode != pc_Participation_StatusCode.Active)

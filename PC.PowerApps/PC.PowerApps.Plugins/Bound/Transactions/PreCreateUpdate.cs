@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
     {
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
-            PreCreateUpdatePluginContext<pc_Transaction> context = new(serviceProvider, OrganizationServiceUser.System, OrganizationServiceUser.User);
+            PreCreateUpdatePluginContext<pc_Transaction> context = new(serviceProvider, User.System, User.User);
             pc_Transaction transaction = context.PostImage;
 
             if (context.Message == PluginMessage.Create)

@@ -67,7 +67,7 @@
     <Compile Include="Entities\DataverseEntities.cs" />
     <Compile Include="Entities\DataverseOptionSets.cs" />
     <Compile Include="Entities\Fidavista.cs" />
-    <Compile Include="Enumerations\OrganizationServiceUser.cs" />
+    <Compile Include="Enumerations\User.cs" />
     <Compile Include="Exceptions\SequenceEmptyException.cs" />
     <Compile Include="Exceptions\SequenceHasMoreThanOneElementException.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
