@@ -12,6 +12,7 @@ namespace PC.PowerApps.Plugins.Contexts
     {
         private bool disposedValue;
 
+        public bool IsValidationDisabled => UserId == Organization.SystemUserId || DateTime.UtcNow < User.pc_DisableValidationTill;
         public override TEntity PostImage { get; }
 
         public PreCreateUpdatePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
@@ -49,12 +50,6 @@ namespace PC.PowerApps.Plugins.Contexts
                 .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))
                 .ToList();
             Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, CommonConstants.CannotBeEmptyText, CommonConstants.CannotBeEmptyText);
-        }
-
-        public bool GetIsValidationEnabled()
-        {
-            bool isValidationDisabled = UserId == Organization.SystemUserId || DateTime.UtcNow < User.pc_DisableValidationTill;
-            return !isValidationDisabled;
         }
 
         protected override void Dispose(bool disposing)

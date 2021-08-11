@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bound\BankAccounts\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Contacts\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Emails\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\ParticipationFeeExemption\PreValidateCreateUpdate.cs" />

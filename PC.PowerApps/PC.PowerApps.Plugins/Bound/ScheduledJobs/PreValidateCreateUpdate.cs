@@ -10,6 +10,12 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
         protected override void ExecuteInternal(IServiceProvider serviceProvider)
         {
             PreCreateUpdatePluginContext<pc_ScheduledJob> context = new(serviceProvider, User.System, User.User);
+
+            if (context.IsValidationDisabled)
+            {
+                return;
+            }
+
             context.EnsureAttributesNotModified(sj => new { sj.pc_CompletedOn, sj.pc_Error, sj.pc_Failures, sj.pc_StartedOn });
 
             pc_ScheduledJob scheduledJob = context.PostImage;
