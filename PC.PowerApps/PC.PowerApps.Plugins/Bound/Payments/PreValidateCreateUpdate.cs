@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Bound.Payments
         {
             PreCreateUpdatePluginContext<pc_Payment> context = new(serviceProvider, User.System, User.User);
 
-            if (!context.GetIsValidationEnabled())
+            if (context.IsValidationDisabled)
             {
                 return;
             }

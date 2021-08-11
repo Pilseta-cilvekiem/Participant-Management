@@ -14,7 +14,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
         {
             PreCreateUpdatePluginContext<pc_Participation> context = new(serviceProvider, User.System, User.User);
 
-            if (!context.GetIsValidationEnabled())
+            if (context.IsValidationDisabled)
             {
                 return;
             }

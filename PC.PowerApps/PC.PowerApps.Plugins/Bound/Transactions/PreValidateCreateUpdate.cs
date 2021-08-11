@@ -12,7 +12,7 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
         {
             PreCreateUpdatePluginContext<pc_Transaction> context = new(serviceProvider, User.System, User.User);
 
-            if (!context.GetIsValidationEnabled())
+            if (context.IsValidationDisabled)
             {
                 return;
             }
