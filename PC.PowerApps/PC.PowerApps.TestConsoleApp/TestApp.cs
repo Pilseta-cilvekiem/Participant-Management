@@ -102,13 +102,17 @@ namespace PC.PowerApps.TestConsoleApp
             //payment.pc_Amount = new(-1);
             //_ = Context.ServiceContext.UpdateModifiedAttributes(payment);
 
-            pc_Participation participation = new()
-            {
-                pc_Contact = new EntityReference(Contact.EntityLogicalName, new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3")),
-                pc_From = new DateTime(2017, 9, 25),
-                pc_Till = new DateTime(2021, 9, 26),
-            };
-            _ = ParticipationRepository.GetParticipationWithinSamePeriod(Context, participation);
+            //pc_Participation participation = new()
+            //{
+            //    pc_Contact = new EntityReference(Contact.EntityLogicalName, new Guid("0d5e1852-00e8-eb11-bacb-000d3abb9ce3")),
+            //    pc_From = new DateTime(2017, 9, 25),
+            //    pc_Till = new DateTime(2021, 9, 26),
+            //};
+            //_ = ParticipationRepository.GetParticipationWithinSamePeriod(Context, participation);
+
+            //SystemUser systemUser = Context.ServiceContext.Retrieve<SystemUser>(Context.Organization.SystemUserId.Value);
+            //systemUser.pc_DisableValidationTill = Context.OrganizationToUtcTime(new DateTime(9999, 12, 31, 23, 59, 0));
+            //Context.ServiceContext.UpdateModifiedAttributes(systemUser);
         }
     }
 }

@@ -20,9 +20,14 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
 
             pc_ScheduledJob scheduledJob = context.PostImage;
 
-            if (scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Pending)
+            if (context.Message != PluginMessage.Create || scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Pending)
             {
                 context.EnsureAttributesNotModified(sj => new { sj.StatusCode });
+            }
+
+            if (context.PreImage?.StatusCode == pc_ScheduledJob_StatusCode.InProgress || context.PreImage?.StatusCode == pc_ScheduledJob_StatusCode.Completed)
+            {
+                context.EnsureAttributesNotModified(sj => new { sj.pc_ExecuteEvery, sj.pc_ExecuteOn, sj.pc_Name, sj.pc_Parameters, sj.pc_PostponeUntil, sj.pc_Recurrence });
             }
 
             context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => sj.pc_Name);
@@ -36,7 +41,6 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
             {
                 context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => sj.pc_Parameters);
             }
-
         }
     }
 }
