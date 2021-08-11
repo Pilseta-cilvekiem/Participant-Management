@@ -19,11 +19,6 @@ namespace PC.PowerApps.Plugins.Bound.BankAccounts
             context.EnsureAttributesNotModified(ba => new { ba.pc_LastImportedTransactionDate, ba.pc_TransactionImportError, ba.pc_TransactionImportStatus });
             pc_BankAccount bankAccount = context.PostImage;
 
-            if (bankAccount.StatusCode != pc_BankAccount_StatusCode.Active)
-            {
-                context.EnsureAttributesNotModified(ba => ba.StatusCode);
-            }
-
             context.EnsureCreatedOrUpdatedAttributesNotEmpty(ba => ba.pc_Name);
         }
     }
