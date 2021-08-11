@@ -94,19 +94,9 @@ namespace PC.PowerApps.Common.Repositories
         {
             context.Logger.LogInformation($"Calculating participation level for the contact {contact.Id}...");
             DateTime localNow = context.GetCurrentOrganizationTime();
-            pc_Participation participation;
-
-            try
-            {
-                participation = context.ServiceContext.pc_ParticipationSet
-                    .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
-                    .TakeSingleOrDefault();
-            }
-            catch (SequenceHasMoreThanOneElementException)
-            {
-                throw new InvalidPluginExecutionException("There are more than one current participations.");
-            }
-
+            pc_Participation participation = context.ServiceContext.pc_ParticipationSet
+                .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
+                .FirstOrDefault();
             contact.pc_ParticipationLevel = participation?.pc_Level;
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
