@@ -18,6 +18,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemption
                 return;
             }
 
+            context.EnsureAttributesNotModified(pfe => pfe.pc_Name);
             pc_ParticipationFeeExemption participationFeeExemption = context.PostImage;
 
             if (participationFeeExemption.StatusCode != pc_ParticipationFeeExemption_StatusCode.Active)

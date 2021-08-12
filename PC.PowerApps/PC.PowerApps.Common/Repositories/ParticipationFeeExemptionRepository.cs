@@ -1,4 +1,6 @@
-﻿using PC.PowerApps.Common.Entities.Dataverse;
+﻿using Microsoft.Extensions.Logging;
+using PC.PowerApps.Common.Entities.Dataverse;
+using System;
 using System.Linq;
 
 namespace PC.PowerApps.Common.Repositories
@@ -18,6 +20,13 @@ namespace PC.PowerApps.Common.Repositories
 
             pc_ParticipationFeeExemption otherParticipationFeeExemption = otherParticipationFeeExemptionQuery.FirstOrDefault();
             return otherParticipationFeeExemption;
+        }
+
+        public static void SetName(Context context, pc_ParticipationFeeExemption participationFeeExemption)
+        {
+            context.Logger.LogInformation($"Setting a Name for the Participation Fee Exemption {participationFeeExemption.Id}...");
+            Contact contact = context.ServiceContext.Retrieve<Contact>(participationFeeExemption.pc_Contact);
+            participationFeeExemption.pc_Name = Utils.CreateName(100, contact?.FullName, context.FormatDate(participationFeeExemption.pc_From), "-", context.FormatDate(participationFeeExemption.pc_Till));
         }
     }
 }
