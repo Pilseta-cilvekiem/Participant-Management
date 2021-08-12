@@ -4,7 +4,6 @@ using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
-using System.Linq;
 
 namespace PC.PowerApps.Plugins.Bound.Participations
 {
@@ -19,6 +18,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
                 return;
             }
 
+            context.EnsureAttributesNotModified(p => p.pc_Name);
             pc_Participation participation = context.PostImage;
 
             if (participation.StatusCode != pc_Participation_StatusCode.Active)

@@ -127,12 +127,20 @@ namespace PC.PowerApps.TestConsoleApp
             //Console.WriteLine(DateTime.Now.ToString("d", cultureInfo));
             //Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
 
-            List<pc_Payment> payments = Context.ServiceContext.pc_PaymentSet.ToList();
+            //List<pc_Payment> payments = Context.ServiceContext.pc_PaymentSet.ToList();
 
-            foreach (pc_Payment payment in payments)
+            //foreach (pc_Payment payment in payments)
+            //{
+            //    PaymentRepository.SetName(Context, payment);
+            //    _ = Context.ServiceContext.UpdateModifiedAttributes(payment);
+            //}
+
+            List<pc_Participation> participations = Context.ServiceContext.pc_ParticipationSet.ToList();
+
+            foreach (pc_Participation participation in participations)
             {
-                PaymentRepository.SetName(Context, payment);
-                _ = Context.ServiceContext.UpdateModifiedAttributes(payment);
+                ParticipationRepository.SetName(Context, participation);
+                _ = Context.ServiceContext.UpdateModifiedAttributes(participation);
             }
         }
     }

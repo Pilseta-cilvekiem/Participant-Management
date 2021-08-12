@@ -76,6 +76,7 @@
     <Compile Include="Bound\Emails\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\ParticipationFeeExemption\PreCreateUpdate.cs" />
     <Compile Include="Bound\ParticipationFeeExemption\PreValidateCreateUpdate.cs" />
+    <Compile Include="Bound\Participations\PreCreateUpdate.cs" />
     <Compile Include="Bound\Participations\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Payments\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\ScheduledJobs\PreValidateCreateUpdate.cs" />
