@@ -25,7 +25,7 @@ namespace PC.PowerApps.ClientBase
             {
                 DateTime utcNow = DateTime.UtcNow;
                 pc_ScheduledJob scheduledJob = context.ServiceContext.pc_ScheduledJobSet
-                    .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
+                    .Where(sj => sj.StateCode == pc_ScheduledJobState.Active && sj.pc_PostponeUntil <= utcNow)
                     .OrderBy(sj => sj.pc_ExecuteOn)
                     .FirstOrDefault();
 
