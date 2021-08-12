@@ -232,8 +232,8 @@ namespace PC.PowerApps.Common
                 .Where(p => p.Length > 0)
                 .ToList();
             string fullName = string.Join(" ", nonEmptyParts);
-            const string ThreeDots = "...";
-            return fullName.Length > maxLength ? $"{fullName.Substring(0, maxLength - ThreeDots.Length).TrimEnd()}..." : fullName;
+            string name = fullName.TakeFirst(maxLength);
+            return name;
         }
     }
 }
