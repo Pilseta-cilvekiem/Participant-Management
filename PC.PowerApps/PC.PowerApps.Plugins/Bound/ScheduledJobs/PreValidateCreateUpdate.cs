@@ -1,4 +1,5 @@
-﻿using PC.PowerApps.Common.Entities.Dataverse;
+﻿using Microsoft.Xrm.Sdk;
+using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
@@ -32,6 +33,11 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
 
             context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => sj.pc_Name);
 
+            if (context.Message != PluginMessage.Create)
+            {
+                context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => new { sj.pc_ExecuteOn, sj.pc_PostponeUntil });
+            }
+
             if (scheduledJob.pc_ExecuteEvery is not null || scheduledJob.pc_Recurrence is not null)
             {
                 context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => new { sj.pc_ExecuteEvery, sj.pc_Recurrence });
@@ -40,6 +46,11 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
             if (context.Message != PluginMessage.Create)
             {
                 context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => sj.pc_Parameters);
+            }
+
+            if (context.GetIsAnyAttributeModified(sj => new { sj.pc_ExecuteOn, sj.pc_PostponeUntil }) && scheduledJob.pc_PostponeUntil < scheduledJob.pc_ExecuteOn)
+            {
+                throw new InvalidPluginExecutionException("Scheduled Job Postpone Until must be greater than or equal to Execute On.");
             }
         }
     }

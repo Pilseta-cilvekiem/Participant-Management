@@ -20,11 +20,15 @@ namespace PC.PowerApps.Plugins.Bound.Settings
 
             context.EnsureCreatedOrUpdatedAttributesNotEmpty(s => new { s.pc_AutomaticallyProcessTransactions, s.pc_Name });
             pc_Settings settings = context.PostImage;
-            pc_Settings anotherActiveSettings = SettingsRepository.GetAnotherActiveSettings(context, settings.Id);
 
-            if (anotherActiveSettings is not null)
+            if (context.GetIsAnyAttributeModified(s => s.StatusCode) && settings.StatusCode == pc_Settings_StatusCode.Active)
             {
-                throw new InvalidPluginExecutionException("There are already another active Settings.");
+                pc_Settings anotherActiveSettings = SettingsRepository.GetAnotherActiveSettings(context, settings.Id);
+
+                if (anotherActiveSettings is not null)
+                {
+                    throw new InvalidPluginExecutionException("There are already another active Settings.");
+                }
             }
         }
     }
