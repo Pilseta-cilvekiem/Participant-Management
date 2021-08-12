@@ -33,13 +33,33 @@ namespace PC.PowerApps.Plugins.Bound.Participations
                 throw new InvalidPluginExecutionException($"Participation From must be less than or equal to Till.");
             }
 
-            if (context.GetIsAnyAttributeModified(p => new { p.pc_From, p.pc_Till }))
+            if (context.GetIsAnyAttributeModified(p => new { p.pc_Contact, p.pc_From, p.pc_Till }))
             {
                 pc_Participation otherParticipation = ParticipationRepository.GetParticipationWithinSamePeriod(context, participation);
 
                 if (otherParticipation is not null)
                 {
-                    throw new InvalidPluginExecutionException($"There is another Participation for this Contact within the same period.");
+                    throw new InvalidPluginExecutionException($"There is another Participation for this Contact within this period.");
+                }
+            }
+
+            if (context.GetIsAnyAttributeModified(p => new { p.pc_Contact, p.pc_From, p.pc_Level }))
+            {
+                pc_Participation otherParticipation = ParticipationRepository.GetAdjacentParticipationBefore(context, participation);
+
+                if (otherParticipation is not null)
+                {
+                    throw new InvalidPluginExecutionException($"There is another Participation for this Contact with the same Level ending one day before.");
+                }
+            }
+
+            if (context.GetIsAnyAttributeModified(p => new { p.pc_Contact, p.pc_Level, p.pc_Till }))
+            {
+                pc_Participation otherParticipation = ParticipationRepository.GetAdjacentParticipationAfter(context, participation);
+
+                if (otherParticipation is not null)
+                {
+                    throw new InvalidPluginExecutionException($"There is another Participation for this Contact with the same Level starting one day after.");
                 }
             }
         }
