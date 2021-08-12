@@ -13,7 +13,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
             PostCreateUpdatePluginContext<Contact> context = new(serviceProvider, User.System, User.User);
             Contact contact = context.PostImage;
 
-            if (!ContactRepository.IsValidForGoogleSupporterGroup(context.PreImage) != ContactRepository.IsValidForGoogleSupporterGroup(contact))
+            if (ContactRepository.IsValidForGoogleSupporterGroup(context.PreImage) != ContactRepository.IsValidForGoogleSupporterGroup(contact))
             {
                 ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
             }
