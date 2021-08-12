@@ -1,4 +1,5 @@
-﻿using PC.PowerApps.Common.Entities.Dataverse;
+﻿using PC.PowerApps.Common;
+using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
@@ -13,7 +14,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
             DeletePluginContext<Contact> context = new(serviceProvider, User.System, User.User);
             Contact contact = context.PreImage;
 
-            if (ContactRepository.IsValidForGoogleSupporterGroup(contact))
+            if (CommonConstants.IsValidForGoogleSupporterGroupFunc(contact))
             {
                 ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
             }
