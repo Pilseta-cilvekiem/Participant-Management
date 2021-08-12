@@ -18,7 +18,7 @@ namespace PC.PowerApps.Plugins.Bound.Payments
                 return;
             }
 
-            context.EnsureAttributesNotModified(p => p.pc_Date);
+            context.EnsureAttributesNotModified(p => new { p.pc_Date, p.pc_Name });
             pc_Payment payment = context.PostImage;
 
             if (payment.StatusCode != pc_Payment_StatusCode.Active)

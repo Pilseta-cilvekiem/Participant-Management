@@ -4,6 +4,7 @@ using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -22,6 +23,7 @@ namespace PC.PowerApps.Common
         private readonly Lazy<IOrganizationService> lazyUserOrganizationService;
         private readonly Lazy<ServiceContext> lazyUserServiceContext;
 
+        public CultureInfo CultureInfo { get; }
         public ILogger Logger => lazyLogger.Value;
         public Organization Organization => lazyOrganization.Value;
         public IOrganizationService OrganizationService => lazyOrganizationService.Value;
@@ -39,6 +41,7 @@ namespace PC.PowerApps.Common
 
         protected Context(Lazy<IOrganizationService> lazyOrganizationService, Lazy<IOrganizationService> lazyUserOrganizationService, Lazy<ILogger> lazyLogger)
         {
+            CultureInfo = CultureInfo.GetCultureInfo("lv-LV");
             this.lazyLogger = lazyLogger;
             lazyOrganization = new(() => ServiceContext.OrganizationSet.TakeSingle());
             this.lazyOrganizationService = lazyOrganizationService;
@@ -75,6 +78,16 @@ namespace PC.PowerApps.Common
                 .Where(aln => Utils.IsEmptyValue(aln))
                 .ToList();
             Utils.EnsureNoAttributes(this, entity.LogicalName, emptyAttributeLogicalNames, CommonConstants.CannotBeEmptyText, CommonConstants.CannotBeEmptyText);
+        }
+
+        public string Format(Money money)
+        {
+            return money?.Value.ToString("c", CultureInfo);
+        }
+
+        public string FormatDate(DateTime? dateTime)
+        {
+            return dateTime?.ToString("d", CultureInfo);
         }
 
         protected virtual void Dispose(bool disposing)
