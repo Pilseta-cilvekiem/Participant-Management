@@ -223,5 +223,17 @@ namespace PC.PowerApps.Common
         {
             return @object is null || (@object is string @string && @string.Length == 0);
         }
+
+        public static string CreateName(int maxLength, params string[] parts)
+        {
+            List<string> nonEmptyParts = parts
+                .Where(p => p is not null)
+                .Select(p => p.Trim())
+                .Where(p => p.Length > 0)
+                .ToList();
+            string fullName = string.Join(" ", nonEmptyParts);
+            const string ThreeDots = "...";
+            return fullName.Length > maxLength ? $"{fullName.Substring(0, maxLength - ThreeDots.Length).TrimEnd()}..." : fullName;
+        }
     }
 }

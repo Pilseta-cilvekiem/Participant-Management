@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -113,6 +114,26 @@ namespace PC.PowerApps.TestConsoleApp
             //SystemUser systemUser = Context.ServiceContext.Retrieve<SystemUser>(Context.Organization.SystemUserId.Value);
             //systemUser.pc_DisableValidationTill = Context.OrganizationToUtcTime(new DateTime(9999, 12, 31, 23, 59, 0));
             //Context.ServiceContext.UpdateModifiedAttributes(systemUser);
+
+            //pc_Payment updatePayment = new()
+            //{
+            //    Id = new Guid("ff8af53d-57fb-eb11-94ef-000d3a4bfac3"),
+            //    pc_Amount = new(1),
+            //};
+            //Context.OrganizationService.Update(updatePayment);
+
+            //Stopwatch stopwatch = Stopwatch.StartNew();
+            //CultureInfo cultureInfo = CultureInfo.GetCultureInfo("lv-LV");
+            //Console.WriteLine(DateTime.Now.ToString("d", cultureInfo));
+            //Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
+
+            List<pc_Payment> payments = Context.ServiceContext.pc_PaymentSet.ToList();
+
+            foreach (pc_Payment payment in payments)
+            {
+                PaymentRepository.SetName(Context, payment);
+                _ = Context.ServiceContext.UpdateModifiedAttributes(payment);
+            }
         }
     }
 }
