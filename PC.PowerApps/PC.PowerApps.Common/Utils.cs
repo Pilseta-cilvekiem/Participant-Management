@@ -231,6 +231,12 @@ namespace PC.PowerApps.Common
                 .Select(p => p.Trim())
                 .Where(p => p.Length > 0)
                 .ToList();
+
+            if (nonEmptyParts.Count == 0)
+            {
+                return null;
+            }
+
             string fullName = string.Join(" ", nonEmptyParts);
             string name = fullName.TakeFirst(maxLength);
             return name;
