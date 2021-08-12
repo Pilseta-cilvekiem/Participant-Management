@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
@@ -27,6 +28,16 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemption
             }
 
             context.EnsureCreatedOrUpdatedAttributesNotEmpty(pfe => new { pfe.pc_Contact, pfe.pc_Description, pfe.pc_From });
+
+            if (context.GetIsAnyAttributeModified(pfe => pfe.pc_From) && participationFeeExemption.pc_From.Value.Day != 1)
+            {
+                throw new InvalidPluginExecutionException($"Participation Fee Exemption From must be a first day of the month.");
+            }
+
+            if (context.GetIsAnyAttributeModified(pfe => pfe.pc_Till) && participationFeeExemption.pc_Till is not null && !participationFeeExemption.pc_Till.Value.IsLastDayOfMonth())
+            {
+                throw new InvalidPluginExecutionException($"Participation Fee Exemption Till must be a last day of the month.");
+            }
 
             if (context.GetIsAnyAttributeModified(pfe => new { pfe.pc_From, pfe.pc_Till }) && participationFeeExemption.pc_From > participationFeeExemption.pc_Till)
             {
