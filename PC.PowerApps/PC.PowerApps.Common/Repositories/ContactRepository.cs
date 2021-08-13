@@ -243,6 +243,7 @@ namespace PC.PowerApps.Common.Repositories
             contact.Address1_PostalCode = null;
             contact.Address1_StateOrProvince = null;
             contact.Description = "Bijušais dalībnieks.";
+            contact.pc_ForceAddToGoogleGroup = false;
             contact.pc_Neighbourhood = null;
             contact.pc_WishesToBeActive = false;
         }

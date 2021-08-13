@@ -219,52 +219,6 @@
         id="{f190362f-cdf3-eb11-94ef-002248834145}"
         behavior="0" />
       <RootComponent
-        type="60"
-        id="{0d1e47ff-12b2-4f53-9090-bee951b98cb4}" />
-      <RootComponent
-        type="60"
-        id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      <RootComponent
-        type="60"
-        id="{24302d1f-e5c2-470c-a162-e7f65d77940a}"
-        behavior="0" />
-      <RootComponent
-        type="60"
-        id="{2a343c8c-5c71-4ae6-887d-9ccd29b20b02}"
-        behavior="0" />
-      <RootComponent
-        type="60"
-        id="{2d494817-2124-46f3-ac44-a4a2fc03bb66}"
-        behavior="0" />
-      <RootComponent
-        type="60"
-        id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
-      <RootComponent
-        type="60"
-        id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
-      <RootComponent
-        type="60"
-        id="{af9552f0-502a-4460-ae12-021b156d1c66}"
-        behavior="0" />
-      <RootComponent
-        type="60"
-        id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
-      <RootComponent
-        type="60"
-        id="{c5c47c90-f7bd-479f-b150-fcee7d30c86c}"
-        behavior="0" />
-      <RootComponent
-        type="60"
-        id="{d26924ef-4d80-46f7-ab1d-e6ae80a54ce8}" />
-      <RootComponent
-        type="60"
-        id="{e2520334-c210-46a4-81ab-2ebabd648e46}"
-        behavior="0" />
-      <RootComponent
-        type="60"
-        id="{ef363f28-6de7-4d13-b75d-e84b7c1eddc3}"
-        behavior="0" />
-      <RootComponent
         type="61"
         schemaName="pc_/bankaccount.js"
         behavior="0" />
@@ -511,7 +465,9 @@
           parentSchemaName="contact"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
-          id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" />
+          id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}">
+          <package>msdynce_AppCommonAnchor (9.0.21064.10002)</package>
+        </Required>
         <Dependent
           type="26"
           schemaName="All Contacts"
@@ -539,7 +495,9 @@
           displayName="Contact"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
-          id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+          id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}">
+          <package>msdynce_AppCommonAnchor (9.0.21064.10002)</package>
+        </Required>
         <Dependent
           type="60"
           displayName="Contact"
@@ -552,7 +510,9 @@
           displayName="Information"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
-          id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
+          id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}">
+          <package>msdynce_AppCommonAnchor (9.0.21064.10002)</package>
+        </Required>
         <Dependent
           type="60"
           displayName="Information"
@@ -564,7 +524,9 @@
           type="61"
           schemaName="AppCommon/Contact/Contact_main_system_library.js"
           displayName="AppCommon/Contact/Contact_main_system_library.js"
-          solution="msdynce_AppCommon (9.0.4.0066)" />
+          solution="msdynce_AppCommon (9.0.4.0066)">
+          <package>msdynce_AppCommonAnchor (9.0.21064.10002)</package>
+        </Required>
         <Dependent
           type="60"
           displayName="Contact"
@@ -576,7 +538,9 @@
           type="61"
           schemaName="AppCommon/Contact/Contact_main_system_library.js"
           displayName="AppCommon/Contact/Contact_main_system_library.js"
-          solution="msdynce_AppCommon (9.0.4.0066)" />
+          solution="msdynce_AppCommon (9.0.4.0066)">
+          <package>msdynce_AppCommonAnchor (9.0.21064.10002)</package>
+        </Required>
         <Dependent
           type="60"
           displayName="Contact"

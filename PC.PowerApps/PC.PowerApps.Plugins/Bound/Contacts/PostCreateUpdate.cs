@@ -14,7 +14,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
             PostCreateUpdatePluginContext<Contact> context = new(serviceProvider, User.System, User.User);
             Contact contact = context.PostImage;
 
-            if (CommonConstants.LazyIsValidForGoogleSupporterGroupFunc(context.PreImage) != CommonConstants.LazyIsValidForGoogleSupporterGroupFunc(contact))
+            if (CommonConstants.IsValidForGoogleSupporterGroupFunc(context.PreImage) != CommonConstants.IsValidForGoogleSupporterGroupFunc(contact))
             {
                 ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
             }

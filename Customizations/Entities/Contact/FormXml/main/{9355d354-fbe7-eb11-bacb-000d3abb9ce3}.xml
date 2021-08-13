@@ -193,6 +193,23 @@
                     </row>
                     <row>
                       <cell
+                        id="{885f105d-39de-4bf6-b469-45565f116d79}"
+                        locklevel="0">
+                        <labels>
+                          <label
+                            description="Force Add to Google Group"
+                            languagecode="1033" />
+                        </labels>
+                        <control
+                          id="pc_forceaddtogooglegroup"
+                          classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}"
+                          datafieldname="pc_forceaddtogooglegroup"
+                          disabled="false"
+                          uniqueid="{1bf156f4-cda6-4754-8d5b-3e3dce8d46f1}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell
                         id="{3a206116-1a73-4aef-9ab1-a4d2befcc38d}"
                         locklevel="0">
                         <labels>
@@ -1779,6 +1796,39 @@
             <parameters>
               <value
                 type="TwoOptions">pc_isinvitedtoslack</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription
+          forControl="{1bf156f4-cda6-4754-8d5b-3e3dce8d46f1}">
+          <customControl
+            id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>pc_forceaddtogooglegroup</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl
+            formFactor="0"
+            name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value
+                type="TwoOptions">pc_forceaddtogooglegroup</value>
+            </parameters>
+          </customControl>
+          <customControl
+            formFactor="2"
+            name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value
+                type="TwoOptions">pc_forceaddtogooglegroup</value>
+            </parameters>
+          </customControl>
+          <customControl
+            formFactor="1"
+            name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value
+                type="TwoOptions">pc_forceaddtogooglegroup</value>
             </parameters>
           </customControl>
         </controlDescription>
