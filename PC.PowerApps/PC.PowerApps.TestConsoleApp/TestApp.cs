@@ -6,6 +6,7 @@ using Microsoft.Xrm.Tooling.Connector;
 using PC.PowerApps.ClientBase;
 using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
@@ -66,7 +67,7 @@ namespace PC.PowerApps.TestConsoleApp
 
             //Console.WriteLine(Utils.IsInNamespaces(GetType(), "Microsoft.Xrm.Sdk", nameof(System)));
 
-            //await ContactRepository.UpdateRequiredParticipationFee(Context);
+            await ContactRepository.UpdateRequiredParticipationFee(Context);
 
             //Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("1c9490aa-40ed-eb11-bacb-000d3a3a2279"));
             //ContactRepository.UpdateRequiredParticipationFee(Context, contact);
@@ -146,11 +147,31 @@ namespace PC.PowerApps.TestConsoleApp
             //}
 
             //Lazy<Expression<Func<Contact, bool>>> IsValidForGoogleSupporterGroupExpression = new(() => c => c.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && c.pc_WishesToBeActive == true && c.pc_PaidParticipationFee != null && c.pc_PaidParticipationFee.Value >= 2 && c.EMailAddress1 != null && c.EMailAddress1 != string.Empty);
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            //_ = IsValidForGoogleSupporterGroupExpression.Value;
-            //string a = (User);
-            Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
+            //Stopwatch stopwatch = Stopwatch.StartNew();
+            //////_ = IsValidForGoogleSupporterGroupExpression.Value;
+            //////string a = (User);
+            //TimeSpan oneDay = new TimeSpan(1, 0, 0, 0);
+            //Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
             //Lazy<Func<Contact, bool>> IsValidForGoogleSupporterGroupFunc = new(() => IsValidForGoogleSupporterGroupExpression.Value.Compile());
+
+            //pc_ParticipationFeeExemption participationFeeExemption = Context.ServiceContext.pc_ParticipationFeeExemptionSet.TakeSingle();
+            //participationFeeExemption.pc_Till = new DateTime(2021, 8, 31, 1, 2, 3);
+            //Context.ServiceContext.UpdateModifiedAttributes(participationFeeExemption);
+
+            //List<Period> periods1 = new()
+            //{
+            //    new Period(new(2020, 1, 1), new(2020, 12, 31)),
+            //    new Period(new(2021, 1, 1), new(2021, 7, 31)),
+            //    new Period(new(2022, 1, 1), new(2022, 7, 31)),
+            //};
+            //List<Period> periods2 = new()
+            //{
+            //    new Period(new(2020, 4, 1), new(2020, 7, 31)),
+            //    new Period(new(2021, 4, 1), new(2021, 12, 31)),
+            //    new Period(new(2022, 4, 1), new(2022, 5, 31)),
+            //};
+            ////List<Period> period = periods1[0].Subtract(periods2[0]);
+            //List<Period> periods3 = Period.Subtract(periods1, periods2);
         }
     }
 }

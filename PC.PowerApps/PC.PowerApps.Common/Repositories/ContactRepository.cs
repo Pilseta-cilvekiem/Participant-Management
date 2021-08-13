@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common.Entities.Dataverse;
-using PC.PowerApps.Common.Exceptions;
 using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.ScheduledJobs;
 using System;
@@ -14,7 +13,6 @@ namespace PC.PowerApps.Common.Repositories
     public static class ContactRepository
     {
         private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
-        private static readonly DateTime participantFeePeriod1Start = new(2019, 4, 1);
         private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
 
         public static void UpdateParticipationLevel(Context context, Guid? contactId)
@@ -103,7 +101,14 @@ namespace PC.PowerApps.Common.Repositories
 
         public static async Task UpdateRequiredParticipationFee(Context context)
         {
-            ActionQueue actionQueue = new(context);
+            List<pc_ParticipationFeeRule> participationFeeRules = context.ServiceContext.pc_ParticipationFeeRuleSet
+                .Select(pfr => new pc_ParticipationFeeRule
+                {
+                    pc_Amount = pfr.pc_Amount,
+                    pc_From = pfr.pc_From,
+                    pc_Till = pfr.pc_Till,
+                })
+                .ToList();
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
                 {
@@ -111,84 +116,56 @@ namespace PC.PowerApps.Common.Repositories
                     pc_RequiredParticipationFee = c.pc_RequiredParticipationFee,
                 });
 
+            ActionQueue actionQueue = new(context);
             actionQueue.AddForAll(contacts, contact =>
             {
-                UpdateRequiredParticipationFee(context, contact);
+                UpdateRequiredParticipationFee(context, contact, participationFeeRules);
                 return Task.CompletedTask;
             });
             await actionQueue.ExecuteAll();
         }
 
-        public static void UpdateRequiredParticipationFee(Context context, Contact contact)
+        public static void UpdateRequiredParticipationFee(Context context, Contact contact, List<pc_ParticipationFeeRule> participationFeeRules)
         {
+            DateTime toDate = context.GetCurrentOrganizationTime().GetFirstDayOfMonth().AddDays(-1);
+            Period calculationPeriod = new(null, toDate);
             context.Logger.LogInformation($"Calculating a required participation fee for the contact {contact.Id}...");
-            List<pc_Participation> participations = context.ServiceContext.pc_ParticipationSet
-                .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From != null)
-                .Select(p => new pc_Participation
-                {
-                    pc_From = p.pc_From,
-                    pc_Till = p.pc_Till,
-                })
+            List<Period> participations = context.ServiceContext.pc_ParticipationSet
+                .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= toDate)
+                .OrderBy(p => p.pc_From)
+                .Select(p => new Period(p.pc_From, p.pc_Till))
                 .ToList();
-            List<pc_ParticipationFeeExemption> participationFeeExemptions = context.ServiceContext.pc_ParticipationFeeExemptionSet
-                .Where(pfe => pfe.pc_Contact.Id == contact.Id && pfe.pc_From != null)
-                .Select(p => new pc_ParticipationFeeExemption
-                {
-                    pc_From = p.pc_From,
-                    pc_Till = p.pc_Till,
-                })
+            List<Period> participationFeeExemptions = context.ServiceContext.pc_ParticipationFeeExemptionSet
+                .Where(pfe => pfe.pc_Contact.Id == contact.Id && pfe.pc_From <= toDate)
+                .OrderBy(pfe => pfe.pc_From)
+                .Select(pfe => new Period(pfe.pc_From, pfe.pc_Till))
                 .ToList();
+
+            List<Period> participationsToDate = participations
+                .Select(p => p.Intersect(calculationPeriod))
+                .ToList();
+            List<Period> mergedParticipations = Period.Merge(participationsToDate);
+            List<Period> mergedParticipationFeeExemptions = Period.Merge(participationFeeExemptions);
+            List<Period> participationsWithoutFeeExemptions = Period.Subtract(mergedParticipations, mergedParticipationFeeExemptions);
+            List<Period> participationsWithoutFeeExemptionsWholeMonths = participationsWithoutFeeExemptions
+                .Select(p => p.ToCalendarMonths())
+                .ToList();
+            List<Period> mergedParticipationsWithoutFeeExemptionsWholeMonths = Period.Merge(participationsWithoutFeeExemptionsWholeMonths);
 
             contact.pc_RequiredParticipationFee = new();
-
-            if (participations.Count != 0)
+            foreach (pc_ParticipationFeeRule participationFeeRule in participationFeeRules)
             {
-                DateTime localNow = context.GetCurrentOrganizationTime();
-                DateTime startDate = participations.Min(p => p.pc_From.Value);
-                DateTime fromDate = startDate >= participantFeePeriod1Start ? startDate : participantFeePeriod1Start;
-                DateTime? endDate = participations.Any(p => p.pc_Till is null) ? null : participations.Max(p => p.pc_Till);
-                DateTime toDate = endDate <= localNow ? endDate.Value : localNow;
-                DateTime toDateMonth = new(toDate.Year, toDate.Month, 1);
-
-                for (DateTime thisMonthStart = new(startDate.Year, startDate.Month, 1); thisMonthStart < toDateMonth; thisMonthStart = thisMonthStart.AddMonths(1))
-                {
-                    DateTime nextMonthStart = thisMonthStart.AddMonths(1);
-                    DateTime thisMonthEnd = nextMonthStart.AddDays(-1);
-
-                    pc_ParticipationFeeExemption participationFeeExemption = participationFeeExemptions
-                        .Where(p => p.pc_From <= thisMonthStart && (p.pc_Till is null || p.pc_Till >= thisMonthEnd))
-                        .FirstOrDefault();
-
-                    if (participationFeeExemption is not null)
-                    {
-                        continue;
-                    }
-
-                    pc_Participation participation = participations
-                        .Where(p => p.pc_From < nextMonthStart && (p.pc_Till is null || p.pc_Till >= thisMonthStart))
-                        .FirstOrDefault();
-
-                    if (participation is null)
-                    {
-                        continue;
-                    }
-
-                    decimal participationFee = GetParticipationFee(thisMonthStart);
-                    contact.pc_RequiredParticipationFee.Value += participationFee;
-                }
+                Period participationFeePeriod = new(participationFeeRule.pc_From, participationFeeRule.pc_Till);
+                List<Period> contactParticipationFeePeriod = mergedParticipationsWithoutFeeExemptionsWholeMonths
+                    .Select(p => p.Intersect(participationFeePeriod))
+                    .ToList();
+                List<int> contactParticipationFeePeriodLengths = contactParticipationFeePeriod
+                    .Select(p => p.CalendarMonths)
+                    .ToList();
+                int contactParticipationFeePeriodTotalLength = contactParticipationFeePeriodLengths.Sum();
+                contact.pc_RequiredParticipationFee.Value += contactParticipationFeePeriodTotalLength * Utils.GetAmountOrZero(participationFeeRule.pc_Amount);
             }
-
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
-        }
-
-        private static decimal GetParticipationFee(DateTime localDate)
-        {
-            if (localDate < participantFeePeriod1Start)
-            {
-                return 0;
-            }
-
-            return 2;
         }
 
         public static async void UpdateParticipationLevels(Context context)
