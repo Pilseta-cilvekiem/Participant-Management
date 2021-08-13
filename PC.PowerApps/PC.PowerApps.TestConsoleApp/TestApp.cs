@@ -67,7 +67,7 @@ namespace PC.PowerApps.TestConsoleApp
 
             //Console.WriteLine(Utils.IsInNamespaces(GetType(), "Microsoft.Xrm.Sdk", nameof(System)));
 
-            await ContactRepository.UpdateRequiredParticipationFee(Context);
+            //await ContactRepository.UpdateRequiredParticipationFee(Context);
 
             //Contact contact = Context.ServiceContext.Retrieve<Contact>(new Guid("1c9490aa-40ed-eb11-bacb-000d3a3a2279"));
             //ContactRepository.UpdateRequiredParticipationFee(Context, contact);
@@ -172,6 +172,8 @@ namespace PC.PowerApps.TestConsoleApp
             //};
             ////List<Period> period = periods1[0].Subtract(periods2[0]);
             //List<Period> periods3 = Period.Subtract(periods1, periods2);
+
+            ContactRepository.UpdateParticipationLevels(Context);
         }
     }
 }

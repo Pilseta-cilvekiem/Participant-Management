@@ -78,7 +78,8 @@ namespace PC.PowerApps.Common
 
             foreach (KeyValuePair<string, object> attribute in modifiedEntity.Attributes)
             {
-                if (!retrievedEntity.TryGetAttributeValue(attribute.Key, out object retrievedAttributeValue) || !Utils.AreEqual(attribute.Value, retrievedAttributeValue))
+                _ = retrievedEntity.TryGetAttributeValue(attribute.Key, out object retrievedAttributeValue);
+                if (!Utils.AreEqual(attribute.Value, retrievedAttributeValue))
                 {
                     patchEntity.Attributes.Add(attribute.Key, attribute.Value);
                     update = true;
