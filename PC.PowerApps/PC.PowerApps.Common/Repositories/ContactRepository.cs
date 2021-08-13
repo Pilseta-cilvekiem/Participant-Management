@@ -55,7 +55,7 @@ namespace PC.PowerApps.Common.Repositories
                 return;
             }
 
-            context.Logger.LogInformation($"Calculating a paid participation fee for the contact {contactId}.");
+            context.Logger.LogInformation($"Calculating a Paid Participation Fee for the Contact {contactId}.");
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
             contact.pc_PaidParticipationFee = new(context.ServiceContext.pc_PaymentSet
                 .Where(p => p.pc_Contact.Id == contactId && p.pc_Amount != null)
@@ -90,7 +90,7 @@ namespace PC.PowerApps.Common.Repositories
 
         private static void UpdateParticipationLevel(Context context, Contact contact)
         {
-            context.Logger.LogInformation($"Calculating participation level for the contact {contact.Id}...");
+            context.Logger.LogInformation($"Calculating Participation Level for the Contact {contact.Id}...");
             DateTime localNow = context.GetCurrentOrganizationTime();
             pc_Participation participation = context.ServiceContext.pc_ParticipationSet
                 .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
@@ -129,7 +129,7 @@ namespace PC.PowerApps.Common.Repositories
         {
             DateTime toDate = context.GetCurrentOrganizationTime().GetFirstDayOfMonth().AddDays(-1);
             Period calculationPeriod = new(null, toDate);
-            context.Logger.LogInformation($"Calculating a required participation fee for the contact {contact.Id}...");
+            context.Logger.LogInformation($"Calculating a Required Participation Fee for the Contact {contact.Id}...");
             List<Period> participations = context.ServiceContext.pc_ParticipationSet
                 .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= toDate)
                 .OrderBy(p => p.pc_From)

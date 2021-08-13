@@ -20,7 +20,7 @@ namespace PC.PowerApps.Common.Repositories
 
             if (annotation is null)
             {
-                context.Logger.LogInformation("The note does not exist.");
+                context.Logger.LogInformation("The Note does not exist.");
                 return;
             }
 
@@ -33,7 +33,7 @@ namespace PC.PowerApps.Common.Repositories
 
                 if (annotation.IsDocument != true)
                 {
-                    context.Logger.LogInformation("The note does not have a document.");
+                    context.Logger.LogInformation("The Note does not have a document.");
                 }
                 else
                 {
@@ -93,7 +93,7 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(transactionId.Value);
-            context.Logger.LogInformation($"Calculating a payment total amount for the transaction {transaction.pc_Name}.");
+            context.Logger.LogInformation($"Calculating a Payment Total Amount for the Transaction {transaction.pc_Name}.");
             transaction.pc_PaymentTotalAmount = new(context.ServiceContext.pc_PaymentSet
                 .Where(p => p.pc_Transaction.Id == transactionId && p.pc_Amount != null)
                 .Select(p => p.pc_Amount.Value)
@@ -125,7 +125,7 @@ namespace PC.PowerApps.Common.Repositories
         {
             if (bankTransaction.TypeCode != "INP")
             {
-                context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} is not an incoming payment.");
+                context.Logger.LogInformation($"The Transaction {bankTransaction.BankRef} is not an incoming payment.");
                 return;
             }
 
@@ -135,7 +135,7 @@ namespace PC.PowerApps.Common.Repositories
 
             if (transaction is not null)
             {
-                context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} is already imported.");
+                context.Logger.LogInformation($"The Transaction {bankTransaction.BankRef} is already imported.");
                 return;
             }
 
@@ -151,22 +151,22 @@ namespace PC.PowerApps.Common.Repositories
                 TransactionCurrencyId = transactionCurrency.Value.ToEntityReference(),
             };
             context.OrganizationService.CreateWithoutNulls(transaction);
-            context.Logger.LogInformation($"The transaction {bankTransaction.BankRef} has been imported.");
+            context.Logger.LogInformation($"The Transaction {bankTransaction.BankRef} has been imported.");
         }
 
         public static void Process(Context context, pc_Transaction transaction)
         {
-            context.Logger.LogInformation($"Processing the transaction {transaction.pc_Name}.");
+            context.Logger.LogInformation($"Processing the Transaction {transaction.pc_Name}.");
 
             if (Utils.GetAmountOrZero(transaction.pc_RemainingAmount) <= 0)
             {
-                context.Logger.LogInformation("Transaction remaining amount is less than or equal to 0 - skipping.");
+                context.Logger.LogInformation("Transaction Remaining Amount is less than or equal to 0 - skipping.");
                 return;
             }
 
             if (transaction.pc_Details is null)
             {
-                context.Logger.LogInformation("Transaction details are empty - skipping.");
+                context.Logger.LogInformation("Transaction Details are empty - skipping.");
                 return;
             }
 
@@ -186,7 +186,7 @@ namespace PC.PowerApps.Common.Repositories
 
                 if (contacts.Count != 1)
                 {
-                    context.Logger.LogInformation($"There are {contacts.Count} matching contacts - skipping.");
+                    context.Logger.LogInformation($"There are {contacts.Count} matching Contacts - skipping.");
                     return;
                 }
 
@@ -197,7 +197,7 @@ namespace PC.PowerApps.Common.Repositories
                 };
                 context.OrganizationService.CreateWithoutNulls(payment);
 
-                context.Logger.LogInformation($"Created a payment for the contact {contacts[0].FullName}.");
+                context.Logger.LogInformation($"Created a Payment for the Contact {contacts[0].FullName}.");
                 return;
             }
 
@@ -205,7 +205,7 @@ namespace PC.PowerApps.Common.Repositories
             {
                 transaction.pc_NonPaymentAmount = new(Utils.GetAmountOrZero(transaction.pc_RemainingAmount));
                 _ = context.ServiceContext.UpdateModifiedAttributes(transaction);
-                context.Logger.LogInformation($"Set non-payment amount to {transaction.pc_NonPaymentAmount.Value}.");
+                context.Logger.LogInformation($"Set Non-Payment Amount to {transaction.pc_NonPaymentAmount.Value}.");
             }
         }
 

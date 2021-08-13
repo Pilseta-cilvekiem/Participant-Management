@@ -30,7 +30,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemptions
 
             if (context.GetIsAnyAttributeModified(pfe => new { pfe.pc_From, pfe.pc_Till }) && participationFeeExemption.pc_From > participationFeeExemption.pc_Till)
             {
-                throw new InvalidPluginExecutionException($"Participation Fee Exemption From must be less than or equal to Till.");
+                throw new InvalidPluginExecutionException("Participation Fee Exemption From must be less than or equal to Till.");
             }
 
             if (context.GetIsAnyAttributeModified(pfe => new { pfe.pc_From, pfe.pc_Till }))
@@ -39,7 +39,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemptions
 
                 if (otherParticipationFeeExemption is not null)
                 {
-                    throw new InvalidPluginExecutionException($"There is another Participation Fee Exemption for this Contact within the same period.");
+                    throw new InvalidPluginExecutionException("There is another Participation Fee Exemption for this Contact within the same period.");
                 }
             }
         }

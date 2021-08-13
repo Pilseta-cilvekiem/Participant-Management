@@ -41,7 +41,7 @@ namespace PC.PowerApps.Common
                 }
                 catch (Exception e)
                 {
-                    context.Logger.LogError(e, "Error occured while executing action.");
+                    context.Logger.LogError(e, "An error occured while executing an action.");
                     exceptions.Add(e);
                 }
             }

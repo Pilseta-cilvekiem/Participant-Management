@@ -213,10 +213,10 @@ namespace PC.PowerApps.Common
 
             if (attributeDisplayNames.Count == 1)
             {
-                throw new InvalidPluginExecutionException($"{entityDisplayName} {CommonConstants.AttributeText} {attributeDisplayNameString} {textSingle}.");
+                throw new InvalidPluginExecutionException($"{entityDisplayName} column {attributeDisplayNameString} {textSingle}.");
             }
 
-            throw new InvalidPluginExecutionException($"{entityDisplayName} {CommonConstants.AttributesText} {attributeDisplayNameString} {textMultiple}.");
+            throw new InvalidPluginExecutionException($"{entityDisplayName} columns {attributeDisplayNameString} {textMultiple}.");
         }
 
         public static bool IsEmptyValue(object @object)

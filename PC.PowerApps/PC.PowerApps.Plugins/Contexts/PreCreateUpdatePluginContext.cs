@@ -36,7 +36,7 @@ namespace PC.PowerApps.Plugins.Contexts
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
                 .Where(aln => GetIsAttributeModified(aln))
                 .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, CommonConstants.IsReadOnlyText, CommonConstants.AreReadOnlyText);
+            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, "is read-only", "are read-only");
         }
 
         public void EnsureCreatedOrUpdatedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
