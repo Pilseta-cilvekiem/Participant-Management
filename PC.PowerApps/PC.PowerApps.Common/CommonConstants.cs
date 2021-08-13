@@ -12,7 +12,11 @@ namespace PC.PowerApps.Common
         public const string CannotBeEmptyText = "cannot be empty";
         public const string IsReadOnlyText = "is read-only";
         public const int MultilineTextMaxLength = 1048576;
-        public static readonly Expression<Func<Contact, bool>> IsValidForGoogleSupporterGroupExpression = c => c.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && c.pc_WishesToBeActive == true && c.pc_PaidParticipationFee != null && c.pc_PaidParticipationFee.Value >= 2 && c.EMailAddress1 != null && c.EMailAddress1 != string.Empty;
-        public static readonly Func<Contact, bool> IsValidForGoogleSupporterGroupFunc = IsValidForGoogleSupporterGroupExpression.Compile();
+
+        private static readonly Lazy<Expression<Func<Contact, bool>>> lazyIsValidForGoogleSupporterGroupExpression = new(() => c => c.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && c.pc_WishesToBeActive == true && c.pc_PaidParticipationFee != null && c.pc_PaidParticipationFee.Value >= 2 && c.EMailAddress1 != null && c.EMailAddress1 != string.Empty);
+        private static readonly Lazy<Func<Contact, bool>> lazyIsValidForGoogleSupporterGroupFunc = new(() => LazyIsValidForGoogleSupporterGroupExpression.Compile());
+
+        public static Expression<Func<Contact, bool>> LazyIsValidForGoogleSupporterGroupExpression => lazyIsValidForGoogleSupporterGroupExpression.Value;
+        public static Func<Contact, bool> LazyIsValidForGoogleSupporterGroupFunc => lazyIsValidForGoogleSupporterGroupFunc.Value;
     }
 }

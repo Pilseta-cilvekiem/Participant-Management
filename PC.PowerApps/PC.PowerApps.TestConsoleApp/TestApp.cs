@@ -7,12 +7,14 @@ using PC.PowerApps.ClientBase;
 using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
+using PC.PowerApps.Plugins.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp
@@ -135,13 +137,20 @@ namespace PC.PowerApps.TestConsoleApp
             //    _ = Context.ServiceContext.UpdateModifiedAttributes(payment);
             //}
 
-            List<pc_Participation> participations = Context.ServiceContext.pc_ParticipationSet.ToList();
+            //List<pc_Participation> participations = Context.ServiceContext.pc_ParticipationSet.ToList();
 
-            foreach (pc_Participation participation in participations)
-            {
-                ParticipationRepository.SetName(Context, participation);
-                _ = Context.ServiceContext.UpdateModifiedAttributes(participation);
-            }
+            //foreach (pc_Participation participation in participations)
+            //{
+            //    ParticipationRepository.SetName(Context, participation);
+            //    _ = Context.ServiceContext.UpdateModifiedAttributes(participation);
+            //}
+
+            //Lazy<Expression<Func<Contact, bool>>> IsValidForGoogleSupporterGroupExpression = new(() => c => c.pc_ParticipationLevel == pc_ParticipationLevel.Supporter && c.pc_WishesToBeActive == true && c.pc_PaidParticipationFee != null && c.pc_PaidParticipationFee.Value >= 2 && c.EMailAddress1 != null && c.EMailAddress1 != string.Empty);
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            //_ = IsValidForGoogleSupporterGroupExpression.Value;
+            //string a = (User);
+            Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
+            //Lazy<Func<Contact, bool>> IsValidForGoogleSupporterGroupFunc = new(() => IsValidForGoogleSupporterGroupExpression.Value.Compile());
         }
     }
 }
