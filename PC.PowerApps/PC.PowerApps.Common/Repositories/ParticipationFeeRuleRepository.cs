@@ -1,4 +1,6 @@
-﻿using PC.PowerApps.Common.Entities.Dataverse;
+﻿using Microsoft.Extensions.Logging;
+using PC.PowerApps.Common.Entities.Dataverse;
+using System;
 using System.Linq;
 
 namespace PC.PowerApps.Common.Repositories
@@ -24,6 +26,12 @@ namespace PC.PowerApps.Common.Repositories
 
             pc_ParticipationFeeRule otherParticipationFeeRule = otherParticipationFeeRuleQuery.FirstOrDefault();
             return otherParticipationFeeRule;
+        }
+
+        public static void SetName(Context context, pc_ParticipationFeeRule participationFeeRule)
+        {
+            context.Logger.LogInformation($"Setting a Name for the Participation Fee Rule {participationFeeRule.Id}...");
+            participationFeeRule.pc_Name = Utils.CreateName(100, context.FormatDate(participationFeeRule.pc_From), "-", context.FormatDate(participationFeeRule.pc_Till));
         }
     }
 }
