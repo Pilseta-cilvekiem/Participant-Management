@@ -35,7 +35,7 @@ namespace PC.PowerApps.Common
             return new(newFrom, newTill);
         }
 
-        public List<Period> MergeWith(Period otherPeriod)
+        private List<Period> MergeWith(Period otherPeriod)
         {
             TimeSpan oneDay = new(1, 0, 0, 0);
 
@@ -85,7 +85,7 @@ namespace PC.PowerApps.Common
             return results;
         }
 
-        public List<Period> Subtract(Period otherPeriod)
+        private List<Period> Subtract(Period otherPeriod)
         {
             List<Period> periods = new();
 
@@ -126,7 +126,7 @@ namespace PC.PowerApps.Common
             return subtractAllResults;
         }
 
-        public Period Intersect(Period otherPeriod)
+        private Period Intersect(Period otherPeriod)
         {
             if (otherPeriod.Till < From || otherPeriod.From > Till)
             {
@@ -136,6 +136,14 @@ namespace PC.PowerApps.Common
             DateTime newFrom = new[] { From, otherPeriod.From }.Max();
             DateTime newTill = new[] { Till, otherPeriod.Till }.Min();
             return new(newFrom, newTill);
+        }
+
+        public static List<Period> Intersect(IEnumerable<Period> periods, Period otherPeriod)
+        {
+            return periods
+                .Select(p => p.Intersect(otherPeriod))
+                .Where(p => p is not null)
+                .ToList();
         }
     }
 }

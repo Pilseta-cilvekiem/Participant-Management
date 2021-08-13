@@ -141,9 +141,7 @@ namespace PC.PowerApps.Common.Repositories
                 .Select(pfe => new Period(pfe.pc_From, pfe.pc_Till))
                 .ToList();
 
-            List<Period> participationsToDate = participations
-                .Select(p => p.Intersect(calculationPeriod))
-                .ToList();
+            List<Period> participationsToDate = Period.Intersect(participations, calculationPeriod);
             List<Period> mergedParticipations = Period.Merge(participationsToDate);
             List<Period> mergedParticipationFeeExemptions = Period.Merge(participationFeeExemptions);
             List<Period> participationsWithoutFeeExemptions = Period.Subtract(mergedParticipations, mergedParticipationFeeExemptions);
@@ -156,9 +154,7 @@ namespace PC.PowerApps.Common.Repositories
             foreach (pc_ParticipationFeeRule participationFeeRule in participationFeeRules)
             {
                 Period participationFeePeriod = new(participationFeeRule.pc_From, participationFeeRule.pc_Till);
-                List<Period> contactParticipationFeePeriod = mergedParticipationsWithoutFeeExemptionsWholeMonths
-                    .Select(p => p.Intersect(participationFeePeriod))
-                    .ToList();
+                List<Period> contactParticipationFeePeriod = Period.Intersect(mergedParticipationsWithoutFeeExemptionsWholeMonths, participationFeePeriod);
                 List<int> contactParticipationFeePeriodLengths = contactParticipationFeePeriod
                     .Select(p => p.CalendarMonths)
                     .ToList();
