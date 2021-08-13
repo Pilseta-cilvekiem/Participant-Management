@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customapi
+  uniquename="pc_SendDebtReminderToContact">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>1</bindingtype>
+  <boundentitylogicalname>contact</boundentitylogicalname>
+  <description
+    default="Send Debt Reminder to Contact">
+    <label
+      description="Send Debt Reminder to Contact"
+      languagecode="1033" />
+  </description>
+  <displayname
+    default="Send Debt Reminder to Contact">
+    <label
+      description="Send Debt Reminder to Contact"
+      languagecode="1033" />
+  </displayname>
+  <executeprivilegename>prvCreateActivity</executeprivilegename>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>pc_SendDebtReminderToContact</name>
+  <plugintypeid>
+    <plugintypeid>b9601727-de40-43c1-8030-475df269bc0b</plugintypeid>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

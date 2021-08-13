@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Role
+  id="{e107adee-0ff2-eb11-94ef-002248834145}"
+  name="City for People Function App"
+  isinherited="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege
+      name="prvAppendpc_Transaction"
+      level="Global" />
+    <RolePrivilege
+      name="prvAppendTopc_BankAccount"
+      level="Global" />
+    <RolePrivilege
+      name="prvCreatepc_Payment"
+      level="Global" />
+    <RolePrivilege
+      name="prvCreatepc_Transaction"
+      level="Global" />
+    <RolePrivilege
+      name="prvCreateSharePointData"
+      level="Global" />
+    <RolePrivilege
+      name="prvDeleteNote"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadAttribute"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadContact"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadEntity"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadNote"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadpc_BankAccount"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadpc_Participation"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadpc_ParticipationFeeExemption"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadpc_ScheduledJob"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadpc_Settings"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadpc_Transaction"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadPluginAssembly"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadPluginType"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadRelationship"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadSdkMessage"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadSdkMessageProcessingStep"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadSdkMessageProcessingStepImage"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadSharePointData"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadSharePointDocument"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadTransactionCurrency"
+      level="Global" />
+    <RolePrivilege
+      name="prvWriteContact"
+      level="Global" />
+    <RolePrivilege
+      name="prvWritepc_BankAccount"
+      level="Global" />
+    <RolePrivilege
+      name="prvWritepc_ScheduledJob"
+      level="Global" />
+    <RolePrivilege
+      name="prvWriteSharePointData"
+      level="Global" />
+  </RolePrivileges>
+</Role>

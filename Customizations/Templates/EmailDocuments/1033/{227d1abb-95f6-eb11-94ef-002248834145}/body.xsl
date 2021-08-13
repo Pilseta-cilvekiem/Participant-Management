@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" ?><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"><xsl:output method="text" indent="no"/><xsl:template match="/data"><![CDATA[<div data-wrapper="true" style="font-size:9pt;font-family:'Segoe UI','Helvetica Neue',sans-serif;">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div style="font-size:9pt; font-family:'Segoe UI','Helvetica Neue',sans-serif">
+<div>
+<div>
+<div style="font-size:9pt; font-family:'Segoe UI','Helvetica Neue',sans-serif">
+<div>
+<div>
+<div>
+<div style="font-size:9pt; font-family:'Segoe UI','Helvetica Neue',sans-serif">
+<div>
+<div>
+<div>
+<div>
+<div style="font-size:9pt; font-family:'Segoe UI','Helvetica Neue',sans-serif">
+<div>
+<div><span style="font-size:10pt;">Hei,&nbsp;]]><xsl:choose><xsl:when test="contact/firstname"><xsl:value-of select="contact/firstname" /></xsl:when><xsl:otherwise></xsl:otherwise></xsl:choose><![CDATA[ - mūsu Apvienības “Pilsēta cilvēkiem” jauno&nbsp;atbalstītāj!</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:10pt;">Mēs, Apvienība “Pilsēta cilvēkiem”, cīnāmies par to, lai mūsu brīnišķīgā pilsēta kļūtu baudāma ne tikai pastkartītēs, bet arī kļūtu skaistāka un drošāka cilvēkiem, kas tajā dzīvo un to apciemo. Ik nedēļu daudziem tās iedzīvotājiem nākas saskarties ar pārvietošanās grūtībām, kas varētu tikt novērstas, ja pilsētu iesāktu plānot gudri un tās plānošanu realizētu darbos.</span></div>
+
+<div>&nbsp;</div>
+
+<div class="x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_x_keyboardFocusClass"><span style="font-size:10pt;">Tā kā ]]><![CDATA[{!SupporterFrom;}]]><![CDATA[ esi kļuvis par mūsu atbalstītāju, mēs priecāsimies par Tavām idejām un Tavu līdzdalību, jo mērķis - ērtāka, drošāka un patīkamāka pilsēta - ir sasniedzams!</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:10pt;">Esot daļai no mūsu komandas, Tavs atbalsts var būt visdažādākajās izpausmēs, sākot no aktīviem darbiem kā organizēšana, pētīšana, video filmēšana utt. līdz mazajiem plusiņiem kā “Pilsēta cilvēkiem” postu laikošana un šērošana.</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:10pt;">Lai mēs varētu attīstīties un rīkot vēl vērienīgākas kampaņas, kā arī, lai segtu administratīvās izmaksas, mums ir ļoti svarīgi saņemt regulārus maksājumus - atbalstītāja naudu, kuras apmēru vari noteikt pēc sava ieskata, bet ne mazāk par 2 eiro mēnesī, ko lūdzam samaksāt līdz kārtējā mēneša beigām. Lai par šo nebūtu jāatceras, iesakām izveidot regulāru maksājumu bankā. Vari arī samaksāt avansā kaut par visu šo gadu. Rekvizīti:</span></div>
+
+<ul>
+	<li style="list-style-position:inside"><span style="font-size:10pt;">Saņēmējs: <strong> APVIENĪBA PILSĒTA CILVĒKIEM BIEDRĪBA</strong></span></li>
+	<li style="list-style-position:inside"><span style="font-size:10pt;">Reģistrācijas nr.: 40008268906</span></li>
+	<li style="list-style-position:inside"><span style="font-size:10pt;">AS Swedbank, Swift kods: HABALV22</span></li>
+	<li style="list-style-position:inside"><span style="font-size:10pt;">Konta nr.: <strong> LV04HABA0551044255904</strong></span></li>
+	<li style="list-style-position:inside"><span style="font-size:10pt;">Maksājuma mērķis: <strong>Atbalstītāja nauda</strong>&nbsp;(maksājot no ārvalstu bankām, lūdzam norādīt arī personas kodu)</span></li>
+</ul>
+
+<div style="list-style-position:inside">&nbsp;</div>
+
+<div><span style="font-size:10pt;">Vairāk informācijas par atbalstītāja naudas samaksas kārtību: <a href="https://pilsetacilvekiem.lv/dalibnieka-nauda/">https://pilsetacilvekiem.lv/dalibnieka-nauda/</a></span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:10pt;">Lai varētu sekot mūsu biedru un atbalstītāju darbiem un pašiem tajos piedalīties, lietojam lietotni Slack. Ja esi atzīmējis anketā, pieeja šai lietotnei Tev tiks nosūtīta uz e-pastu pēc atbalstītāja naudas samaksas vismaz 2 eiro apmērā.</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:10pt;">Ja Tev ir jautājumi, nekautrējies jautāt!</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:10pt;">Un beigu beigās - vēlreiz paldies, ka esi viens no mums!</span></div>
+
+<div>&nbsp;</div>
+
+<div><span style="font-size:10pt;">Tava “Pilsēta cilvēkiem” komanda</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+]]></xsl:template></xsl:stylesheet>
