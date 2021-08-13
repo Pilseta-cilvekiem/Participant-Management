@@ -29,6 +29,7 @@ pc_bankaccount|
 pc_payment|
 pc_participation|
 pc_participationfeeexemption|
+pc_participationfeerule|
 pc_scheduledjob|
 pc_settings|
 pc_transaction|
