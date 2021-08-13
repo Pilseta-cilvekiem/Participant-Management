@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using PC.PowerApps.Common.Entities.Dataverse;
-using System;
 using System.Linq;
 
 namespace PC.PowerApps.Common.Repositories

@@ -75,7 +75,7 @@ namespace PC.PowerApps.ClientBase.Repositories
 
                 if (getResult.Email != activeSupporter.EMailAddress1)
                 {
-                    context.Logger.LogInformation($"Updating contact {activeSupporter.Id} email from {activeSupporter.EMailAddress1} to {getResult.Email}.");
+                    context.Logger.LogInformation($"Updating Contact {activeSupporter.Id} Email from {activeSupporter.EMailAddress1} to {getResult.Email}.");
                     activeSupporter.EMailAddress1 = getResult.Email;
                     _ = context.ServiceContext.UpdateModifiedAttributes(activeSupporter);
                 }

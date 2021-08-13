@@ -1,21 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
-using Microsoft.Xrm.Tooling.Connector;
 using PC.PowerApps.ClientBase;
-using PC.PowerApps.Common;
-using PC.PowerApps.Common.Entities.Dataverse;
-using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.Repositories;
-using PC.PowerApps.Plugins.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp

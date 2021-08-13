@@ -42,7 +42,7 @@ namespace PC.PowerApps.ClientBase
         {
             try
             {
-                context.Logger.LogInformation($"Processing scheduled job {scheduledJobRecord.pc_Name} with parameters {scheduledJobRecord.pc_Parameters}...");
+                context.Logger.LogInformation($"Processing Scheduled Job {scheduledJobRecord.pc_Name} with Parameters {scheduledJobRecord.pc_Parameters}...");
                 scheduledJobRecord.StatusCode = pc_ScheduledJob_StatusCode.InProgress;
                 _ = context.ServiceContext.UpdateModifiedAttributes(scheduledJobRecord);
 
@@ -59,7 +59,7 @@ namespace PC.PowerApps.ClientBase
                 scheduledJobRecord.StateCode = pc_ScheduledJobState.Inactive;
                 scheduledJobRecord.StatusCode = pc_ScheduledJob_StatusCode.Completed;
                 _ = context.ServiceContext.UpdateModifiedAttributes(scheduledJobRecord);
-                context.Logger.LogInformation($"Scheduled job {scheduledJobRecord.pc_Name} has completed.");
+                context.Logger.LogInformation($"Scheduled Job {scheduledJobRecord.pc_Name} has completed.");
             }
             catch (Exception e)
             {
