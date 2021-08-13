@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery
+    unmodified="1">
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{6fef1242-d3e2-4358-912d-27c268abd323}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid
+        name="resultset"
+        jump="subject"
+        select="1"
+        preview="1"
+        icon="1">
+        <row
+          name="result"
+          id="activityid">
+          <cell
+            name="subject"
+            width="250" />
+          <cell
+            name="from"
+            disableSorting="1"
+            width="150" />
+          <cell
+            name="to"
+            disableSorting="1"
+            width="150" />
+          <cell
+            name="regardingobjectid"
+            width="100" />
+          <cell
+            name="prioritycode"
+            width="100" />
+          <cell
+            name="statuscode"
+            width="100" />
+          <cell
+            name="modifiedon"
+            width="125" />
+          <cell
+            name="lastopenedtime"
+            width="125" />
+          <cell
+            name="opencount"
+            width="100" />
+          <cell
+            name="attachmentopencount"
+            width="150" />
+          <cell
+            name="linksclickedcount"
+            width="125" />
+          <cell
+            name="replycount"
+            width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch
+        version="1.0"
+        output-format="xml-platform"
+        mapping="logical">
+        <entity
+          name="email">
+          <attribute
+            name="subject" />
+          <order
+            attribute="subject"
+            descending="false" />
+          <attribute
+            name="regardingobjectid" />
+          <attribute
+            name="from" />
+          <attribute
+            name="to" />
+          <attribute
+            name="prioritycode" />
+          <attribute
+            name="statuscode" />
+          <attribute
+            name="modifiedon" />
+          <attribute
+            name="replycount" />
+          <attribute
+            name="opencount" />
+          <attribute
+            name="linksclickedcount" />
+          <attribute
+            name="attachmentopencount" />
+          <attribute
+            name="activityid" />
+          <attribute
+            name="lastopenedtime" />
+          <filter
+            type="and">
+            <condition
+              attribute="isemailfollowed"
+              operator="eq"
+              value="1" />
+            <condition
+              attribute="directioncode"
+              operator="eq"
+              value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>8.2.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName
+        description="All Followed Emails"
+        languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

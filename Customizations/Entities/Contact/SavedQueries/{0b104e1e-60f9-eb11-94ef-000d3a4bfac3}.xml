@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0b104e1e-60f9-eb11-94ef-000d3a4bfac3}</savedqueryid>
+    <layoutxml>
+      <grid
+        name="resultset"
+        jump="fullname"
+        select="1"
+        icon="1"
+        preview="1">
+        <row
+          name="result"
+          id="contactid">
+          <cell
+            name="fullname"
+            width="300" />
+          <cell
+            name="pc_participationlevel"
+            width="100" />
+          <cell
+            name="pc_wishestobeactive"
+            width="100" />
+          <cell
+            name="pc_paidparticipationfee"
+            width="100" />
+          <cell
+            name="pc_participantfrom"
+            width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch
+        version="1.0"
+        output-format="xml-platform"
+        mapping="logical">
+        <entity
+          name="contact">
+          <attribute
+            name="fullname" />
+          <attribute
+            name="pc_participantfrom" />
+          <attribute
+            name="pc_participationlevel" />
+          <attribute
+            name="pc_wishestobeactive" />
+          <order
+            attribute="fullname"
+            descending="false" />
+          <attribute
+            name="contactid" />
+          <attribute
+            name="pc_paidparticipationfee" />
+          <filter
+            type="and">
+            <condition
+              attribute="pc_participationlevel"
+              operator="eq"
+              value="947970000" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName
+        description="Members"
+        languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{91a82bef-66e6-49d8-8605-6226d2a084c0}</savedqueryid>
+    <layoutxml>
+      <grid
+        name="resultset"
+        jump="pc_name"
+        select="1"
+        icon="1"
+        preview="1">
+        <row
+          name="result"
+          id="pc_participationid">
+          <cell
+            name="pc_contact"
+            width="100" />
+          <cell
+            name="pc_level"
+            width="100" />
+          <cell
+            name="pc_from"
+            width="100" />
+          <cell
+            name="pc_till"
+            width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch
+        version="1.0"
+        mapping="logical">
+        <entity
+          name="pc_participation">
+          <attribute
+            name="pc_participationid" />
+          <filter
+            type="and">
+            <condition
+              attribute="statecode"
+              operator="eq"
+              value="1" />
+          </filter>
+          <attribute
+            name="pc_contact" />
+          <attribute
+            name="pc_level" />
+          <attribute
+            name="pc_from" />
+          <attribute
+            name="pc_till" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName
+        description="Inactive Participations"
+        languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

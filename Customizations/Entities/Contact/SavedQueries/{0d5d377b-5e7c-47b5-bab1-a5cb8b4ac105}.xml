@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid
+        name="resultset"
+        jump="fullname"
+        select="1"
+        icon="1"
+        preview="1">
+        <row
+          name="result"
+          id="contactid">
+          <cell
+            name="fullname"
+            width="300" />
+          <cell
+            name="pc_participationlevel"
+            width="100" />
+          <cell
+            name="pc_wishestobeactive"
+            width="100" />
+          <cell
+            name="pc_paidparticipationfee"
+            width="100" />
+          <cell
+            name="pc_participantfrom"
+            width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch
+        version="1.0"
+        output-format="xml-platform"
+        mapping="logical">
+        <entity
+          name="contact">
+          <attribute
+            name="fullname" />
+          <attribute
+            name="pc_participationlevel" />
+          <attribute
+            name="pc_participantfrom" />
+          <attribute
+            name="pc_wishestobeactive" />
+          <attribute
+            name="contactid" />
+          <attribute
+            name="pc_paidparticipationfee" />
+          <order
+            attribute="fullname"
+            descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>9.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName
+        description="All Contacts"
+        languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

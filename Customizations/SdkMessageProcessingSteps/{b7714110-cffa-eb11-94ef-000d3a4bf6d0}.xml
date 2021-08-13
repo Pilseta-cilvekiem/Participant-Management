@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep
+  Name="PC.PowerApps.Plugins.Bound.ScheduledJobs.PreValidateCreateUpdate: Update of pc_scheduledjob"
+  SdkMessageProcessingStepId="{b7714110-cffa-eb11-94ef-000d3a4bf6d0}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>PC.PowerApps.Plugins.Bound.ScheduledJobs.PreValidateCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92</PluginTypeName>
+  <PluginTypeId>7a89bcc7-56b0-4a77-97ca-fdfd95650238</PluginTypeId>
+  <PrimaryEntity>pc_scheduledjob</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>pc_completedon,pc_error,pc_executeevery,pc_executeon,pc_failures,pc_name,pc_parameters,pc_postponeuntil,pc_recurrence,pc_startedon,statuscode</FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>10</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage
+      Name="">
+      <SdkMessageProcessingStepImageId>{6bf7e41c-cffa-eb11-94ef-000d3a4bf6d0}</SdkMessageProcessingStepImageId>
+      <Attributes></Attributes>
+      <EntityAlias>Image</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

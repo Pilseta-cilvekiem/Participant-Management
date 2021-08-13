@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml
+  version="9.2.21072.143"
+  SolutionPackageVersion="9.2"
+  languagecode="1033"
+  generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>CityForPeople</UniqueName>
+    <LocalizedNames>
+      <LocalizedName
+        description="City for People"
+        languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>PilsetaCilvekiem</UniqueName>
+      <LocalizedNames>
+        <LocalizedName
+          description="Pilsēta cilvēkiem"
+          languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress
+        xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl
+        xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>pc</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>94797</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City
+            xsi:nil="true"></City>
+          <County
+            xsi:nil="true"></County>
+          <Country
+            xsi:nil="true"></Country>
+          <Fax
+            xsi:nil="true"></Fax>
+          <FreightTermsCode
+            xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber
+            xsi:nil="true"></ImportSequenceNumber>
+          <Latitude
+            xsi:nil="true"></Latitude>
+          <Line1
+            xsi:nil="true"></Line1>
+          <Line2
+            xsi:nil="true"></Line2>
+          <Line3
+            xsi:nil="true"></Line3>
+          <Longitude
+            xsi:nil="true"></Longitude>
+          <Name
+            xsi:nil="true"></Name>
+          <PostalCode
+            xsi:nil="true"></PostalCode>
+          <PostOfficeBox
+            xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName
+            xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince
+            xsi:nil="true"></StateOrProvince>
+          <Telephone1
+            xsi:nil="true"></Telephone1>
+          <Telephone2
+            xsi:nil="true"></Telephone2>
+          <Telephone3
+            xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber
+            xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone
+            xsi:nil="true"></UPSZone>
+          <UTCOffset
+            xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode
+            xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City
+            xsi:nil="true"></City>
+          <County
+            xsi:nil="true"></County>
+          <Country
+            xsi:nil="true"></Country>
+          <Fax
+            xsi:nil="true"></Fax>
+          <FreightTermsCode
+            xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber
+            xsi:nil="true"></ImportSequenceNumber>
+          <Latitude
+            xsi:nil="true"></Latitude>
+          <Line1
+            xsi:nil="true"></Line1>
+          <Line2
+            xsi:nil="true"></Line2>
+          <Line3
+            xsi:nil="true"></Line3>
+          <Longitude
+            xsi:nil="true"></Longitude>
+          <Name
+            xsi:nil="true"></Name>
+          <PostalCode
+            xsi:nil="true"></PostalCode>
+          <PostOfficeBox
+            xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName
+            xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince
+            xsi:nil="true"></StateOrProvince>
+          <Telephone1
+            xsi:nil="true"></Telephone1>
+          <Telephone2
+            xsi:nil="true"></Telephone2>
+          <Telephone3
+            xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber
+            xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone
+            xsi:nil="true"></UPSZone>
+          <UTCOffset
+            xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode
+            xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent
+        type="1"
+        schemaName="contact"
+        behavior="1" />
+      <RootComponent
+        type="1"
+        schemaName="email"
+        behavior="1" />
+      <RootComponent
+        type="1"
+        schemaName="pc_bankaccount"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="pc_participation"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="pc_participationfeeexemption"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="pc_participationfeerule"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="pc_payment"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="pc_scheduledjob"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="pc_settings"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="pc_transaction"
+        behavior="0" />
+      <RootComponent
+        type="1"
+        schemaName="systemuser"
+        behavior="2" />
+      <RootComponent
+        type="9"
+        schemaName="pc_emailcategory"
+        behavior="0" />
+      <RootComponent
+        type="9"
+        schemaName="pc_participationlevel"
+        behavior="0" />
+      <RootComponent
+        type="9"
+        schemaName="pc_recurrence"
+        behavior="0" />
+      <RootComponent
+        type="9"
+        schemaName="pc_transactionimportstatus"
+        behavior="0" />
+      <RootComponent
+        type="9"
+        schemaName="pc_welcomemeetingstatus"
+        behavior="0" />
+      <RootComponent
+        type="20"
+        id="{2df11db7-02ee-eb11-bacb-000d3abf0a24}"
+        behavior="0" />
+      <RootComponent
+        type="20"
+        id="{e107adee-0ff2-eb11-94ef-002248834145}"
+        behavior="0" />
+      <RootComponent
+        type="20"
+        behavior="0"
+        parentId="{236750cd-45ae-4939-ab12-b24b920ced93}" />
+      <RootComponent
+        type="36"
+        id="{227d1abb-95f6-eb11-94ef-002248834145}"
+        behavior="0" />
+      <RootComponent
+        type="36"
+        id="{f190362f-cdf3-eb11-94ef-002248834145}"
+        behavior="0" />
+      <RootComponent
+        type="60"
+        id="{0d1e47ff-12b2-4f53-9090-bee951b98cb4}" />
+      <RootComponent
+        type="60"
+        id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+      <RootComponent
+        type="60"
+        id="{24302d1f-e5c2-470c-a162-e7f65d77940a}"
+        behavior="0" />
+      <RootComponent
+        type="60"
+        id="{2a343c8c-5c71-4ae6-887d-9ccd29b20b02}"
+        behavior="0" />
+      <RootComponent
+        type="60"
+        id="{2d494817-2124-46f3-ac44-a4a2fc03bb66}"
+        behavior="0" />
+      <RootComponent
+        type="60"
+        id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
+      <RootComponent
+        type="60"
+        id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
+      <RootComponent
+        type="60"
+        id="{af9552f0-502a-4460-ae12-021b156d1c66}"
+        behavior="0" />
+      <RootComponent
+        type="60"
+        id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
+      <RootComponent
+        type="60"
+        id="{c5c47c90-f7bd-479f-b150-fcee7d30c86c}"
+        behavior="0" />
+      <RootComponent
+        type="60"
+        id="{d26924ef-4d80-46f7-ab1d-e6ae80a54ce8}" />
+      <RootComponent
+        type="60"
+        id="{e2520334-c210-46a4-81ab-2ebabd648e46}"
+        behavior="0" />
+      <RootComponent
+        type="60"
+        id="{ef363f28-6de7-4d13-b75d-e84b7c1eddc3}"
+        behavior="0" />
+      <RootComponent
+        type="61"
+        schemaName="pc_/bankaccount.js"
+        behavior="0" />
+      <RootComponent
+        type="61"
+        schemaName="pc_/contact.js"
+        behavior="0" />
+      <RootComponent
+        type="61"
+        schemaName="pc_/transaction.js"
+        behavior="0" />
+      <RootComponent
+        type="62"
+        schemaName="pc_CityForPeople"
+        behavior="0" />
+      <RootComponent
+        type="70"
+        id="{7ec34827-30f2-eb11-94ef-002248834145}"
+        behavior="0" />
+      <RootComponent
+        type="70"
+        id="{ad6d2dde-29ee-eb11-bacb-000d3abf0cde}"
+        behavior="0" />
+      <RootComponent
+        type="80"
+        schemaName="pc_CityForPeople"
+        behavior="0" />
+      <RootComponent
+        type="91"
+        id="{7b91fda9-7149-48ea-8d6a-e06d347ce24c}"
+        schemaName="PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{08c8c7ad-01f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{097b41d9-01f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{0f2bc18f-fbf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{14f67007-00f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{16be2e3d-02f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{16d7a7e1-fef8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{206f4e05-60f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{22422c4a-03f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{2580a54c-fcf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{25f2d196-fef8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{346be88c-40fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{3eb962a5-fcf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{43b55a7c-d2fa-eb11-94ef-000d3a4bf6d0}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{45d22ef7-cefa-eb11-94ef-000d3a4bf6d0}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{4e121f15-46fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{6204c2ca-fbf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{696426dc-02f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{6aa31e57-43fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{6ff52e8c-fcf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{7123ebd5-fcf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{7a5d7f96-d2fa-eb11-94ef-000d3a4bf6d0}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{7ad9337c-e1fa-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{7c9e2c0d-6cf9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{84957120-9bfa-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{84bb80ea-03f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{85910d70-fdf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{87f0dce5-e9fa-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{880f8337-d2f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{8997ef3d-43fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{8be15a0c-def9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{8ced493e-46fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{907aaf50-02f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{989a684b-d2f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{9a3abc95-fdf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{9c2a24f6-fbf8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{9ea7700e-eafa-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{a1b04935-9bfa-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{a516e1b2-40fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{a59a55b7-fff8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{adb2bcd7-40fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{b4f655fd-02f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{b57c79e3-ddf9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{b7714110-cffa-eb11-94ef-000d3a4bf6d0}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{c53e96fd-fef8-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{c73d91c8-5ff9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{c8123fae-03f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{ca692bfa-6cfb-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{d2045921-6cf9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{f51bd2ea-6cfb-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{fc60e89f-40fc-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+      <RootComponent
+        type="92"
+        id="{fe821e65-02f9-eb11-94ef-000d3a4bfac3}"
+        behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required
+          type="26"
+          schemaName="All Contacts"
+          displayName="All Contacts"
+          parentSchemaName="contact"
+          parentDisplayName="Contact"
+          solution="msdynce_AppCommon (9.0.4.0066)"
+          id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" />
+        <Dependent
+          type="26"
+          schemaName="All Contacts"
+          displayName="All Contacts"
+          parentSchemaName="contact"
+          parentDisplayName="Contact"
+          id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="60"
+          displayName="Email"
+          parentDisplayName="Email"
+          solution="msdynce_Activities (9.0.1.2033)"
+          id="{0d1e47ff-12b2-4f53-9090-bee951b98cb4}" />
+        <Dependent
+          type="60"
+          displayName="Email"
+          parentDisplayName="Email"
+          id="{0d1e47ff-12b2-4f53-9090-bee951b98cb4}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="60"
+          displayName="Contact"
+          parentDisplayName="Contact"
+          solution="msdynce_AppCommon (9.0.4.0066)"
+          id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+        <Dependent
+          type="60"
+          displayName="Contact"
+          parentDisplayName="Contact"
+          id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="60"
+          displayName="Information"
+          parentDisplayName="Contact"
+          solution="msdynce_AppCommon (9.0.4.0066)"
+          id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
+        <Dependent
+          type="60"
+          displayName="Information"
+          parentDisplayName="Contact"
+          id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="61"
+          schemaName="AppCommon/Contact/Contact_main_system_library.js"
+          displayName="AppCommon/Contact/Contact_main_system_library.js"
+          solution="msdynce_AppCommon (9.0.4.0066)" />
+        <Dependent
+          type="60"
+          displayName="Contact"
+          parentDisplayName="Contact"
+          id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="61"
+          schemaName="AppCommon/Contact/Contact_main_system_library.js"
+          displayName="AppCommon/Contact/Contact_main_system_library.js"
+          solution="msdynce_AppCommon (9.0.4.0066)" />
+        <Dependent
+          type="60"
+          displayName="Contact"
+          parentDisplayName="Contact"
+          id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="61"
+          schemaName="msdyn_/Images/AppModule_Default_Icon.png"
+          displayName="msdyn_/Images/AppModule_Default_Icon.png"
+          solution="AppModuleWebResources (2.5)" />
+        <Dependent
+          type="80"
+          schemaName="pc_CityForPeople"
+          displayName="City for People" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="66"
+          schemaName="MscrmControls.CardFeedContainer.CardFeedContainer"
+          displayName="MscrmControls.CardFeedContainer.CardFeedContainer"
+          solution="BaseCustomControlsCore (9.0.2107.2013)" />
+        <Dependent
+          type="60"
+          displayName="Contact"
+          parentDisplayName="Contact"
+          id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="66"
+          schemaName="MscrmControls.CardFeedContainer.CardFeedContainer"
+          displayName="MscrmControls.CardFeedContainer.CardFeedContainer"
+          solution="BaseCustomControlsCore (9.0.2107.2013)" />
+        <Dependent
+          type="60"
+          displayName="Contact"
+          parentDisplayName="Contact"
+          id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="66"
+          schemaName="MscrmControls.FieldControls.ToggleControl"
+          displayName="MscrmControls.FieldControls.ToggleControl"
+          solution="BaseCustomControlsCore (9.0.2107.2013)" />
+        <Dependent
+          type="60"
+          displayName="Contact"
+          parentDisplayName="Contact"
+          id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required
+          type="66"
+          schemaName="MscrmControls.FieldControls.ToggleControl"
+          displayName="MscrmControls.FieldControls.ToggleControl"
+          solution="BaseCustomControlsCore (9.0.2107.2013)" />
+        <Dependent
+          type="60"
+          displayName="Information"
+          parentDisplayName="Settings"
+          id="{e2520334-c210-46a4-81ab-2ebabd648e46}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>
