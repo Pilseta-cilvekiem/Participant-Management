@@ -26,10 +26,10 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
 
             if (contact.StatusCode != Contact_StatusCode.Active)
             {
-                context.EnsureAttributesNotModified(c => new { c.Address1_City, c.Address1_Country, c.Address1_County, c.Address1_Line1, c.Address1_PostalCode, c.Address1_StateOrProvince, c.Description, c.pc_Neighbourhood, c.pc_WishesToBeActive });
+                context.EnsureAttributesNotModified(c => new { c.Address1_City, c.Address1_Country, c.Address1_County, c.Address1_Line1, c.Address1_PostalCode, c.Address1_StateOrProvince, c.Description, c.pc_ForceAddToGoogleGroup, c.pc_Neighbourhood, c.pc_WishesToBeActive });
             }
 
-            context.EnsureCreatedOrUpdatedAttributesNotEmpty(c => new { c.Description, c.EMailAddress1, c.FirstName, c.LastName, c.pc_IsInvitedToSlack, c.pc_PersonalIdentityNumber, c.pc_WishesToBeActive });
+            context.EnsureCreatedOrUpdatedAttributesNotEmpty(c => new { c.Description, c.EMailAddress1, c.FirstName, c.LastName, c.pc_ForceAddToGoogleGroup, c.pc_IsInvitedToSlack, c.pc_PersonalIdentityNumber, c.pc_WishesToBeActive });
         }
     }
 }

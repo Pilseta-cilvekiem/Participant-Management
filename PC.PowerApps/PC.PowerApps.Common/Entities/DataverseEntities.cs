@@ -4397,6 +4397,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_forceaddtogooglegroup")]
+		public System.Nullable<bool> pc_ForceAddToGoogleGroup
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("pc_forceaddtogooglegroup");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_ForceAddToGoogleGroup");
+				this.SetAttributeValue("pc_forceaddtogooglegroup", value);
+				this.OnPropertyChanged("pc_ForceAddToGoogleGroup");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_isinvitedtoslack")]
 		public System.Nullable<bool> pc_IsInvitedToSlack
 		{

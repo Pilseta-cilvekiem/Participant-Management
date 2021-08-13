@@ -37,7 +37,7 @@ namespace PC.PowerApps.ClientBase.Repositories
                 .Select(m => m.Email)
                 .ToHashSet();
             List<Contact> activeSupporters = context.ServiceContext.ContactSet
-                .Where(CommonConstants.LazyIsValidForGoogleSupporterGroupExpression)
+                .Where(CommonConstants.IsValidForGoogleSupporterGroupExpression)
                 .Select(c => new Contact
                 {
                     ContactId = c.ContactId,
