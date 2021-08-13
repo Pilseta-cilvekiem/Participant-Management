@@ -1,12 +1,11 @@
 ﻿using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common.Entities.Dataverse;
-using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
 using System;
 
-namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemption
+namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemptions
 {
     public class PreValidateCreateUpdate : PluginBase
     {
