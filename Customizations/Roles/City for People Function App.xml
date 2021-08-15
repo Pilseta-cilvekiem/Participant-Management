@@ -24,6 +24,9 @@
       name="prvDeleteNote"
       level="Global" />
     <RolePrivilege
+      name="prvReadActivity"
+      level="Basic" />
+    <RolePrivilege
       name="prvReadAttribute"
       level="Global" />
     <RolePrivilege
@@ -43,6 +46,9 @@
       level="Global" />
     <RolePrivilege
       name="prvReadpc_ParticipationFeeExemption"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadpc_ParticipationFeeRule"
       level="Global" />
     <RolePrivilege
       name="prvReadpc_ScheduledJob"

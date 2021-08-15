@@ -9,44 +9,25 @@ namespace PC.PowerApps.ClientBase
 {
     public class CrmServiceClientContext : Context
     {
-        private readonly Lazy<CrmServiceClient> crmServiceClient;
         private bool disposedValue = false;
+        private readonly Lazy<CrmServiceClient> lazyCrmServiceClient;
+        private readonly Lazy<ILogger> lazyLogger;
         private readonly Lazy<Guid> lazyUserId;
 
         protected override Guid InitiatingUserId => lazyUserId.Value;
+        public override ILogger Logger => lazyLogger.Value;
+        public override IOrganizationService OrganizationService => lazyCrmServiceClient.Value;
         protected override Guid UserId => lazyUserId.Value;
 
-        public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger<CrmServiceClientContext>> logger) : this(configuration, GetILogger(logger))
+        public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger<CrmServiceClientContext>> logger)
         {
-        }
-
-        public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger> logger) : this(GetCrmServiceClient(configuration), logger)
-        {
-        }
-
-        private CrmServiceClientContext(Lazy<CrmServiceClient> crmServiceClient, Lazy<ILogger> logger) : base(GetOrganizationService(crmServiceClient), logger)
-        {
-            this.crmServiceClient = crmServiceClient;
-            lazyUserId = new(() => crmServiceClient.Value.GetMyCrmUserId());
-        }
-
-        private static Lazy<CrmServiceClient> GetCrmServiceClient(Lazy<IConfiguration> configuration)
-        {
-            return new Lazy<CrmServiceClient>(() =>
+            lazyCrmServiceClient = new Lazy<CrmServiceClient>(() =>
             {
                 string connectionString = configuration.Value.GetConnectionString("Dataverse");
                 return new CrmServiceClient(connectionString);
             });
-        }
-
-        private static Lazy<ILogger> GetILogger(Lazy<ILogger<CrmServiceClientContext>> logger)
-        {
-            return new Lazy<ILogger>(() => logger.Value);
-        }
-
-        private static Lazy<IOrganizationService> GetOrganizationService(Lazy<CrmServiceClient> crmServiceClient)
-        {
-            return new Lazy<IOrganizationService>(() => crmServiceClient.Value);
+            lazyLogger = new(() => logger.Value);
+            lazyUserId = new(() => lazyCrmServiceClient.Value.GetMyCrmUserId());
         }
 
         protected override void Dispose(bool disposing)
@@ -55,9 +36,9 @@ namespace PC.PowerApps.ClientBase
             {
                 if (disposing)
                 {
-                    if (crmServiceClient.IsValueCreated)
+                    if (lazyCrmServiceClient.IsValueCreated)
                     {
-                        crmServiceClient.Value.Dispose();
+                        lazyCrmServiceClient.Value.Dispose();
                     }
                 }
 
