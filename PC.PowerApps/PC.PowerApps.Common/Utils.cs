@@ -157,68 +157,6 @@ namespace PC.PowerApps.Common
             _ = context.OrganizationService.Execute(sendEmailRequest);
         }
 
-        private static AttributeMetadata GetAttributeMetadata(Context context, string entityLogicalName, string attributeLogicalName)
-        {
-            RetrieveAttributeRequest retrieveAttributeRequest = new()
-            {
-                EntityLogicalName = entityLogicalName,
-                LogicalName = attributeLogicalName,
-            };
-            RetrieveAttributeResponse retrieveAttributeResponse = (RetrieveAttributeResponse)context.OrganizationService.Execute(retrieveAttributeRequest);
-            return retrieveAttributeResponse.AttributeMetadata;
-        }
-
-        public static EntityMetadata GetEntityMetadata(Context context, string entityLogicalName)
-        {
-            RetrieveEntityRequest retrieveEntityRequest = new()
-            {
-                LogicalName = entityLogicalName,
-            };
-            RetrieveEntityResponse retrieveEntityResponse = (RetrieveEntityResponse)context.OrganizationService.Execute(retrieveEntityRequest);
-            return retrieveEntityResponse.EntityMetadata;
-        }
-
-        public static string GetLabelValue(Label label)
-        {
-            return label.UserLocalizedLabel.Label;
-        }
-
-        public static string GetAttributeDisplayName(Context context, string entityLogicalName, string attributeLogicalName)
-        {
-            AttributeMetadata attributeMetadata = GetAttributeMetadata(context, entityLogicalName, attributeLogicalName);
-            string attributeDisplayName = GetLabelValue(attributeMetadata.DisplayName);
-            return attributeDisplayName;
-        }
-
-        public static string GetEntityDisplayName(Context context, string entityLogicalName)
-        {
-            EntityMetadata entityMetadata = GetEntityMetadata(context, entityLogicalName);
-            string entityDisplayName = GetLabelValue(entityMetadata.DisplayName);
-            return entityDisplayName;
-        }
-
-        public static void EnsureNoAttributes(Context context, string entityLogicalName, List<string> attributeLogicalNames, string resourceSingle, string resourceMultiple)
-        {
-            if (attributeLogicalNames.Count == 0)
-            {
-                return;
-            }
-
-            List<string> attributeDisplayNames = attributeLogicalNames
-                .Select(aln => $"\"{GetAttributeDisplayName(context, entityLogicalName, aln)}\"")
-                .ToList();
-
-            string entityDisplayName = GetEntityDisplayName(context, entityLogicalName);
-            string attributeDisplayNameString = string.Join(", ", attributeDisplayNames);
-
-            if (attributeDisplayNames.Count == 1)
-            {
-                throw context.CreateException(resourceSingle, entityDisplayName, attributeDisplayNameString);
-            }
-
-            throw context.CreateException(resourceMultiple, entityDisplayName, attributeDisplayNameString);
-        }
-
         public static bool IsEmptyValue(object @object)
         {
             return @object is null || (@object is string @string && @string.Length == 0);

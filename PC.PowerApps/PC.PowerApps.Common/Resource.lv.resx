@@ -136,16 +136,16 @@
     <value>Eksistē citi aktīvie Uzstādījumi.</value>
   </data>
   <data name="AttributeCannotBeEmpty" xml:space="preserve">
-    <value>{0} lauks {1} nevar būt tukšs.</value>
+    <value>Tabulas "{0}" lauks {1} nevar būt tukšs.</value>
   </data>
   <data name="AttributeIsReadOnly" xml:space="preserve">
-    <value>{0} lauku {1} var tikai lasīt.</value>
+    <value>Tabulas "{0}" lauku {1} var tikai lasīt.</value>
   </data>
   <data name="AttributesAreReadOnly" xml:space="preserve">
-    <value>{0} laukus {1} var tikai lasīt.</value>
+    <value>Tabulas "{0}" laukus {1} var tikai lasīt.</value>
   </data>
   <data name="AttributesCannotBeEmpty" xml:space="preserve">
-    <value>{0} lauki {1} nevar būt tukši.</value>
+    <value>Tabulas "{0}" lauki {1} nevar būt tukši.</value>
   </data>
   <data name="CantDeleteScheduledJobInProgress" xml:space="preserve">
     <value>Nevar izdzēst Plānoto uzdevumu ar Statusa iemeslu Izpildās.</value>
