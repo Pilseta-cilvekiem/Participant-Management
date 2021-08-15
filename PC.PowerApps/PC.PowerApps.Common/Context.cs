@@ -19,14 +19,12 @@ namespace PC.PowerApps.Common
     {
         private const int EnglishCultureId = 1033;
         private const int LatvianCultureId = 1062;
-        private static readonly Guid ResourceLVId = new Guid("95db7ae0-06fd-eb11-94ef-0022488070f9");
+        private static readonly Guid LatvianResourceId = new Guid("95db7ae0-06fd-eb11-94ef-0022488070f9");
 
         private bool disposedValue;
         private readonly Lazy<UserSettings> lazyInitiatingUserSettings;
         private readonly Lazy<Dictionary<string, string>> lazyLatvianResource;
-        private readonly Lazy<ILogger> lazyLogger;
         private readonly Lazy<Organization> lazyOrganization;
-        private readonly Lazy<IOrganizationService> lazyOrganizationService;
         private readonly Lazy<ServiceContext> lazyServiceContext;
         private readonly Lazy<pc_Settings> lazySettings;
         private readonly Lazy<TimeZoneInfo> lazyTimeZoneInfo = new(() => TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
@@ -37,10 +35,10 @@ namespace PC.PowerApps.Common
         protected abstract Guid InitiatingUserId { get; }
         private UserSettings InitiatingUserSettings => lazyInitiatingUserSettings.Value;
         private Dictionary<string, string> LatvianResource => lazyLatvianResource.Value;
-        public ILogger Logger => lazyLogger.Value;
+        public abstract ILogger Logger { get; }
         protected Organization Organization => lazyOrganization.Value;
         private CultureInfo OrganizationCultureInfo { get; }
-        public IOrganizationService OrganizationService => lazyOrganizationService.Value;
+        public abstract IOrganizationService OrganizationService { get; }
         public ServiceContext ServiceContext => lazyServiceContext.Value;
         public pc_Settings Settings => lazySettings.Value;
         private TimeZoneInfo TimeZoneInfo => lazyTimeZoneInfo.Value;
@@ -48,13 +46,13 @@ namespace PC.PowerApps.Common
         protected abstract Guid UserId { get; }
         protected SystemUser User => lazyUser.Value;
 
-        protected Context(Lazy<IOrganizationService> lazyOrganizationService, Lazy<ILogger> lazyLogger)
+        protected Context()
         {
             lazyUILanguageId = new(() => InitiatingUserSettings?.UILanguageId ?? EnglishCultureId);
             lazyInitiatingUserSettings = new(() => ServiceContext.Retrieve<UserSettings>(InitiatingUserId, isOptional: true));
             lazyLatvianResource = new(() =>
             {
-                WebResource webResource = ServiceContext.Retrieve<WebResource>(ResourceLVId);
+                WebResource webResource = ServiceContext.Retrieve<WebResource>(LatvianResourceId);
                 byte[] fileBytes = Convert.FromBase64String(webResource.Content);
                 using MemoryStream memoryStream = new();
                 memoryStream.Write(fileBytes, 0, fileBytes.Length);
@@ -68,9 +66,7 @@ namespace PC.PowerApps.Common
                 }
                 return latvianResource;
             });
-            this.lazyLogger = lazyLogger;
             lazyOrganization = new(() => ServiceContext.OrganizationSet.TakeSingle());
-            this.lazyOrganizationService = lazyOrganizationService;
             lazyServiceContext = new(() => new(OrganizationService));
             lazySettings = new(() => ServiceContext.pc_SettingsSet
                 .Where(s => s.StateCode == pc_SettingsState.Active)

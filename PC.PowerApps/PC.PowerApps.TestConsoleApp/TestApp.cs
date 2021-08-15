@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PC.PowerApps.ClientBase;
 using PC.PowerApps.Common;
+using PC.PowerApps.Common.Repositories;
 using System;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Resources;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp
@@ -160,11 +163,11 @@ namespace PC.PowerApps.TestConsoleApp
             ////List<Period> period = periods1[0].Subtract(periods2[0]);
             //List<Period> periods3 = Period.Subtract(periods1, periods2);
 
-            //ContactRepository.UpdateParticipationLevels(Context);
+            ContactRepository.UpdateParticipationLevels(Context);
 
             //Stopwatch stopwatch = Stopwatch.StartNew();
             //ResourceManager resourceManager = new(typeof(Resource));
-            throw Context.CreateException(nameof(Resource.AttributeCannotBeEmpty), "aaa", "bbb");
+            //throw Context.CreateException(nameof(Resource.AttributeCannotBeEmpty), "aaa", "bbb");
             //Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
         }
     }
