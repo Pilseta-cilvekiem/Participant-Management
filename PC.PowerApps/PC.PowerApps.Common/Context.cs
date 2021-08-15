@@ -32,8 +32,6 @@ namespace PC.PowerApps.Common
         private readonly Lazy<TimeZoneInfo> lazyTimeZoneInfo = new(() => TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
         private readonly Lazy<int> lazyUILanguageId;
         private readonly Lazy<SystemUser> lazyUser;
-        private readonly Lazy<IOrganizationService> lazyUserOrganizationService;
-        private readonly Lazy<ServiceContext> lazyUserServiceContext;
         private readonly ResourceManager resourceManager;
 
         protected abstract Guid InitiatingUserId { get; }
@@ -48,15 +46,9 @@ namespace PC.PowerApps.Common
         private TimeZoneInfo TimeZoneInfo => lazyTimeZoneInfo.Value;
         private int UILanguageId => lazyUILanguageId.Value;
         protected abstract Guid UserId { get; }
-        private IOrganizationService UserOrganizationService => lazyUserOrganizationService.Value;
-        private ServiceContext UserServiceContext => lazyUserServiceContext.Value;
         protected SystemUser User => lazyUser.Value;
 
-        protected Context(Lazy<IOrganizationService> lazyOrganizationService, Lazy<ILogger> lazyLogger) : this(lazyOrganizationService, lazyOrganizationService, lazyLogger)
-        {
-        }
-
-        protected Context(Lazy<IOrganizationService> lazyOrganizationService, Lazy<IOrganizationService> lazyUserOrganizationService, Lazy<ILogger> lazyLogger)
+        protected Context(Lazy<IOrganizationService> lazyOrganizationService, Lazy<ILogger> lazyLogger)
         {
             lazyUILanguageId = new(() => InitiatingUserSettings?.UILanguageId ?? EnglishCultureId);
             lazyInitiatingUserSettings = new(() => ServiceContext.Retrieve<UserSettings>(InitiatingUserId, isOptional: true));
@@ -84,10 +76,6 @@ namespace PC.PowerApps.Common
                 .Where(s => s.StateCode == pc_SettingsState.Active)
                 .TakeFirst("Active Settings do not exist."));
             lazyUser = new(() => ServiceContext.Retrieve<SystemUser>(UserId));
-            this.lazyUserOrganizationService = lazyUserOrganizationService;
-            lazyUserServiceContext = lazyUserOrganizationService == lazyOrganizationService
-                ? lazyServiceContext
-                : new(() => new(UserOrganizationService));
             OrganizationCultureInfo = CultureInfo.GetCultureInfo("lv-LV");
             resourceManager = new(typeof(Resource));
         }

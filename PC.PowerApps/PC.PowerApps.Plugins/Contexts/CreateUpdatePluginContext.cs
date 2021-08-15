@@ -12,7 +12,7 @@ namespace PC.PowerApps.Plugins.Contexts
     {
         public abstract TEntity PostImage { get; }
 
-        protected CreateUpdatePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
+        protected CreateUpdatePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User user) : base(serviceProvider, organizationServiceUser, user)
         {
         }
 

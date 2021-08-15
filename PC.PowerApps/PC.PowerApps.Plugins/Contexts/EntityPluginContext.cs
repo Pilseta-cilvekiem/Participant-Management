@@ -10,7 +10,7 @@ namespace PC.PowerApps.Plugins.Contexts
 {
     internal abstract class EntityPluginContext<TEntity> : PluginContext where TEntity : Entity
     {
-        protected EntityPluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
+        protected EntityPluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User user) : base(serviceProvider, organizationServiceUser, user)
         {
         }
 
