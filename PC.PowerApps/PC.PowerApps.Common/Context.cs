@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Messages;
+using Microsoft.Xrm.Sdk.Metadata;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;
@@ -114,7 +116,7 @@ namespace PC.PowerApps.Common
             List<string> emptyAttributeLogicalNames = attributeLogicalNamesToCheck
                 .Where(aln => Utils.IsEmptyValue(aln))
                 .ToList();
-            Utils.EnsureNoAttributes(this, entity.LogicalName, emptyAttributeLogicalNames, nameof(Resource.AttributeCannotBeEmpty), nameof(Resource.AttributesCannotBeEmpty));
+            EnsureNoAttributes(entity.LogicalName, emptyAttributeLogicalNames, nameof(Resource.AttributeCannotBeEmpty), nameof(Resource.AttributesCannotBeEmpty));
         }
 
         public string Format(Money money)
@@ -149,6 +151,76 @@ namespace PC.PowerApps.Common
             string message = string.Format(format, arguments);
             InvalidPluginExecutionException exception = new InvalidPluginExecutionException(message);
             return exception;
+        }
+
+        public void EnsureNoAttributes(string entityLogicalName, List<string> attributeLogicalNames, string resourceSingle, string resourceMultiple)
+        {
+            if (attributeLogicalNames.Count == 0)
+            {
+                return;
+            }
+
+            List<string> attributeDisplayNames = attributeLogicalNames
+                .Select(aln => $"\"{GetAttributeDisplayName(entityLogicalName, aln)}\"")
+                .ToList();
+
+            string entityDisplayName = GetEntityDisplayName(entityLogicalName);
+            string attributeDisplayNameString = string.Join(", ", attributeDisplayNames);
+
+            if (attributeDisplayNames.Count == 1)
+            {
+                throw CreateException(resourceSingle, entityDisplayName, attributeDisplayNameString);
+            }
+
+            throw CreateException(resourceMultiple, entityDisplayName, attributeDisplayNameString);
+        }
+
+        protected string GetAttributeDisplayName(string entityLogicalName, string attributeLogicalName)
+        {
+            AttributeMetadata attributeMetadata = GetAttributeMetadata(entityLogicalName, attributeLogicalName);
+            string attributeDisplayName = GetLabelValue(attributeMetadata.DisplayName);
+            return attributeDisplayName;
+        }
+
+        private string GetEntityDisplayName(string entityLogicalName)
+        {
+            EntityMetadata entityMetadata = GetEntityMetadata(entityLogicalName);
+            string entityDisplayName = GetLabelValue(entityMetadata.DisplayName);
+            return entityDisplayName;
+        }
+
+        private AttributeMetadata GetAttributeMetadata(string entityLogicalName, string attributeLogicalName)
+        {
+            RetrieveAttributeRequest retrieveAttributeRequest = new()
+            {
+                EntityLogicalName = entityLogicalName,
+                LogicalName = attributeLogicalName,
+            };
+            RetrieveAttributeResponse retrieveAttributeResponse = (RetrieveAttributeResponse)OrganizationService.Execute(retrieveAttributeRequest);
+            return retrieveAttributeResponse.AttributeMetadata;
+        }
+
+        protected EntityMetadata GetEntityMetadata(string entityLogicalName)
+        {
+            RetrieveEntityRequest retrieveEntityRequest = new()
+            {
+                LogicalName = entityLogicalName,
+            };
+            RetrieveEntityResponse retrieveEntityResponse = (RetrieveEntityResponse)OrganizationService.Execute(retrieveEntityRequest);
+            return retrieveEntityResponse.EntityMetadata;
+        }
+
+        protected string GetLabelValue(Label label)
+        {
+            LocalizedLabel localizedLabel = GetLocalizedLabel(label, UILanguageId) ?? GetLocalizedLabel(label, EnglishCultureId);
+            return localizedLabel.Label;
+        }
+
+        private LocalizedLabel GetLocalizedLabel(Label label, int languageId)
+        {
+            return label.LocalizedLabels
+                .Where(ll => ll.LanguageCode == languageId)
+                .FirstOrDefault();
         }
 
         protected virtual void Dispose(bool disposing)

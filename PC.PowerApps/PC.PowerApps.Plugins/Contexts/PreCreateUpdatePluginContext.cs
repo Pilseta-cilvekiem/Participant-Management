@@ -36,7 +36,7 @@ namespace PC.PowerApps.Plugins.Contexts
             List<string> modifiedAttributeLogicalNames = attributeLogicalNames
                 .Where(aln => GetIsAttributeModified(aln))
                 .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, nameof(Resource.AttributeIsReadOnly), nameof(Resource.AttributesAreReadOnly));
+            EnsureNoAttributes(PluginExecutionContext.PrimaryEntityName, modifiedAttributeLogicalNames, nameof(Resource.AttributeIsReadOnly), nameof(Resource.AttributesAreReadOnly));
         }
 
         public void EnsureCreatedOrUpdatedAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
@@ -48,7 +48,7 @@ namespace PC.PowerApps.Plugins.Contexts
             List<string> modifiedEmptyAttributeLogicalNames = modifiedAttributeLogicalNames
                 .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))
                 .ToList();
-            Utils.EnsureNoAttributes(this, PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, nameof(Resource.AttributeCannotBeEmpty), nameof(Resource.AttributesCannotBeEmpty));
+            EnsureNoAttributes(PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, nameof(Resource.AttributeCannotBeEmpty), nameof(Resource.AttributesCannotBeEmpty));
         }
 
         protected override void Dispose(bool disposing)

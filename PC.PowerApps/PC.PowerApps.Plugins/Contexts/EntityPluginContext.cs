@@ -34,7 +34,7 @@ namespace PC.PowerApps.Plugins.Contexts
         public string GetAttributeDisplayName(Expression<Func<TEntity, object>> attributeSelector)
         {
             string attributeLogicalName = Utils.GetAttributeLogicalName(attributeSelector);
-            string attributeDisplayName = Utils.GetAttributeDisplayName(this, PluginExecutionContext.PrimaryEntityName, attributeLogicalName);
+            string attributeDisplayName = GetAttributeDisplayName(PluginExecutionContext.PrimaryEntityName, attributeLogicalName);
             return attributeDisplayName;
         }
     }
