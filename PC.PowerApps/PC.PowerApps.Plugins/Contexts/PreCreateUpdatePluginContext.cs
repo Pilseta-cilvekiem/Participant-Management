@@ -14,7 +14,7 @@ namespace PC.PowerApps.Plugins.Contexts
 
         public override TEntity PostImage { get; }
 
-        public PreCreateUpdatePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser) : base(serviceProvider, organizationServiceUser, userOrganizationServiceUser)
+        public PreCreateUpdatePluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User user) : base(serviceProvider, organizationServiceUser, user)
         {
             PostImage = ((Entity)PluginExecutionContext.InputParameters[PluginConstants.TargetAttributeName]).ToEntity<TEntity>();
 

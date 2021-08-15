@@ -20,13 +20,13 @@ namespace PC.PowerApps.Plugins.Contexts
         public EntityMetadata PrimaryEntityMetadata => lazyPrimaryEntityMetadata.Value;
         protected override Guid UserId { get; }
 
-        public PluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser)
-            : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, userOrganizationServiceUser)
+        public PluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User user)
+            : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, user)
         {
         }
 
-        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, IPluginExecutionContext pluginExecutionContext, ITracingService tracingService, User organizationServiceUser, User userOrganizationServiceUser)
-            : this(organizationServiceFactory, GetUserId(pluginExecutionContext, organizationServiceUser), GetUserId(pluginExecutionContext, userOrganizationServiceUser), GetLazyLogger(tracingService))
+        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, IPluginExecutionContext pluginExecutionContext, ITracingService tracingService, User organizationServiceUser, User user)
+            : this(organizationServiceFactory, GetUserId(pluginExecutionContext, organizationServiceUser), GetUserId(pluginExecutionContext, user), GetLazyLogger(tracingService))
         {
             lazyMessage = new(() => (PluginMessage)Enum.Parse(typeof(PluginMessage), PluginExecutionContext.MessageName));
             lazyPrimaryEntityMetadata = new(() => GetEntityMetadata(PluginExecutionContext.PrimaryEntityName));
@@ -34,10 +34,10 @@ namespace PC.PowerApps.Plugins.Contexts
             PluginExecutionContext = pluginExecutionContext;
         }
 
-        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, Guid? organizationServiceUserId, Guid? userOrganizationServiceUserId, Lazy<ILogger> lazyLogger)
-            : base(LazyCreateOrganizationService(organizationServiceFactory, organizationServiceUserId), LazyCreateOrganizationService(organizationServiceFactory, userOrganizationServiceUserId), lazyLogger)
+        private PluginContext(IOrganizationServiceFactory organizationServiceFactory, Guid? organizationServiceUserId, Guid? userId, Lazy<ILogger> lazyLogger)
+            : base(LazyCreateOrganizationService(organizationServiceFactory, organizationServiceUserId), lazyLogger)
         {
-            UserId = userOrganizationServiceUserId.Value;
+            UserId = userId.Value;
         }
 
         private static Lazy<ILogger> GetLazyLogger(ITracingService tracingService)

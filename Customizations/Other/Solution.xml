@@ -646,9 +646,9 @@
         </Required>
         <Dependent
           type="60"
-          displayName="Kontaktpersona"
+          displayName="Informācija"
           parentDisplayName="Contact"
-          id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
+          id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
       </MissingDependency>
       <MissingDependency>
         <Required
