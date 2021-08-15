@@ -10,16 +10,25 @@
         <LocalizedName
           description="Contact"
           languagecode="1033" />
+        <LocalizedName
+          description="Kontaktpersona"
+          languagecode="1062" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName
           description="Contacts"
           languagecode="1033" />
+        <LocalizedCollectionName
+          description="Kontaktpersonas"
+          languagecode="1062" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description
           description="Person with whom a business unit has a relationship, such as customer, supplier, and colleague."
           languagecode="1033" />
+        <Description
+          description="Persona, ar kuru kādai struktūrvienībai ir attiecības, piemēram, klients, piegādātājs vai kolēģis."
+          languagecode="1062" />
       </Descriptions>
       <attributes>
         <attribute
@@ -54,11 +63,17 @@
             <displayname
               description="City/Village"
               languagecode="1033" />
+            <displayname
+              description="Pilsēta/ciems"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the city for the primary address."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet primārās adreses pilsētas nosaukumu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -93,11 +108,17 @@
             <displayname
               description="Country"
               languagecode="1033" />
+            <displayname
+              description="Valsts"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the country or region for the primary address."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet primārās adreses valsts vai reģiona nosaukumu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -132,11 +153,17 @@
             <displayname
               description="Parish"
               languagecode="1033" />
+            <displayname
+              description="Pagasts"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the county for the primary address."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet primārās adreses apgabala nosaukumu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -171,11 +198,17 @@
             <displayname
               description="Street Address"
               languagecode="1033" />
+            <displayname
+              description="Ielas adrese"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the first line of the primary address."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet primārās adreses pirmo rindu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -210,11 +243,17 @@
             <displayname
               description="Postal Code"
               languagecode="1033" />
+            <displayname
+              description="Pasta indekss"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the ZIP Code or postal code for the primary address."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet primārās adreses pasta indeksu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -249,11 +288,17 @@
             <displayname
               description="Region"
               languagecode="1033" />
+            <displayname
+              description="Novads"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the state or province of the primary address."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet primārās adreses novada nosaukumu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -286,11 +331,17 @@
             <displayname
               description="How Wishes to Participate"
               languagecode="1033" />
+            <displayname
+              description="Apraksts"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type additional information to describe the contact, such as an excerpt from the company's website."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet kontaktpersonu aprakstošu papildinformāciju, piemēram, citātu no uzņēmuma vietnes."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -324,11 +375,17 @@
             <displayname
               description="Private Email"
               languagecode="1033" />
+            <displayname
+              description="Privātais e-pasts"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the primary email address for the contact."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet kontaktpersonas primāro e-pasta adresi."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -362,11 +419,17 @@
             <displayname
               description="Organization Email"
               languagecode="1033" />
+            <displayname
+              description="Organizācijas e-pasts"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the secondary email address for the contact."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet kontaktpersonas sekundāro e-pasta adresi."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -400,11 +463,17 @@
             <displayname
               description="First Name"
               languagecode="1033" />
+            <displayname
+              description="Vārds"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the contact's first name to make sure the contact is addressed correctly in sales calls, email, and marketing campaigns."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet kontaktpersonas vārdu, lai nodrošinātu pareizu kontaktpersonas uzrunu ar pārdošanu saistīto tālruņa sarunu, e-pasta ziņojumu un mārketinga kampaņu ietvaros."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -438,11 +507,17 @@
             <displayname
               description="Full Name"
               languagecode="1033" />
+            <displayname
+              description="Pilns vārds"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Combines and shows the contact's first and last names so that the full name can be displayed in views and reports."
               languagecode="1033" />
+            <Description
+              description="Tiek apvienoti un rādīti kontaktpersonas vārds un uzvārds, lai atskaitēs varētu ietvert pilnu vārdu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -476,11 +551,17 @@
             <displayname
               description="Last Name"
               languagecode="1033" />
+            <displayname
+              description="Uzvārds"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the contact's last name to make sure the contact is addressed correctly in sales calls, email, and marketing campaigns."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet kontaktpersonas uzvārdu, lai nodrošinātu pareizu kontaktpersonas uzrunu ar pārdošanu saistīto tālruņa sarunu, e-pasta ziņojumu un mārketinga kampaņu ietvaros."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -514,11 +595,17 @@
             <displayname
               description="Middle Name"
               languagecode="1033" />
+            <displayname
+              description="Otrais vārds"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the contact's middle name or initial to make sure the contact is addressed correctly."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet kontaktpersonas otro vārdu vai iniciāli lai nodrošinātu pareizu kontaktpersonas uzrunu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -552,11 +639,17 @@
             <displayname
               description="Mobile Phone"
               languagecode="1033" />
+            <displayname
+              description="Mobilais tālrunis"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the mobile phone number for the contact."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet kontaktpersonas mobilā tālruņa numuru."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -587,11 +680,17 @@
             <displayname
               description="Company Name"
               languagecode="1033" />
+            <displayname
+              description="Uzņēmuma nosaukums"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Select the parent account or parent contact for the contact to provide a quick link to additional details, such as financial information, activities, and opportunities."
               languagecode="1033" />
+            <Description
+              description="Atlasiet kontaktpersonas galveno uzņēmumu vai primāro kontaktpersonu, lai varētu ātri piekļūt papildinformācijai, piemēram, finanšu informācijai un informācijai par darbībām un iespējām."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -633,11 +732,17 @@
             <displayname
               description="Debt"
               languagecode="1033" />
+            <displayname
+              description="Parāds"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
           <FormulaDefinitionFileName>/Formulas/contact-pc_debt.xaml</FormulaDefinitionFileName>
         </attribute>
@@ -681,11 +786,17 @@
             <displayname
               description="Debt (Base)"
               languagecode="1033" />
+            <displayname
+              description="Parāds (pamatvalūtā)"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Value of the Debt in base currency."
               languagecode="1033" />
+            <Description
+              description="Lauka Parāds vērtība pamatvalūtā."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -742,6 +853,9 @@
                   <label
                     description="Yes"
                     languagecode="1033" />
+                  <label
+                    description="Jā"
+                    languagecode="1062" />
                 </labels>
               </option>
               <option
@@ -750,6 +864,9 @@
                   <label
                     description="No"
                     languagecode="1033" />
+                  <label
+                    description="Nē"
+                    languagecode="1062" />
                 </labels>
               </option>
             </options>
@@ -758,11 +875,17 @@
             <displayname
               description="Force Add to Google Group"
               languagecode="1033" />
+            <displayname
+              description="Pievienot Google grupai piespiedu kārtā"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -819,6 +942,9 @@
                   <label
                     description="Yes"
                     languagecode="1033" />
+                  <label
+                    description="Jā"
+                    languagecode="1062" />
                 </labels>
               </option>
               <option
@@ -827,6 +953,9 @@
                   <label
                     description="No"
                     languagecode="1033" />
+                  <label
+                    description="Nē"
+                    languagecode="1062" />
                 </labels>
               </option>
             </options>
@@ -835,11 +964,17 @@
             <displayname
               description="Is Invited to Slack"
               languagecode="1033" />
+            <displayname
+              description="Ir uzaicināts Slack"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -880,11 +1015,17 @@
             <displayname
               description="Last Payment Date"
               languagecode="1033" />
+            <displayname
+              description="Pēdējā maksājuma datums"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
           <FormulaDefinitionFileName>/Formulas/contact-pc_lastpaymentdate.xaml</FormulaDefinitionFileName>
         </attribute>
@@ -926,11 +1067,17 @@
             <displayname
               description="Neighbourhood"
               languagecode="1033" />
+            <displayname
+              description="Apkaime"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -972,11 +1119,17 @@
             <displayname
               description="Paid Participation Fee"
               languagecode="1033" />
+            <displayname
+              description="Samaksātā dalībnieka nauda"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1019,11 +1172,17 @@
             <displayname
               description="Paid Participation Fee (Base)"
               languagecode="1033" />
+            <displayname
+              description="Samaksātā dalībnieka nauda (pamatvalūtā)"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Value of the Paid Participation Fee in base currency."
               languagecode="1033" />
+            <Description
+              description="Lauka Samaksātā dalībnieka nauda vērtība pamatvalūtā."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1064,11 +1223,17 @@
             <displayname
               description="Participant From"
               languagecode="1033" />
+            <displayname
+              description="Dalībnieks no"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
           <FormulaDefinitionFileName>/Formulas/contact-pc_participantfrom.xaml</FormulaDefinitionFileName>
         </attribute>
@@ -1109,11 +1274,17 @@
             <displayname
               description="Participation Level"
               languagecode="1033" />
+            <displayname
+              description="Dalības līmenis"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1154,11 +1325,17 @@
             <displayname
               description="Personal Identity Number"
               languagecode="1033" />
+            <displayname
+              description="Personas kods"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1200,11 +1377,17 @@
             <displayname
               description="Required Participation Fee"
               languagecode="1033" />
+            <displayname
+              description="Nepieciešamā dalībnieka nauda"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1247,11 +1430,17 @@
             <displayname
               description="Required Participation Fee (Base)"
               languagecode="1033" />
+            <displayname
+              description="Nepieciešamā dalībnieka nauda (pamatvalūtā)"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Value of the Required Participation Fee in base currency."
               languagecode="1033" />
+            <Description
+              description="Lauka Nepieciešamā dalībnieka nauda vērtība pamatvalūtā."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1292,11 +1481,17 @@
             <displayname
               description="Sent Debt Reminder On"
               languagecode="1033" />
+            <displayname
+              description="Atgādinājuma par parādu nosūtīšanas laiks"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1337,11 +1532,17 @@
             <displayname
               description="Sent Supporter Welcome Email On"
               languagecode="1033" />
+            <displayname
+              description="Sagaidīšanas e-pasta nosūtīšanas laiks"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1381,11 +1582,17 @@
             <displayname
               description="Welcome Meeting Status"
               languagecode="1033" />
+            <displayname
+              description="Iepazīšanās tikšanās statuss"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1442,6 +1649,9 @@
                   <label
                     description="Yes"
                     languagecode="1033" />
+                  <label
+                    description="Jā"
+                    languagecode="1062" />
                 </labels>
               </option>
               <option
@@ -1450,6 +1660,9 @@
                   <label
                     description="No"
                     languagecode="1033" />
+                  <label
+                    description="Nē"
+                    languagecode="1062" />
                 </labels>
               </option>
             </options>
@@ -1458,11 +1671,17 @@
             <displayname
               description="Wishes to Be Active"
               languagecode="1033" />
+            <displayname
+              description="Vēlas būt aktīvs"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1497,11 +1716,17 @@
               <displayname
                 description="Status"
                 languagecode="1033" />
+              <displayname
+                description="Statuss"
+                languagecode="1062" />
             </displaynames>
             <Descriptions>
               <Description
                 description="Status of the contact."
                 languagecode="1033" />
+              <Description
+                description="Kontaktpersonas statuss."
+                languagecode="1062" />
             </Descriptions>
             <states>
               <state
@@ -1512,6 +1737,9 @@
                   <label
                     description="Active"
                     languagecode="1033" />
+                  <label
+                    description="Aktīvs"
+                    languagecode="1062" />
                 </labels>
               </state>
               <state
@@ -1522,6 +1750,9 @@
                   <label
                     description="Inactive"
                     languagecode="1033" />
+                  <label
+                    description="Neaktīvs"
+                    languagecode="1062" />
                 </labels>
               </state>
             </states>
@@ -1530,11 +1761,17 @@
             <displayname
               description="Status"
               languagecode="1033" />
+            <displayname
+              description="Statuss"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Shows whether the contact is active or inactive. Inactive contacts are read-only and can't be edited unless they are reactivated."
               languagecode="1033" />
+            <Description
+              description="Tiek rādīts, vai kontaktpersona ir aktīva vai neaktīva. Neaktīvās kontaktpersonas ir tikai lasāmas, un tās nevar rediģēt, ja vien tās netiek atkārtoti aktivizētas."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -1568,11 +1805,17 @@
             <displayname
               description="Business Phone"
               languagecode="1033" />
+            <displayname
+              description="Tālrunis darbā"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Type the main phone number for this contact."
               languagecode="1033" />
+            <Description
+              description="Ierakstiet šīs kontaktpersonas galveno tālruņa numuru."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
       </attributes>
@@ -1619,7 +1862,7 @@
 	</MobileOfflineFilters>
       <IsMapiGridEnabled>1</IsMapiGridEnabled>
       <IsReadingPaneEnabled>1</IsReadingPaneEnabled>
-      <IsQuickCreateEnabled>1</IsQuickCreateEnabled>
+      <IsQuickCreateEnabled>0</IsQuickCreateEnabled>
       <SyncToExternalSearchIndex>1</SyncToExternalSearchIndex>
       <IntroducedVersion>5.0.0.0</IntroducedVersion>
       <EnforceStateTransitions>0</EnforceStateTransitions>

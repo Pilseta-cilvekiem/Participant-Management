@@ -13,7 +13,8 @@ namespace PC.PowerApps.ClientBase
         private bool disposedValue = false;
         private readonly Lazy<Guid> lazyUserId;
 
-        public override Guid UserId => lazyUserId.Value;
+        protected override Guid InitiatingUserId => lazyUserId.Value;
+        protected override Guid UserId => lazyUserId.Value;
 
         public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger<CrmServiceClientContext>> logger) : this(configuration, GetILogger(logger))
         {

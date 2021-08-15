@@ -108,6 +108,9 @@
       <LocalizedName
         description="Quick Find Active Contacts"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvo kontaktpersonu ātrā atrašana"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

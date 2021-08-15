@@ -10,6 +10,9 @@
     <displayname
       description="Email Category"
       languagecode="1033" />
+    <displayname
+      description="E-pasta kategorija"
+      languagecode="1062" />
   </displaynames>
   <Descriptions>
     <Description
@@ -23,6 +26,9 @@
         <label
           description="Debt Reminder"
           languagecode="1033" />
+        <label
+          description="Atgādinājums par parādu"
+          languagecode="1062" />
       </labels>
     </option>
     <option
@@ -31,6 +37,9 @@
         <label
           description="Supporter Welcome Email"
           languagecode="1033" />
+        <label
+          description="Sagaidīšanas e-pasts"
+          languagecode="1062" />
       </labels>
     </option>
   </options>

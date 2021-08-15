@@ -82,6 +82,9 @@
       <LocalizedName
         description="Scheduled Job Lookup View"
         languagecode="1033" />
+      <LocalizedName
+        description="Plānoto uzdevumu uzmeklēšanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

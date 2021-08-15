@@ -37,6 +37,9 @@
             <label
               description="Summary"
               languagecode="1033" />
+            <label
+              description="Kopsavilkums"
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -57,6 +60,9 @@
                     <label
                       description="Contact Information"
                       languagecode="1033" />
+                    <label
+                      description="Kontaktinformācija"
+                      languagecode="1062" />
                   </labels>
                   <rows>
                     <row>
@@ -69,6 +75,9 @@
                           <label
                             description="Full Name"
                             languagecode="1033" />
+                          <label
+                            description="Pilns vārds"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="fullname"
@@ -85,6 +94,9 @@
                           <label
                             description="Personal Identity Number"
                             languagecode="1033" />
+                          <label
+                            description="Personas kods"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_personalidentitynumber"
@@ -102,6 +114,9 @@
                           <label
                             description="Private Email"
                             languagecode="1033" />
+                          <label
+                            description="E-pasts"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="emailaddress1"
@@ -118,6 +133,9 @@
                           <label
                             description="Organization Email"
                             languagecode="1033" />
+                          <label
+                            description="2. e-pasta adrese"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="emailaddress2"
@@ -134,6 +152,9 @@
                           <label
                             description="Mobile Phone"
                             languagecode="1033" />
+                          <label
+                            description="Mobilais tālrunis"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="mobilephone"
@@ -150,6 +171,9 @@
                           <label
                             description="Participation Level"
                             languagecode="1033" />
+                          <label
+                            description="Dalības līmenis"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_participationlevel"
@@ -166,6 +190,9 @@
                           <label
                             description="Participant From"
                             languagecode="1033" />
+                          <label
+                            description="Dalībnieks no"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_participantfrom"
@@ -182,6 +209,9 @@
                           <label
                             description="Wishes to Be Active"
                             languagecode="1033" />
+                          <label
+                            description="Vēlas būt aktīvs"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_wishestobeactive"
@@ -199,6 +229,9 @@
                           <label
                             description="Force Add to Google Group"
                             languagecode="1033" />
+                          <label
+                            description="Pievienot Google grupai piespiedu kārtā"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_forceaddtogooglegroup"
@@ -216,6 +249,9 @@
                           <label
                             description="Is Invited to Slack"
                             languagecode="1033" />
+                          <label
+                            description="Ir uzaicināts Slack"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_isinvitedtoslack"
@@ -233,6 +269,9 @@
                           <label
                             description="Required Participation Fee"
                             languagecode="1033" />
+                          <label
+                            description="Nepieciešamā dalībnieka nauda"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_requiredparticipationfee"
@@ -249,6 +288,9 @@
                           <label
                             description="Paid Participation Fee"
                             languagecode="1033" />
+                          <label
+                            description="Samaksātā dalībnieka nauda"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_paidparticipationfee"
@@ -265,6 +307,9 @@
                           <label
                             description="Last Payment Date"
                             languagecode="1033" />
+                          <label
+                            description="Pēdējā maksājuma datums"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_lastpaymentdate"
@@ -281,6 +326,9 @@
                           <label
                             description="Debt"
                             languagecode="1033" />
+                          <label
+                            description="Parāds"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_debt"
@@ -297,6 +345,9 @@
                           <label
                             description="Sent Debt Reminder On"
                             languagecode="1033" />
+                          <label
+                            description="Atgādinājuma par parādu nosūtīšanas laiks"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_sentdebtreminderon"
@@ -314,6 +365,9 @@
                           <label
                             description="How Wishes to Participate"
                             languagecode="1033" />
+                          <label
+                            description="Kā vēlas piedalīties"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="description"
@@ -339,6 +393,9 @@
                           <label
                             description="Sent Supporter Welcome Email On"
                             languagecode="1033" />
+                          <label
+                            description="Sagaidīšanas e-pasta nosūtīšanas laiks"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_sentsupporterwelcomeemailon"
@@ -355,6 +412,9 @@
                           <label
                             description="Welcome Meeting Status"
                             languagecode="1033" />
+                          <label
+                            description="Iepazīšanās tikšanās statuss"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_welcomemeetingstatus"
@@ -371,6 +431,9 @@
                           <label
                             description="Created By"
                             languagecode="1033" />
+                          <label
+                            description="Izveidoja"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="createdby"
@@ -387,6 +450,9 @@
                           <label
                             description="Created On"
                             languagecode="1033" />
+                          <label
+                            description="Izveides laiks"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="createdon"
@@ -418,6 +484,9 @@
                     <label
                       description="Address"
                       languagecode="1033" />
+                    <label
+                      description="Adrese"
+                      languagecode="1062" />
                   </labels>
                   <rows>
                     <row>
@@ -428,6 +497,9 @@
                           <label
                             description="Street Address"
                             languagecode="1033" />
+                          <label
+                            description="Ielas adrese"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="address1_line1"
@@ -444,6 +516,9 @@
                           <label
                             description="Neighbourhood"
                             languagecode="1033" />
+                          <label
+                            description="Apkaime"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_neighbourhood"
@@ -460,6 +535,9 @@
                           <label
                             description="City/Village"
                             languagecode="1033" />
+                          <label
+                            description="Pilsēte/ciems"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="address1_city"
@@ -476,6 +554,9 @@
                           <label
                             description="Parish"
                             languagecode="1033" />
+                          <label
+                            description="Pagasts"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="address1_county"
@@ -492,6 +573,9 @@
                           <label
                             description="Region"
                             languagecode="1033" />
+                          <label
+                            description="Novads"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="address1_stateorprovince"
@@ -508,6 +592,9 @@
                           <label
                             description="Postal Code"
                             languagecode="1033" />
+                          <label
+                            description="Pasta indekss"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="address1_postalcode"
@@ -524,6 +611,9 @@
                           <label
                             description="Country"
                             languagecode="1033" />
+                          <label
+                            description="Valsts"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="address1_country"
@@ -543,6 +633,9 @@
                           <label
                             description="Bing Map"
                             languagecode="1033" />
+                          <label
+                            description="Bing karte"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="mapcontrol"
@@ -582,6 +675,9 @@
                     <label
                       description="SOCIAL PANE"
                       languagecode="1033" />
+                    <label
+                      description="SOCIĀLĀ RŪTS"
+                      languagecode="1062" />
                   </labels>
                   <rows>
                     <row>
@@ -595,7 +691,7 @@
                         <labels>
                           <label
                             description=""
-                            languagecode="1033" />
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="notescontrol"
@@ -619,6 +715,9 @@
             <label
               description="Participations"
               languagecode="1033" />
+            <label
+              description="Dalības"
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -640,6 +739,9 @@
                     <label
                       description="Participations"
                       languagecode="1033" />
+                    <label
+                      description="Dalības"
+                      languagecode="1062" />
                   </labels>
                   <rows>
                     <row>
@@ -653,6 +755,9 @@
                           <label
                             description="Participations"
                             languagecode="1033" />
+                          <label
+                            description="Dalības"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="Subgrid_1"
@@ -684,6 +789,9 @@
             <label
               description="Payments"
               languagecode="1033" />
+            <label
+              description="Maksājumi"
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -718,6 +826,9 @@
                           <label
                             description="New SG control 1627823674257"
                             languagecode="1033" />
+                          <label
+                            description="Maksājumi"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="Subgrid_2"
@@ -749,6 +860,9 @@
             <label
               description="Participation Fee Exemptions"
               languagecode="1033" />
+            <label
+              description="Atbrīvojumi no dalībnieka naudas"
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -783,6 +897,9 @@
                           <label
                             description="New SG control 1627850593366"
                             languagecode="1033" />
+                          <label
+                            description="Atbrīvojumi no dalībnieka naudas"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="Subgrid_3"
@@ -821,6 +938,9 @@
                 <label
                   description="Owner"
                   languagecode="1033" />
+                <label
+                  description="Atbildīgais"
+                  languagecode="1062" />
               </labels>
               <control
                 id="header_ownerid"
@@ -1848,7 +1968,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -1858,7 +1978,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -1868,7 +1988,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
           </row>
@@ -1889,11 +2009,17 @@
       <LocalizedName
         description="Contact"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersona"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Updated default Contact form."
         languagecode="1033" />
+      <Description
+        description="Noklusējuma veidlapa Kontaktpersona ir atjaunināta."
+        languagecode="1062" />
     </Descriptions>
   </systemform>
 </forms>

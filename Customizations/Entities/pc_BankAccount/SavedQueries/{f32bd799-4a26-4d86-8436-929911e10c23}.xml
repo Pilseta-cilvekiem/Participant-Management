@@ -57,6 +57,9 @@
       <LocalizedName
         description="Bank Account Associated View"
         languagecode="1033" />
+      <LocalizedName
+        description="Bankus kontu saistītais skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

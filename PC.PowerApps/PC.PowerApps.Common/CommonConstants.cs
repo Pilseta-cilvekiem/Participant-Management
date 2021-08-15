@@ -6,7 +6,6 @@ namespace PC.PowerApps.Common
 {
     public static class CommonConstants
     {
-        public const string CannotBeEmptyText = "cannot be empty";
         public const int MultilineTextMaxLength = 1048576;
 
         private static readonly Lazy<Expression<Func<Contact, bool>>> lazyIsValidForGoogleSupporterGroupExpression = new(() => c =>

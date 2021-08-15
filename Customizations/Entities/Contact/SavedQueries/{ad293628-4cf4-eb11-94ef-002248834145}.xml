@@ -96,6 +96,9 @@
       <LocalizedName
         description="Contacts To Send Debt Reminders To"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontakti atgādinājumu par parādiem nosūtīšanai"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

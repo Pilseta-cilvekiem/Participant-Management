@@ -65,6 +65,9 @@
       <LocalizedName
         description="Quick Find Active Bank Accounts"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvo banku kontu ātrā atrašana"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

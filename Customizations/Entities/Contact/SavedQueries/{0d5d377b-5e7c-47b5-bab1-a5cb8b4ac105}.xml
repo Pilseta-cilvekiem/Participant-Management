@@ -65,6 +65,9 @@
       <LocalizedName
         description="All Contacts"
         languagecode="1033" />
+      <LocalizedName
+        description="Visas kontaktpersonas"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

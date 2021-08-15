@@ -16,6 +16,9 @@
             <label
               description="General"
               languagecode="1033" />
+            <label
+              description="Vispārīgi"
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -30,6 +33,9 @@
                     <label
                       description="General"
                       languagecode="1033" />
+                    <label
+                      description="Vispārīgi"
+                      languagecode="1062" />
                   </labels>
                   <rows>
                     <row>
@@ -40,6 +46,9 @@
                           <label
                             description="Name"
                             languagecode="1033" />
+                          <label
+                            description="Nosaukums"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_name"
@@ -55,6 +64,9 @@
                           <label
                             description="Bank Account"
                             languagecode="1033" />
+                          <label
+                            description="Bankas konts"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_bankaccount"
@@ -71,6 +83,9 @@
                           <label
                             description="Payer Name"
                             languagecode="1033" />
+                          <label
+                            description="Maksātāja vārds"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_payername"
@@ -87,6 +102,9 @@
                           <label
                             description="Payer ID"
                             languagecode="1033" />
+                          <label
+                            description="Maksātāja ID"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_payerid"
@@ -103,6 +121,9 @@
                           <label
                             description="Amount"
                             languagecode="1033" />
+                          <label
+                            description="Summa"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_amount"
@@ -119,6 +140,9 @@
                           <label
                             description="Currency"
                             languagecode="1033" />
+                          <label
+                            description="Valūta"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="transactioncurrencyid"
@@ -135,6 +159,9 @@
                           <label
                             description="Date"
                             languagecode="1033" />
+                          <label
+                            description="Datums"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_date"
@@ -151,6 +178,9 @@
                           <label
                             description="Details"
                             languagecode="1033" />
+                          <label
+                            description="Detalizēta informācija"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_details"
@@ -167,6 +197,9 @@
                           <label
                             description="Payment Total Amount"
                             languagecode="1033" />
+                          <label
+                            description="Maksājumu kopsumma"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_paymenttotalamount"
@@ -183,6 +216,9 @@
                           <label
                             description="Non-Payment Amount"
                             languagecode="1033" />
+                          <label
+                            description="Ne maksājumu summa"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_nonpaymentamount"
@@ -199,6 +235,9 @@
                           <label
                             description="Remaining Amount"
                             languagecode="1033" />
+                          <label
+                            description="Atlikusī summa"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_remainingamount"
@@ -215,6 +254,9 @@
                           <label
                             description="Created On"
                             languagecode="1033" />
+                          <label
+                            description="Izveides laiks"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="createdon"
@@ -239,6 +281,9 @@
             <label
               description="Payments"
               languagecode="1033" />
+            <label
+              description="Maksājumi"
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -273,6 +318,9 @@
                           <label
                             description="New SG control 1627783439510"
                             languagecode="1033" />
+                          <label
+                            description="Maksājumi"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="Subgrid_1"
@@ -309,7 +357,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -318,7 +366,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -327,7 +375,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
           </row>
@@ -347,7 +395,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -356,7 +404,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -365,7 +413,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
           </row>
@@ -383,11 +431,17 @@
       <LocalizedName
         description="Information"
         languagecode="1033" />
+      <LocalizedName
+        description="Informācija"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="A form for this entity."
         languagecode="1033" />
+      <Description
+        description="Šīs entītijas forma."
+        languagecode="1062" />
     </Descriptions>
   </systemform>
 </forms>

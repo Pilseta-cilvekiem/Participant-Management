@@ -72,6 +72,9 @@
       <LocalizedName
         description="Quick Find Active Participations"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvo dalību ātrā atrašana"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -50,6 +50,9 @@
       <LocalizedName
         description="Participation Fee Exemption Advanced Find View"
         languagecode="1033" />
+      <LocalizedName
+        description="Atbrīvojumu no dalībnieka naudas detalizētās atrašanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

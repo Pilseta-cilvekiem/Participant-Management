@@ -126,6 +126,9 @@
       <LocalizedName
         description="My Received Emails with Unresolved Senders"
         languagecode="1033" />
+      <LocalizedName
+        description="Mani saņemtie e-pasta ziņojumi ar neatrisinātiem sūtītājiem"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

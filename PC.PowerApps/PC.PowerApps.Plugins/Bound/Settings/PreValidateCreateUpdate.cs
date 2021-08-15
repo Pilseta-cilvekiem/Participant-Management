@@ -1,4 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
@@ -27,7 +27,7 @@ namespace PC.PowerApps.Plugins.Bound.Settings
 
                 if (anotherActiveSettings is not null)
                 {
-                    throw new InvalidPluginExecutionException("There are already another active Settings.");
+                    throw context.CreateException(nameof(Resource.AnotherSettings));
                 }
             }
         }

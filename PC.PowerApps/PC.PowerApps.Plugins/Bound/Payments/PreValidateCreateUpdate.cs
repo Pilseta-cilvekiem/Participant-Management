@@ -1,5 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
-using PC.PowerApps.Common;
+﻿using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
@@ -44,7 +43,7 @@ namespace PC.PowerApps.Plugins.Bound.Payments
 
                     if (amountIncreasedBy > Utils.GetAmountOrZero(transaction.pc_RemainingAmount))
                     {
-                        throw new InvalidPluginExecutionException("Sum of Transaction Payment Total Amount and Non-Payment Amount cannot be greater than Amount.");
+                        throw context.CreateException(nameof(Resource.TransactionRemainingAmountNegative));
                     }
                 }
             }

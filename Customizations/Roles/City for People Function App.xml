@@ -81,6 +81,9 @@
       name="prvReadTransactionCurrency"
       level="Global" />
     <RolePrivilege
+      name="prvReadUserSettings"
+      level="Local" />
+    <RolePrivilege
       name="prvWriteContact"
       level="Global" />
     <RolePrivilege
@@ -92,5 +95,8 @@
     <RolePrivilege
       name="prvWriteSharePointData"
       level="Global" />
+    <RolePrivilege
+      name="prvWriteUserSettings"
+      level="Local" />
   </RolePrivileges>
 </Role>

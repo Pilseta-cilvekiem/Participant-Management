@@ -35,11 +35,17 @@
       <LocalizedName
         description="My Contacts"
         languagecode="1033" />
+      <LocalizedName
+        description="Manas kontaktpersonas"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Contacts owned by me"
         languagecode="1033" />
+      <Description
+        description="Kontaktpersonas, par ko atbildu es"
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

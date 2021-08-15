@@ -50,6 +50,9 @@
       <LocalizedName
         description="Contacts: No Orders in Last 6 Months"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonas: nav pasūtījumu pēdējo 6 mēnešu laikā"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -49,11 +49,17 @@
       <LocalizedName
         description="Contact List Members View"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonu saraksta dalībnieku skats"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Displays contact information in the Members subgrid of Marketing Lists."
         languagecode="1033" />
+      <Description
+        description="Tiek parādīta mārketinga adresātu saraksta apakšrežģī Dalībnieki esošā kontaktpersonu informācija."
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

@@ -11,6 +11,9 @@
     <displayname
       description="Participation Level"
       languagecode="1033" />
+    <displayname
+      description="Dalības līmenis"
+      languagecode="1062" />
   </displaynames>
   <Descriptions>
     <Description
@@ -26,6 +29,9 @@
         <label
           description="Member"
           languagecode="1033" />
+        <label
+          description="Biedrs"
+          languagecode="1062" />
       </labels>
       <Descriptions>
         <Description
@@ -41,6 +47,9 @@
         <label
           description="Supporter"
           languagecode="1033" />
+        <label
+          description="Atbalstītājs"
+          languagecode="1062" />
       </labels>
       <Descriptions>
         <Description

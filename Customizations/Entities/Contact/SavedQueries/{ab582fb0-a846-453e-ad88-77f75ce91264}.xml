@@ -89,11 +89,17 @@
       <LocalizedName
         description="My Connections"
         languagecode="1033" />
+      <LocalizedName
+        description="Mani savienojumi"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Shows all active instances of the contact that the current user is connected to via an active connection."
         languagecode="1033" />
+      <Description
+        description="Rāda tās kontaktpersonas visas aktīvās instances, ar kuru, izmantojot aktīvu savienojumu, ir saistīts pašreizējais lietotājs."
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

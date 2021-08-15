@@ -62,6 +62,9 @@
       <LocalizedName
         description="Active Participation Fee Rules"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvie dalībnieku naudas noteikumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

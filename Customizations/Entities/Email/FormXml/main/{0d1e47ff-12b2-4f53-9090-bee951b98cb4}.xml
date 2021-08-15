@@ -49,6 +49,10 @@
                             description="From"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="No"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -66,6 +70,10 @@
                           <label
                             description="To"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Līdz"
+                            languagecode="1062"
                             solutionaction="Added" />
                         </labels>
                       </cell>
@@ -85,6 +93,10 @@
                             description="Cc"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="Kopija"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -103,6 +115,10 @@
                             description="Bcc"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="Diskrētā kopija"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -120,6 +136,10 @@
                           <label
                             description="Subject"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Tēma"
+                            languagecode="1062"
                             solutionaction="Added" />
                         </labels>
                       </cell>
@@ -156,6 +176,10 @@
                             description="Description"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="Apraksts"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -190,6 +214,10 @@
                             description="Regarding"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="Saistībā ar"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -207,6 +235,10 @@
                           <label
                             description="Duration"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Ilgums"
+                            languagecode="1062"
                             solutionaction="Added" />
                         </labels>
                       </cell>
@@ -227,6 +259,9 @@
                           <label
                             description="Category"
                             languagecode="1033" />
+                          <label
+                            description="Kategorija"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_category"
@@ -280,6 +315,10 @@
                   description="Priority"
                   languagecode="1033"
                   solutionaction="Added" />
+                <label
+                  description="Prioritāte"
+                  languagecode="1062"
+                  solutionaction="Added" />
               </labels>
             </cell>
             <cell
@@ -290,6 +329,10 @@
                 <label
                   description="Status Reason"
                   languagecode="1033"
+                  solutionaction="Added" />
+                <label
+                  description="Statusa iemesls"
+                  languagecode="1062"
                   solutionaction="Added" />
               </labels>
             </cell>
@@ -304,6 +347,10 @@
                 <label
                   description="Owner"
                   languagecode="1033"
+                  solutionaction="Added" />
+                <label
+                  description="Īpašnieks"
+                  languagecode="1062"
                   solutionaction="Added" />
               </labels>
             </cell>
@@ -327,6 +374,10 @@
                   description="Followed"
                   languagecode="1033"
                   solutionaction="Added" />
+                <label
+                  description="Tiek sekots"
+                  languagecode="1062"
+                  solutionaction="Added" />
               </labels>
             </cell>
           </row>
@@ -340,6 +391,10 @@
                   description="Reminder Set"
                   languagecode="1033"
                   solutionaction="Added" />
+                <label
+                  description="Atgādinājums iestatīts"
+                  languagecode="1062"
+                  solutionaction="Added" />
               </labels>
             </cell>
           </row>
@@ -350,11 +405,17 @@
       <LocalizedName
         description="Email"
         languagecode="1033" />
+      <LocalizedName
+        description="E-pasts"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Updated default Email form."
         languagecode="1033" />
+      <Description
+        description="Updated default Email form."
+        languagecode="1062" />
     </Descriptions>
   </systemform>
 </forms>

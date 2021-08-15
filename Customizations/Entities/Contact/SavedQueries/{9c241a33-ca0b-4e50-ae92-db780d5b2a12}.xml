@@ -78,6 +78,9 @@
       <LocalizedName
         description="Contacts: Responded to Campaigns in Last 6 Months"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonas: atbildes uz kampaņām pēdējo 6 mēnešu laikā"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

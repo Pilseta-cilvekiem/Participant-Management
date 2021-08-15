@@ -50,6 +50,9 @@
       <LocalizedName
         description="Settings Advanced Find View"
         languagecode="1033" />
+      <LocalizedName
+        description="Uzstādījumu detalizētās atrašanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

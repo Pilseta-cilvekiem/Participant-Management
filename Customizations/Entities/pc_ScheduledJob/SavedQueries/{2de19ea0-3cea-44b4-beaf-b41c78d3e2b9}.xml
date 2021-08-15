@@ -75,6 +75,9 @@
       <LocalizedName
         description="Scheduled Job Advanced Find View"
         languagecode="1033" />
+      <LocalizedName
+        description="Plānoto uzdevumu detalizētās atrašanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.Repositories;
@@ -32,17 +32,17 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeRules
 
             if (context.GetIsAnyAttributeModified(pfr => pfr.pc_From) && participationFeeRule.pc_From.Value.Day != 1)
             {
-                throw new InvalidPluginExecutionException("Participation Fee Rule From must be a first day of the month.");
+                throw context.CreateException(nameof(Resource.ParticipationFeeRuleFromNotFirstDayOfMonth));
             }
 
             if (context.GetIsAnyAttributeModified(pfr => pfr.pc_Till) && participationFeeRule.pc_Till is not null && !participationFeeRule.pc_Till.Value.IsLastDayOfMonth())
             {
-                throw new InvalidPluginExecutionException("Participation Fee Rule Till must be a last day of the month.");
+                throw context.CreateException(nameof(Resource.ParticipationFeeRuleTillNotLastDayOfMonth));
             }
 
             if (context.GetIsAnyAttributeModified(pfr => new { pfr.pc_From, pfr.pc_Till }) && participationFeeRule.pc_From > participationFeeRule.pc_Till)
             {
-                throw new InvalidPluginExecutionException("Participation Fee Rule From must be less than or equal to Till.");
+                throw context.CreateException(nameof(Resource.ParticipationFeeRuleFromGreaterThanTill));
             }
 
             if (context.GetIsAnyAttributeModified(pfr => new { pfr.pc_From, pfr.pc_Till }))
@@ -51,7 +51,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeRules
 
                 if (otherParticipationFeeRule is not null)
                 {
-                    throw new InvalidPluginExecutionException("There is another Participation Fee Rule within the same period.");
+                    throw context.CreateException(nameof(Resource.AnotherParticipationFeeRule));
                 }
             }
         }

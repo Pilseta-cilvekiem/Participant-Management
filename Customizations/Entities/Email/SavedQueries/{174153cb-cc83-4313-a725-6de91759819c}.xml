@@ -103,6 +103,9 @@
       <LocalizedName
         description="My Pending Emails"
         languagecode="1033" />
+      <LocalizedName
+        description="Mani neizlemtie e-pasta ziņojumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

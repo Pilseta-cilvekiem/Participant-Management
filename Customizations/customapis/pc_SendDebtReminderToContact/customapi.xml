@@ -5,16 +5,22 @@
   <bindingtype>1</bindingtype>
   <boundentitylogicalname>contact</boundentitylogicalname>
   <description
-    default="Send Debt Reminder to Contact">
+    default="Nosūtīt atgādinājumu par parādu kontaktpersonai">
     <label
       description="Send Debt Reminder to Contact"
       languagecode="1033" />
+    <label
+      description="Nosūtīt atgādinājumu par parādu kontaktpersonai"
+      languagecode="1062" />
   </description>
   <displayname
-    default="Send Debt Reminder to Contact">
+    default="Nosūtīt atgādinājumu par parādu kontaktpersonai">
     <label
       description="Send Debt Reminder to Contact"
       languagecode="1033" />
+    <label
+      description="Nosūtīt atgādinājumu par parādu kontaktpersonai"
+      languagecode="1062" />
   </displayname>
   <executeprivilegename>prvCreateActivity</executeprivilegename>
   <iscustomizable>1</iscustomizable>

@@ -85,6 +85,9 @@
       <LocalizedName
         description="Pending Send Emails"
         languagecode="1033" />
+      <LocalizedName
+        description="E-pasti gaida nosūtīšanu"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

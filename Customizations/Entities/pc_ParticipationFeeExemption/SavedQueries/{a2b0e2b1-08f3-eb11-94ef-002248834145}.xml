@@ -58,6 +58,9 @@
       <LocalizedName
         description="Participation Fee Exemptions (Contact)"
         languagecode="1033" />
+      <LocalizedName
+        description="Atbrīvojumi no dalībnieka naudas (kontaktpersona)"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

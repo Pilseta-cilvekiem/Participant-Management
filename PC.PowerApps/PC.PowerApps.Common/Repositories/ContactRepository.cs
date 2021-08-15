@@ -247,5 +247,11 @@ namespace PC.PowerApps.Common.Repositories
             contact.pc_Neighbourhood = null;
             contact.pc_WishesToBeActive = false;
         }
+
+        public static bool IsValidForGoogleSupporterGroup(Contact contact)
+        {
+            bool isValidForGoogleSupporterGroup = contact is not null && CommonConstants.IsValidForGoogleSupporterGroupFunc(contact);
+            return isValidForGoogleSupporterGroup;
+        }
     }
 }

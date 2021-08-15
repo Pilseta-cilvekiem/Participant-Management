@@ -10,16 +10,25 @@
         <LocalizedName
           description="Participation"
           languagecode="1033" />
+        <LocalizedName
+          description="Dalība"
+          languagecode="1062" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName
           description="Participations"
           languagecode="1033" />
+        <LocalizedCollectionName
+          description="Dalības"
+          languagecode="1062" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description
           description=""
           languagecode="1033" />
+        <Description
+          description=""
+          languagecode="1062" />
       </Descriptions>
       <attributes>
         <attribute
@@ -59,11 +68,17 @@
             <displayname
               description="Created By"
               languagecode="1033" />
+            <displayname
+              description="Izveidoja"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Unique identifier of the user who created the record."
               languagecode="1033" />
+            <Description
+              description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -104,11 +119,17 @@
             <displayname
               description="Created On"
               languagecode="1033" />
+            <displayname
+              description="Izveides laiks"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Date and time when the record was created."
               languagecode="1033" />
+            <Description
+              description="Ieraksta izveides datums un laiks."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -148,11 +169,17 @@
             <displayname
               description="Created By (Delegate)"
               languagecode="1033" />
+            <displayname
+              description="Izveidoja (pārstāvis)"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Unique identifier of the delegate user who created the record."
               languagecode="1033" />
+            <Description
+              description="Tā deleģētā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -193,11 +220,17 @@
             <displayname
               description="Import Sequence Number"
               languagecode="1033" />
+            <displayname
+              description="Importēšanas kārtas numurs"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Sequence number of the import that created this record."
               languagecode="1033" />
+            <Description
+              description="Tās importēšanas operācijas kārtas numurs, kas izveidoja šo ierakstu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -237,11 +270,17 @@
             <displayname
               description="Modified By"
               languagecode="1033" />
+            <displayname
+              description="Modificēja"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Unique identifier of the user who modified the record."
               languagecode="1033" />
+            <Description
+              description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -282,11 +321,17 @@
             <displayname
               description="Modified On"
               languagecode="1033" />
+            <displayname
+              description="Modificēšanas laiks"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Date and time when the record was modified."
               languagecode="1033" />
+            <Description
+              description="Ieraksta modificēšanas datums un laiks."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -326,11 +371,17 @@
             <displayname
               description="Modified By (Delegate)"
               languagecode="1033" />
+            <displayname
+              description="Modificēja (pārstāvis)"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Unique identifier of the delegate user who modified the record."
               languagecode="1033" />
+            <Description
+              description="Tā deleģētā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -368,11 +419,17 @@
             <displayname
               description="Organization Id"
               languagecode="1033" />
+            <displayname
+              description="Organizācijas ID"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Unique identifier for the organization"
               languagecode="1033" />
+            <Description
+              description="Organizācijas unikālais identifikators"
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -413,11 +470,17 @@
             <displayname
               description="Record Created On"
               languagecode="1033" />
+            <displayname
+              description="Ieraksta izveides laiks"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Date and time that the record was migrated."
               languagecode="1033" />
+            <Description
+              description="Ieraksta migrēšanas datums un laiks."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -457,11 +520,17 @@
             <displayname
               description="Contact"
               languagecode="1033" />
+            <displayname
+              description="Kontaktpersona"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -502,11 +571,17 @@
             <displayname
               description="From"
               languagecode="1033" />
+            <displayname
+              description="No"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -546,11 +621,17 @@
             <displayname
               description="Level"
               languagecode="1033" />
+            <displayname
+              description="Līmenis"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -591,11 +672,17 @@
             <displayname
               description="Name"
               languagecode="1033" />
+            <displayname
+              description="Nosaukums"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Required name field"
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -633,11 +720,17 @@
             <displayname
               description="Participation"
               languagecode="1033" />
+            <displayname
+              description="Dalība"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Unique identifier for entity instances"
               languagecode="1033" />
+            <Description
+              description="Unikāls identifikators entītiju instancēm"
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -678,11 +771,17 @@
             <displayname
               description="Till"
               languagecode="1033" />
+            <displayname
+              description="Līdz"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description=""
               languagecode="1033" />
+            <Description
+              description=""
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -725,11 +824,17 @@
               <displayname
                 description="Status"
                 languagecode="1033" />
+              <displayname
+                description="Statuss"
+                languagecode="1062" />
             </displaynames>
             <Descriptions>
               <Description
                 description="Status of the Participation"
                 languagecode="1033" />
+              <Description
+                description="Dalības statuss"
+                languagecode="1062" />
             </Descriptions>
             <states>
               <state
@@ -740,6 +845,9 @@
                   <label
                     description="Active"
                     languagecode="1033" />
+                  <label
+                    description="Aktīva"
+                    languagecode="1062" />
                 </labels>
               </state>
               <state
@@ -750,6 +858,9 @@
                   <label
                     description="Inactive"
                     languagecode="1033" />
+                  <label
+                    description="Neaktīva"
+                    languagecode="1062" />
                 </labels>
               </state>
             </states>
@@ -758,11 +869,17 @@
             <displayname
               description="Status"
               languagecode="1033" />
+            <displayname
+              description="Statuss"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Status of the Participation"
               languagecode="1033" />
+            <Description
+              description="Dalības statuss"
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -805,11 +922,17 @@
               <displayname
                 description="Status Reason"
                 languagecode="1033" />
+              <displayname
+                description="Statusa iemesls"
+                languagecode="1062" />
             </displaynames>
             <Descriptions>
               <Description
                 description="Reason for the status of the Participation"
                 languagecode="1033" />
+              <Description
+                description="Dalības statusa iemesls"
+                languagecode="1062" />
             </Descriptions>
             <statuses>
               <status
@@ -819,6 +942,9 @@
                   <label
                     description="Active"
                     languagecode="1033" />
+                  <label
+                    description="Aktīva"
+                    languagecode="1062" />
                 </labels>
               </status>
               <status
@@ -828,6 +954,9 @@
                   <label
                     description="Inactive"
                     languagecode="1033" />
+                  <label
+                    description="Neaktīva"
+                    languagecode="1062" />
                 </labels>
               </status>
             </statuses>
@@ -836,11 +965,17 @@
             <displayname
               description="Status Reason"
               languagecode="1033" />
+            <displayname
+              description="Statusa iemesls"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Reason for the status of the Participation"
               languagecode="1033" />
+            <Description
+              description="Dalības statusa iemesls"
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -880,11 +1015,17 @@
             <displayname
               description="Time Zone Rule Version Number"
               languagecode="1033" />
+            <displayname
+              description="Laika joslas kārtulas versijas numurs"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="For internal use only."
               languagecode="1033" />
+            <Description
+              description="Tikai iekšējai lietošanai."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
         <attribute
@@ -924,11 +1065,17 @@
             <displayname
               description="UTC Conversion Time Zone Code"
               languagecode="1033" />
+            <displayname
+              description="UTC pārvēršanas laika joslas kods"
+              languagecode="1062" />
           </displaynames>
           <Descriptions>
             <Description
               description="Time zone code that was in use when the record was created."
               languagecode="1033" />
+            <Description
+              description="Laika joslas kods, kas izmantots, veidojot ierakstu."
+              languagecode="1062" />
           </Descriptions>
         </attribute>
       </attributes>

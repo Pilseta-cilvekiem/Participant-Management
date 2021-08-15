@@ -1,4 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
@@ -50,7 +50,7 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
 
             if (context.GetIsAnyAttributeModified(sj => new { sj.pc_ExecuteOn, sj.pc_PostponeUntil }) && scheduledJob.pc_PostponeUntil < scheduledJob.pc_ExecuteOn)
             {
-                throw new InvalidPluginExecutionException("Scheduled Job Postpone Until must be greater than or equal to Execute On.");
+                throw context.CreateException(nameof(Resource.ScheduledJobPostponeUntilLessThanExecuteOn));
             }
         }
     }

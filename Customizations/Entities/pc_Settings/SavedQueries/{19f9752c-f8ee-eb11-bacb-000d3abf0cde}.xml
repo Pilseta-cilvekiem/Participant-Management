@@ -32,11 +32,17 @@
       <LocalizedName
         description="Settings"
         languagecode="1033" />
+      <LocalizedName
+        description="Uzstādījumi"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Visas aktīvās entītijas Settings"
         languagecode="1033" />
+      <Description
+        description="Visas aktīvās entītijas Settings"
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

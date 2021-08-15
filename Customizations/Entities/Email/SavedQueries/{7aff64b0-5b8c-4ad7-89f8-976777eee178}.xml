@@ -102,6 +102,9 @@
       <LocalizedName
         description="My Received Emails"
         languagecode="1033" />
+      <LocalizedName
+        description="Mani saņemtie e-pasta ziņojumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

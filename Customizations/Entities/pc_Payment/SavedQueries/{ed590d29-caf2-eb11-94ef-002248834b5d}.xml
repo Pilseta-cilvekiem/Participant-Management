@@ -58,6 +58,9 @@
       <LocalizedName
         description="Payments (Contact)"
         languagecode="1033" />
+      <LocalizedName
+        description="Maksājumi (kontaktpersona)"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

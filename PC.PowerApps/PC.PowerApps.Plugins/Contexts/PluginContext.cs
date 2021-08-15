@@ -12,12 +12,13 @@ namespace PC.PowerApps.Plugins.Contexts
         private readonly Lazy<PluginMessage> lazyMessage;
         private readonly Lazy<EntityMetadata> lazyPrimaryEntityMetadata;
 
+        protected override Guid InitiatingUserId { get; }
         public bool IsValidationDisabled => UserId == Organization.SystemUserId || DateTime.UtcNow < User.pc_DisableValidationTill;
         public PluginMessage Message => lazyMessage.Value;
         public IPluginExecutionContext PluginExecutionContext { get; }
         public string PrimaryEntityDisplayName => Utils.GetLabelValue(PrimaryEntityMetadata.DisplayName);
         public EntityMetadata PrimaryEntityMetadata => lazyPrimaryEntityMetadata.Value;
-        public override Guid UserId { get; }
+        protected override Guid UserId { get; }
 
         public PluginContext(IServiceProvider serviceProvider, User organizationServiceUser, User userOrganizationServiceUser)
             : this(GetOrganizationServiceFactory(serviceProvider), GetPluginExecutionContext(serviceProvider), GetTracingService(serviceProvider), organizationServiceUser, userOrganizationServiceUser)
@@ -29,6 +30,7 @@ namespace PC.PowerApps.Plugins.Contexts
         {
             lazyMessage = new(() => (PluginMessage)Enum.Parse(typeof(PluginMessage), PluginExecutionContext.MessageName));
             lazyPrimaryEntityMetadata = new(() => Utils.GetEntityMetadata(this, PluginExecutionContext.PrimaryEntityName));
+            InitiatingUserId = pluginExecutionContext.InitiatingUserId;
             PluginExecutionContext = pluginExecutionContext;
         }
 

@@ -105,6 +105,27 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum ComponentState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Deleted", 2)]
+		Deleted = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Deleted Unpublished", 3)]
+		DeletedUnpublished = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Published", 0)]
+		Published = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Unpublished", 1)]
+		Unpublished = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
 	public enum Contact_AccountRoleCode
 	{
 		
@@ -1408,6 +1429,165 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Inactive", 1)]
 		Inactive = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum UserSettings_DataValidationModeForExportToExcel
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Full", 0)]
+		Full = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("None", 1)]
+		None = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum UserSettings_DefaultSearchExperience
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Categorized search", 2)]
+		Categorizedsearch = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Custom search", 3)]
+		Customsearch = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Relevance search", 1)]
+		Relevancesearch = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Use last search", 0)]
+		Uselastsearch = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum UserSettings_EntityFormMode
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Edit", 2)]
+		Edit = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Organization default", 0)]
+		Organizationdefault = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Read-optimized", 1)]
+		Readoptimized = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum UserSettings_IncomingEmailFilteringMethod
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("All email messages", 0)]
+		Allemailmessages = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Email messages from Dynamics 365 Leads, Contacts and Accounts", 2)]
+		EmailmessagesfromDynamics365LeadsContactsandAccounts = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Email messages from Dynamics 365 records that are email enabled", 3)]
+		EmailmessagesfromDynamics365recordsthatareemailenabled = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Email messages in response to Dynamics 365 email", 1)]
+		EmailmessagesinresponsetoDynamics365email = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("No email messages", 4)]
+		Noemailmessages = 4,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum UserSettings_ReportScriptErrors
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Ask me for permission to send an error report to Microsoft", 0)]
+		AskmeforpermissiontosendanerrorreporttoMicrosoft = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Automatically send an error report to Microsoft without asking me for permission", 1)]
+		AutomaticallysendanerrorreporttoMicrosoftwithoutaskingmeforpermission = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Never send an error report to Microsoft about Microsoft Dynamics 365", 2)]
+		NeversendanerrorreporttoMicrosoftaboutMicrosoftDynamics365 = 3,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum UserSettings_VisualizationPaneLayout
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Side-by-side", 1)]
+		Sidebyside = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Top-bottom", 0)]
+		Topbottom = 0,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum WebResource_WebResourceType
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Data (XML)", 3)]
+		Data_XML = 4,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("GIF format", 6)]
+		GIFformat = 7,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("ICO format", 9)]
+		ICOformat = 10,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("JPG format", 5)]
+		JPGformat = 6,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("PNG format", 4)]
+		PNGformat = 5,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Script (JScript)", 2)]
+		Script_JScript = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Silverlight (XAP)", 7)]
+		Silverlight_XAP = 8,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Style Sheet (CSS)", 1)]
+		StyleSheet_CSS = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Style Sheet (XSL)", 8)]
+		StyleSheet_XSL = 9,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("String (RESX)", 11)]
+		String_RESX = 12,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Vector format (SVG)", 10)]
+		Vectorformat_SVG = 11,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Webpage (HTML)", 0)]
+		Webpage_HTML = 1,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]

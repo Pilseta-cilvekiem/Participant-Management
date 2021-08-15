@@ -114,6 +114,9 @@
       <LocalizedName
         description="All Followed Emails"
         languagecode="1033" />
+      <LocalizedName
+        description="Visi pārraudzītie e-pasta ziņojumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
