@@ -21,6 +21,9 @@
         <Description
           description=""
           languagecode="1033" />
+        <Description
+          description=""
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -58,6 +61,9 @@
         <Description
           description=""
           languagecode="1033" />
+        <Description
+          description=""
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>
@@ -95,6 +101,9 @@
         <Description
           description=""
           languagecode="1033" />
+        <Description
+          description=""
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
     <EntityRelationshipRoles>

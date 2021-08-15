@@ -77,6 +77,9 @@
       <LocalizedName
         description="All Emails"
         languagecode="1033" />
+      <LocalizedName
+        description="Visi e-pasta ziņojumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

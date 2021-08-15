@@ -16,6 +16,9 @@
             <label
               description="General"
               languagecode="1033" />
+            <label
+              description="Vispārīgi"
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -30,6 +33,9 @@
                     <label
                       description="General"
                       languagecode="1033" />
+                    <label
+                      description="Vispārīgi"
+                      languagecode="1062" />
                   </labels>
                   <rows>
                     <row>
@@ -40,6 +46,9 @@
                           <label
                             description="Name"
                             languagecode="1033" />
+                          <label
+                            description="Nosaukums"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_name"
@@ -55,6 +64,9 @@
                           <label
                             description="Contact"
                             languagecode="1033" />
+                          <label
+                            description="Kontaktpersona"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_contact"
@@ -71,6 +83,9 @@
                           <label
                             description="From"
                             languagecode="1033" />
+                          <label
+                            description="No"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_from"
@@ -87,6 +102,9 @@
                           <label
                             description="Till"
                             languagecode="1033" />
+                          <label
+                            description="Līdz"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_till"
@@ -103,6 +121,9 @@
                           <label
                             description="Description"
                             languagecode="1033" />
+                          <label
+                            description="Apraksts"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_description"
@@ -119,6 +140,9 @@
                           <label
                             description="Created By"
                             languagecode="1033" />
+                          <label
+                            description="Izveidoja"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="createdby"
@@ -135,6 +159,9 @@
                           <label
                             description="Created On"
                             languagecode="1033" />
+                          <label
+                            description="Izveides laiks"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="createdon"
@@ -151,6 +178,9 @@
                           <label
                             description="Modified By"
                             languagecode="1033" />
+                          <label
+                            description="Modificēja"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="modifiedby"
@@ -167,6 +197,9 @@
                           <label
                             description="Modified On"
                             languagecode="1033" />
+                          <label
+                            description="Modificēšanas laiks"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="modifiedon"
@@ -196,7 +229,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -205,7 +238,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -214,7 +247,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
           </row>
@@ -234,7 +267,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -243,7 +276,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
             <cell
@@ -252,7 +285,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1033" />
+                  languagecode="1062" />
               </labels>
             </cell>
           </row>
@@ -270,11 +303,17 @@
       <LocalizedName
         description="Information"
         languagecode="1033" />
+      <LocalizedName
+        description="Informācija"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="A form for this entity."
         languagecode="1033" />
+      <Description
+        description="Šīs entītijas forma."
+        languagecode="1062" />
     </Descriptions>
   </systemform>
 </forms>

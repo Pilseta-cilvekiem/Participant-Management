@@ -57,6 +57,9 @@
       <LocalizedName
         description="Active Settings"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvie uzstādījumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

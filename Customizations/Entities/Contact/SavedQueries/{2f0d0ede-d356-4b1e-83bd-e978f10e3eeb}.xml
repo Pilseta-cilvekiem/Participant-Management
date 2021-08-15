@@ -56,6 +56,9 @@
       <LocalizedName
         description="All Members"
         languagecode="1033" />
+      <LocalizedName
+        description="Visi dalībnieki"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

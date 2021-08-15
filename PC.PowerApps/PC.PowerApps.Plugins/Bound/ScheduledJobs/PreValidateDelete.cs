@@ -1,4 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
@@ -20,7 +20,7 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
 
             if (scheduledJob.StatusCode == pc_ScheduledJob_StatusCode.InProgress)
             {
-                throw new InvalidPluginExecutionException("Cannot delete Scheduled Job with Status Reason In Progress.");
+                throw context.CreateException(nameof(Resource.CantDeleteScheduledJobInProgress));
             }
         }
     }

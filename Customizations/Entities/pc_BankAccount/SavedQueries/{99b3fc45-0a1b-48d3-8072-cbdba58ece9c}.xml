@@ -57,6 +57,9 @@
       <LocalizedName
         description="Active Bank Accounts"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvie banku konti"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

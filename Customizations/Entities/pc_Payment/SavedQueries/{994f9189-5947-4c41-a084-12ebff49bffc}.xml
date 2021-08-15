@@ -54,6 +54,9 @@
       <LocalizedName
         description="Payment Lookup View"
         languagecode="1033" />
+      <LocalizedName
+        description="Maksājumu uzmeklēšanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using PC.PowerApps.Plugins.Contexts;
@@ -30,7 +30,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
 
             if (context.GetIsAnyAttributeModified(p => new { p.pc_From, p.pc_Till }) && participation.pc_From > participation.pc_Till)
             {
-                throw new InvalidPluginExecutionException("Participation From must be less than or equal to Till.");
+                throw context.CreateException(nameof(Resource.ParticipationFromGreaterThanTill));
             }
 
             if (context.GetIsAnyAttributeModified(p => new { p.pc_Contact, p.pc_From, p.pc_Till }))
@@ -39,7 +39,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
 
                 if (otherParticipation is not null)
                 {
-                    throw new InvalidPluginExecutionException("There is another Participation for this Contact within this period.");
+                    throw context.CreateException(nameof(Resource.AnotherParticipation));
                 }
             }
 
@@ -49,7 +49,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
 
                 if (otherParticipation is not null)
                 {
-                    throw new InvalidPluginExecutionException("There is another Participation for this Contact with the same Level ending one day before.");
+                    throw context.CreateException(nameof(Resource.AdjacentParticipationBefore));
                 }
             }
 
@@ -59,7 +59,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
 
                 if (otherParticipation is not null)
                 {
-                    throw new InvalidPluginExecutionException("There is another Participation for this Contact with the same Level starting one day after.");
+                    throw context.CreateException(nameof(Resource.AdjacentParticipationAfter));
                 }
             }
         }

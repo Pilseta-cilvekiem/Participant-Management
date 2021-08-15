@@ -86,6 +86,9 @@
       <LocalizedName
         description="Contacts To Organize Welcome Meeting With"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontakti iepazīšanās tikšanās organizēšanai"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

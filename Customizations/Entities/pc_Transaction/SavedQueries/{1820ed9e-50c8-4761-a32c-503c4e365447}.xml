@@ -70,6 +70,9 @@
       <LocalizedName
         description="Transaction Advanced Find View"
         languagecode="1033" />
+      <LocalizedName
+        description="Transakciju detalizētās atrašanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

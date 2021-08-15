@@ -72,6 +72,9 @@
       <LocalizedName
         description="Inactive Contacts"
         languagecode="1033" />
+      <LocalizedName
+        description="Neaktīvās kontaktpersonas"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

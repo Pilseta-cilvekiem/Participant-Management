@@ -19,6 +19,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -41,6 +44,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -63,6 +69,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -85,6 +94,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -107,6 +119,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -129,6 +144,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -151,6 +169,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -173,6 +194,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -195,6 +219,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -217,6 +244,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -239,6 +269,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -261,6 +294,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -283,6 +319,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -305,6 +344,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -327,6 +369,9 @@
         <Description
           description="Unique identifier of the user who created the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas izveidoja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>
@@ -349,6 +394,9 @@
         <Description
           description="Unique identifier of the user who modified the record."
           languagecode="1033" />
+        <Description
+          description="Tā lietotāja unikālais identifikators, kas modificēja šo ierakstu."
+          languagecode="1062" />
       </Descriptions>
     </RelationshipDescription>
   </EntityRelationship>

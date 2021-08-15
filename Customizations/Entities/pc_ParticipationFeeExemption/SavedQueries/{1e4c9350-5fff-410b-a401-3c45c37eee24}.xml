@@ -65,6 +65,9 @@
       <LocalizedName
         description="Quick Find Active Participation Fee Exemptions"
         languagecode="1033" />
+      <LocalizedName
+        description="Atbrīvojumu no dalībnieka naudas ātrā atrašana"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

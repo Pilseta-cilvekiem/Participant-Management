@@ -14,7 +14,7 @@
           <labels>
             <label
               description=""
-              languagecode="1033" />
+              languagecode="1062" />
           </labels>
           <columns>
             <column
@@ -29,6 +29,9 @@
                     <label
                       description="GENERAL"
                       languagecode="1033" />
+                    <label
+                      description="VISPĀRĪGI"
+                      languagecode="1062" />
                   </labels>
                   <rows>
                     <row>
@@ -38,6 +41,9 @@
                           <label
                             description="Name"
                             languagecode="1033" />
+                          <label
+                            description="Name"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_name"
@@ -59,6 +65,9 @@
       <LocalizedName
         description="Information"
         languagecode="1033" />
+      <LocalizedName
+        description="Informācija"
+        languagecode="1062" />
     </LocalizedNames>
   </systemform>
 </forms>

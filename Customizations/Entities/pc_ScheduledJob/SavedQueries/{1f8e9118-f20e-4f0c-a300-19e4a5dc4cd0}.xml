@@ -90,6 +90,9 @@
       <LocalizedName
         description="Quick Find Active Scheduled Jobs"
         languagecode="1033" />
+      <LocalizedName
+        description="Plānoto uzdevumu ātrā atrašana"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

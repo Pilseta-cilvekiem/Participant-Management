@@ -85,6 +85,9 @@
       <LocalizedName
         description="Failed Emails"
         languagecode="1033" />
+      <LocalizedName
+        description="Neizdevās nosūtīt e-pastus"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

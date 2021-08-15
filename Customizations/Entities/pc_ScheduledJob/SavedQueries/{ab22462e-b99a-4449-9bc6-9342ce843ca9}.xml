@@ -82,6 +82,9 @@
       <LocalizedName
         description="Active Scheduled Jobs"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvie plānotie uzdevumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

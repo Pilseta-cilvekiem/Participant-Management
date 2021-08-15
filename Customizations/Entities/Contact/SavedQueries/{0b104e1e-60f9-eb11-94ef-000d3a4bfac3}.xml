@@ -73,6 +73,9 @@
       <LocalizedName
         description="Members"
         languagecode="1033" />
+      <LocalizedName
+        description="Biedri"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

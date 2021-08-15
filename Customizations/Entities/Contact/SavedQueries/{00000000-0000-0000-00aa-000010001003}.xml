@@ -75,6 +75,9 @@
       <LocalizedName
         description="My Active Contacts"
         languagecode="1033" />
+      <LocalizedName
+        description="Manas aktīvās kontaktpersonas"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -49,11 +49,17 @@
       <LocalizedName
         description="Contacts BulkOperation View"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonu skats BulkOperation"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Display Contacts BulkOperation View"
         languagecode="1033" />
+      <Description
+        description="Parādīt kontaktpersonu skatu BulkOperation."
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

@@ -72,11 +72,17 @@
       <LocalizedName
         description="Active Contacts Subgrid View"
         languagecode="1033" />
+      <LocalizedName
+        description="Aktīvo kontaktpersonu apakšrežģa skats"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Displays the Name and Email of active contacts."
         languagecode="1033" />
+      <Description
+        description="Tiek parādīts aktīvo kontaktpersonu vārds un e-pasta adrese."
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

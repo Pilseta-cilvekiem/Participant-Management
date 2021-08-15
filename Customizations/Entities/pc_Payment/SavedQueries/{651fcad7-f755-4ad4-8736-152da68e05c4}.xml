@@ -62,6 +62,9 @@
       <LocalizedName
         description="Inactive Payments"
         languagecode="1033" />
+      <LocalizedName
+        description="Neaktīvie maksājumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

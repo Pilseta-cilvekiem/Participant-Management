@@ -35,7 +35,11 @@
                           <label
                             description="Salutation"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Uzruna"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -45,7 +49,11 @@
                           <label
                             description="Business Phone"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Tālrunis darbā"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -57,7 +65,11 @@
                           <label
                             description="First Name"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Vārds"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -67,7 +79,11 @@
                           <label
                             description="Home Phone"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Tālrunis mājās"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -79,7 +95,11 @@
                           <label
                             description="Middle Name"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Otrais vārds"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -89,7 +109,11 @@
                           <label
                             description="Mobile Phone"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Mobilais tālrunis"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -101,7 +125,11 @@
                           <label
                             description="Last Name"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Uzvārds"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -111,7 +139,11 @@
                           <label
                             description="Fax"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Fakss"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -123,7 +155,11 @@
                           <label
                             description="Job Title"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Amata nosaukums"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -133,7 +169,11 @@
                           <label
                             description="Private Email"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Privātais e-pasts"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -150,6 +190,56 @@
                           <label
                             description="Company Name"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Uzņēmuma nosaukums"
+                            languagecode="1062"
+                            solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section
+                  name="address"
+                  showlabel="true"
+                  showbar="true"
+                  id="{f2f6f734-1790-402f-8e2a-1eaecbceb9e3}"
+                  IsUserDefined="0"
+                  ordinalvalue="1">
+                  <rows>
+                    <row>
+                      <cell
+                        id="{1eb0adf5-95f7-4881-b41b-0885c0d30d76}"
+                        ordinalvalue="20001">
+                        <labels>
+                          <label
+                            description="Pilsēta/ciems"
+                            languagecode="1062"
+                            solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell
+                        id="{f16a045d-c30d-4189-ac3d-b5e8172e47da}"
+                        ordinalvalue="10004">
+                        <labels>
+                          <label
+                            description="Ielas adrese"
+                            languagecode="1062"
+                            solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell
+                        id="{a109b15d-d168-4341-93bd-c9e10e31f09e}"
+                        ordinalvalue="20007">
+                        <labels>
+                          <label
+                            description="Valsts"
+                            languagecode="1062"
                             solutionaction="Modified" />
                         </labels>
                       </cell>
@@ -177,7 +267,11 @@
                           <label
                             description="How Wishes to Participate"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Apraksts"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -213,7 +307,11 @@
                           <label
                             description="Department"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Departaments"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -223,7 +321,11 @@
                           <label
                             description="Role"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Loma"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -235,7 +337,11 @@
                           <label
                             description="Manager"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Vadītājs"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -245,7 +351,11 @@
                           <label
                             description="Assistant"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Palīgs"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -257,7 +367,11 @@
                           <label
                             description="Manager Phone"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Vadītāja tālruņa numurs"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -267,7 +381,11 @@
                           <label
                             description="Assistant Phone"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Palīga tālruņa numurs"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -289,7 +407,11 @@
                           <label
                             description="Gender"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Dzimums"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -299,7 +421,11 @@
                           <label
                             description="Birthday"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Dzimšanas diena"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -311,7 +437,11 @@
                           <label
                             description="Marital Status"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Ģimenes stāvoklis"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -321,7 +451,11 @@
                           <label
                             description="Anniversary"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Gadadiena"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -333,7 +467,11 @@
                           <label
                             description="Spouse/Partner Name"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Dzīvesbiedra/partnera vārds"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -369,7 +507,11 @@
                           <label
                             description="Owner"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Atbildīgais"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -391,7 +533,11 @@
                           <label
                             description="Currency"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Valūta"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                       <cell
@@ -401,7 +547,11 @@
                           <label
                             description="Payment Terms"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Maksājumu nosacījumi"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -413,18 +563,65 @@
                           <label
                             description="Credit Limit"
                             languagecode="1033"
-                            solutionaction="Modified" />
+                            solutionaction="Added" />
+                          <label
+                            description="Kredītlimits"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
                     <row>
                       <cell
                         id="{86ed48db-8fdc-4880-aa78-1532af6060ee}"
-                        ordinalvalue="10003">
+                        ordinalvalue="10004"
+                        solutionaction="Modified">
                         <labels>
                           <label
                             description="Credit Hold"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Aizturēts kredīts"
+                            languagecode="1062"
+                            solutionaction="Added" />
+                        </labels>
+                      </cell>
+                      <cell
+                        id="{cefb2966-525d-46c3-a248-764db1148978}"
+                        ordinalvalue="20003"
+                        solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell
+                        id="{f0e0febf-2764-4791-8772-a0750329e205}"
+                        ordinalvalue="20005"
+                        solutionaction="Added">
+                        <labels>
+                          <label
+                            description=""
+                            languagecode="1062" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section
+                  name="contact methods"
+                  showlabel="true"
+                  showbar="true"
+                  id="{fa46a68d-a6b2-4cc1-9d00-4abd1d46c8f4}"
+                  IsUserDefined="0"
+                  ordinalvalue="2">
+                  <rows>
+                    <row>
+                      <cell
+                        id="{b2bbf0b6-c969-4b89-8e50-786f268ff3b9}"
+                        ordinalvalue="10002">
+                        <labels>
+                          <label
+                            description="Privātais e-pasts"
+                            languagecode="1062"
                             solutionaction="Modified" />
                         </labels>
                       </cell>
@@ -448,7 +645,11 @@
                 <label
                   description="Private Email"
                   languagecode="1033"
-                  solutionaction="Modified" />
+                  solutionaction="Added" />
+                <label
+                  description="Privātais e-pasts"
+                  languagecode="1062"
+                  solutionaction="Added" />
               </labels>
             </cell>
             <cell
@@ -458,7 +659,11 @@
                 <label
                   description="Preferred Method of Contact"
                   languagecode="1033"
-                  solutionaction="Modified" />
+                  solutionaction="Added" />
+                <label
+                  description="Vēlamais sazināšanās veids"
+                  languagecode="1062"
+                  solutionaction="Added" />
               </labels>
             </cell>
             <cell
@@ -468,7 +673,11 @@
                 <label
                   description="Owner"
                   languagecode="1033"
-                  solutionaction="Modified" />
+                  solutionaction="Added" />
+                <label
+                  description="Atbildīgais"
+                  languagecode="1062"
+                  solutionaction="Added" />
               </labels>
             </cell>
           </row>
@@ -479,11 +688,17 @@
       <LocalizedName
         description="Information"
         languagecode="1033" />
+      <LocalizedName
+        description="Informācija"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="A form for this entity."
         languagecode="1033" />
+      <Description
+        description="Šīs entītijas forma."
+        languagecode="1062" />
     </Descriptions>
   </systemform>
 </forms>

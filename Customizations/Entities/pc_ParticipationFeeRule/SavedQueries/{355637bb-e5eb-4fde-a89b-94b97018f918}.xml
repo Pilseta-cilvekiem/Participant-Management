@@ -62,6 +62,9 @@
       <LocalizedName
         description="Inactive Participation Fee Rules"
         languagecode="1033" />
+      <LocalizedName
+        description="Neaktīvie dalībnieku naudas noteikumi"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

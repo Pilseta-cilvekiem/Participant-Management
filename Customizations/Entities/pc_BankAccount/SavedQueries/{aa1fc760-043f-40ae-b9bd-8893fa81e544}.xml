@@ -57,6 +57,9 @@
       <LocalizedName
         description="Inactive Bank Accounts"
         languagecode="1033" />
+      <LocalizedName
+        description="Neaktīvie banku konti"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

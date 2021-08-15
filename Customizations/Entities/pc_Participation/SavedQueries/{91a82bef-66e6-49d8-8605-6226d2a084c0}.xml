@@ -64,6 +64,9 @@
       <LocalizedName
         description="Inactive Participations"
         languagecode="1033" />
+      <LocalizedName
+        description="Neaktīvās dalības"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

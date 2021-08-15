@@ -10,6 +10,9 @@
     <displayname
       description="Transaction Import Status"
       languagecode="1033" />
+    <displayname
+      description="Transakciju importa statuss"
+      languagecode="1062" />
   </displaynames>
   <Descriptions>
     <Description
@@ -23,6 +26,9 @@
         <label
           description="Pending"
           languagecode="1033" />
+        <label
+          description="Gaida"
+          languagecode="1062" />
       </labels>
     </option>
     <option
@@ -31,6 +37,9 @@
         <label
           description="In Progress"
           languagecode="1033" />
+        <label
+          description="Izpildās"
+          languagecode="1062" />
       </labels>
     </option>
     <option
@@ -39,6 +48,9 @@
         <label
           description="Failed"
           languagecode="1033" />
+        <label
+          description="Neizdevās"
+          languagecode="1062" />
       </labels>
     </option>
     <option
@@ -47,6 +59,9 @@
         <label
           description="Completed"
           languagecode="1033" />
+        <label
+          description="Pabeigts"
+          languagecode="1062" />
       </labels>
     </option>
   </options>

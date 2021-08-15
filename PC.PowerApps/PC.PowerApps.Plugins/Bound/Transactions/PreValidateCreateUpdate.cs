@@ -1,4 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Plugins.Contexts;
 using PC.PowerApps.Plugins.Enumerations;
@@ -19,7 +19,7 @@ namespace PC.PowerApps.Plugins.Bound.Transactions
 
             if (context.Message == PluginMessage.Create)
             {
-                throw new InvalidPluginExecutionException("Cannot manually create a Transaction.");
+                throw context.CreateException(nameof(Resource.CantManuallyCreateTransaction));
             }
 
             context.EnsureAttributesNotModified(t => new { t.pc_Amount, t.pc_BankAccount, t.pc_Date, t.pc_Details, t.pc_Name, t.pc_PayerId, t.pc_PayerName, t.pc_PaymentTotalAmount, t.pc_RemainingAmount, t.StatusCode });

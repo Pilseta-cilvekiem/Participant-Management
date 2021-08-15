@@ -66,11 +66,17 @@
       <LocalizedName
         description="Contacts: Influenced Deals That We Won"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonas: ietekmētie darījumi, ko uzvarējām mēs"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Key contacts who influenced deals that have been won in the last 12 months."
         languagecode="1033" />
+      <Description
+        description="Galvenās kontaktpersonas, kas ietekmēja darījumus, kuri uzvarēti pēdējo 12 mēnešu laikā."
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

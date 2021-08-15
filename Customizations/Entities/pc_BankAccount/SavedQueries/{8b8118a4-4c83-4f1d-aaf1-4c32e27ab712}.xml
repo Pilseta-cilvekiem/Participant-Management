@@ -54,6 +54,9 @@
       <LocalizedName
         description="Bank Account Lookup View"
         languagecode="1033" />
+      <LocalizedName
+        description="Banku kontu uzmeklēšanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

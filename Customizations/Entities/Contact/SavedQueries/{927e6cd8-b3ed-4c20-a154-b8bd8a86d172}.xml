@@ -75,6 +75,9 @@
       <LocalizedName
         description="Contacts: No Campaign Activities in Last 3 Months"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonas: nav kampaņu pasākumu pēdējo 3 mēnešu laikā"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

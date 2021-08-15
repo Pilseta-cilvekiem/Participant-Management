@@ -57,6 +57,9 @@
       <LocalizedName
         description="Participation Advanced Find View"
         languagecode="1033" />
+      <LocalizedName
+        description="Dalību detalizētās atrašanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

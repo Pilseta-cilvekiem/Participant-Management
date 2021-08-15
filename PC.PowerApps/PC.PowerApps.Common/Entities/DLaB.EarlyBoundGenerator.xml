@@ -34,7 +34,9 @@ pc_scheduledjob|
 pc_settings|
 pc_transaction|
 systemuser|
-transactioncurrency</EntitiesWhitelist>
+transactioncurrency|
+usersettings|
+webresource</EntitiesWhitelist>
     <EntityAttributeSpecifiedNames />
     <EntityPrefixesToSkip />
     <EntityPrefixesWhitelist />

@@ -71,6 +71,9 @@
       <LocalizedName
         description="Contacts Lookup View"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonu uzmeklēšanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

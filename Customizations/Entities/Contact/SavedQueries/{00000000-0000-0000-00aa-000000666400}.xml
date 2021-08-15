@@ -65,6 +65,9 @@
       <LocalizedName
         description="Contacts Advanced Find View"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonu detalizētās atrašanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

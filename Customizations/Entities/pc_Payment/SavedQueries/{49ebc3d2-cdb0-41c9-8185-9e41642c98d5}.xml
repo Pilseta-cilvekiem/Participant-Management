@@ -55,6 +55,9 @@
       <LocalizedName
         description="Payment Advanced Find View"
         languagecode="1033" />
+      <LocalizedName
+        description="Maksājumu detalizētās atrašanas skats"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

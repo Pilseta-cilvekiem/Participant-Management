@@ -15327,6 +15327,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 1:N webresource_organization
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("webresource_organization")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.WebResource> webresource_organization
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("webresource_organization", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("webresource_organization");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("webresource_organization", null, value);
+				this.OnPropertyChanged("webresource_organization");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 basecurrency_organization
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("basecurrencyid")]
@@ -24423,6 +24443,126 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 1:N lk_usersettings_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.UserSettings> lk_usersettings_createdonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettings_createdonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_usersettings_createdonbehalfby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettings_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_usersettings_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_usersettings_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.UserSettings> lk_usersettings_modifiedonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettings_modifiedonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_usersettings_modifiedonbehalfby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettings_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_usersettings_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_usersettingsbase_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_createdby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.UserSettings> lk_usersettingsbase_createdby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettingsbase_createdby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_usersettingsbase_createdby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettingsbase_createdby", null, value);
+				this.OnPropertyChanged("lk_usersettingsbase_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_usersettingsbase_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_modifiedby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.UserSettings> lk_usersettingsbase_modifiedby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettingsbase_modifiedby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_usersettingsbase_modifiedby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("lk_usersettingsbase_modifiedby", null, value);
+				this.OnPropertyChanged("lk_usersettingsbase_modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_webresourcebase_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_webresourcebase_createdonbehalfby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.WebResource> lk_webresourcebase_createdonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("lk_webresourcebase_createdonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_webresourcebase_createdonbehalfby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("lk_webresourcebase_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_webresourcebase_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N lk_webresourcebase_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_webresourcebase_modifiedonbehalfby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.WebResource> lk_webresourcebase_modifiedonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("lk_webresourcebase_modifiedonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_webresourcebase_modifiedonbehalfby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("lk_webresourcebase_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_webresourcebase_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N system_user_activity_parties
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("system_user_activity_parties")]
@@ -24519,6 +24659,66 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("Referenceduser_parent_user");
 				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("user_parent_user", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
 				this.OnPropertyChanged("Referenceduser_parent_user");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N user_settings
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_settings")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.UserSettings> user_settings
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("user_settings", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("user_settings");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("user_settings", null, value);
+				this.OnPropertyChanged("user_settings");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N webresource_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("webresource_createdby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.WebResource> webresource_createdby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("webresource_createdby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("webresource_createdby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("webresource_createdby", null, value);
+				this.OnPropertyChanged("webresource_createdby");
+			}
+		}
+		
+		/// <summary>
+		/// 1:N webresource_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("webresource_modifiedby")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.WebResource> webresource_modifiedby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("webresource_modifiedby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("webresource_modifiedby");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.WebResource>("webresource_modifiedby", null, value);
+				this.OnPropertyChanged("webresource_modifiedby");
 			}
 		}
 		
@@ -25309,6 +25509,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 1:N transactioncurrency_usersettings
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("transactioncurrency_usersettings")]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.UserSettings> transactioncurrency_usersettings
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("transactioncurrency_usersettings", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("transactioncurrency_usersettings");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.UserSettings>("transactioncurrency_usersettings", null, value);
+				this.OnPropertyChanged("transactioncurrency_usersettings");
+			}
+		}
+		
+		/// <summary>
 		/// N:1 lk_transactioncurrency_createdonbehalfby
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
@@ -25418,6 +25638,2912 @@ namespace PC.PowerApps.Common.Entities.Dataverse
                         Attributes["transactioncurrencyid"] = base.Id;
                         break;
                     case "transactioncurrencyid":
+                        var id = (System.Nullable<System.Guid>) value;
+                        if(id == null){ continue; }
+                        base.Id = id.Value;
+                        Attributes[name] = base.Id;
+                        break;
+                    case "formattedvalues":
+                        // Add Support for FormattedValues
+                        FormattedValues.AddRange((Microsoft.Xrm.Sdk.FormattedValueCollection)value);
+                        break;
+                    default:
+                        Attributes[name] = value;
+                        break;
+                }
+            }
+		}
+	}
+	
+	/// <summary>
+	/// User's preferred settings.
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("usersettings")]
+	public partial class UserSettings : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		[System.Diagnostics.DebuggerNonUserCode()]
+		public UserSettings() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "usersettings";
+		
+		public const string EntitySchemaName = "UserSettings";
+		
+		public const string PrimaryIdAttribute = "systemuserid";
+		
+		public const string EntityLogicalCollectionName = "usersettingses";
+		
+		public const string EntitySetName = "usersettingscollection";
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		[System.Diagnostics.DebuggerNonUserCode()]
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		[System.Diagnostics.DebuggerNonUserCode()]
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// Normal polling frequency used for address book synchronization in Microsoft Office Outlook.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("addressbooksyncinterval")]
+		public System.Nullable<int> AddressBookSyncInterval
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("addressbooksyncinterval");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AddressBookSyncInterval");
+				this.SetAttributeValue("addressbooksyncinterval", value);
+				this.OnPropertyChanged("AddressBookSyncInterval");
+			}
+		}
+		
+		/// <summary>
+		/// Default mode, such as simple or detailed, for advanced find.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("advancedfindstartupmode")]
+		public System.Nullable<int> AdvancedFindStartupMode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("advancedfindstartupmode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AdvancedFindStartupMode");
+				this.SetAttributeValue("advancedfindstartupmode", value);
+				this.OnPropertyChanged("AdvancedFindStartupMode");
+			}
+		}
+		
+		/// <summary>
+		/// This attribute is no longer used. The data is now in the Mailbox.AllowEmailConnectorToUseCredentials attribute.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("allowemailcredentials")]
+		[System.ObsoleteAttribute()]
+		public System.Nullable<bool> AllowEmailCredentials
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("allowemailcredentials");
+			}
+		}
+		
+		/// <summary>
+		/// AM designator to use in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("amdesignator")]
+		public string AMDesignator
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("amdesignator");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AMDesignator");
+				this.SetAttributeValue("amdesignator", value);
+				this.OnPropertyChanged("AMDesignator");
+			}
+		}
+		
+		/// <summary>
+		/// Set user status for ADC Suggestions
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("autocaptureuserstatus")]
+		public System.Nullable<int> AutoCaptureUserStatus
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("autocaptureuserstatus");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AutoCaptureUserStatus");
+				this.SetAttributeValue("autocaptureuserstatus", value);
+				this.OnPropertyChanged("AutoCaptureUserStatus");
+			}
+		}
+		
+		/// <summary>
+		/// Auto-create contact on client promote
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("autocreatecontactonpromote")]
+		public System.Nullable<int> AutoCreateContactOnPromote
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("autocreatecontactonpromote");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AutoCreateContactOnPromote");
+				this.SetAttributeValue("autocreatecontactonpromote", value);
+				this.OnPropertyChanged("AutoCreateContactOnPromote");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the business unit with which the user is associated.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businessunitid")]
+		public System.Nullable<System.Guid> BusinessUnitId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("businessunitid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("BusinessUnitId");
+				this.SetAttributeValue("businessunitid", value);
+				this.OnPropertyChanged("BusinessUnitId");
+			}
+		}
+		
+		/// <summary>
+		/// Calendar type for the system. Set to Gregorian US by default.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("calendartype")]
+		public System.Nullable<int> CalendarType
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("calendartype");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CalendarType");
+				this.SetAttributeValue("calendartype", value);
+				this.OnPropertyChanged("CalendarType");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who created the user settings.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the user settings object was created.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdon")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("createdon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who created the usersettings.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedOnBehalfBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CreatedOnBehalfBy");
+				this.SetAttributeValue("createdonbehalfby", value);
+				this.OnPropertyChanged("CreatedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Number of decimal places that can be used for currency.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("currencydecimalprecision")]
+		[System.ObsoleteAttribute()]
+		public System.Nullable<int> CurrencyDecimalPrecision
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("currencydecimalprecision");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CurrencyDecimalPrecision");
+				this.SetAttributeValue("currencydecimalprecision", value);
+				this.OnPropertyChanged("CurrencyDecimalPrecision");
+			}
+		}
+		
+		/// <summary>
+		/// Information about how currency symbols are placed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("currencyformatcode")]
+		public System.Nullable<int> CurrencyFormatCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("currencyformatcode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CurrencyFormatCode");
+				this.SetAttributeValue("currencyformatcode", value);
+				this.OnPropertyChanged("CurrencyFormatCode");
+			}
+		}
+		
+		/// <summary>
+		/// Symbol used for currency in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("currencysymbol")]
+		public string CurrencySymbol
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("currencysymbol");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CurrencySymbol");
+				this.SetAttributeValue("currencysymbol", value);
+				this.OnPropertyChanged("CurrencySymbol");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies the level of data validation in excel worksheets exported in a format suitable for import.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("datavalidationmodeforexporttoexcel")]
+		public virtual UserSettings_DataValidationModeForExportToExcel? DataValidationModeForExportToExcel
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((UserSettings_DataValidationModeForExportToExcel?)(EntityOptionSetEnum.GetEnum(this, "datavalidationmodeforexporttoexcel")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DataValidationModeForExportToExcel");
+				this.SetAttributeValue("datavalidationmodeforexporttoexcel", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("DataValidationModeForExportToExcel");
+			}
+		}
+		
+		/// <summary>
+		/// Information about how the date is displayed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dateformatcode")]
+		public System.Nullable<int> DateFormatCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("dateformatcode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DateFormatCode");
+				this.SetAttributeValue("dateformatcode", value);
+				this.OnPropertyChanged("DateFormatCode");
+			}
+		}
+		
+		/// <summary>
+		/// String showing how the date is displayed throughout Microsoft 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dateformatstring")]
+		public string DateFormatString
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("dateformatstring");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DateFormatString");
+				this.SetAttributeValue("dateformatstring", value);
+				this.OnPropertyChanged("DateFormatString");
+			}
+		}
+		
+		/// <summary>
+		/// Character used to separate the month, the day, and the year in dates in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dateseparator")]
+		public string DateSeparator
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("dateseparator");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DateSeparator");
+				this.SetAttributeValue("dateseparator", value);
+				this.OnPropertyChanged("DateSeparator");
+			}
+		}
+		
+		/// <summary>
+		/// Symbol used for decimal in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("decimalsymbol")]
+		public string DecimalSymbol
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("decimalsymbol");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DecimalSymbol");
+				this.SetAttributeValue("decimalsymbol", value);
+				this.OnPropertyChanged("DecimalSymbol");
+			}
+		}
+		
+		/// <summary>
+		/// Default calendar view for the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultcalendarview")]
+		public System.Nullable<int> DefaultCalendarView
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("defaultcalendarview");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DefaultCalendarView");
+				this.SetAttributeValue("defaultcalendarview", value);
+				this.OnPropertyChanged("DefaultCalendarView");
+			}
+		}
+		
+		/// <summary>
+		/// Text area to enter default country code.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultcountrycode")]
+		public string DefaultCountryCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("defaultcountrycode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DefaultCountryCode");
+				this.SetAttributeValue("defaultcountrycode", value);
+				this.OnPropertyChanged("DefaultCountryCode");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the default dashboard.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultdashboardid")]
+		public System.Nullable<System.Guid> DefaultDashboardId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("defaultdashboardid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DefaultDashboardId");
+				this.SetAttributeValue("defaultdashboardid", value);
+				this.OnPropertyChanged("DefaultDashboardId");
+			}
+		}
+		
+		/// <summary>
+		/// Default search experience for the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultsearchexperience")]
+		public virtual UserSettings_DefaultSearchExperience? DefaultSearchExperience
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((UserSettings_DefaultSearchExperience?)(EntityOptionSetEnum.GetEnum(this, "defaultsearchexperience")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DefaultSearchExperience");
+				this.SetAttributeValue("defaultsearchexperience", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("DefaultSearchExperience");
+			}
+		}
+		
+		/// <summary>
+		/// This attribute is no longer used. The data is now in the Mailbox.Password attribute.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("emailpassword")]
+		[System.ObsoleteAttribute()]
+		public string EmailPassword
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("emailpassword");
+			}
+		}
+		
+		/// <summary>
+		/// This attribute is no longer used. The data is now in the Mailbox.UserName attribute.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("emailusername")]
+		[System.ObsoleteAttribute()]
+		public string EmailUsername
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("emailusername");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates the form mode to be used.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityformmode")]
+		public virtual UserSettings_EntityFormMode? EntityFormMode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((UserSettings_EntityFormMode?)(EntityOptionSetEnum.GetEnum(this, "entityformmode")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("EntityFormMode");
+				this.SetAttributeValue("entityformmode", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("EntityFormMode");
+			}
+		}
+		
+		/// <summary>
+		/// Order in which names are to be displayed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("fullnameconventioncode")]
+		public System.Nullable<int> FullNameConventionCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("fullnameconventioncode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("FullNameConventionCode");
+				this.SetAttributeValue("fullnameconventioncode", value);
+				this.OnPropertyChanged("FullNameConventionCode");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether the Get Started pane in lists is enabled.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("getstartedpanecontentenabled")]
+		public System.Nullable<bool> GetStartedPaneContentEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("getstartedpanecontentenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("GetStartedPaneContentEnabled");
+				this.SetAttributeValue("getstartedpanecontentenabled", value);
+				this.OnPropertyChanged("GetStartedPaneContentEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the Help language.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("helplanguageid")]
+		public System.Nullable<int> HelpLanguageId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("helplanguageid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("HelpLanguageId");
+				this.SetAttributeValue("helplanguageid", value);
+				this.OnPropertyChanged("HelpLanguageId");
+			}
+		}
+		
+		/// <summary>
+		/// Web site home page for the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("homepagearea")]
+		public string HomepageArea
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("homepagearea");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("HomepageArea");
+				this.SetAttributeValue("homepagearea", value);
+				this.OnPropertyChanged("HomepageArea");
+			}
+		}
+		
+		/// <summary>
+		/// Configuration of the home page layout.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("homepagelayout")]
+		public string HomepageLayout
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("homepagelayout");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("HomepageLayout");
+				this.SetAttributeValue("homepagelayout", value);
+				this.OnPropertyChanged("HomepageLayout");
+			}
+		}
+		
+		/// <summary>
+		/// Web site page for the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("homepagesubarea")]
+		public string HomepageSubarea
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("homepagesubarea");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("HomepageSubarea");
+				this.SetAttributeValue("homepagesubarea", value);
+				this.OnPropertyChanged("HomepageSubarea");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether a user account is to ignore unsolicited email (deprecated).
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ignoreunsolicitedemail")]
+		public System.Nullable<bool> IgnoreUnsolicitedEmail
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("ignoreunsolicitedemail");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IgnoreUnsolicitedEmail");
+				this.SetAttributeValue("ignoreunsolicitedemail", value);
+				this.OnPropertyChanged("IgnoreUnsolicitedEmail");
+			}
+		}
+		
+		/// <summary>
+		/// Incoming email filtering method.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("incomingemailfilteringmethod")]
+		public virtual UserSettings_IncomingEmailFilteringMethod? IncomingEmailFilteringMethod
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((UserSettings_IncomingEmailFilteringMethod?)(EntityOptionSetEnum.GetEnum(this, "incomingemailfilteringmethod")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IncomingEmailFilteringMethod");
+				this.SetAttributeValue("incomingemailfilteringmethod", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("IncomingEmailFilteringMethod");
+			}
+		}
+		
+		/// <summary>
+		/// Show or dismiss alert for Apps for 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isappsforcrmalertdismissed")]
+		public System.Nullable<bool> IsAppsForCrmAlertDismissed
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isappsforcrmalertdismissed");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsAppsForCrmAlertDismissed");
+				this.SetAttributeValue("isappsforcrmalertdismissed", value);
+				this.OnPropertyChanged("IsAppsForCrmAlertDismissed");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether to use the Auto Capture feature enabled or not.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isautodatacaptureenabled")]
+		public System.Nullable<bool> IsAutoDataCaptureEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isautodatacaptureenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsAutoDataCaptureEnabled");
+				this.SetAttributeValue("isautodatacaptureenabled", value);
+				this.OnPropertyChanged("IsAutoDataCaptureEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Enable or disable country code selection .
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isdefaultcountrycodecheckenabled")]
+		public System.Nullable<bool> IsDefaultCountryCodeCheckEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isdefaultcountrycodecheckenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsDefaultCountryCodeCheckEnabled");
+				this.SetAttributeValue("isdefaultcountrycodecheckenabled", value);
+				this.OnPropertyChanged("IsDefaultCountryCodeCheckEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates if duplicate detection is enabled when going online.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isduplicatedetectionenabledwhengoingonline")]
+		public System.Nullable<bool> IsDuplicateDetectionEnabledWhenGoingOnline
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isduplicatedetectionenabledwhengoingonline");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsDuplicateDetectionEnabledWhenGoingOnline");
+				this.SetAttributeValue("isduplicatedetectionenabledwhengoingonline", value);
+				this.OnPropertyChanged("IsDuplicateDetectionEnabledWhenGoingOnline");
+			}
+		}
+		
+		/// <summary>
+		/// Enable or disable email conversation view on timeline wall selection.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isemailconversationviewenabled")]
+		public System.Nullable<bool> IsEmailConversationViewEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isemailconversationviewenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsEmailConversationViewEnabled");
+				this.SetAttributeValue("isemailconversationviewenabled", value);
+				this.OnPropertyChanged("IsEmailConversationViewEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Enable or disable guided help.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isguidedhelpenabled")]
+		public System.Nullable<bool> IsGuidedHelpEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isguidedhelpenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsGuidedHelpEnabled");
+				this.SetAttributeValue("isguidedhelpenabled", value);
+				this.OnPropertyChanged("IsGuidedHelpEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates if the synchronization of user resource booking with Exchange is enabled at user level.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isresourcebookingexchangesyncenabled")]
+		public System.Nullable<bool> IsResourceBookingExchangeSyncEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isresourcebookingexchangesyncenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsResourceBookingExchangeSyncEnabled");
+				this.SetAttributeValue("isresourcebookingexchangesyncenabled", value);
+				this.OnPropertyChanged("IsResourceBookingExchangeSyncEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates if send as other user privilege is enabled or not.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("issendasallowed")]
+		public System.Nullable<bool> IsSendAsAllowed
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("issendasallowed");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsSendAsAllowed");
+				this.SetAttributeValue("issendasallowed", value);
+				this.OnPropertyChanged("IsSendAsAllowed");
+			}
+		}
+		
+		/// <summary>
+		/// Shows the last time when the traces were read from the database.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("lastalertsviewedtime")]
+		public System.Nullable<System.DateTime> LastAlertsViewedTime
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("lastalertsviewedtime");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("LastAlertsViewedTime");
+				this.SetAttributeValue("lastalertsviewedtime", value);
+				this.OnPropertyChanged("LastAlertsViewedTime");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user locale.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("localeid")]
+		public System.Nullable<int> LocaleId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("localeid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("LocaleId");
+				this.SetAttributeValue("localeid", value);
+				this.OnPropertyChanged("LocaleId");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies how Long Date is displayed throughout Microsoft 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("longdateformatcode")]
+		public System.Nullable<int> LongDateFormatCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("longdateformatcode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("LongDateFormatCode");
+				this.SetAttributeValue("longdateformatcode", value);
+				this.OnPropertyChanged("LongDateFormatCode");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who last modified the user settings.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the user settings object was last modified.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedon")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("modifiedon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who last modified the usersettings.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedOnBehalfBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ModifiedOnBehalfBy");
+				this.SetAttributeValue("modifiedonbehalfby", value);
+				this.OnPropertyChanged("ModifiedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies how negative currency numbers are displayed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("negativecurrencyformatcode")]
+		public System.Nullable<int> NegativeCurrencyFormatCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("negativecurrencyformatcode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("NegativeCurrencyFormatCode");
+				this.SetAttributeValue("negativecurrencyformatcode", value);
+				this.OnPropertyChanged("NegativeCurrencyFormatCode");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies how negative numbers are displayed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("negativeformatcode")]
+		public System.Nullable<int> NegativeFormatCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("negativeformatcode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("NegativeFormatCode");
+				this.SetAttributeValue("negativeformatcode", value);
+				this.OnPropertyChanged("NegativeFormatCode");
+			}
+		}
+		
+		/// <summary>
+		/// Next tracking number.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("nexttrackingnumber")]
+		public System.Nullable<int> NextTrackingNumber
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("nexttrackingnumber");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("NextTrackingNumber");
+				this.SetAttributeValue("nexttrackingnumber", value);
+				this.OnPropertyChanged("NextTrackingNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies how numbers are grouped in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("numbergroupformat")]
+		public string NumberGroupFormat
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("numbergroupformat");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("NumberGroupFormat");
+				this.SetAttributeValue("numbergroupformat", value);
+				this.OnPropertyChanged("NumberGroupFormat");
+			}
+		}
+		
+		/// <summary>
+		/// Symbol used for number separation in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("numberseparator")]
+		public string NumberSeparator
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("numberseparator");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("NumberSeparator");
+				this.SetAttributeValue("numberseparator", value);
+				this.OnPropertyChanged("NumberSeparator");
+			}
+		}
+		
+		/// <summary>
+		/// Normal polling frequency used for background offline synchronization in Microsoft Office Outlook.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("offlinesyncinterval")]
+		public System.Nullable<int> OfflineSyncInterval
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("offlinesyncinterval");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("OfflineSyncInterval");
+				this.SetAttributeValue("offlinesyncinterval", value);
+				this.OnPropertyChanged("OfflineSyncInterval");
+			}
+		}
+		
+		/// <summary>
+		/// Normal polling frequency used for record synchronization in Microsoft Office Outlook.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("outlooksyncinterval")]
+		public System.Nullable<int> OutlookSyncInterval
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("outlooksyncinterval");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("OutlookSyncInterval");
+				this.SetAttributeValue("outlooksyncinterval", value);
+				this.OnPropertyChanged("OutlookSyncInterval");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies how many items to list on a page in list views.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("paginglimit")]
+		public System.Nullable<int> PagingLimit
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("paginglimit");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("PagingLimit");
+				this.SetAttributeValue("paginglimit", value);
+				this.OnPropertyChanged("PagingLimit");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("personalizationsettings")]
+		public string PersonalizationSettings
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("personalizationsettings");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("PersonalizationSettings");
+				this.SetAttributeValue("personalizationsettings", value);
+				this.OnPropertyChanged("PersonalizationSettings");
+			}
+		}
+		
+		/// <summary>
+		/// PM designator to use in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pmdesignator")]
+		public string PMDesignator
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pmdesignator");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("PMDesignator");
+				this.SetAttributeValue("pmdesignator", value);
+				this.OnPropertyChanged("PMDesignator");
+			}
+		}
+		
+		/// <summary>
+		/// Number of decimal places that can be used for prices.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pricingdecimalprecision")]
+		[System.ObsoleteAttribute()]
+		public System.Nullable<int> PricingDecimalPrecision
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("pricingdecimalprecision");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("PricingDecimalPrecision");
+				this.SetAttributeValue("pricingdecimalprecision", value);
+				this.OnPropertyChanged("PricingDecimalPrecision");
+			}
+		}
+		
+		/// <summary>
+		/// Picklist for selecting the user preference for reporting scripting errors.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("reportscripterrors")]
+		public virtual UserSettings_ReportScriptErrors? ReportScriptErrors
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((UserSettings_ReportScriptErrors?)(EntityOptionSetEnum.GetEnum(this, "reportscripterrors")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ReportScriptErrors");
+				this.SetAttributeValue("reportscripterrors", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("ReportScriptErrors");
+			}
+		}
+		
+		/// <summary>
+		/// The version number for resource booking synchronization with Exchange.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("resourcebookingexchangesyncversion")]
+		public System.Nullable<long> ResourceBookingExchangeSyncVersion
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("resourcebookingexchangesyncversion");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ResourceBookingExchangeSyncVersion");
+				this.SetAttributeValue("resourcebookingexchangesyncversion", value);
+				this.OnPropertyChanged("ResourceBookingExchangeSyncVersion");
+			}
+		}
+		
+		/// <summary>
+		/// Store selected customer service hub dashboard saved filter id.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("selectedglobalfilterid")]
+		public System.Nullable<System.Guid> SelectedGlobalFilterId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("selectedglobalfilterid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("SelectedGlobalFilterId");
+				this.SetAttributeValue("selectedglobalfilterid", value);
+				this.OnPropertyChanged("SelectedGlobalFilterId");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether to display the week number in calendar displays in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("showweeknumber")]
+		public System.Nullable<bool> ShowWeekNumber
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("showweeknumber");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ShowWeekNumber");
+				this.SetAttributeValue("showweeknumber", value);
+				this.OnPropertyChanged("ShowWeekNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates if the company field in Microsoft Office Outlook items are set during Outlook synchronization.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("synccontactcompany")]
+		public System.Nullable<bool> SyncContactCompany
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("synccontactcompany");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("SyncContactCompany");
+				this.SetAttributeValue("synccontactcompany", value);
+				this.OnPropertyChanged("SyncContactCompany");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("systemuserid")]
+		public System.Nullable<System.Guid> SystemUserId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("systemuserid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("SystemUserId");
+				this.SetAttributeValue("systemuserid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("SystemUserId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("systemuserid")]
+		public override System.Guid Id
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return base.Id;
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.SystemUserId = value;
+			}
+		}
+		
+		/// <summary>
+		/// For Internal use only
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("splitviewstate")]
+		public System.Nullable<bool> SplitViewState
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("splitviewstate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("SplitViewState");
+				this.SetAttributeValue("splitviewstate", value);
+				this.OnPropertyChanged("SplitViewState");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies how the time is displayed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timeformatcode")]
+		public System.Nullable<int> TimeFormatCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timeformatcode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeFormatCode");
+				this.SetAttributeValue("timeformatcode", value);
+				this.OnPropertyChanged("TimeFormatCode");
+			}
+		}
+		
+		/// <summary>
+		/// Text for how time is displayed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timeformatstring")]
+		public string TimeFormatString
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("timeformatstring");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeFormatString");
+				this.SetAttributeValue("timeformatstring", value);
+				this.OnPropertyChanged("TimeFormatString");
+			}
+		}
+		
+		/// <summary>
+		/// Text for how time is displayed in Microsoft Dynamics 365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timeseparator")]
+		public string TimeSeparator
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("timeseparator");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeSeparator");
+				this.SetAttributeValue("timeseparator", value);
+				this.OnPropertyChanged("TimeSeparator");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone adjustment for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonebias")]
+		public System.Nullable<int> TimeZoneBias
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonebias");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneBias");
+				this.SetAttributeValue("timezonebias", value);
+				this.OnPropertyChanged("TimeZoneBias");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone for the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonecode")]
+		public System.Nullable<int> TimeZoneCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonecode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneCode");
+				this.SetAttributeValue("timezonecode", value);
+				this.OnPropertyChanged("TimeZoneCode");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight adjustment for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylightbias")]
+		public System.Nullable<int> TimeZoneDaylightBias
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylightbias");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightBias");
+				this.SetAttributeValue("timezonedaylightbias", value);
+				this.OnPropertyChanged("TimeZoneDaylightBias");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight day for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylightday")]
+		public System.Nullable<int> TimeZoneDaylightDay
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylightday");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightDay");
+				this.SetAttributeValue("timezonedaylightday", value);
+				this.OnPropertyChanged("TimeZoneDaylightDay");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight day of week for the user. System calculated based on the time zone selected in Options.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylightdayofweek")]
+		public System.Nullable<int> TimeZoneDaylightDayOfWeek
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylightdayofweek");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightDayOfWeek");
+				this.SetAttributeValue("timezonedaylightdayofweek", value);
+				this.OnPropertyChanged("TimeZoneDaylightDayOfWeek");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight hour for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylighthour")]
+		public System.Nullable<int> TimeZoneDaylightHour
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylighthour");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightHour");
+				this.SetAttributeValue("timezonedaylighthour", value);
+				this.OnPropertyChanged("TimeZoneDaylightHour");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight year for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylightyear")]
+		public System.Nullable<int> TimeZoneDaylightYear
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylightyear");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightYear");
+				this.SetAttributeValue("timezonedaylightyear", value);
+				this.OnPropertyChanged("TimeZoneDaylightYear");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight minute for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylightminute")]
+		public System.Nullable<int> TimeZoneDaylightMinute
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylightminute");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightMinute");
+				this.SetAttributeValue("timezonedaylightminute", value);
+				this.OnPropertyChanged("TimeZoneDaylightMinute");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight month for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylightmonth")]
+		public System.Nullable<int> TimeZoneDaylightMonth
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylightmonth");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightMonth");
+				this.SetAttributeValue("timezonedaylightmonth", value);
+				this.OnPropertyChanged("TimeZoneDaylightMonth");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone daylight second for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonedaylightsecond")]
+		public System.Nullable<int> TimeZoneDaylightSecond
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonedaylightsecond");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneDaylightSecond");
+				this.SetAttributeValue("timezonedaylightsecond", value);
+				this.OnPropertyChanged("TimeZoneDaylightSecond");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard time bias for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandardbias")]
+		public System.Nullable<int> TimeZoneStandardBias
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandardbias");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardBias");
+				this.SetAttributeValue("timezonestandardbias", value);
+				this.OnPropertyChanged("TimeZoneStandardBias");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard day for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandardday")]
+		public System.Nullable<int> TimeZoneStandardDay
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandardday");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardDay");
+				this.SetAttributeValue("timezonestandardday", value);
+				this.OnPropertyChanged("TimeZoneStandardDay");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard day of week for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandarddayofweek")]
+		public System.Nullable<int> TimeZoneStandardDayOfWeek
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandarddayofweek");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardDayOfWeek");
+				this.SetAttributeValue("timezonestandarddayofweek", value);
+				this.OnPropertyChanged("TimeZoneStandardDayOfWeek");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard hour for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandardhour")]
+		public System.Nullable<int> TimeZoneStandardHour
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandardhour");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardHour");
+				this.SetAttributeValue("timezonestandardhour", value);
+				this.OnPropertyChanged("TimeZoneStandardHour");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard year for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandardyear")]
+		public System.Nullable<int> TimeZoneStandardYear
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandardyear");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardYear");
+				this.SetAttributeValue("timezonestandardyear", value);
+				this.OnPropertyChanged("TimeZoneStandardYear");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard minute for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandardminute")]
+		public System.Nullable<int> TimeZoneStandardMinute
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandardminute");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardMinute");
+				this.SetAttributeValue("timezonestandardminute", value);
+				this.OnPropertyChanged("TimeZoneStandardMinute");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard month for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandardmonth")]
+		public System.Nullable<int> TimeZoneStandardMonth
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandardmonth");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardMonth");
+				this.SetAttributeValue("timezonestandardmonth", value);
+				this.OnPropertyChanged("TimeZoneStandardMonth");
+			}
+		}
+		
+		/// <summary>
+		/// Local time zone standard second for the user. System calculated based on the time zone selected.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezonestandardsecond")]
+		public System.Nullable<int> TimeZoneStandardSecond
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezonestandardsecond");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TimeZoneStandardSecond");
+				this.SetAttributeValue("timezonestandardsecond", value);
+				this.OnPropertyChanged("TimeZoneStandardSecond");
+			}
+		}
+		
+		/// <summary>
+		/// Tracking token ID.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("trackingtokenid")]
+		public System.Nullable<int> TrackingTokenId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("trackingtokenid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TrackingTokenId");
+				this.SetAttributeValue("trackingtokenid", value);
+				this.OnPropertyChanged("TrackingTokenId");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the default currency of the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("transactioncurrencyid")]
+		public Microsoft.Xrm.Sdk.EntityReference TransactionCurrencyId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("transactioncurrencyid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("TransactionCurrencyId");
+				this.SetAttributeValue("transactioncurrencyid", value);
+				this.OnPropertyChanged("TransactionCurrencyId");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the language in which to view the user interface (UI).
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("uilanguageid")]
+		public System.Nullable<int> UILanguageId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("uilanguageid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UILanguageId");
+				this.SetAttributeValue("uilanguageid", value);
+				this.OnPropertyChanged("UILanguageId");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether to use the Microsoft Dynamics 365 appointment form within Microsoft Office Outlook for creating new appointments.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("usecrmformforappointment")]
+		public System.Nullable<bool> UseCrmFormForAppointment
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("usecrmformforappointment");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UseCrmFormForAppointment");
+				this.SetAttributeValue("usecrmformforappointment", value);
+				this.OnPropertyChanged("UseCrmFormForAppointment");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether to use the Microsoft Dynamics 365 contact form within Microsoft Office Outlook for creating new contacts.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("usecrmformforcontact")]
+		public System.Nullable<bool> UseCrmFormForContact
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("usecrmformforcontact");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UseCrmFormForContact");
+				this.SetAttributeValue("usecrmformforcontact", value);
+				this.OnPropertyChanged("UseCrmFormForContact");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether to use the Microsoft Dynamics 365 email form within Microsoft Office Outlook for creating new emails.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("usecrmformforemail")]
+		public System.Nullable<bool> UseCrmFormForEmail
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("usecrmformforemail");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UseCrmFormForEmail");
+				this.SetAttributeValue("usecrmformforemail", value);
+				this.OnPropertyChanged("UseCrmFormForEmail");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether to use the Microsoft Dynamics 365 task form within Microsoft Office Outlook for creating new tasks.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("usecrmformfortask")]
+		public System.Nullable<bool> UseCrmFormForTask
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("usecrmformfortask");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UseCrmFormForTask");
+				this.SetAttributeValue("usecrmformfortask", value);
+				this.OnPropertyChanged("UseCrmFormForTask");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether image strips are used to render images.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("useimagestrips")]
+		public System.Nullable<bool> UseImageStrips
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("useimagestrips");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UseImageStrips");
+				this.SetAttributeValue("useimagestrips", value);
+				this.OnPropertyChanged("UseImageStrips");
+			}
+		}
+		
+		/// <summary>
+		/// Specifies user profile ids in comma separated list.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("userprofile")]
+		public string UserProfile
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("userprofile");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UserProfile");
+				this.SetAttributeValue("userprofile", value);
+				this.OnPropertyChanged("UserProfile");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// The layout of the visualization pane.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("visualizationpanelayout")]
+		public virtual UserSettings_VisualizationPaneLayout? VisualizationPaneLayout
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((UserSettings_VisualizationPaneLayout?)(EntityOptionSetEnum.GetEnum(this, "visualizationpanelayout")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("VisualizationPaneLayout");
+				this.SetAttributeValue("visualizationpanelayout", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("VisualizationPaneLayout");
+			}
+		}
+		
+		/// <summary>
+		/// Workday start time for the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("workdaystarttime")]
+		public string WorkdayStartTime
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("workdaystarttime");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("WorkdayStartTime");
+				this.SetAttributeValue("workdaystarttime", value);
+				this.OnPropertyChanged("WorkdayStartTime");
+			}
+		}
+		
+		/// <summary>
+		/// Workday stop time for the user.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("workdaystoptime")]
+		public string WorkdayStopTime
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("workdaystoptime");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("WorkdayStopTime");
+				this.SetAttributeValue("workdaystoptime", value);
+				this.OnPropertyChanged("WorkdayStopTime");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_usersettings_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_createdonbehalfby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser lk_usersettings_createdonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_usersettings_createdonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_usersettings_createdonbehalfby");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_usersettings_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_usersettings_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_usersettings_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettings_modifiedonbehalfby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser lk_usersettings_modifiedonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_usersettings_modifiedonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_usersettings_modifiedonbehalfby");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_usersettings_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_usersettings_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_usersettingsbase_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_createdby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser lk_usersettingsbase_createdby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_usersettingsbase_createdby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_usersettingsbase_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_usersettingsbase_modifiedby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser lk_usersettingsbase_modifiedby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_usersettingsbase_modifiedby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 transactioncurrency_usersettings
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("transactioncurrencyid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("transactioncurrency_usersettings")]
+		public PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency transactioncurrency_usersettings
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency>("transactioncurrency_usersettings", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("transactioncurrency_usersettings");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency>("transactioncurrency_usersettings", null, value);
+				this.OnPropertyChanged("transactioncurrency_usersettings");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 user_settings
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("systemuserid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("user_settings")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser user_settings
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("user_settings", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("user_settings");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("user_settings", null, value);
+				this.OnPropertyChanged("user_settings");
+			}
+		}
+		
+		/// <summary>
+		/// Constructor for populating via LINQ queries given a LINQ anonymous type
+		/// <param name="anonymousType">LINQ anonymous type.</param>
+		/// </summary>
+		[System.Diagnostics.DebuggerNonUserCode()]
+		public UserSettings(object anonymousType) : 
+				this()
+		{
+            foreach (var p in anonymousType.GetType().GetProperties())
+            {
+                var value = p.GetValue(anonymousType, null);
+                var name = p.Name.ToLower();
+            
+                if (name.EndsWith("enum") && value.GetType().BaseType == typeof(System.Enum))
+                {
+                    value = new Microsoft.Xrm.Sdk.OptionSetValue((int) value);
+                    name = name.Remove(name.Length - "enum".Length);
+                }
+            
+                switch (name)
+                {
+                    case "id":
+                        base.Id = (System.Guid)value;
+                        Attributes["systemuserid"] = base.Id;
+                        break;
+                    case "systemuserid":
+                        var id = (System.Nullable<System.Guid>) value;
+                        if(id == null){ continue; }
+                        base.Id = id.Value;
+                        Attributes[name] = base.Id;
+                        break;
+                    case "formattedvalues":
+                        // Add Support for FormattedValues
+                        FormattedValues.AddRange((Microsoft.Xrm.Sdk.FormattedValueCollection)value);
+                        break;
+                    default:
+                        Attributes[name] = value;
+                        break;
+                }
+            }
+		}
+	}
+	
+	/// <summary>
+	/// Data equivalent to files used in Web development. Web resources provide client-side components that are used to provide custom user interface elements.
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("webresource")]
+	public partial class WebResource : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		[System.Diagnostics.DebuggerNonUserCode()]
+		public WebResource() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "webresource";
+		
+		public const string EntitySchemaName = "WebResource";
+		
+		public const string PrimaryIdAttribute = "webresourceid";
+		
+		public const string PrimaryNameAttribute = "name";
+		
+		public const string EntityLogicalCollectionName = "webresources";
+		
+		public const string EntitySetName = "webresourceset";
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		[System.Diagnostics.DebuggerNonUserCode()]
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		[System.Diagnostics.DebuggerNonUserCode()]
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether this component can be deleted.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("canbedeleted")]
+		public Microsoft.Xrm.Sdk.BooleanManagedProperty CanBeDeleted
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.BooleanManagedProperty>("canbedeleted");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CanBeDeleted");
+				this.SetAttributeValue("canbedeleted", value);
+				this.OnPropertyChanged("CanBeDeleted");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("componentstate")]
+		public virtual ComponentState? ComponentState
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((ComponentState?)(EntityOptionSetEnum.GetEnum(this, "componentstate")));
+			}
+		}
+		
+		/// <summary>
+		/// Bytes of the web resource, in Base64 format.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("content")]
+		public string Content
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("content");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("Content");
+				this.SetAttributeValue("content", value);
+				this.OnPropertyChanged("Content");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contentfileref_name")]
+		public string ContentFileRef_Name
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("contentfileref_name");
+			}
+		}
+		
+		/// <summary>
+		/// Json representation of the content of the resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contentjson")]
+		public string ContentJson
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("contentjson");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ContentJson");
+				this.SetAttributeValue("contentjson", value);
+				this.OnPropertyChanged("ContentJson");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contentjsonfileref_name")]
+		public string ContentJsonFileRef_Name
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("contentjsonfileref_name");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who created the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the web resource was created.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdon")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("createdon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who created the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedOnBehalfBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CreatedOnBehalfBy");
+				this.SetAttributeValue("createdonbehalfby", value);
+				this.OnPropertyChanged("CreatedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("dependencyxml")]
+		public string DependencyXml
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("dependencyxml");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DependencyXml");
+				this.SetAttributeValue("dependencyxml", value);
+				this.OnPropertyChanged("DependencyXml");
+			}
+		}
+		
+		/// <summary>
+		/// Description of the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("description")]
+		public string Description
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("description");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("Description");
+				this.SetAttributeValue("description", value);
+				this.OnPropertyChanged("Description");
+			}
+		}
+		
+		/// <summary>
+		/// Display name of the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("displayname")]
+		public string DisplayName
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("displayname");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("DisplayName");
+				this.SetAttributeValue("displayname", value);
+				this.OnPropertyChanged("DisplayName");
+			}
+		}
+		
+		/// <summary>
+		/// Version in which the form is introduced.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("introducedversion")]
+		public string IntroducedVersion
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("introducedversion");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IntroducedVersion");
+				this.SetAttributeValue("introducedversion", value);
+				this.OnPropertyChanged("IntroducedVersion");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether this web resource is available for mobile client in offline mode.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isavailableformobileoffline")]
+		public System.Nullable<bool> IsAvailableForMobileOffline
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isavailableformobileoffline");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsAvailableForMobileOffline");
+				this.SetAttributeValue("isavailableformobileoffline", value);
+				this.OnPropertyChanged("IsAvailableForMobileOffline");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether this component can be customized.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("iscustomizable")]
+		public Microsoft.Xrm.Sdk.BooleanManagedProperty IsCustomizable
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.BooleanManagedProperty>("iscustomizable");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsCustomizable");
+				this.SetAttributeValue("iscustomizable", value);
+				this.OnPropertyChanged("IsCustomizable");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether this web resource is enabled for mobile client.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isenabledformobileclient")]
+		public System.Nullable<bool> IsEnabledForMobileClient
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isenabledformobileclient");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsEnabledForMobileClient");
+				this.SetAttributeValue("isenabledformobileclient", value);
+				this.OnPropertyChanged("IsEnabledForMobileClient");
+			}
+		}
+		
+		/// <summary>
+		/// Information that specifies whether this component should be hidden.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ishidden")]
+		public Microsoft.Xrm.Sdk.BooleanManagedProperty IsHidden
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.BooleanManagedProperty>("ishidden");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsHidden");
+				this.SetAttributeValue("ishidden", value);
+				this.OnPropertyChanged("IsHidden");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ismanaged")]
+		public System.Nullable<bool> IsManaged
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("ismanaged");
+			}
+		}
+		
+		/// <summary>
+		/// Language of the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("languagecode")]
+		public System.Nullable<int> LanguageCode
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("languagecode");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("LanguageCode");
+				this.SetAttributeValue("languagecode", value);
+				this.OnPropertyChanged("LanguageCode");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the user who last modified the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// Date and time when the web resource was last modified.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedon")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("modifiedon");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the delegate user who modified the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedOnBehalfBy
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ModifiedOnBehalfBy");
+				this.SetAttributeValue("modifiedonbehalfby", value);
+				this.OnPropertyChanged("ModifiedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Name of the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("name")]
+		public string Name
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("name");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("Name");
+				this.SetAttributeValue("name", value);
+				this.OnPropertyChanged("Name");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the organization associated with the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("organizationid")]
+		public Microsoft.Xrm.Sdk.EntityReference OrganizationId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("organizationid");
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("overwritetime")]
+		public System.Nullable<System.DateTime> OverwriteTime
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("overwritetime");
+			}
+		}
+		
+		/// <summary>
+		/// Silverlight runtime version number required by a silverlight web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("silverlightversion")]
+		public string SilverlightVersion
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("silverlightversion");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("SilverlightVersion");
+				this.SetAttributeValue("silverlightversion", value);
+				this.OnPropertyChanged("SilverlightVersion");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the associated solution.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("solutionid")]
+		public System.Nullable<System.Guid> SolutionId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("solutionid");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// Unique identifier of the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("webresourceid")]
+		public System.Nullable<System.Guid> WebResourceId
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("webresourceid");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("WebResourceId");
+				this.SetAttributeValue("webresourceid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("WebResourceId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("webresourceid")]
+		public override System.Guid Id
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return base.Id;
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.WebResourceId = value;
+			}
+		}
+		
+		/// <summary>
+		/// For internal use only.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("webresourceidunique")]
+		public System.Nullable<System.Guid> WebResourceIdUnique
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("webresourceidunique");
+			}
+		}
+		
+		/// <summary>
+		/// Drop-down list for selecting the type of the web resource.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("webresourcetype")]
+		public virtual WebResource_WebResourceType? WebResourceType
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((WebResource_WebResourceType?)(EntityOptionSetEnum.GetEnum(this, "webresourcetype")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("WebResourceType");
+				this.SetAttributeValue("webresourcetype", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("WebResourceType");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_webresourcebase_createdonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_webresourcebase_createdonbehalfby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser lk_webresourcebase_createdonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_webresourcebase_createdonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_webresourcebase_createdonbehalfby");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_webresourcebase_createdonbehalfby", null, value);
+				this.OnPropertyChanged("lk_webresourcebase_createdonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 lk_webresourcebase_modifiedonbehalfby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("lk_webresourcebase_modifiedonbehalfby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser lk_webresourcebase_modifiedonbehalfby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_webresourcebase_modifiedonbehalfby", null);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("lk_webresourcebase_modifiedonbehalfby");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_webresourcebase_modifiedonbehalfby", null, value);
+				this.OnPropertyChanged("lk_webresourcebase_modifiedonbehalfby");
+			}
+		}
+		
+		/// <summary>
+		/// N:1 webresource_createdby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("webresource_createdby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser webresource_createdby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("webresource_createdby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 webresource_modifiedby
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("webresource_modifiedby")]
+		public PC.PowerApps.Common.Entities.Dataverse.SystemUser webresource_modifiedby
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("webresource_modifiedby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 webresource_organization
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("organizationid")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("webresource_organization")]
+		public PC.PowerApps.Common.Entities.Dataverse.Organization webresource_organization
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.Organization>("webresource_organization", null);
+			}
+		}
+		
+		/// <summary>
+		/// Constructor for populating via LINQ queries given a LINQ anonymous type
+		/// <param name="anonymousType">LINQ anonymous type.</param>
+		/// </summary>
+		[System.Diagnostics.DebuggerNonUserCode()]
+		public WebResource(object anonymousType) : 
+				this()
+		{
+            foreach (var p in anonymousType.GetType().GetProperties())
+            {
+                var value = p.GetValue(anonymousType, null);
+                var name = p.Name.ToLower();
+            
+                if (name.EndsWith("enum") && value.GetType().BaseType == typeof(System.Enum))
+                {
+                    value = new Microsoft.Xrm.Sdk.OptionSetValue((int) value);
+                    name = name.Remove(name.Length - "enum".Length);
+                }
+            
+                switch (name)
+                {
+                    case "id":
+                        base.Id = (System.Guid)value;
+                        Attributes["webresourceid"] = base.Id;
+                        break;
+                    case "webresourceid":
                         var id = (System.Nullable<System.Guid>) value;
                         if(id == null){ continue; }
                         base.Id = id.Value;
@@ -25627,6 +28753,30 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 			get
 			{
 				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.TransactionCurrency>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="PC.PowerApps.Common.Entities.Dataverse.UserSettings"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<PC.PowerApps.Common.Entities.Dataverse.UserSettings> UserSettingsSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.UserSettings>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="PC.PowerApps.Common.Entities.Dataverse.WebResource"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<PC.PowerApps.Common.Entities.Dataverse.WebResource> WebResourceSet
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.CreateQuery<PC.PowerApps.Common.Entities.Dataverse.WebResource>();
 			}
 		}
 	}

@@ -77,6 +77,9 @@
       <LocalizedName
         description="Inactive Transactions"
         languagecode="1033" />
+      <LocalizedName
+        description="Neaktīvās transakcijas"
+        languagecode="1062" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

@@ -71,11 +71,17 @@
       <LocalizedName
         description="Contact Associated View"
         languagecode="1033" />
+      <LocalizedName
+        description="Kontaktpersonu saistītais skats"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Displays contact information in the detail form of any associated account, opportunity, quote, order, or invoice record. This view is in Contacts and Other Contacts side tabs."
         languagecode="1033" />
+      <Description
+        description="Displays contact information in the detail form of any associated account, opportunity, quote, order, or invoice record. This view is in Contacts and Other Contacts side tabs."
+        languagecode="1062" />
     </Descriptions>
   </savedquery>
 </savedqueries>

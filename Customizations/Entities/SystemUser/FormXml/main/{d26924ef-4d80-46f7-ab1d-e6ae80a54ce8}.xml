@@ -45,6 +45,10 @@
                             description="User Name"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="Lietotājvārds"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -56,6 +60,10 @@
                           <label
                             description="Application ID"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Lietojumprogrammas ID"
+                            languagecode="1062"
                             solutionaction="Added" />
                         </labels>
                       </cell>
@@ -69,6 +77,10 @@
                             description="Application ID URI"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="Lietojumprogrammas ID URI"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -80,6 +92,10 @@
                           <label
                             description="Azure AD Object ID"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Azure AD objekta ID"
+                            languagecode="1062"
                             solutionaction="Added" />
                         </labels>
                       </cell>
@@ -104,6 +120,10 @@
                             description="Full Name"
                             languagecode="1033"
                             solutionaction="Added" />
+                          <label
+                            description="Pilns vārds"
+                            languagecode="1062"
+                            solutionaction="Added" />
                         </labels>
                       </cell>
                     </row>
@@ -115,6 +135,10 @@
                           <label
                             description="Primary Email"
                             languagecode="1033"
+                            solutionaction="Added" />
+                          <label
+                            description="Primārais e-pasts"
+                            languagecode="1062"
                             solutionaction="Added" />
                         </labels>
                       </cell>
@@ -150,6 +174,9 @@
                           <label
                             description="Disable Validation Till"
                             languagecode="1033" />
+                          <label
+                            description="Atslēgt validāciju līdz"
+                            languagecode="1062" />
                         </labels>
                         <control
                           id="pc_disablevalidationtill"
@@ -177,6 +204,10 @@
                   description="Status"
                   languagecode="1033"
                   solutionaction="Added" />
+                <label
+                  description="Statuss"
+                  languagecode="1062"
+                  solutionaction="Added" />
               </labels>
             </cell>
           </row>
@@ -189,51 +220,24 @@
         labelwidth="115"
         celllabelalignment="Left"
         solutionaction="Added">
-        <rows>
-          <row>
-            <cell
-              id="{7445efa2-8bfd-4b88-aeca-8c354c7cf713}"
-              showlabel="false"
-              ordinalvalue="10000">
-              <labels>
-                <label
-                  description=""
-                  languagecode="1033" />
-              </labels>
-            </cell>
-            <cell
-              id="{afa13c17-bdf0-4926-a894-d744b8a2041c}"
-              showlabel="false"
-              ordinalvalue="20001">
-              <labels>
-                <label
-                  description=""
-                  languagecode="1033" />
-              </labels>
-            </cell>
-            <cell
-              id="{bb41e93d-8676-4e48-901d-0771d394b5a6}"
-              showlabel="false"
-              ordinalvalue="30002">
-              <labels>
-                <label
-                  description=""
-                  languagecode="1033" />
-              </labels>
-            </cell>
-          </row>
-        </rows>
+        <rows></rows>
       </header>
     </form>
     <LocalizedNames>
       <LocalizedName
         description="Application User"
         languagecode="1033" />
+      <LocalizedName
+        description="Lietojumprogrammas lietotājs"
+        languagecode="1062" />
     </LocalizedNames>
     <Descriptions>
       <Description
         description="Application User Form"
         languagecode="1033" />
+      <Description
+        description="Lietojumprogrammas lietotāja veidlapa"
+        languagecode="1062" />
     </Descriptions>
   </systemform>
 </forms>
