@@ -215,20 +215,6 @@ namespace PC.PowerApps.Common.Repositories
             contact.pc_PaidParticipationFee ??= new();
         }
 
-        public static void UpdateStatusCode(Contact contact)
-        {
-            if (contact.pc_ParticipationLevel is null)
-            {
-                contact.StateCode = ContactState.Inactive;
-                contact.StatusCode = Contact_StatusCode.Inactive;
-            }
-            else
-            {
-                contact.StateCode = ContactState.Active;
-                contact.StatusCode = Contact_StatusCode.Active;
-            }
-        }
-
         public static void ClearParticipantInfo(Contact contact)
         {
             if (contact.StatusCode == Contact_StatusCode.Active)
@@ -243,6 +229,8 @@ namespace PC.PowerApps.Common.Repositories
             contact.Address1_PostalCode = null;
             contact.Address1_StateOrProvince = null;
             contact.Description = "Bijušais dalībnieks.";
+            contact.EMailAddress1 = null;
+            contact.MobilePhone = null;
             contact.pc_ForceAddToGoogleGroup = false;
             contact.pc_Neighbourhood = null;
             contact.pc_WishesToBeActive = false;
@@ -252,6 +240,27 @@ namespace PC.PowerApps.Common.Repositories
         {
             bool isValidForGoogleSupporterGroup = contact is not null && CommonConstants.IsValidForGoogleSupporterGroupFunc(contact);
             return isValidForGoogleSupporterGroup;
+        }
+
+        public static void DeleteChangeHistory(Context context, Guid contactId)
+        {
+            EntityReference contactReference = new(Contact.EntityLogicalName, contactId);
+            Utils.DeleteRecordChangeHistory(context, contactReference);
+        }
+
+        public static void ScheduleDeleteChangeHistory(Context context, Contact contact)
+        {
+            if (contact.StatusCode == Contact_StatusCode.Active)
+            {
+                return;
+            }
+
+            DeleteContactChangeHistory deleteContactChangeHistory = new()
+            {
+                ContactId = contact.Id,
+                Context = context,
+            };
+            deleteContactChangeHistory.Schedule(allowDuplicates: false);
         }
     }
 }

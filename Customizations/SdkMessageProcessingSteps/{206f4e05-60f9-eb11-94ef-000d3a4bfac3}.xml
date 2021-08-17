@@ -7,7 +7,7 @@
   <PluginTypeId>7f97b433-a2fd-4574-8d53-48f09d788168</PluginTypeId>
   <PrimaryEntity>contact</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <FilteringAttributes>address1_city,address1_county,address1_country,address1_line1,address1_postalcode,address1_stateorprovince,description,emailaddress1,firstname,lastname,pc_debt,pc_forceaddtogooglegroup,pc_neighbourhood,pc_paidparticipationfee,pc_participationlevel,pc_personalidentitynumber,pc_requiredparticipationfee,pc_sentdebtreminderon,pc_sentsupporterwelcomeemailon,pc_wishestobeactive,statuscode</FilteringAttributes>
+  <FilteringAttributes>address1_city,address1_county,address1_country,address1_line1,address1_postalcode,address1_stateorprovince,description,firstname,lastname,pc_debt,pc_forceaddtogooglegroup,pc_neighbourhood,pc_paidparticipationfee,pc_participationlevel,pc_personalidentitynumber,pc_requiredparticipationfee,pc_sentdebtreminderon,pc_sentsupporterwelcomeemailon,pc_wishestobeactive,statuscode</FilteringAttributes>
   <InvocationSource>0</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>

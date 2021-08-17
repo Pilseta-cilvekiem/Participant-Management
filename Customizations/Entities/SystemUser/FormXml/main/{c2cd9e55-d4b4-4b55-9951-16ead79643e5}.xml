@@ -725,7 +725,7 @@
         labelwidth="115"
         celllabelalignment="Left"
         solutionaction="Added">
-        <rows></rows>
+        <rows />
       </header>
     </form>
     <LocalizedNames>

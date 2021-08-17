@@ -265,11 +265,11 @@
                         ordinalvalue="10000">
                         <labels>
                           <label
-                            description="How Wishes to Participate"
+                            description="How Wishes To Participate"
                             languagecode="1033"
                             solutionaction="Added" />
                           <label
-                            description="Apraksts"
+                            description="Kā vēlas piedalīties"
                             languagecode="1062"
                             solutionaction="Added" />
                         </labels>
