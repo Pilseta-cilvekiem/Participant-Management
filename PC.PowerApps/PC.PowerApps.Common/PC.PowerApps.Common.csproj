@@ -93,6 +93,7 @@
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
     <Compile Include="ScheduledJob.cs" />
+    <Compile Include="ScheduledJobs\DeleteContactChangeHistory.cs" />
     <Compile Include="ScheduledJobs\ImportTransactions.cs" />
     <Compile Include="ScheduledJobs\SynchronizeGoogleSupporterGroupMembersBase.cs" />
     <Compile Include="ScheduledJobs\UpdateContactParticipationLevels.cs" />

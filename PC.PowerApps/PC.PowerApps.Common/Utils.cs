@@ -177,5 +177,14 @@ namespace PC.PowerApps.Common
             string name = fullName.TakeFirst(maxLength);
             return name;
         }
+
+        public static void DeleteRecordChangeHistory(Context context, EntityReference entityReference)
+        {
+            DeleteRecordChangeHistoryRequest deleteRecordChangeHistoryRequest = new()
+            {
+                Target = entityReference,
+            };
+            _ = context.OrganizationService.Execute(deleteRecordChangeHistoryRequest);
+        }
     }
 }

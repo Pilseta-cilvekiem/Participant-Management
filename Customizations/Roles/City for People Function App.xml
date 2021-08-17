@@ -24,6 +24,9 @@
       name="prvDeleteNote"
       level="Global" />
     <RolePrivilege
+      name="prvDeleteRecordChangeHistory"
+      level="Global" />
+    <RolePrivilege
       name="prvReadActivity"
       level="Basic" />
     <RolePrivilege

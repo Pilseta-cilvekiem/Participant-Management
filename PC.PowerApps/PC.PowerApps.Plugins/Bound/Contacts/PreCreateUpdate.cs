@@ -18,11 +18,6 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
                 ContactRepository.SetDefaults(contact);
             }
 
-            if (context.GetIsAnyAttributeModified(c => c.pc_ParticipationLevel))
-            {
-                ContactRepository.UpdateStatusCode(contact);
-            }
-
             if (context.GetIsAnyAttributeModified(c => c.StatusCode))
             {
                 ContactRepository.ClearParticipantInfo(contact);

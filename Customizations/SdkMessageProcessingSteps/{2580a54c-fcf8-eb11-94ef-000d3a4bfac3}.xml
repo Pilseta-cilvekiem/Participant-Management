@@ -7,7 +7,7 @@
   <PluginTypeId>8d42174c-6709-45ad-a576-7513846d1316</PluginTypeId>
   <PrimaryEntity>contact</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <FilteringAttributes>emailaddress1,pc_forceaddtogooglegroup,pc_paidparticipationfee,pc_participationlevel,pc_wishestobeactive</FilteringAttributes>
+  <FilteringAttributes>emailaddress1,pc_forceaddtogooglegroup,pc_paidparticipationfee,pc_participationlevel,pc_wishestobeactive,statuscode</FilteringAttributes>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>

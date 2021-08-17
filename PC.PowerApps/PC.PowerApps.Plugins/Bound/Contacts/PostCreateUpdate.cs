@@ -18,9 +18,14 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
                 ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
             }
 
-            if (context.GetIsAnyAttributeModified(c => new { c.pc_ParticipationLevel }))
+            if (context.GetIsAnyAttributeModified(c => c.pc_ParticipationLevel))
             {
                 ContactRepository.SendWelcomeEmail(context, contact);
+            }
+
+            if (context.GetIsAnyAttributeModified(c => c.StatusCode))
+            {
+                ContactRepository.ScheduleDeleteChangeHistory(context, contact);
             }
         }
     }

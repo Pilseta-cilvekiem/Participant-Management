@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Xrm.Sdk;
 using PC.PowerApps.ClientBase;
 using PC.PowerApps.Common;
+using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Repositories;
 using System;
 using System.Diagnostics;
@@ -163,12 +165,14 @@ namespace PC.PowerApps.TestConsoleApp
             ////List<Period> period = periods1[0].Subtract(periods2[0]);
             //List<Period> periods3 = Period.Subtract(periods1, periods2);
 
-            ContactRepository.UpdateParticipationLevels(Context);
+            //ContactRepository.UpdateParticipationLevels(Context);
 
             //Stopwatch stopwatch = Stopwatch.StartNew();
             //ResourceManager resourceManager = new(typeof(Resource));
             //throw Context.CreateException(nameof(Resource.AttributeCannotBeEmpty), "aaa", "bbb");
             //Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
+
+            Utils.DeleteRecordChangeHistory(Context, new EntityReference(Contact.EntityLogicalName, new Guid("b59490aa-40ed-eb11-bacb-000d3a3a2279")));
         }
     }
 }

@@ -7,7 +7,7 @@
   <PluginTypeId>4c45d776-6531-4219-85f9-04977a141661</PluginTypeId>
   <PrimaryEntity>contact</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
-  <FilteringAttributes>pc_participationlevel,statuscode</FilteringAttributes>
+  <FilteringAttributes>statuscode</FilteringAttributes>
   <InvocationSource>1</InvocationSource>
   <Mode>0</Mode>
   <Rank>1</Rank>

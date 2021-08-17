@@ -22,7 +22,7 @@ namespace PC.PowerApps.Common.Repositories
                 AnnotationId = annotation.Id,
                 Context = context,
             };
-            importSwedbankTransactions.Schedule(allowDuplicates: true);
+            importSwedbankTransactions.Schedule(allowDuplicates: false);
         }
     }
 }

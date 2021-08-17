@@ -329,10 +329,10 @@
           <MaxLength>2000</MaxLength>
           <displaynames>
             <displayname
-              description="How Wishes to Participate"
+              description="How Wishes To Participate"
               languagecode="1033" />
             <displayname
-              description="Apraksts"
+              description="Kā vēlas piedalīties"
               languagecode="1062" />
           </displaynames>
           <Descriptions>
@@ -349,7 +349,7 @@
           <Type>nvarchar</Type>
           <Name>emailaddress1</Name>
           <LogicalName>emailaddress1</LogicalName>
-          <RequiredLevel>required</RequiredLevel>
+          <RequiredLevel>none</RequiredLevel>
           <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>inactive</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
