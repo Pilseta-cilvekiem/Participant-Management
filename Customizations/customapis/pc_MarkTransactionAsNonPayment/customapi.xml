@@ -5,7 +5,7 @@
   <bindingtype>1</bindingtype>
   <boundentitylogicalname>pc_transaction</boundentitylogicalname>
   <description
-    default="Atzīmēt transakciju kā ne maksājumu">
+    default="Mark Transaction as Non-Payment">
     <label
       description="Mark Transaction as Non-Payment"
       languagecode="1033" />
@@ -14,7 +14,7 @@
       languagecode="1062" />
   </description>
   <displayname
-    default="Atzīmēt transakciju kā ne maksājumu">
+    default="Mark Transaction as Non-Payment">
     <label
       description="Mark Transaction as Non-Payment"
       languagecode="1033" />
