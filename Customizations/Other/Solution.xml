@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImportExportXml
-  version="9.2.21073.140"
+  version="9.2.21074.129"
   SolutionPackageVersion="9.2"
   languagecode="1033"
   generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -470,8 +470,8 @@
       <MissingDependency>
         <Required
           type="26"
-          schemaName="Visas kontaktpersonas"
-          displayName="Visas kontaktpersonas"
+          schemaName="All Contacts"
+          displayName="All Contacts"
           parentSchemaName="contact"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
@@ -480,8 +480,8 @@
         </Required>
         <Dependent
           type="26"
-          schemaName="Visas kontaktpersonas"
-          displayName="Visas kontaktpersonas"
+          schemaName="All Contacts"
+          displayName="All Contacts"
           parentSchemaName="contact"
           parentDisplayName="Contact"
           id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" />
@@ -489,20 +489,20 @@
       <MissingDependency>
         <Required
           type="60"
-          displayName="E-pasts"
+          displayName="Email"
           parentDisplayName="Email"
           solution="msdynce_Activities (9.0.1.2033)"
           id="{0d1e47ff-12b2-4f53-9090-bee951b98cb4}" />
         <Dependent
           type="60"
-          displayName="E-pasts"
+          displayName="Email"
           parentDisplayName="Email"
           id="{0d1e47ff-12b2-4f53-9090-bee951b98cb4}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
-          displayName="Kontaktpersona"
+          displayName="Contact"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}">
@@ -510,14 +510,14 @@
         </Required>
         <Dependent
           type="60"
-          displayName="Kontaktpersona"
+          displayName="Contact"
           parentDisplayName="Contact"
           id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
-          displayName="Kontaktpersonas atjaunināšana"
+          displayName="Update Contact"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{26843818-6508-4afe-9342-5fae2ebf15ca}">
@@ -525,13 +525,14 @@
         </Required>
         <Dependent
           type="60"
-          displayName="Kontaktpersonas atjaunināšana"
+          displayName="Update Contact"
           parentDisplayName="Contact"
           id="{26843818-6508-4afe-9342-5fae2ebf15ca}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
+          displayName="account contact card"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
@@ -539,12 +540,14 @@
         </Required>
         <Dependent
           type="60"
+          displayName="account contact card"
           parentDisplayName="Contact"
           id="{29de27bc-a257-4f29-99cf-bab4a84e688f}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
+          displayName="Contact Quick Create"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}">
@@ -552,12 +555,14 @@
         </Required>
         <Dependent
           type="60"
+          displayName="Contact Quick Create"
           parentDisplayName="Contact"
           id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
+          displayName="contact card"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}">
@@ -565,13 +570,14 @@
         </Required>
         <Dependent
           type="60"
+          displayName="contact card"
           parentDisplayName="Contact"
           id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
-          displayName="Informācija"
+          displayName="Information"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}">
@@ -579,13 +585,14 @@
         </Required>
         <Dependent
           type="60"
-          displayName="Informācija"
+          displayName="Information"
           parentDisplayName="Contact"
           id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
+          displayName="Contact Card form"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{bc0f68dd-a4b1-4a8f-bed3-c8f5db2f89cf}">
@@ -593,12 +600,14 @@
         </Required>
         <Dependent
           type="60"
+          displayName="Contact Card form"
           parentDisplayName="Contact"
           id="{bc0f68dd-a4b1-4a8f-bed3-c8f5db2f89cf}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
+          displayName="Contact Quick Form"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}">
@@ -606,12 +615,14 @@
         </Required>
         <Dependent
           type="60"
+          displayName="Contact Quick Form"
           parentDisplayName="Contact"
           id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="60"
+          displayName="Contact Reference Panel"
           parentDisplayName="Contact"
           solution="msdynce_AppCommon (9.0.4.0066)"
           id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}">
@@ -619,6 +630,7 @@
         </Required>
         <Dependent
           type="60"
+          displayName="Contact Reference Panel"
           parentDisplayName="Contact"
           id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}" />
       </MissingDependency>
@@ -632,9 +644,9 @@
         </Required>
         <Dependent
           type="60"
-          displayName="Kontaktpersona"
+          displayName="Information"
           parentDisplayName="Contact"
-          id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+          id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
       </MissingDependency>
       <MissingDependency>
         <Required
@@ -646,9 +658,9 @@
         </Required>
         <Dependent
           type="60"
-          displayName="Informācija"
+          displayName="Kontaktpersona"
           parentDisplayName="Contact"
-          id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
+          id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
       </MissingDependency>
       <MissingDependency>
         <Required
@@ -659,17 +671,17 @@
         <Dependent
           type="80"
           schemaName="pc_CityForPeople"
-          displayName="Pilsēta cilvēkiem" />
+          displayName="City for People" />
       </MissingDependency>
       <MissingDependency>
         <Required
           type="66"
           schemaName="MscrmControls.CardFeedContainer.CardFeedContainer"
           displayName="MscrmControls.CardFeedContainer.CardFeedContainer"
-          solution="BaseCustomControlsCore (9.0.2107.3008)" />
+          solution="BaseCustomControlsCore (9.0.2107.4011)" />
         <Dependent
           type="60"
-          displayName="Kontaktpersona"
+          displayName="Contact"
           parentDisplayName="Contact"
           id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
@@ -678,7 +690,7 @@
           type="66"
           schemaName="MscrmControls.CardFeedContainer.CardFeedContainer"
           displayName="MscrmControls.CardFeedContainer.CardFeedContainer"
-          solution="BaseCustomControlsCore (9.0.2107.3008)" />
+          solution="BaseCustomControlsCore (9.0.2107.4011)" />
         <Dependent
           type="60"
           displayName="Kontaktpersona"
@@ -690,7 +702,7 @@
           type="66"
           schemaName="MscrmControls.FieldControls.ToggleControl"
           displayName="MscrmControls.FieldControls.ToggleControl"
-          solution="BaseCustomControlsCore (9.0.2107.3008)" />
+          solution="BaseCustomControlsCore (9.0.2107.4011)" />
         <Dependent
           type="60"
           displayName="Kontaktpersona"
@@ -702,10 +714,10 @@
           type="66"
           schemaName="MscrmControls.FieldControls.ToggleControl"
           displayName="MscrmControls.FieldControls.ToggleControl"
-          solution="BaseCustomControlsCore (9.0.2107.3008)" />
+          solution="BaseCustomControlsCore (9.0.2107.4011)" />
         <Dependent
           type="60"
-          displayName="Informācija"
+          displayName="Information"
           parentDisplayName="Settings"
           id="{e2520334-c210-46a4-81ab-2ebabd648e46}" />
       </MissingDependency>

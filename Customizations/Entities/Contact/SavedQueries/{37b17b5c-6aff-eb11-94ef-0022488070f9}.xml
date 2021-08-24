@@ -20,9 +20,6 @@
           <cell
             name="fullname"
             width="200" />
-          <cell
-            name="statuscode"
-            width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -38,13 +35,18 @@
             name="fullname" />
           <attribute
             name="contactid" />
-          <attribute
-            name="statuscode" />
+          <order
+            attribute="fullname"
+            descending="false" />
           <filter
             type="and">
             <condition
               attribute="pc_participationlevel"
               operator="null" />
+            <condition
+              attribute="statecode"
+              operator="eq"
+              value="0" />
           </filter>
         </entity>
       </fetch>
@@ -52,10 +54,10 @@
     <IntroducedVersion>1.0.0.2</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName
-        description="Non-Participants"
+        description="Active Non-Participants"
         languagecode="1033" />
       <LocalizedName
-        description="Nedalībnieki"
+        description="Aktīvie nedalībnieki"
         languagecode="1062" />
     </LocalizedNames>
   </savedquery>
