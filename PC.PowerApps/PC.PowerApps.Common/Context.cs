@@ -2,43 +2,38 @@
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
+using Newtonsoft.Json;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Resources;
 
 namespace PC.PowerApps.Common
 {
     public abstract class Context : IDisposable
     {
         private const int EnglishCultureId = 1033;
-        private const int LatvianCultureId = 1062;
-        private static readonly Guid LatvianResourceId = new Guid("3429D498-E63F-EC11-8C62-6045BD874996");
 
         private bool disposedValue;
         private readonly Lazy<UserSettings> lazyInitiatingUserSettings;
-        private readonly Lazy<Dictionary<string, string>> lazyLatvianResource;
+        private readonly Lazy<Dictionary<string, string>> lazyResource;
         private readonly Lazy<Organization> lazyOrganization;
         private readonly Lazy<ServiceContext> lazyServiceContext;
         private readonly Lazy<pc_Settings> lazySettings;
         private readonly Lazy<TimeZoneInfo> lazyTimeZoneInfo = new(() => TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
         private readonly Lazy<int> lazyUILanguageId;
         private readonly Lazy<SystemUser> lazyUser;
-        private readonly ResourceManager resourceManager;
 
         protected abstract Guid InitiatingUserId { get; }
         private UserSettings InitiatingUserSettings => lazyInitiatingUserSettings.Value;
-        private Dictionary<string, string> LatvianResource => lazyLatvianResource.Value;
         public abstract ILogger Logger { get; }
         protected Organization Organization => lazyOrganization.Value;
         private CultureInfo OrganizationCultureInfo { get; }
         public abstract IOrganizationService OrganizationService { get; }
+        private Dictionary<string, string> Resource => lazyResource.Value;
         public ServiceContext ServiceContext => lazyServiceContext.Value;
         public pc_Settings Settings => lazySettings.Value;
         private TimeZoneInfo TimeZoneInfo => lazyTimeZoneInfo.Value;
@@ -50,21 +45,18 @@ namespace PC.PowerApps.Common
         {
             lazyUILanguageId = new(() => InitiatingUserSettings?.UILanguageId ?? EnglishCultureId);
             lazyInitiatingUserSettings = new(() => ServiceContext.Retrieve<UserSettings>(InitiatingUserId, isOptional: true));
-            lazyLatvianResource = new(() =>
+            lazyResource = new(() =>
             {
-                WebResource webResource = ServiceContext.Retrieve<WebResource>(LatvianResourceId);
-                byte[] fileBytes = Convert.FromBase64String(webResource.Content);
-                using MemoryStream memoryStream = new();
-                memoryStream.Write(fileBytes, 0, fileBytes.Length);
-                memoryStream.Position = 0;
-                using ResXResourceReader resXResourceReader = new(memoryStream);
-                IDictionaryEnumerator dictionaryEnumerator = resXResourceReader.GetEnumerator();
-                Dictionary<string, string> latvianResource = new();
-                while (dictionaryEnumerator.MoveNext())
-                {
-                    latvianResource[(string)dictionaryEnumerator.Key] = (string)dictionaryEnumerator.Value;
-                }
-                return latvianResource;
+                string resxWebResourceName = $"pc_/Resource.{UILanguageId}.resx";
+                WebResource resxWebResource = ServiceContext.WebResourceSet
+                    .Where(wr => wr.Name == resxWebResourceName)
+                    .Select(wr => new WebResource
+                    {
+                        ContentJson = wr.ContentJson,
+                    })
+                    .TakeSingle();
+                Dictionary<string, string> resource = JsonConvert.DeserializeObject<Dictionary<string, string>>(resxWebResource.ContentJson);
+                return resource;
             });
             lazyOrganization = new(() => ServiceContext.OrganizationSet.TakeSingle());
             lazyServiceContext = new(() => new(OrganizationService));
@@ -73,7 +65,6 @@ namespace PC.PowerApps.Common
                 .TakeFirst("Active Settings do not exist."));
             lazyUser = new(() => ServiceContext.Retrieve<SystemUser>(UserId));
             OrganizationCultureInfo = CultureInfo.GetCultureInfo("lv-LV");
-            resourceManager = new(typeof(Resource));
         }
 
         public DateTime GetCurrentOrganizationTime()
@@ -100,7 +91,7 @@ namespace PC.PowerApps.Common
             List<string> emptyAttributeLogicalNames = attributeLogicalNamesToCheck
                 .Where(aln => Utils.IsEmptyValue(aln))
                 .ToList();
-            EnsureNoAttributes(entity.LogicalName, emptyAttributeLogicalNames, nameof(Resource.AttributeCannotBeEmpty), nameof(Resource.AttributesCannotBeEmpty));
+            EnsureNoAttributes(entity.LogicalName, emptyAttributeLogicalNames, nameof(Common.Resource.AttributeCannotBeEmpty), nameof(Common.Resource.AttributesCannotBeEmpty));
         }
 
         public string Format(Money money)
@@ -115,24 +106,13 @@ namespace PC.PowerApps.Common
             return dateString;
         }
 
-        public InvalidPluginExecutionException CreateException(string resourceName, params string[] arguments)
+        public InvalidPluginExecutionException CreateException(string key, params string[] args)
         {
-            string format;
-            switch (UILanguageId)
+            if (!Resource.TryGetValue(key, out string format))
             {
-                case LatvianCultureId:
-                    if (!LatvianResource.TryGetValue(resourceName, out format))
-                    {
-                        format = resourceManager.GetString(resourceName);
-                    }
-                    break;
-
-                default:
-                    format = resourceManager.GetString(resourceName);
-                    break;
-            };
-
-            string message = string.Format(format, arguments);
+                format = key;
+            }
+            string message = string.Format(format, args);
             InvalidPluginExecutionException exception = new InvalidPluginExecutionException(message);
             return exception;
         }
