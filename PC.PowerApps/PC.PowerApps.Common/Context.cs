@@ -19,7 +19,7 @@ namespace PC.PowerApps.Common
     {
         private const int EnglishCultureId = 1033;
         private const int LatvianCultureId = 1062;
-        private static readonly Guid LatvianResourceId = new Guid("95db7ae0-06fd-eb11-94ef-0022488070f9");
+        private static readonly Guid LatvianResourceId = new Guid("3429D498-E63F-EC11-8C62-6045BD874996");
 
         private bool disposedValue;
         private readonly Lazy<UserSettings> lazyInitiatingUserSettings;

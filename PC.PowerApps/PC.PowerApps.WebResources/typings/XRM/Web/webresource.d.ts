@@ -26,16 +26,6 @@ interface WebResource_Base extends WebEntity {
   webresourcetype?: webresource_webresourcetype | null;
 }
 interface WebResource_Relationships {
-  ContentFileRef?: FileAttachment_Result | null;
-  ContentJsonFileRef?: FileAttachment_Result | null;
-  lk_theme_logoid?: Theme_Result[] | null;
-  solution_configuration_webresource?: Solution_Result[] | null;
-  userentityinstancedata_webresource?: UserEntityInstanceData_Result[] | null;
-  webresource_FileAttachments?: FileAttachment_Result[] | null;
-  webresource_appaction_iconwebresourceid?: appaction_Result[] | null;
-  webresource_appaction_onclickeventjavascriptwebresourceid?: appaction_Result[] | null;
-  webresource_savedqueryvisualizations?: SavedQueryVisualization_Result[] | null;
-  webresource_userqueryvisualizations?: UserQueryVisualization_Result[] | null;
 }
 interface WebResource extends WebResource_Base, WebResource_Relationships {
 }
@@ -108,21 +98,6 @@ interface WebResource_Filter {
   webresourcetype: webresource_webresourcetype;
 }
 interface WebResource_Expand {
-  ContentFileRef: WebExpand<WebResource_Expand, FileAttachment_Select, FileAttachment_Filter, { ContentFileRef: FileAttachment_Result }>;
-  ContentJsonFileRef: WebExpand<WebResource_Expand, FileAttachment_Select, FileAttachment_Filter, { ContentJsonFileRef: FileAttachment_Result }>;
-  createdby: WebExpand<WebResource_Expand, SystemUser_Select, SystemUser_Filter, { createdby: SystemUser_Result }>;
-  createdonbehalfby: WebExpand<WebResource_Expand, SystemUser_Select, SystemUser_Filter, { createdonbehalfby: SystemUser_Result }>;
-  lk_theme_logoid: WebExpand<WebResource_Expand, Theme_Select, Theme_Filter, { lk_theme_logoid: Theme_Result[] }>;
-  modifiedby: WebExpand<WebResource_Expand, SystemUser_Select, SystemUser_Filter, { modifiedby: SystemUser_Result }>;
-  modifiedonbehalfby: WebExpand<WebResource_Expand, SystemUser_Select, SystemUser_Filter, { modifiedonbehalfby: SystemUser_Result }>;
-  organizationid: WebExpand<WebResource_Expand, Organization_Select, Organization_Filter, { organizationid: Organization_Result }>;
-  solution_configuration_webresource: WebExpand<WebResource_Expand, Solution_Select, Solution_Filter, { solution_configuration_webresource: Solution_Result[] }>;
-  userentityinstancedata_webresource: WebExpand<WebResource_Expand, UserEntityInstanceData_Select, UserEntityInstanceData_Filter, { userentityinstancedata_webresource: UserEntityInstanceData_Result[] }>;
-  webresource_FileAttachments: WebExpand<WebResource_Expand, FileAttachment_Select, FileAttachment_Filter, { webresource_FileAttachments: FileAttachment_Result[] }>;
-  webresource_appaction_iconwebresourceid: WebExpand<WebResource_Expand, appaction_Select, appaction_Filter, { webresource_appaction_iconwebresourceid: appaction_Result[] }>;
-  webresource_appaction_onclickeventjavascriptwebresourceid: WebExpand<WebResource_Expand, appaction_Select, appaction_Filter, { webresource_appaction_onclickeventjavascriptwebresourceid: appaction_Result[] }>;
-  webresource_savedqueryvisualizations: WebExpand<WebResource_Expand, SavedQueryVisualization_Select, SavedQueryVisualization_Filter, { webresource_savedqueryvisualizations: SavedQueryVisualization_Result[] }>;
-  webresource_userqueryvisualizations: WebExpand<WebResource_Expand, UserQueryVisualization_Select, UserQueryVisualization_Filter, { webresource_userqueryvisualizations: UserQueryVisualization_Result[] }>;
 }
 interface WebResource_FormattedResult {
   componentstate_formatted?: string;
@@ -145,23 +120,8 @@ interface WebResource_Result extends WebResource_Base, WebResource_Relationships
   organizationid_guid: string | null;
 }
 interface WebResource_RelatedOne {
-  ContentFileRef: WebMappingRetrieve<FileAttachment_Select,FileAttachment_Expand,FileAttachment_Filter,FileAttachment_Fixed,FileAttachment_Result,FileAttachment_FormattedResult>;
-  ContentJsonFileRef: WebMappingRetrieve<FileAttachment_Select,FileAttachment_Expand,FileAttachment_Filter,FileAttachment_Fixed,FileAttachment_Result,FileAttachment_FormattedResult>;
-  createdby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  createdonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  modifiedby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  modifiedonbehalfby: WebMappingRetrieve<SystemUser_Select,SystemUser_Expand,SystemUser_Filter,SystemUser_Fixed,SystemUser_Result,SystemUser_FormattedResult>;
-  organizationid: WebMappingRetrieve<Organization_Select,Organization_Expand,Organization_Filter,Organization_Fixed,Organization_Result,Organization_FormattedResult>;
 }
 interface WebResource_RelatedMany {
-  lk_theme_logoid: WebMappingRetrieve<Theme_Select,Theme_Expand,Theme_Filter,Theme_Fixed,Theme_Result,Theme_FormattedResult>;
-  solution_configuration_webresource: WebMappingRetrieve<Solution_Select,Solution_Expand,Solution_Filter,Solution_Fixed,Solution_Result,Solution_FormattedResult>;
-  userentityinstancedata_webresource: WebMappingRetrieve<UserEntityInstanceData_Select,UserEntityInstanceData_Expand,UserEntityInstanceData_Filter,UserEntityInstanceData_Fixed,UserEntityInstanceData_Result,UserEntityInstanceData_FormattedResult>;
-  webresource_FileAttachments: WebMappingRetrieve<FileAttachment_Select,FileAttachment_Expand,FileAttachment_Filter,FileAttachment_Fixed,FileAttachment_Result,FileAttachment_FormattedResult>;
-  webresource_appaction_iconwebresourceid: WebMappingRetrieve<appaction_Select,appaction_Expand,appaction_Filter,appaction_Fixed,appaction_Result,appaction_FormattedResult>;
-  webresource_appaction_onclickeventjavascriptwebresourceid: WebMappingRetrieve<appaction_Select,appaction_Expand,appaction_Filter,appaction_Fixed,appaction_Result,appaction_FormattedResult>;
-  webresource_savedqueryvisualizations: WebMappingRetrieve<SavedQueryVisualization_Select,SavedQueryVisualization_Expand,SavedQueryVisualization_Filter,SavedQueryVisualization_Fixed,SavedQueryVisualization_Result,SavedQueryVisualization_FormattedResult>;
-  webresource_userqueryvisualizations: WebMappingRetrieve<UserQueryVisualization_Select,UserQueryVisualization_Expand,UserQueryVisualization_Filter,UserQueryVisualization_Fixed,UserQueryVisualization_Result,UserQueryVisualization_FormattedResult>;
 }
 interface WebEntitiesRetrieve {
   webresourceset: WebMappingRetrieve<WebResource_Select,WebResource_Expand,WebResource_Filter,WebResource_Fixed,WebResource_Result,WebResource_FormattedResult>;

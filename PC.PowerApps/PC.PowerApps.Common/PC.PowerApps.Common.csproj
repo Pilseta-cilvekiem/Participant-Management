@@ -108,7 +108,7 @@
     <Content Include="Entities\DLaB.EarlyBoundGenerator.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource.lv.resx">
+    <None Include="Resource.1062.resx">
       <LastGenOutput>Resource.lv.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>

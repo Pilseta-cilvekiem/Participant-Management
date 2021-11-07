@@ -118,78 +118,78 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AdjacentParticipationAfter" xml:space="preserve">
-    <value>There is another Participation for this Contact with the same Level starting one day after.</value>
+    <value>Šim Kontaktam eksistē cita Dalība ar šo pašu līmeni, kas sākas vienu dienu pēc.</value>
   </data>
   <data name="AdjacentParticipationBefore" xml:space="preserve">
-    <value>There is another Participation for this Contact with the same Level ending one day before.</value>
+    <value>Šim Kontaktam eksistē cita Dalība ar šo pašu līmeni, kas beidzas vienu dienu pirms.</value>
   </data>
   <data name="AnotherParticipation" xml:space="preserve">
-    <value>There is another Participation for this Contact within this period.</value>
+    <value>Šim Kontaktam eksistē cita Dalība šajā pašā periodā.</value>
   </data>
   <data name="AnotherParticipationFeeExemption" xml:space="preserve">
-    <value>There is another Participation Fee Exemption for this Contact within the same period.</value>
+    <value>Šim Kontaktam eksistē cits Atbrīvojums no dalībnieka naudas šajā pašā periodā.</value>
   </data>
   <data name="AnotherParticipationFeeRule" xml:space="preserve">
-    <value>There is another Participation Fee Rule within the same period.</value>
+    <value>Eksistē cits Dalībnieku naudas noteikums šajā pašā periodā.</value>
   </data>
   <data name="AnotherSettings" xml:space="preserve">
-    <value>There are already another active Settings.</value>
+    <value>Eksistē citi aktīvie Uzstādījumi.</value>
   </data>
   <data name="AttributeCannotBeEmpty" xml:space="preserve">
-    <value>{0} field {1} cannot be empty.</value>
+    <value>Tabulas "{0}" lauks {1} nevar būt tukšs.</value>
   </data>
   <data name="AttributeIsReadOnly" xml:space="preserve">
-    <value>{0} field {1} is read-only.</value>
+    <value>Tabulas "{0}" lauku {1} var tikai lasīt.</value>
   </data>
   <data name="AttributesAreReadOnly" xml:space="preserve">
-    <value>{0} fields {1} are read-only.</value>
+    <value>Tabulas "{0}" laukus {1} var tikai lasīt.</value>
   </data>
   <data name="AttributesCannotBeEmpty" xml:space="preserve">
-    <value>{0} fields {1} cannot be empty.</value>
+    <value>Tabulas "{0}" lauki {1} nevar būt tukši.</value>
   </data>
   <data name="CantDeleteScheduledJobInProgress" xml:space="preserve">
-    <value>Cannot delete Scheduled Job with Status Reason In Progress.</value>
+    <value>Nevar izdzēst Plānoto uzdevumu ar Statusa iemeslu Izpildās.</value>
   </data>
   <data name="CantManuallyCreateTransaction" xml:space="preserve">
-    <value>Cannot manually create a Transaction.</value>
+    <value>Nevar manuāli izveidot Transakciju.</value>
   </data>
   <data name="MarkingTransactionAsNonPayment" xml:space="preserve">
-    <value>Marking the transaction as non-payment...</value>
+    <value>Atzīmēju transakciju kā ne maksājumu...</value>
   </data>
   <data name="MarkingTransactionsAsNonPayment" xml:space="preserve">
-    <value>Marking {0} of {1} transactions as non-payment...</value>
+    <value>Atzīmēju {0}. no {1} transakcijām kā ne maksājumu...</value>
   </data>
   <data name="ParticipationFeeExemptionFromGreaterThanTill" xml:space="preserve">
-    <value>Participation Fee Exemption From must be less than or equal to Till.</value>
+    <value>Atbrīvojuma no dalībnieka naudas No jābūt mazākam vai vienādam ar Līdz.</value>
   </data>
   <data name="ParticipationFeeRuleFromGreaterThanTill" xml:space="preserve">
-    <value>Participation Fee Rule From must be less than or equal to Till.</value>
+    <value>Dalībnieku naudas noteikuma No jābūt mazākam vai vienādam ar Līdz.</value>
   </data>
   <data name="ParticipationFeeRuleFromNotFirstDayOfMonth" xml:space="preserve">
-    <value>Participation Fee Rule From must be a first day of the month.</value>
+    <value>Dalībnieku naudas noteikuma No jābūt mēneša pirmajai dienai.</value>
   </data>
   <data name="ParticipationFeeRuleTillNotLastDayOfMonth" xml:space="preserve">
-    <value>Participation Fee Rule Till must be a last day of the month.</value>
+    <value>Dalībnieku naudas noteikuma Līdz jābūt mēneša pēdējai dienai.</value>
   </data>
   <data name="ParticipationFromGreaterThanTill" xml:space="preserve">
-    <value>Participation From must be less than or equal to Till.</value>
+    <value>Dalības No jābūt mazākam vai vienādam par Līdz.</value>
   </data>
   <data name="ProcessingTransaction" xml:space="preserve">
-    <value>Processing the transaction...</value>
+    <value>Procesēju transakciju...</value>
   </data>
   <data name="ProcessingTransactions" xml:space="preserve">
-    <value>Processing {0} of {1} transactions...</value>
+    <value>Procesēju {0}. no {1} transakcijām...</value>
   </data>
   <data name="ScheduledJobPostponeUntilLessThanExecuteOn" xml:space="preserve">
-    <value>Scheduled Job Postpone Until must be greater than or equal to Execute On.</value>
+    <value>Plānotā uzdevuma Atlikt līdz jābūt lielākam vai vienādam par Izpildīt.</value>
   </data>
   <data name="SendingDebtRemindersToContacts" xml:space="preserve">
-    <value>Sending a debt reminder to {0} of {1} contacts...</value>
+    <value>Nosūtu atgādinājumu par parādu {0}. no {1} kontaktiem...</value>
   </data>
   <data name="SendingDebtReminderToContact" xml:space="preserve">
-    <value>Sending a debt reminder to the contact...</value>
+    <value>Nosūtu atgādinājumu par parādu kontaktam...</value>
   </data>
   <data name="TransactionRemainingAmountNegative" xml:space="preserve">
-    <value>Sum of Transaction Payment Total Amount and Non-Payment Amount cannot be greater than Amount.</value>
+    <value>Transakcijas Maksājumu kopsummas un Nemaksājumu summas summa nevar būt lielāka par Summu.</value>
   </data>
 </root>

@@ -22,7 +22,7 @@ module.exports = {
                 loader: "exports-loader",
                 options: {
                     exports: [
-                        "XrmQuery",
+                        "Filter", "XrmQuery",
                     ],
                 },
             },
@@ -34,6 +34,7 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
+            Filter: ["dg.xrmquery.web", "Filter"],
             XrmQuery: ["dg.xrmquery.web", "XrmQuery"],
         })
     ],

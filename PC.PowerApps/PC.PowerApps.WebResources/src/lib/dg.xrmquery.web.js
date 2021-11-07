@@ -403,6 +403,9 @@ var XQW;
         });
     }
     XQW.promisifyCallback = promisifyCallback;
+    var addHeadersToRequestObject = function (headers) { return function (req) {
+        headers.forEach(function (header) { return req.setRequestHeader(header.type, header.value); });
+    }; };
     var LinkHelper = /** @class */ (function () {
         function LinkHelper(toReturn, successCallback, errorCallback) {
             var _this = this;
@@ -419,23 +422,23 @@ var XQW;
                 }
             };
         }
-        LinkHelper.prototype.followLink = function (linkUrl, expandKeys, valPlacer) {
+        LinkHelper.prototype.followLink = function (linkUrl, expandKeys, additionalHeaders, valPlacer) {
             var _this = this;
             this.performingCallback();
             XrmQuery.request("GET", linkUrl, null, function (req) {
                 var resp = parseRetrievedData(req);
-                PageLinkHelper.followLinks(resp, expandKeys, function (vals) {
+                PageLinkHelper.followLinks(resp, expandKeys, additionalHeaders, function (vals) {
                     valPlacer(vals);
                     _this.callbackReceived();
                 }, _this.errorCallback);
             }, function (err) {
                 _this.callbackReceived();
                 _this.errorCallback(err);
-            });
+            }, addHeadersToRequestObject(additionalHeaders));
         };
-        LinkHelper.prototype.populateRecord = function (rec, expandKeys) {
+        LinkHelper.prototype.populateRecord = function (rec, expandKeys, additionalHeaders) {
             this.performingCallback();
-            EntityLinkHelper.followLinks(rec, expandKeys, this.callbackReceived, this.errorCallback);
+            EntityLinkHelper.followLinks(rec, expandKeys, additionalHeaders, this.callbackReceived, this.errorCallback);
         };
         LinkHelper.prototype.allSent = function () {
             if (!this.isDoingWork)
@@ -450,13 +453,13 @@ var XQW;
     }());
     var EntityLinkHelper = /** @class */ (function (_super) {
         __extends(EntityLinkHelper, _super);
-        function EntityLinkHelper(rec, expandKeys, successCallback, errorCallback) {
+        function EntityLinkHelper(rec, expandKeys, additionalHeaders, successCallback, errorCallback) {
             var _this = _super.call(this, rec, successCallback, errorCallback) || this;
             expandKeys.forEach(function (exp) {
                 var linkUrl = rec[exp.linkKey];
                 if (linkUrl) {
                     delete rec[exp.linkKey];
-                    _this.followLink(linkUrl, [], function (vals) {
+                    _this.followLink(linkUrl, [], additionalHeaders, function (vals) {
                         rec[exp.arrKey] = rec[exp.arrKey].concat(vals);
                     });
                 }
@@ -464,13 +467,13 @@ var XQW;
             _this.allSent();
             return _this;
         }
-        EntityLinkHelper.followLinks = function (rec, expandKeys, successCallback, errorCallback) {
+        EntityLinkHelper.followLinks = function (rec, expandKeys, additionalHeaders, successCallback, errorCallback) {
             if (expandKeys.length == 0)
                 return successCallback(rec);
             if (isStringArray(expandKeys)) {
                 expandKeys = expandKeys.map(function (k) { return ({ arrKey: k, linkKey: k + NEXT_LINK_ID }); });
             }
-            return new EntityLinkHelper(rec, expandKeys, successCallback, errorCallback);
+            return new EntityLinkHelper(rec, expandKeys, additionalHeaders, successCallback, errorCallback);
         };
         return EntityLinkHelper;
     }(LinkHelper));
@@ -479,37 +482,37 @@ var XQW;
      */
     var PageLinkHelper = /** @class */ (function (_super) {
         __extends(PageLinkHelper, _super);
-        function PageLinkHelper(obj, expandKeys, successCallback, errorCallback) {
+        function PageLinkHelper(obj, expandKeys, additionalHeaders, successCallback, errorCallback) {
             var _this = _super.call(this, obj.value, successCallback, errorCallback) || this;
             var nextPage = obj["@odata.nextLink"];
             if (nextPage) {
-                _this.followLink(nextPage, expandKeys, function (vals) {
+                _this.followLink(nextPage, expandKeys, additionalHeaders, function (vals) {
                     _this.toReturn = _this.toReturn.concat(vals);
                 });
             }
             if (expandKeys.length > 0) {
-                obj.value.forEach(function (r) { return _this.populateRecord(r, expandKeys); });
+                obj.value.forEach(function (r) { return _this.populateRecord(r, expandKeys, additionalHeaders); });
             }
             _this.allSent();
             return _this;
         }
-        PageLinkHelper.followLinks = function (obj, expandKeys, successCallback, errorCallback) {
+        PageLinkHelper.followLinks = function (obj, expandKeys, additionalHeaders, successCallback, errorCallback) {
             if (!obj["@odata.nextLink"] && (obj.value.length == 0 || expandKeys.length == 0))
                 return successCallback(obj.value);
             if (expandKeys.length == 0) {
-                return new PageLinkHelper(obj, [], successCallback, errorCallback);
+                return new PageLinkHelper(obj, [], additionalHeaders, successCallback, errorCallback);
             }
             if (isStringArray(expandKeys)) {
                 expandKeys = expandKeys.map(function (k) { return ({ arrKey: k, linkKey: k + NEXT_LINK_ID }); });
             }
             if (obj.value.length == 0) {
-                return new PageLinkHelper(obj, expandKeys, successCallback, errorCallback);
+                return new PageLinkHelper(obj, expandKeys, additionalHeaders, successCallback, errorCallback);
             }
             else {
                 // Trim expand keys down to the ones that may have nextLinks
                 var firstRec_1 = obj.value[0];
                 var toKeep = expandKeys.filter(function (exp) { return firstRec_1[exp.linkKey]; });
-                return new PageLinkHelper(obj, toKeep, successCallback, errorCallback);
+                return new PageLinkHelper(obj, toKeep, additionalHeaders, successCallback, errorCallback);
             }
         };
         return PageLinkHelper;
@@ -537,9 +540,8 @@ var XQW;
             if (errorCallback === void 0) { errorCallback = function () { }; }
             if (parseResult === void 0) { parseResult = false; }
             if (sync === void 0) { sync = false; }
-            var config = function (req) { return _this.additionalHeaders.forEach(function (h) { return req.setRequestHeader(h.type, h.value); }); };
             var successHandler = function (req) { return (parseResult ? _this.handleResponse(req, successCallback, errorCallback) : successCallback(req)); };
-            return XrmQuery.sendRequest(this.requestType, this.getQueryString(), this.getObjectToSend(), successHandler, errorCallback, config, sync);
+            return XrmQuery.sendRequest(this.requestType, this.getQueryString(), this.getObjectToSend(), successHandler, errorCallback, addHeadersToRequestObject(this.additionalHeaders), sync);
         };
         return Query;
     }());
@@ -589,7 +591,7 @@ var XQW;
             return new RetrieveMultipleRecords(taggedExec(entityPicker).toString(), id, taggedExec(relatedPicker).toString());
         };
         RetrieveMultipleRecords.prototype.handleResponse = function (req, successCallback, errorCallback) {
-            PageLinkHelper.followLinks(parseRetrievedData(req), this.expandKeys, successCallback, errorCallback);
+            PageLinkHelper.followLinks(parseRetrievedData(req), this.expandKeys, this.additionalHeaders, successCallback, errorCallback);
         };
         RetrieveMultipleRecords.prototype.getFirst = function (successCallback, errorCallback) {
             this.top(1);
@@ -756,7 +758,7 @@ var XQW;
             return new RetrieveRecord(taggedExec(entityPicker).toString(), id);
         };
         RetrieveRecord.prototype.handleResponse = function (req, successCallback, errorCallback) {
-            EntityLinkHelper.followLinks(parseRetrievedData(req), this.expandKeys, successCallback, errorCallback);
+            EntityLinkHelper.followLinks(parseRetrievedData(req), this.expandKeys, this.additionalHeaders, successCallback, errorCallback);
         };
         RetrieveRecord.prototype.select = function (varFunc) {
             this.selects = parseSelects(varFunc);
