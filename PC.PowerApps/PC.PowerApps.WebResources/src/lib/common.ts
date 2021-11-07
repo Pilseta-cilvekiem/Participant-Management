@@ -66,7 +66,7 @@ export async function getLocalizedText(key: string, ...args: any[]) {
         .select(wr => [wr.contentjson])
         .promiseFirst();
     const resource = JSON.parse(resxWebResource.contentjson);
-    const formatString = resource[key];
+    const formatString = resource[key] ?? key;
     const formattedString = format(formatString, args);
     return formattedString;
 }

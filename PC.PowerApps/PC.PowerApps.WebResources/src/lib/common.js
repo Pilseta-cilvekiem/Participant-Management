@@ -54,6 +54,7 @@ export async function performActionFromGrid(grid, selectedIds, action, message) 
     }
 }
 export async function getLocalizedText(key, ...args) {
+    var _a;
     const context = Xrm.Utility.getGlobalContext();
     const resxWebResourceName = `pc_/Resource.${context.userSettings.languageId}.resx`;
     const resxWebResource = await XrmQuery.retrieveMultiple(x => x.webresourceset)
@@ -61,7 +62,7 @@ export async function getLocalizedText(key, ...args) {
         .select(wr => [wr.contentjson])
         .promiseFirst();
     const resource = JSON.parse(resxWebResource.contentjson);
-    const formatString = resource[key];
+    const formatString = (_a = resource[key]) !== null && _a !== void 0 ? _a : key;
     const formattedString = format(formatString, args);
     return formattedString;
 }

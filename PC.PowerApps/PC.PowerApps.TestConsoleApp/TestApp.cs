@@ -172,7 +172,9 @@ namespace PC.PowerApps.TestConsoleApp
             //throw Context.CreateException(nameof(Resource.AttributeCannotBeEmpty), "aaa", "bbb");
             //Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds);
 
-            Utils.DeleteRecordChangeHistory(Context, new EntityReference(Contact.EntityLogicalName, new Guid("b59490aa-40ed-eb11-bacb-000d3a3a2279")));
+            //Utils.DeleteRecordChangeHistory(Context, new EntityReference(Contact.EntityLogicalName, new Guid("b59490aa-40ed-eb11-bacb-000d3a3a2279")));
+
+            throw Context.CreateException("AttributeCannotBeEmpty1", "123", "456");
         }
     }
 }
