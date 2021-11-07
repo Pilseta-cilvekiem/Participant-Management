@@ -169,6 +169,24 @@ namespace PC.PowerApps.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marking the transaction as non-payment....
+        /// </summary>
+        public static string MarkingTransactionAsNonPayment {
+            get {
+                return ResourceManager.GetString("MarkingTransactionAsNonPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marking {0} of {1} transactions as non-payment....
+        /// </summary>
+        public static string MarkingTransactionsAsNonPayment {
+            get {
+                return ResourceManager.GetString("MarkingTransactionsAsNonPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Participation Fee Exemption From must be less than or equal to Till..
         /// </summary>
         public static string ParticipationFeeExemptionFromGreaterThanTill {
@@ -214,11 +232,47 @@ namespace PC.PowerApps.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Processing the transaction....
+        /// </summary>
+        public static string ProcessingTransaction {
+            get {
+                return ResourceManager.GetString("ProcessingTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing {0} of {1} transactions....
+        /// </summary>
+        public static string ProcessingTransactions {
+            get {
+                return ResourceManager.GetString("ProcessingTransactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scheduled Job Postpone Until must be greater than or equal to Execute On..
         /// </summary>
         public static string ScheduledJobPostponeUntilLessThanExecuteOn {
             get {
                 return ResourceManager.GetString("ScheduledJobPostponeUntilLessThanExecuteOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sending a debt reminder to {0} of {1} contacts....
+        /// </summary>
+        public static string SendingDebtRemindersToContacts {
+            get {
+                return ResourceManager.GetString("SendingDebtRemindersToContacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sending a debt reminder to the contact....
+        /// </summary>
+        public static string SendingDebtReminderToContact {
+            get {
+                return ResourceManager.GetString("SendingDebtReminderToContact", resourceCulture);
             }
         }
         

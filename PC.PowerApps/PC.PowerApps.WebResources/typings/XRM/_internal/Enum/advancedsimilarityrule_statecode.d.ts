@@ -1,4 +1,0 @@
-declare const enum advancedsimilarityrule_statecode {
-  Active = 0,
-  Inactive = 1,
-}
