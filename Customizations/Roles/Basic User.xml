@@ -77,6 +77,9 @@
       name="prvAppendMailMergeTemplate"
       level="Basic" />
     <RolePrivilege
+      name="prvAppendmsdyn_kbattachment"
+      level="Global" />
+    <RolePrivilege
       name="prvAppendNewProcess"
       level="Global" />
     <RolePrivilege
@@ -184,6 +187,9 @@
     <RolePrivilege
       name="prvAppendToMailMergeTemplate"
       level="Basic" />
+    <RolePrivilege
+      name="prvAppendTomsdyn_kbattachment"
+      level="Global" />
     <RolePrivilege
       name="prvAppendToNewProcess"
       level="Global" />
@@ -310,6 +316,9 @@
     <RolePrivilege
       name="prvAssignMailMergeTemplate"
       level="Basic" />
+    <RolePrivilege
+      name="prvAssignmsdyn_kbattachment"
+      level="Global" />
     <RolePrivilege
       name="prvAssignNote"
       level="Basic" />
@@ -644,6 +653,9 @@
       name="prvReadCallbackRegistration"
       level="Basic" />
     <RolePrivilege
+      name="prvReadCanvasAppExtendedMetadata"
+      level="Global" />
+    <RolePrivilege
       name="prvReadCategory"
       level="Global" />
     <RolePrivilege
@@ -786,6 +798,9 @@
       level="Global" />
     <RolePrivilege
       name="prvReadmsdyn_AITemplate"
+      level="Global" />
+    <RolePrivilege
+      name="prvReadmsdyn_kbattachment"
       level="Global" />
     <RolePrivilege
       name="prvReadNewProcess"
@@ -1004,6 +1019,9 @@
       name="prvShareMailMergeTemplate"
       level="Global" />
     <RolePrivilege
+      name="prvSharemsdyn_kbattachment"
+      level="Global" />
+    <RolePrivilege
       name="prvShareNote"
       level="Global" />
     <RolePrivilege
@@ -1132,6 +1150,9 @@
     <RolePrivilege
       name="prvWriteMailMergeTemplate"
       level="Basic" />
+    <RolePrivilege
+      name="prvWritemsdyn_kbattachment"
+      level="Global" />
     <RolePrivilege
       name="prvWriteNewProcess"
       level="Global" />

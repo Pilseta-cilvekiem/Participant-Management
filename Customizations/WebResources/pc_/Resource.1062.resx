@@ -153,6 +153,12 @@
   <data name="CantManuallyCreateTransaction" xml:space="preserve">
     <value>Nevar manuāli izveidot Transakciju.</value>
   </data>
+  <data name="MarkingTransactionAsNonPayment" xml:space="preserve">
+    <value>Atzīmēju transakciju kā ne maksājumu...</value>
+  </data>
+  <data name="MarkingTransactionsAsNonPayment" xml:space="preserve">
+    <value>Atzīmēju {0}. no {1} transakcijām kā ne maksājumu...</value>
+  </data>
   <data name="ParticipationFeeExemptionFromGreaterThanTill" xml:space="preserve">
     <value>Atbrīvojuma no dalībnieka naudas No jābūt mazākam vai vienādam ar Līdz.</value>
   </data>
@@ -168,8 +174,20 @@
   <data name="ParticipationFromGreaterThanTill" xml:space="preserve">
     <value>Dalības No jābūt mazākam vai vienādam par Līdz.</value>
   </data>
+  <data name="ProcessingTransaction" xml:space="preserve">
+    <value>Procesēju transakciju...</value>
+  </data>
+  <data name="ProcessingTransactions" xml:space="preserve">
+    <value>Procesēju {0}. no {1} transakcijām...</value>
+  </data>
   <data name="ScheduledJobPostponeUntilLessThanExecuteOn" xml:space="preserve">
     <value>Plānotā uzdevuma Atlikt līdz jābūt lielākam vai vienādam par Izpildīt.</value>
+  </data>
+  <data name="SendingDebtRemindersToContacts" xml:space="preserve">
+    <value>Nosūtu atgādinājumu par parādu {0}. no {1} kontaktiem...</value>
+  </data>
+  <data name="SendingDebtReminderToContact" xml:space="preserve">
+    <value>Nosūtu atgādinājumu par parādu kontaktam...</value>
   </data>
   <data name="TransactionRemainingAmountNegative" xml:space="preserve">
     <value>Transakcijas Maksājumu kopsummas un Nemaksājumu summas summa nevar būt lielāka par Summu.</value>

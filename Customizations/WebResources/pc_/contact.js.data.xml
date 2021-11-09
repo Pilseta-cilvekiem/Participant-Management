@@ -3,6 +3,7 @@
   <WebResourceId>{b87e832b-41f4-eb11-94ef-002248834145}</WebResourceId>
   <Name>pc_/contact.js</Name>
   <DisplayName>/contact.js</DisplayName>
+  <LanguageCode>0</LanguageCode>
   <WebResourceType>3</WebResourceType>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
   <IsEnabledForMobileClient>0</IsEnabledForMobileClient>

@@ -5,7 +5,7 @@
   <bindingtype>1</bindingtype>
   <boundentitylogicalname>contact</boundentitylogicalname>
   <description
-    default="Send Debt Reminder to Contact">
+    default="Nosūtīt atgādinājumu par parādu kontaktpersonai">
     <label
       description="Send Debt Reminder to Contact"
       languagecode="1033" />
@@ -14,7 +14,7 @@
       languagecode="1062" />
   </description>
   <displayname
-    default="Send Debt Reminder to Contact">
+    default="Nosūtīt atgādinājumu par parādu kontaktpersonai">
     <label
       description="Send Debt Reminder to Contact"
       languagecode="1033" />
