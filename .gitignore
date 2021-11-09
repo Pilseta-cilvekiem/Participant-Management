@@ -350,6 +350,8 @@ MigrationBackup/
 .ionide/
 
 /PC.PowerApps/PC.PowerApps.WebResources/dist
+/PC.PowerApps/PC.PowerApps.WebResources/src/lib/*.js
+/PC.PowerApps/PC.PowerApps.WebResources/src/lib/*.js.map
 /PC.PowerApps/PC.PowerApps.WebResources/src/*.js
 /PC.PowerApps/PC.PowerApps.WebResources/src/*.js.map
 /PC.PowerApps/PC.PowerApps.WebResources/XrmDefinitelyTyped/XrmDefinitelyTyped.Environment.config
