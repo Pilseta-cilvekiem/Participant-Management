@@ -1,4 +1,6 @@
-﻿export async function showError(error: any) {
+﻿let resource: any;
+
+export async function showError(error: any) {
     const message = getErrorMessage(error);
     await Xrm.Navigation.openAlertDialog({ text: message });
 }
@@ -59,13 +61,16 @@ export async function performActionFromGrid(grid: Xrm.SubGridControl<any>, selec
 }
 
 export async function getLocalizedText(key: string, ...args: any[]) {
-    const context = Xrm.Utility.getGlobalContext();
-    const resxWebResourceName = `pc_/Resource.${context.userSettings.languageId}.resx`;
-    const resxWebResource = await XrmQuery.retrieveMultiple(x => x.webresourceset)
-        .filter(wr => Filter.equals(wr.name, resxWebResourceName))
-        .select(wr => [wr.contentjson])
-        .promiseFirst();
-    const resource = JSON.parse(resxWebResource.contentjson);
+    if (!resource) {
+        const context = Xrm.Utility.getGlobalContext();
+        const resxWebResourceName = `pc_/Resource.${context.userSettings.languageId}.resx`;
+        const resxWebResource = await XrmQuery.retrieveMultiple(x => x.webresourceset)
+            .filter(wr => Filter.equals(wr.name, resxWebResourceName))
+            .select(wr => [wr.contentjson])
+            .promiseFirst();
+        resource = JSON.parse(resxWebResource.contentjson);
+    }
+
     const formatString = resource[key] ?? key;
     const formattedString = format(formatString, args);
     return formattedString;

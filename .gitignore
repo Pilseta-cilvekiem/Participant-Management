@@ -348,7 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
 /PC.PowerApps/PC.PowerApps.WebResources/dist
-/PC.PowerApps/PC.PowerApps.WebResources/scripts/*.js
-/PC.PowerApps/PC.PowerApps.WebResources/scripts/*.js.map
+/PC.PowerApps/PC.PowerApps.WebResources/src/*.js
+/PC.PowerApps/PC.PowerApps.WebResources/src/*.js.map
 /PC.PowerApps/PC.PowerApps.WebResources/XrmDefinitelyTyped/XrmDefinitelyTyped.Environment.config
