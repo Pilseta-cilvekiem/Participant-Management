@@ -12,13 +12,13 @@ namespace PC.PowerApps.Common.Repositories
             IQueryable<pc_Participation> otherParticipationQuery = context.ServiceContext.pc_ParticipationSet
                 .Where(p => p.pc_Contact.Id == participation.pc_Contact.Id && p.Id != participation.Id);
 
-            if (participation.pc_From is not null)
+            if (participation.pc_From != null)
             {
                 otherParticipationQuery = otherParticipationQuery
                     .Where(p => p.pc_Till == null || p.pc_Till >= participation.pc_From);
             }
 
-            if (participation.pc_Till is not null)
+            if (participation.pc_Till != null)
             {
                 otherParticipationQuery = otherParticipationQuery
                     .Where(p => p.pc_From == null || p.pc_From <= participation.pc_Till);
@@ -30,7 +30,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static pc_Participation GetAdjacentParticipationBefore(Context context, pc_Participation participation)
         {
-            if (participation.pc_From is null)
+            if (participation.pc_From == null)
             {
                 return null;
             }
@@ -44,7 +44,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static pc_Participation GetAdjacentParticipationAfter(Context context, pc_Participation participation)
         {
-            if (participation.pc_Till is null)
+            if (participation.pc_Till == null)
             {
                 return null;
             }

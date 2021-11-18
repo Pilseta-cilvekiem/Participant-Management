@@ -37,7 +37,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemptions
             {
                 pc_ParticipationFeeExemption otherParticipationFeeExemption = ParticipationFeeExemptionRepository.GetParticipationFeeExemptionWithinSamePeriod(context, participationFeeExemption);
 
-                if (otherParticipationFeeExemption is not null)
+                if (otherParticipationFeeExemption != null)
                 {
                     throw context.CreateException(nameof(Resource.AnotherParticipationFeeExemption));
                 }

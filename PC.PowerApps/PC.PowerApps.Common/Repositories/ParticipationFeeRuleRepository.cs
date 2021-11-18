@@ -11,13 +11,13 @@ namespace PC.PowerApps.Common.Repositories
             IQueryable<pc_ParticipationFeeRule> otherParticipationFeeRuleQuery = context.ServiceContext.pc_ParticipationFeeRuleSet
                 .Where(pfr => pfr.Id != participationFeeRule.Id);
 
-            if (participationFeeRule.pc_From is not null)
+            if (participationFeeRule.pc_From != null)
             {
                 otherParticipationFeeRuleQuery = otherParticipationFeeRuleQuery
                     .Where(pfr => pfr.pc_Till == null || pfr.pc_Till >= participationFeeRule.pc_From);
             }
 
-            if (participationFeeRule.pc_Till is not null)
+            if (participationFeeRule.pc_Till != null)
             {
                 otherParticipationFeeRuleQuery = otherParticipationFeeRuleQuery
                     .Where(p => p.pc_From == null || p.pc_From <= participationFeeRule.pc_Till);

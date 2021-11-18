@@ -28,7 +28,7 @@ namespace PC.PowerApps.Common
 
         public TEntity Retrieve<TEntity>(EntityReference entityReference) where TEntity : Entity
         {
-            if (entityReference is null)
+            if (entityReference == null)
             {
                 return null;
             }
@@ -56,7 +56,7 @@ namespace PC.PowerApps.Common
         {
             TEntity modifiedEntity = Retrieve<TEntity>(entityReference);
 
-            if (modifiedEntity is null)
+            if (modifiedEntity == null)
             {
                 return false;
             }

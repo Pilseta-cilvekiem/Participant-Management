@@ -49,7 +49,7 @@ namespace PC.PowerApps.Common
 
             string attributeName = GetAttributeLogicalNameInternal(attributeSelector.Body);
 
-            if (attributeName is not null)
+            if (attributeName != null)
             {
                 attributeNames.Add(attributeName);
             }
@@ -122,7 +122,7 @@ namespace PC.PowerApps.Common
 
         public static decimal GetAmountOrZero(Money money)
         {
-            return money is null ? 0 : money.Value;
+            return money == null ? 0 : money.Value;
         }
 
         public static bool IsInNamespaces(Type type, params string[] namespaces)
@@ -157,13 +157,13 @@ namespace PC.PowerApps.Common
 
         public static bool IsEmptyValue(object @object)
         {
-            return @object is null || (@object is string @string && @string.Length == 0);
+            return @object == null || (@object is string @string && @string.Length == 0);
         }
 
         public static string CreateName(int maxLength, params string[] parts)
         {
             List<string> nonEmptyParts = parts
-                .Where(p => p is not null)
+                .Where(p => p != null)
                 .Select(p => p.Trim())
                 .Where(p => p.Length > 0)
                 .ToList();

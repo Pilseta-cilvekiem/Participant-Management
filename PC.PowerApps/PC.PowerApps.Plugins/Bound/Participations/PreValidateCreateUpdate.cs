@@ -37,7 +37,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
             {
                 pc_Participation otherParticipation = ParticipationRepository.GetParticipationWithinSamePeriod(context, participation);
 
-                if (otherParticipation is not null)
+                if (otherParticipation != null)
                 {
                     throw context.CreateException(nameof(Resource.AnotherParticipation));
                 }
@@ -47,7 +47,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
             {
                 pc_Participation otherParticipation = ParticipationRepository.GetAdjacentParticipationBefore(context, participation);
 
-                if (otherParticipation is not null)
+                if (otherParticipation != null)
                 {
                     throw context.CreateException(nameof(Resource.AdjacentParticipationBefore));
                 }
@@ -57,7 +57,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
             {
                 pc_Participation otherParticipation = ParticipationRepository.GetAdjacentParticipationAfter(context, participation);
 
-                if (otherParticipation is not null)
+                if (otherParticipation != null)
                 {
                     throw context.CreateException(nameof(Resource.AdjacentParticipationAfter));
                 }

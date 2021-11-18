@@ -8,7 +8,7 @@ namespace PC.PowerApps.Plugins.Extensions
         public static bool IsDeleteOf(this IPluginExecutionContext pluginExecutionContext, EntityReference entityReference)
         {
             return
-                entityReference is not null &&
+                entityReference != null &&
                 pluginExecutionContext.MessageName == PluginMessage.Delete.ToString() &&
                 pluginExecutionContext.PrimaryEntityName == entityReference.LogicalName &&
                 pluginExecutionContext.PrimaryEntityId == entityReference.Id;

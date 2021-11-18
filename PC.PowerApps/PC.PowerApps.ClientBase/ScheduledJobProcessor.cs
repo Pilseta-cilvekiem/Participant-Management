@@ -29,7 +29,7 @@ namespace PC.PowerApps.ClientBase
                     .OrderBy(sj => sj.pc_ExecuteOn)
                     .FirstOrDefault();
 
-                if (scheduledJob is null)
+                if (scheduledJob == null)
                 {
                     break;
                 }

@@ -32,7 +32,7 @@ namespace PC.PowerApps.Plugins.Bound.Payments
                 context.EnsureCreatedOrUpdatedAttributesNotEmpty(p => p.pc_Amount);
             }
 
-            if (context.GetIsAnyAttributeModified(p => new { p.pc_Amount, p.pc_Transaction }) && payment.pc_Transaction is not null)
+            if (context.GetIsAnyAttributeModified(p => new { p.pc_Amount, p.pc_Transaction }) && payment.pc_Transaction != null)
             {
                 decimal previousAmount = context.GetIsAnyAttributeModified(p => p.pc_Transaction) ? 0 : Utils.GetAmountOrZero(context.PreImage?.pc_Amount);
                 decimal amountIncreasedBy = Utils.GetAmountOrZero(payment.pc_Amount) - previousAmount;

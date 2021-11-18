@@ -11,13 +11,13 @@ namespace PC.PowerApps.Common.Repositories
             IQueryable<pc_ParticipationFeeExemption> otherParticipationFeeExemptionQuery = context.ServiceContext.pc_ParticipationFeeExemptionSet
                 .Where(pfe => pfe.pc_Contact.Id == participationFeeExemption.pc_Contact.Id && pfe.Id != participationFeeExemption.Id);
 
-            if (participationFeeExemption.pc_From is not null)
+            if (participationFeeExemption.pc_From != null)
             {
                 otherParticipationFeeExemptionQuery = otherParticipationFeeExemptionQuery
                     .Where(pfe => pfe.pc_Till == null || pfe.pc_Till >= participationFeeExemption.pc_From);
             }
 
-            if (participationFeeExemption.pc_Till is not null)
+            if (participationFeeExemption.pc_Till != null)
             {
                 otherParticipationFeeExemptionQuery = otherParticipationFeeExemptionQuery
                     .Where(pfe => pfe.pc_From == null || pfe.pc_From <= participationFeeExemption.pc_Till);

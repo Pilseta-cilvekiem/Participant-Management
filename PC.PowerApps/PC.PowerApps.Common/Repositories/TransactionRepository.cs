@@ -18,7 +18,7 @@ namespace PC.PowerApps.Common.Repositories
         {
             Annotation annotation = context.ServiceContext.Retrieve<Annotation>(annotationId, isOptional: true);
 
-            if (annotation is null)
+            if (annotation == null)
             {
                 context.Logger.LogInformation("The Note does not exist.");
                 return;
@@ -60,7 +60,7 @@ namespace PC.PowerApps.Common.Repositories
 
                     DateTime lastImportedTransactionDate = document.Statement.AccountSet.CcyStmt.TrxSet.Max(t => t.BookDate);
 
-                    if (bankAccount.pc_LastImportedTransactionDate is null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
+                    if (bankAccount.pc_LastImportedTransactionDate == null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
                     {
                         bankAccount.pc_LastImportedTransactionDate = lastImportedTransactionDate;
                     }
@@ -87,7 +87,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void CalculatePaymentTotalAmount(Context context, Guid? transactionId)
         {
-            if (transactionId is null)
+            if (transactionId == null)
             {
                 return;
             }
@@ -133,7 +133,7 @@ namespace PC.PowerApps.Common.Repositories
                 .Where(t => t.pc_Name == bankTransaction.BankRef)
                 .FirstOrDefault();
 
-            if (transaction is not null)
+            if (transaction != null)
             {
                 context.Logger.LogInformation($"The Transaction {bankTransaction.BankRef} is already imported.");
                 return;
@@ -164,7 +164,7 @@ namespace PC.PowerApps.Common.Repositories
                 return;
             }
 
-            if (transaction.pc_Details is null)
+            if (transaction.pc_Details == null)
             {
                 context.Logger.LogInformation("Transaction Details are empty - skipping.");
                 return;
@@ -211,7 +211,7 @@ namespace PC.PowerApps.Common.Repositories
 
         private static void AddPersonalIdentityNumbers(HashSet<string> personalIdentityNumbers, Lazy<Regex> personalIdentityNumberRegex, string value)
         {
-            if (value is not null)
+            if (value != null)
             {
                 MatchCollection matches = personalIdentityNumberRegex.Value.Matches(value);
 

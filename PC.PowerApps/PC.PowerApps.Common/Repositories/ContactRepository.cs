@@ -17,7 +17,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void UpdateParticipationLevel(Context context, Guid? contactId)
         {
-            if (contactId is null)
+            if (contactId == null)
             {
                 return;
             }
@@ -28,7 +28,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void SendWelcomeEmail(Context context, Contact contact)
         {
-            if (contact.pc_ParticipationLevel != pc_ParticipationLevel.Supporter || contact.pc_SentSupporterWelcomeEmailOn is not null)
+            if (contact.pc_ParticipationLevel != pc_ParticipationLevel.Supporter || contact.pc_SentSupporterWelcomeEmailOn != null)
             {
                 return;
             }
@@ -50,7 +50,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void CalculatePaidParticipationFee(Context context, Guid? contactId)
         {
-            if (contactId is null)
+            if (contactId == null)
             {
                 return;
             }
@@ -187,7 +187,7 @@ namespace PC.PowerApps.Common.Repositories
             context.EnsureAttributesNotEmpty(context.Settings, s => new { s.pc_EmailSender });
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId);
 
-            if (contact.pc_Debt is null || contact.pc_Debt.Value <= 0)
+            if (contact.pc_Debt == null || contact.pc_Debt.Value <= 0)
             {
                 return;
             }
@@ -238,7 +238,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static bool IsValidForGoogleSupporterGroup(Contact contact)
         {
-            bool isValidForGoogleSupporterGroup = contact is not null && CommonConstants.IsValidForGoogleSupporterGroupFunc(contact);
+            bool isValidForGoogleSupporterGroup = contact != null && CommonConstants.IsValidForGoogleSupporterGroupFunc(contact);
             return isValidForGoogleSupporterGroup;
         }
 

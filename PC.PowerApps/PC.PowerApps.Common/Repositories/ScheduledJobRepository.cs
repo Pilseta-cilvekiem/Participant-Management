@@ -38,7 +38,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void CreateNextOccurence(Context context, pc_ScheduledJob scheduledJob)
         {
-            if (scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Completed || scheduledJob.pc_Recurrence is null || scheduledJob.pc_ExecuteOn is null || scheduledJob.pc_ExecuteEvery is null)
+            if (scheduledJob.StatusCode != pc_ScheduledJob_StatusCode.Completed || scheduledJob.pc_Recurrence == null || scheduledJob.pc_ExecuteOn == null || scheduledJob.pc_ExecuteEvery == null)
             {
                 return;
             }

@@ -27,7 +27,7 @@ namespace PC.PowerApps.Common
                     .Where(sj => sj.pc_Name == name && sj.pc_Parameters == parameters && (sj.StatusCode == pc_ScheduledJob_StatusCode.Pending || sj.StatusCode == pc_ScheduledJob_StatusCode.Failed) && sj.pc_ExecuteOn <= utcNow && (sj.pc_PostponeUntil == null || sj.pc_PostponeUntil <= utcNow))
                     .FirstOrDefault();
 
-                if (scheduledJob is not null)
+                if (scheduledJob != null)
                 {
                     return;
                 }
