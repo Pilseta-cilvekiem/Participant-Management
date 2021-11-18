@@ -25,7 +25,7 @@ namespace PC.PowerApps.Plugins.Bound.Settings
             {
                 pc_Settings anotherActiveSettings = SettingsRepository.GetAnotherActiveSettings(context, settings.Id);
 
-                if (anotherActiveSettings is not null)
+                if (anotherActiveSettings != null)
                 {
                     throw context.CreateException(nameof(Resource.AnotherSettings));
                 }

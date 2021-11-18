@@ -13,7 +13,7 @@ namespace PC.PowerApps.Common.Extensions
         {
             T firstElement = collection.FirstOrDefault();
 
-            if (firstElement is null)
+            if (firstElement == null)
             {
                 throw new SequenceEmptyException(sequenceEmptyText);
             }

@@ -35,7 +35,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeRules
                 throw context.CreateException(nameof(Resource.ParticipationFeeRuleFromNotFirstDayOfMonth));
             }
 
-            if (context.GetIsAnyAttributeModified(pfr => pfr.pc_Till) && participationFeeRule.pc_Till is not null && !participationFeeRule.pc_Till.Value.IsLastDayOfMonth())
+            if (context.GetIsAnyAttributeModified(pfr => pfr.pc_Till) && participationFeeRule.pc_Till != null && !participationFeeRule.pc_Till.Value.IsLastDayOfMonth())
             {
                 throw context.CreateException(nameof(Resource.ParticipationFeeRuleTillNotLastDayOfMonth));
             }
@@ -49,7 +49,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeRules
             {
                 pc_ParticipationFeeRule otherParticipationFeeRule = ParticipationFeeRuleRepository.GetParticipationFeeRuleWithinSamePeriod(context, participationFeeRule);
 
-                if (otherParticipationFeeRule is not null)
+                if (otherParticipationFeeRule != null)
                 {
                     throw context.CreateException(nameof(Resource.AnotherParticipationFeeRule));
                 }

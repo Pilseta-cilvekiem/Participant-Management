@@ -7,7 +7,7 @@ namespace PC.PowerApps.Common.Repositories
     {
         public static void ScheduleImportTransactions(Context context, Annotation annotation)
         {
-            if (annotation.ObjectId is null || annotation.ObjectId.LogicalName != pc_BankAccount.EntityLogicalName)
+            if (annotation.ObjectId == null || annotation.ObjectId.LogicalName != pc_BankAccount.EntityLogicalName)
             {
                 return;
             }

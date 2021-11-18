@@ -60,7 +60,7 @@ namespace PC.PowerApps.Common
             Period currentPeriod = null;
             foreach (Period period in sortedPeriods)
             {
-                if (currentPeriod is null)
+                if (currentPeriod == null)
                 {
                     currentPeriod = period;
                 }
@@ -78,7 +78,7 @@ namespace PC.PowerApps.Common
                     }
                 }
             }
-            if (currentPeriod is not null)
+            if (currentPeriod != null)
             {
                 results.Add(currentPeriod);
             }
@@ -142,7 +142,7 @@ namespace PC.PowerApps.Common
         {
             return periods
                 .Select(p => p.Intersect(otherPeriod))
-                .Where(p => p is not null)
+                .Where(p => p != null)
                 .ToList();
         }
     }

@@ -20,7 +20,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
             context.EnsureAttributesNotModified(c => new { c.pc_PaidParticipationFee, c.pc_ParticipationLevel, c.pc_RequiredParticipationFee, c.pc_SentDebtReminderOn, c.pc_SentSupporterWelcomeEmailOn });
             Contact contact = context.PostImage;
 
-            if (contact.StatusCode != Contact_StatusCode.Active && contact.pc_ParticipationLevel is not null)
+            if (contact.StatusCode != Contact_StatusCode.Active && contact.pc_ParticipationLevel != null)
             {
                 context.EnsureAttributesNotModified(c => c.StatusCode);
             }
