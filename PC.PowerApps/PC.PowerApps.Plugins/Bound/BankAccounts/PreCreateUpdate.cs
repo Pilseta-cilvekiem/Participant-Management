@@ -15,7 +15,7 @@ namespace PC.PowerApps.Plugins.Bound.BankAccounts
 
             if (context.GetIsAnyAttributeModified(ba => ba.pc_TransactionImportFile))
             {
-                BankAccountRepository.SetTransactionImportStatusToPending(context, bankAccount);
+                BankAccountRepository.SetTransactionImportStatusToPending(bankAccount);
             }
         }
     }
