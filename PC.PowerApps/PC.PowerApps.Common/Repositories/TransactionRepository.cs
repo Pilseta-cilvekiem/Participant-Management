@@ -14,56 +14,41 @@ namespace PC.PowerApps.Common.Repositories
 {
     public static class TransactionRepository
     {
-        public static void ImportFromAnnotation(Context context, Guid annotationId)
+        public static void ImportFromBankAccount(Context context, Guid bankAccountId)
         {
-            Annotation annotation = context.ServiceContext.Retrieve<Annotation>(annotationId, isOptional: true);
-
-            if (annotation == null)
-            {
-                context.Logger.LogInformation("The Note does not exist.");
-                return;
-            }
-
-            pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
+            pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(bankAccountId);
 
             try
             {
                 bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.InProgress;
                 _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
 
-                if (annotation.IsDocument != true)
+                byte[] file = FileRepository.Download(context, bankAccount, ba => ba.pc_TransactionImportFile);
+                using MemoryStream memoryStream = new MemoryStream(file);
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(FIDAVISTA));
+                FIDAVISTA document = (FIDAVISTA)xmlSerializer.Deserialize(memoryStream);
+
+                Lazy<TransactionCurrency> transactionCurrency = new Lazy<TransactionCurrency>(() => context.ServiceContext.TransactionCurrencySet
+                     .Where(tc => tc.ISOCurrencyCode == document.Statement.AccountSet.CcyStmt.Ccy)
+                     .TakeSingle());
+
+                Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => context.ServiceContext.pc_TransactionSet
+                    .Select(t => new pc_Transaction
+                    {
+                        pc_Name = t.pc_Name,
+                    })
+                    .ToList());
+
+                foreach (FIDAVISTAStatementAccountSetCcyStmtTrxSet bankTransaction in document.Statement.AccountSet.CcyStmt.TrxSet)
                 {
-                    context.Logger.LogInformation("The Note does not have a document.");
+                    Import(context, bankTransaction, bankAccount, transactionCurrency, existingTransactions);
                 }
-                else
+
+                DateTime lastImportedTransactionDate = document.Statement.AccountSet.CcyStmt.TrxSet.Max(t => t.BookDate);
+
+                if (bankAccount.pc_LastImportedTransactionDate == null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
                 {
-                    byte[] file = Convert.FromBase64String(annotation.DocumentBody);
-                    using MemoryStream memoryStream = new MemoryStream(file);
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(FIDAVISTA));
-                    FIDAVISTA document = (FIDAVISTA)xmlSerializer.Deserialize(memoryStream);
-
-                    Lazy<TransactionCurrency> transactionCurrency = new Lazy<TransactionCurrency>(() => context.ServiceContext.TransactionCurrencySet
-                         .Where(tc => tc.ISOCurrencyCode == document.Statement.AccountSet.CcyStmt.Ccy)
-                         .TakeSingle());
-
-                    Lazy<List<pc_Transaction>> existingTransactions = new Lazy<List<pc_Transaction>>(() => context.ServiceContext.pc_TransactionSet
-                        .Select(t => new pc_Transaction
-                        {
-                            pc_Name = t.pc_Name,
-                        })
-                        .ToList());
-
-                    foreach (FIDAVISTAStatementAccountSetCcyStmtTrxSet bankTransaction in document.Statement.AccountSet.CcyStmt.TrxSet)
-                    {
-                        Import(context, bankTransaction, bankAccount, transactionCurrency, existingTransactions);
-                    }
-
-                    DateTime lastImportedTransactionDate = document.Statement.AccountSet.CcyStmt.TrxSet.Max(t => t.BookDate);
-
-                    if (bankAccount.pc_LastImportedTransactionDate == null || bankAccount.pc_LastImportedTransactionDate < lastImportedTransactionDate)
-                    {
-                        bankAccount.pc_LastImportedTransactionDate = lastImportedTransactionDate;
-                    }
+                    bankAccount.pc_LastImportedTransactionDate = lastImportedTransactionDate;
                 }
 
                 bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Completed;
@@ -76,7 +61,7 @@ namespace PC.PowerApps.Common.Repositories
                 _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
             }
 
-            context.OrganizationService.Delete(annotation);
+            FileRepository.Delete(context, bankAccount.pc_TransactionImportFile);
         }
 
         public static void SetDefaults(pc_Transaction transaction)

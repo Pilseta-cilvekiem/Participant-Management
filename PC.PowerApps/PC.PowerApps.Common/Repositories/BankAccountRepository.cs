@@ -3,23 +3,29 @@ using PC.PowerApps.Common.ScheduledJobs;
 
 namespace PC.PowerApps.Common.Repositories
 {
-    public static class AnnotationRepository
+    public static class BankAccountRepository
     {
-        public static void ScheduleImportTransactions(Context context, Annotation annotation)
+        public static void SetTransactionImportStatusToPending(Context context, pc_BankAccount bankAccount)
         {
-            if (annotation.ObjectId == null || annotation.ObjectId.LogicalName != pc_BankAccount.EntityLogicalName)
+            if (bankAccount.pc_TransactionImportFile == null)
             {
                 return;
             }
 
-            pc_BankAccount bankAccount = context.ServiceContext.Retrieve<pc_BankAccount>(annotation.ObjectId);
             bankAccount.pc_TransactionImportError = null;
             bankAccount.pc_TransactionImportStatus = pc_TransactionImportStatus.Pending;
-            _ = context.ServiceContext.UpdateModifiedAttributes(bankAccount);
+        }
 
+        public static void ScheduleImportTransactions(Context context, pc_BankAccount bankAccount)
+        {
+            if (bankAccount.pc_TransactionImportFile == null)
+            {
+                return;
+            }
+            
             ImportTransactions importSwedbankTransactions = new ImportTransactions
             {
-                AnnotationId = annotation.Id,
+                BankAccountId = bankAccount.Id,
                 Context = context,
             };
             importSwedbankTransactions.Schedule(allowDuplicates: false);
