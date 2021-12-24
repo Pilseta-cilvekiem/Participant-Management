@@ -5,7 +5,7 @@ namespace PC.PowerApps.Common.Repositories
 {
     public static class BankAccountRepository
     {
-        public static void SetTransactionImportStatusToPending(Context context, pc_BankAccount bankAccount)
+        public static void SetTransactionImportStatusToPending(pc_BankAccount bankAccount)
         {
             if (bankAccount.pc_TransactionImportFile == null)
             {
@@ -22,7 +22,7 @@ namespace PC.PowerApps.Common.Repositories
             {
                 return;
             }
-            
+
             ImportTransactions importSwedbankTransactions = new ImportTransactions
             {
                 BankAccountId = bankAccount.Id,
