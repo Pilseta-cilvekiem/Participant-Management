@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: Microsoft.Xrm.Sdk.Client.ProxyTypesAssemblyAttribute()]
-[assembly: System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.82")]
+[assembly: System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.93")]
 
 namespace PC.PowerApps.Common.Entities.Dataverse
 {
@@ -7967,6 +7967,66 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Flag to indicate if the display column options on a view in model-driven apps is enabled
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("advancedcolumneditorenabled")]
+		public System.Nullable<bool> AdvancedColumnEditorEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("advancedcolumneditorenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AdvancedColumnEditorEnabled");
+				this.SetAttributeValue("advancedcolumneditorenabled", value);
+				this.OnPropertyChanged("AdvancedColumnEditorEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Flag to indicate if the advanced column filtering in a view in model-driven apps is enabled
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("advancedcolumnfilteringenabled")]
+		public System.Nullable<bool> AdvancedColumnFilteringEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("advancedcolumnfilteringenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AdvancedColumnFilteringEnabled");
+				this.SetAttributeValue("advancedcolumnfilteringenabled", value);
+				this.OnPropertyChanged("AdvancedColumnFilteringEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Flag to indicate if the advanced filtering on all tables in a model-driven app is enabled
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("advancedfilteringenabled")]
+		public System.Nullable<bool> AdvancedFilteringEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("advancedfilteringenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AdvancedFilteringEnabled");
+				this.SetAttributeValue("advancedfilteringenabled", value);
+				this.OnPropertyChanged("AdvancedFilteringEnabled");
+			}
+		}
+		
+		/// <summary>
 		/// Flag to indicate if the Advanced Lookup feature is enabled for lookup controls
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("advancedlookupenabled")]
@@ -8207,6 +8267,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Control whether the organization Allow Redirect Legacy Admin Settings To Modern UI
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("allowredirectadminsettingstomodernui")]
+		public System.Nullable<bool> AllowRedirectAdminSettingsToModernUI
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("allowredirectadminsettingstomodernui");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AllowRedirectAdminSettingsToModernUI");
+				this.SetAttributeValue("allowredirectadminsettingstomodernui", value);
+				this.OnPropertyChanged("AllowRedirectAdminSettingsToModernUI");
+			}
+		}
+		
+		/// <summary>
 		/// Indicates whether users are allowed to send email to unresolved parties (parties must still have an email address).
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("allowunresolvedpartiesonemailsend")]
@@ -8243,6 +8323,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("AllowUserFormModePreference");
 				this.SetAttributeValue("allowuserformmodepreference", value);
 				this.OnPropertyChanged("AllowUserFormModePreference");
+			}
+		}
+		
+		/// <summary>
+		/// Flag to indicate if allow end users to hide system views in model-driven apps is enabled
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("allowusershidingsystemviews")]
+		public System.Nullable<bool> AllowUsersHidingSystemViews
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("allowusershidingsystemviews");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AllowUsersHidingSystemViews");
+				this.SetAttributeValue("allowusershidingsystemviews", value);
+				this.OnPropertyChanged("AllowUsersHidingSystemViews");
 			}
 		}
 		
@@ -8809,6 +8909,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("ContractPrefix");
 				this.SetAttributeValue("contractprefix", value);
 				this.OnPropertyChanged("ContractPrefix");
+			}
+		}
+		
+		/// <summary>
+		/// Refresh rate for copresence data in seconds.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("copresencerefreshrate")]
+		public System.Nullable<int> CopresenceRefreshRate
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("copresencerefreshrate");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("CopresenceRefreshRate");
+				this.SetAttributeValue("copresencerefreshrate", value);
+				this.OnPropertyChanged("CopresenceRefreshRate");
 			}
 		}
 		
@@ -9677,6 +9797,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("EnableLPAuthoring");
 				this.SetAttributeValue("enablelpauthoring", value);
 				this.OnPropertyChanged("EnableLPAuthoring");
+			}
+		}
+		
+		/// <summary>
+		/// Control whether the organization Switch Maker Portal to Classic
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("enablemakerswitchtoclassic")]
+		public System.Nullable<bool> EnableMakerSwitchToClassic
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("enablemakerswitchtoclassic");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("EnableMakerSwitchToClassic");
+				this.SetAttributeValue("enablemakerswitchtoclassic", value);
+				this.OnPropertyChanged("EnableMakerSwitchToClassic");
 			}
 		}
 		
@@ -10927,6 +11067,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("iscollaborationexperienceenabled")]
+		public System.Nullable<bool> IsCollaborationExperienceEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("iscollaborationexperienceenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsCollaborationExperienceEnabled");
+				this.SetAttributeValue("iscollaborationexperienceenabled", value);
+				this.OnPropertyChanged("IsCollaborationExperienceEnabled");
+			}
+		}
+		
+		/// <summary>
 		/// Information that specifies whether conflict detection for mobile client is enabled.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isconflictdetectionenabledformobileclient")]
@@ -11996,6 +12156,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("IsSalesAssistantEnabled");
 				this.SetAttributeValue("issalesassistantenabled", value);
 				this.OnPropertyChanged("IsSalesAssistantEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("issharinginorgallowed")]
+		public System.Nullable<bool> IsSharingInOrgAllowed
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("issharinginorgallowed");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsSharingInOrgAllowed");
+				this.SetAttributeValue("issharinginorgallowed", value);
+				this.OnPropertyChanged("IsSharingInOrgAllowed");
 			}
 		}
 		
@@ -13359,6 +13539,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Leave empty to use default setting. Set to on/off to enable/disable replacement of default grids with modern ones in model-driven apps.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pcfdatasetgridenabled")]
+		public string PcfDatasetGridEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pcfdatasetgridenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("PcfDatasetGridEnabled");
+				this.SetAttributeValue("pcfdatasetgridenabled", value);
+				this.OnPropertyChanged("PcfDatasetGridEnabled");
+			}
+		}
+		
+		/// <summary>
 		/// For internal use only.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("picture")]
@@ -13619,6 +13819,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Flag to indicate if the feature to use quick action to open records in search side pane is enabled
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("quickactiontoopenrecordsinsidepaneenabled")]
+		public System.Nullable<bool> QuickActionToOpenRecordsInSidePaneEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("quickactiontoopenrecordsinsidepaneenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("QuickActionToOpenRecordsInSidePaneEnabled");
+				this.SetAttributeValue("quickactiontoopenrecordsinsidepaneenabled", value);
+				this.OnPropertyChanged("QuickActionToOpenRecordsInSidePaneEnabled");
+			}
+		}
+		
+		/// <summary>
 		/// Indicates whether a quick find record limit should be enabled for this organization (allows for faster Quick Find queries but prevents overly broad searches).
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("quickfindrecordlimitenabled")]
@@ -13655,6 +13875,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("QuotePrefix");
 				this.SetAttributeValue("quoteprefix", value);
 				this.OnPropertyChanged("QuotePrefix");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether SLA Recalculation has been enabled for the organization
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("recalculatesla")]
+		public System.Nullable<bool> RecalculateSLA
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("recalculatesla");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("RecalculateSLA");
+				this.SetAttributeValue("recalculatesla", value);
+				this.OnPropertyChanged("RecalculateSLA");
 			}
 		}
 		
@@ -14076,6 +14316,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("ServeStaticResourcesFromAzureCDN");
 				this.SetAttributeValue("servestaticresourcesfromazurecdn", value);
 				this.OnPropertyChanged("ServeStaticResourcesFromAzureCDN");
+			}
+		}
+		
+		/// <summary>
+		/// Enable the session recording feature to record user sessions in UCI
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("sessionrecordingenabled")]
+		public System.Nullable<bool> SessionRecordingEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("sessionrecordingenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("SessionRecordingEnabled");
+				this.SetAttributeValue("sessionrecordingenabled", value);
+				this.OnPropertyChanged("SessionRecordingEnabled");
 			}
 		}
 		
@@ -15021,6 +15281,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Enable the user rating feature to show the NSAT score and comment to maker
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("userratingenabled")]
+		public System.Nullable<bool> UserRatingEnabled
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("userratingenabled");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("UserRatingEnabled");
+				this.SetAttributeValue("userratingenabled", value);
+				this.OnPropertyChanged("UserRatingEnabled");
+			}
+		}
+		
+		/// <summary>
 		/// Indicates default protocol selected for organization.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("useskypeprotocol")]
@@ -15787,6 +16067,32 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("pc_TransactionImportError");
 				this.SetAttributeValue("pc_transactionimporterror", value);
 				this.OnPropertyChanged("pc_TransactionImportError");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_transactionimportfile")]
+		public object pc_TransactionImportFile
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<object>("pc_transactionimportfile");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_transactionimportfile_name")]
+		public string pc_TransactionImportFile_Name
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_transactionimportfile_name");
 			}
 		}
 		
@@ -21773,6 +22079,39 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Date and time when the user was set as soft deleted in Azure.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("azuredeletedon")]
+		public System.Nullable<System.DateTime> AzureDeletedOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("azuredeletedon");
+			}
+		}
+		
+		/// <summary>
+		/// Azure state of user
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("azurestate")]
+		public virtual SystemUser_AzureState? AzureState
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((SystemUser_AzureState?)(EntityOptionSetEnum.GetEnum(this, "azurestate")));
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AzureState");
+				this.SetAttributeValue("azurestate", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
+				this.OnPropertyChanged("AzureState");
+			}
+		}
+		
+		/// <summary>
 		/// Unique identifier of the business unit with which the user is associated.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businessunitid")]
@@ -21914,6 +22253,19 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 			get
 			{
 				return this.GetAttributeValue<string>("defaultodbfoldername");
+			}
+		}
+		
+		/// <summary>
+		/// User delete state
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("deletedstate")]
+		public virtual SystemUser_DeletedState? DeletedState
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return ((SystemUser_DeletedState?)(EntityOptionSetEnum.GetEnum(this, "deletedstate")));
 			}
 		}
 		
@@ -27936,6 +28288,19 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Reference to the content file on Azure.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contentfileref")]
+		public object ContentFileRef
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<object>("contentfileref");
+			}
+		}
+		
+		/// <summary>
 		/// 
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contentfileref_name")]
@@ -27965,6 +28330,19 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("ContentJson");
 				this.SetAttributeValue("contentjson", value);
 				this.OnPropertyChanged("ContentJson");
+			}
+		}
+		
+		/// <summary>
+		/// Reference to the Json content file on Azure.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contentjsonfileref")]
+		public object ContentJsonFileRef
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<object>("contentjsonfileref");
 			}
 		}
 		

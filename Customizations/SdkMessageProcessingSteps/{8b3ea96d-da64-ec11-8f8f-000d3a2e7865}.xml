@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SdkMessageProcessingStep
-  Name="PC.PowerApps.Plugins.Bound.Annotations.PostCreateUpdate: Create of annotation"
-  SdkMessageProcessingStepId="{0f2bc18f-fbf8-eb11-94ef-000d3a4bfac3}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  Name="PC.PowerApps.Plugins.Bound.BankAccounts.PostCreateUpdate: Create of pc_bankaccount"
+  SdkMessageProcessingStepId="{8b3ea96d-da64-ec11-8f8f-000d3a2e7865}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SdkMessageId>9ebdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
-  <PluginTypeName>PC.PowerApps.Plugins.Bound.Annotations.PostCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92</PluginTypeName>
-  <PluginTypeId>01c19cfd-2dc0-4ed8-956e-171bdccaf241</PluginTypeId>
-  <PrimaryEntity>annotation</PrimaryEntity>
+  <PluginTypeName>PC.PowerApps.Plugins.Bound.BankAccounts.PostCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92</PluginTypeName>
+  <PluginTypeId>bcce317c-37fa-4df6-8da7-f9072b79d3ff</PluginTypeId>
+  <PrimaryEntity>pc_bankaccount</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <FilteringAttributes></FilteringAttributes>
   <InvocationSource>1</InvocationSource>
@@ -20,7 +20,7 @@
   <SdkMessageProcessingStepImages>
     <SdkMessageProcessingStepImage
       Name="">
-      <SdkMessageProcessingStepImageId>{0e7055a3-fbf8-eb11-94ef-000d3a4bfac3}</SdkMessageProcessingStepImageId>
+      <SdkMessageProcessingStepImageId>{12c30677-da64-ec11-8f8f-000d3a2e7aae}</SdkMessageProcessingStepImageId>
       <Attributes></Attributes>
       <EntityAlias>Image</EntityAlias>
       <ImageType>1</ImageType>

@@ -9,10 +9,16 @@
   <FileName>/PluginAssemblies/PCPowerAppsPlugins-7B91FDA9-7149-48EA-8D6A-E06D347CE24C/PCPowerAppsPlugins.dll</FileName>
   <PluginTypes>
     <PluginType
-      AssemblyQualifiedName="PC.PowerApps.Plugins.Bound.Annotations.PostCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92"
-      PluginTypeId="01c19cfd-2dc0-4ed8-956e-171bdccaf241"
-      Name="PC.PowerApps.Plugins.Bound.Annotations.PostCreateUpdate">
-      <FriendlyName>f57ab7d9-a7c7-4527-8dc4-553a09591c11</FriendlyName>
+      AssemblyQualifiedName="PC.PowerApps.Plugins.Bound.BankAccounts.PostCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92"
+      PluginTypeId="bcce317c-37fa-4df6-8da7-f9072b79d3ff"
+      Name="PC.PowerApps.Plugins.Bound.BankAccounts.PostCreateUpdate">
+      <FriendlyName>24322cef-b66f-46e2-b5df-30516eb23492</FriendlyName>
+    </PluginType>
+    <PluginType
+      AssemblyQualifiedName="PC.PowerApps.Plugins.Bound.BankAccounts.PreCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92"
+      PluginTypeId="e0857bc1-0c2c-4cfe-ba69-631f4b10258f"
+      Name="PC.PowerApps.Plugins.Bound.BankAccounts.PreCreateUpdate">
+      <FriendlyName>75809e6c-5a21-4097-bdde-2727514292d3</FriendlyName>
     </PluginType>
     <PluginType
       AssemblyQualifiedName="PC.PowerApps.Plugins.Bound.BankAccounts.PreValidateCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92"
