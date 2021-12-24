@@ -5,7 +5,7 @@
   <IncludeCommandLine>true</IncludeCommandLine>
   <MaskPassword>true</MaskPassword>
   <SettingsVersion>1.2021.6.14</SettingsVersion>
-  <Version>1.2021.6.14</Version>
+  <Version>1.2021.12.12</Version>
   <ExtensionConfig>
     <ActionPrefixesWhitelist />
     <ActionsWhitelist />
@@ -59,6 +59,7 @@ webresource</EntitiesWhitelist>
       xsi:nil="true" />
     <OptionSetPrefixesToSkip />
     <OptionSetsToSkip />
+    <OptionSetNames />
     <ProjectNameForEarlyBoundFiles />
     <PropertyEnumMappings />
     <ReadSerializedMetadata>false</ReadSerializedMetadata>
@@ -98,6 +99,7 @@ quote:StatusCode|
 quotedetail:QuoteStateCode|
 salesorderdetail:SalesOrderStateCode</UnmappedProperties>
     <UseDeprecatedOptionSetNaming>false</UseDeprecatedOptionSetNaming>
+    <UseLogicalNames>false</UseLogicalNames>
     <UseTfsToCheckoutFiles>false</UseTfsToCheckoutFiles>
     <WaitForAttachedDebugger>false</WaitForAttachedDebugger>
   </ExtensionConfig>

@@ -3,6 +3,7 @@ using Microsoft.Xrm.Sdk;
 using PC.PowerApps.ClientBase;
 using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.Repositories;
 using System;
 using System.Diagnostics;
@@ -34,7 +35,7 @@ namespace PC.PowerApps.TestConsoleApp
         public async Task Execute()
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
-            //transactionRepository.Value.ImportFromAnnotation(new Guid("56E11FE7-CE69-9BCC-B230-B2820280DED5"));
+            //TransactionRepository.ImportFromAnnotation(Context, new Guid("177b97ba-92e8-eb11-bacb-000d3abb9ce3"));
 
             //await scheduledJobProcessor.Value.ExecuteAll();
 
@@ -174,7 +175,10 @@ namespace PC.PowerApps.TestConsoleApp
 
             //Utils.DeleteRecordChangeHistory(Context, new EntityReference(Contact.EntityLogicalName, new Guid("b59490aa-40ed-eb11-bacb-000d3a3a2279")));
 
-            throw Context.CreateException("AttributeCannotBeEmpty1", "123", "456");
+            //throw Context.CreateException("AttributeCannotBeEmpty1", "123", "456");
+
+            pc_BankAccount bankAccount = Context.ServiceContext.pc_BankAccountSet.TakeSingle();
+            FileRepository.Download(Context, bankAccount, ba => ba.pc_TransactionImportFile);
         }
     }
 }

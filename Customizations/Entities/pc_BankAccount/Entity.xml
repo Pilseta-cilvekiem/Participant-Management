@@ -675,6 +675,52 @@
           </Descriptions>
         </attribute>
         <attribute
+          PhysicalName="pc_TransactionImportFile">
+          <Type>file</Type>
+          <Name>pc_transactionimportfile</Name>
+          <LogicalName>pc_transactionimportfile</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>disabled</ImeMode>
+          <ValidForUpdateApi>0</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>0</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.0.4</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>0</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>0</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>0</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <MaxValue>131072</MaxValue>
+          <displaynames>
+            <displayname
+              description="Transaction Import File"
+              languagecode="1033" />
+            <displayname
+              description="Transakciju importa fails"
+              languagecode="1062" />
+          </displaynames>
+          <Descriptions>
+            <Description
+              description=""
+              languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute
           PhysicalName="pc_TransactionImportStatus">
           <Type>picklist</Type>
           <Name>pc_transactionimportstatus</Name>

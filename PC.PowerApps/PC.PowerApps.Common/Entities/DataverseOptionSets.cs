@@ -422,10 +422,6 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		Any = 1,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Email", 1)]
-		Email = 2,
-		
-		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Fax", 3)]
 		Fax = 4,
 		
@@ -436,6 +432,10 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Phone", 2)]
 		Phone = 3,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Private Email", 1)]
+		PrivateEmail = 2,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1072,12 +1072,12 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	{
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Day", 0)]
-		Day = 947970001,
+		[OptionSetMetadataAttribute("Days", 0)]
+		Days = 947970001,
 		
 		[System.Runtime.Serialization.EnumMemberAttribute()]
-		[OptionSetMetadataAttribute("Month", 1)]
-		Month = 947970000,
+		[OptionSetMetadataAttribute("Months", 1)]
+		Months = 947970000,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
@@ -1227,6 +1227,23 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_AzureState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Exists", 0)]
+		Exists = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Not found or hard deleted", 2)]
+		Notfoundorharddeleted = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Soft deleted", 1)]
+		Softdeleted = 1,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
 	public enum SystemUser_CALType
 	{
 		
@@ -1281,6 +1298,19 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Service", 10)]
 		Service = 10,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum SystemUser_DeletedState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Not deleted", 0)]
+		Notdeleted = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Soft deleted", 1)]
+		Softdeleted = 1,
 	}
 	
 	[System.Runtime.Serialization.DataContractAttribute()]
