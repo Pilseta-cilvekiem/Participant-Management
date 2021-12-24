@@ -6,11 +6,11 @@ namespace PC.PowerApps.Common.ScheduledJobs
 {
     public class ImportTransactions : ScheduledJob
     {
-        public Guid AnnotationId { get; set; }
+        public Guid BankAccountId { get; set; }
 
         public override Task Execute()
         {
-            TransactionRepository.ImportFromAnnotation(Context, AnnotationId);
+            TransactionRepository.ImportFromBankAccount(Context, BankAccountId);
             return Task.CompletedTask;
         }
     }

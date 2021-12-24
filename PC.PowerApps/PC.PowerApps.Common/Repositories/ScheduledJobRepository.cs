@@ -50,8 +50,8 @@ namespace PC.PowerApps.Common.Repositories
             {
                 nextExecuteOnLocal = scheduledJob.pc_Recurrence switch
                 {
-                    pc_Recurrence.Day => nextExecuteOnLocal.AddDays(scheduledJob.pc_ExecuteEvery.Value),
-                    pc_Recurrence.Month => nextExecuteOnLocal.AddMonths(scheduledJob.pc_ExecuteEvery.Value),
+                    pc_Recurrence.Days => nextExecuteOnLocal.AddDays(scheduledJob.pc_ExecuteEvery.Value),
+                    pc_Recurrence.Months => nextExecuteOnLocal.AddMonths(scheduledJob.pc_ExecuteEvery.Value),
                     _ => throw new InvalidOperationException($"Scheduled job recurrence {scheduledJob.pc_Recurrence} is not supported."),
                 };
             } while (nextExecuteOnLocal < modifiedOnLocal);

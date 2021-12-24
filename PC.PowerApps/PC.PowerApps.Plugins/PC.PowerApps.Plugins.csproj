@@ -108,6 +108,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bound\BankAccounts\PostCreateUpdate.cs" />
+    <Compile Include="Bound\BankAccounts\PreCreateUpdate.cs" />
     <Compile Include="Bound\BankAccounts\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Contacts\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Emails\PreValidateCreateUpdate.cs" />
@@ -134,7 +136,6 @@
     <Compile Include="PluginBase.cs" />
     <Compile Include="PluginConstants.cs" />
     <Compile Include="Bound\Transactions\MarkAsNonPayment.cs" />
-    <Compile Include="Bound\Annotations\PostCreateUpdate.cs" />
     <Compile Include="Bound\Contacts\PostCreateUpdate.cs" />
     <Compile Include="Bound\Emails\PostCreateUpdate.cs" />
     <Compile Include="Bound\Participations\PostCreateUpdate.cs" />
