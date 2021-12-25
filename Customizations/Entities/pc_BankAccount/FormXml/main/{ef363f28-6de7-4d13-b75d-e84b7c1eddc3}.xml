@@ -249,27 +249,6 @@
           </row>
         </rows>
       </footer>
-      <formLibraries>
-        <Library
-          name="pc_/bankaccount.js"
-          libraryUniqueId="{c3000d33-35d0-4092-827b-3a2471e3a932}" />
-      </formLibraries>
-      <events>
-        <event
-          name="onload"
-          application="true"
-          active="true">
-          <Handlers>
-            <Handler
-              functionName="bankaccount.onLoad"
-              libraryName="pc_/bankaccount.js"
-              handlerUniqueId="{36be34cb-bced-4912-8340-df44c36a768d}"
-              enabled="true"
-              parameters=""
-              passExecutionContext="true" />
-          </Handlers>
-        </event>
-      </events>
       <Navigation>
         <NavBar />
         <NavBarAreas>
@@ -325,7 +304,7 @@
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName
-        description="Information"
+        description="Informācija"
         languagecode="1033" />
       <LocalizedName
         description="Informācija"
@@ -333,7 +312,7 @@
     </LocalizedNames>
     <Descriptions>
       <Description
-        description="A form for this entity."
+        description="Šīs entītijas forma."
         languagecode="1033" />
       <Description
         description="Šīs entītijas forma."
