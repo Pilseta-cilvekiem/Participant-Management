@@ -226,10 +226,6 @@
         behavior="0" />
       <RootComponent
         type="61"
-        schemaName="pc_/bankaccount.js"
-        behavior="0" />
-      <RootComponent
-        type="61"
         schemaName="pc_/contact.js"
         behavior="0" />
       <RootComponent
