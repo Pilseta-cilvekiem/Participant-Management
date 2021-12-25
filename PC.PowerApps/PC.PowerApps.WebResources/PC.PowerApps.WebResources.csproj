@@ -333,7 +333,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\bankaccount.ts" />
     <TypeScriptCompile Include="src\contact.ts" />
     <TypeScriptCompile Include="src\lib\common.ts" />
     <TypeScriptCompile Include="src\transaction.ts" />
