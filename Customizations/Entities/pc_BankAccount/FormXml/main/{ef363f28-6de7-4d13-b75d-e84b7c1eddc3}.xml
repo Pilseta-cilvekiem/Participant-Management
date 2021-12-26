@@ -187,7 +187,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1062" />
+                  languagecode="1033" />
               </labels>
             </cell>
             <cell
@@ -196,7 +196,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1062" />
+                  languagecode="1033" />
               </labels>
             </cell>
             <cell
@@ -205,7 +205,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1062" />
+                  languagecode="1033" />
               </labels>
             </cell>
           </row>
@@ -225,7 +225,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1062" />
+                  languagecode="1033" />
               </labels>
             </cell>
             <cell
@@ -234,7 +234,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1062" />
+                  languagecode="1033" />
               </labels>
             </cell>
             <cell
@@ -243,7 +243,7 @@
               <labels>
                 <label
                   description=""
-                  languagecode="1062" />
+                  languagecode="1033" />
               </labels>
             </cell>
           </row>
@@ -299,12 +299,33 @@
         FallbackForm="true">
         <Everyone />
       </DisplayConditions>
+      <formLibraries>
+        <Library
+          name="pc_/bankaccount.js"
+          libraryUniqueId="{59cd73ce-85ec-4507-88d8-3a310f230278}" />
+      </formLibraries>
+      <events>
+        <event
+          name="onload"
+          application="true"
+          active="true">
+          <Handlers>
+            <Handler
+              functionName="bankaccount.onLoad"
+              libraryName="pc_/bankaccount.js"
+              handlerUniqueId="{1b72a504-2456-40e9-8968-741f2a589d76}"
+              enabled="true"
+              parameters=""
+              passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
     <LocalizedNames>
       <LocalizedName
-        description="Informācija"
+        description="Information"
         languagecode="1033" />
       <LocalizedName
         description="Informācija"
