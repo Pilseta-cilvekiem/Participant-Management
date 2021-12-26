@@ -5,7 +5,7 @@
   <bindingtype>1</bindingtype>
   <boundentitylogicalname>pc_transaction</boundentitylogicalname>
   <description
-    default="Procesēt transakciju">
+    default="Process Transaction">
     <label
       description="Process Transaction"
       languagecode="1033" />
@@ -14,7 +14,7 @@
       languagecode="1062" />
   </description>
   <displayname
-    default="Procesēt transakciju">
+    default="Process Transaction">
     <label
       description="Process Transaction"
       languagecode="1033" />
