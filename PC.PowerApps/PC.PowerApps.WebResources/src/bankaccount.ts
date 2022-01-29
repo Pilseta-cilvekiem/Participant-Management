@@ -22,8 +22,13 @@ async function onTransactionImportFileChange() {
 
     while (true) {
         await sleep(5000);
-        await form.data.refresh();
+
+        if (!form.data.getIsDirty()) {
+            await form.data.refresh();
+        }
+
         const transactionImportStatus = form.getAttribute("pc_transactionimportstatus").getValue();
+
         if (transactionImportStatus != pc_transactionimportstatus.Pending && transactionImportStatus != pc_transactionimportstatus.InProgress) {
             return;
         }
