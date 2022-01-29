@@ -19,6 +19,13 @@ var XrmQuery;
         return XQW.RetrieveRecord.Get(entityPicker, id);
     }
     XrmQuery.retrieve = retrieve;
+    // TODO maybe this is a fix for issue #139 on github
+    // export function retrieve<ISelect, IExpand, IFixed, FormattedResult, Result>(
+    //   entityPicker: (x: WebEntitiesRetrieve) => WebMappingRetrieve<ISelect, IExpand, any, IFixed, Result, FormattedResult>,
+    //   id: string) {
+    //   id = XQW.stripGUID(id);
+    //   return XQW.RetrieveRecord.Get<ISelect, IExpand, IFixed, FormattedResult, Result>(entityPicker, id);
+    // }
     /**
      * Instantiates specification of a query that can retrieve multiple records of a certain entity.
      * @param entityPicker Function to select which entity should be targeted.
@@ -297,6 +304,7 @@ var Filter;
     }
     /**
      * @internal
+     * // TODO could this be fix to password problem by adding &qout instead of "''" below?
      */
     function encodeSpecialCharacters(queryString) {
         return encodeURI(queryString)

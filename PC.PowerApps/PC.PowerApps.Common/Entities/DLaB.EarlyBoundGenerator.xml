@@ -4,7 +4,7 @@
   <CrmSvcUtilRelativePath>DLaB.EarlyBoundGenerator\crmsvcutil.exe</CrmSvcUtilRelativePath>
   <IncludeCommandLine>true</IncludeCommandLine>
   <MaskPassword>true</MaskPassword>
-  <SettingsVersion>1.2021.6.14</SettingsVersion>
+  <SettingsVersion>1.2021.12.12</SettingsVersion>
   <Version>1.2021.12.12</Version>
   <ExtensionConfig>
     <ActionPrefixesWhitelist />

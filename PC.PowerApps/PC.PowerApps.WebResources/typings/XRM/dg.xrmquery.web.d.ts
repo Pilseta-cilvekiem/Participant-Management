@@ -265,8 +265,7 @@ declare namespace XQW {
          * Sets up the query to filter the entity using the predefined-query.
          * @param xml The query in FetchXML format
          */
-        usePredefinedQuery(type: "savedQuery", guid: string): Query<Result[]>;
-        usePredefinedQuery(type: "userQuery", guid: string): Query<Result[]>;
+        usePredefinedQuery(type: "savedQuery" | "userQuery", guid: string): Query<Result[]>;
     }
     class RetrieveRecord<ISelect, IExpand, IFixed, FormattedResult, Result> extends Query<Result> {
         private entitySetName;

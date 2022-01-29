@@ -9701,6 +9701,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Determines whether records merged through the merge dialog in UCI are merged asynchronously
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("enableasyncmergeapiforuci")]
+		public System.Nullable<bool> EnableAsyncMergeAPIForUCI
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("enableasyncmergeapiforuci");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("EnableAsyncMergeAPIForUCI");
+				this.SetAttributeValue("enableasyncmergeapiforuci", value);
+				this.OnPropertyChanged("EnableAsyncMergeAPIForUCI");
+			}
+		}
+		
+		/// <summary>
 		/// Enable Integration with Bing Maps
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("enablebingmapsintegration")]
@@ -13082,6 +13102,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("MobileOfflineSyncInterval");
 				this.SetAttributeValue("mobileofflinesyncinterval", value);
 				this.OnPropertyChanged("MobileOfflineSyncInterval");
+			}
+		}
+		
+		/// <summary>
+		/// Flag to indicate if the modern advanced find filtering on all tables in a model-driven app is enabled
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modernadvancedfindfiltering")]
+		public System.Nullable<bool> ModernAdvancedFindFiltering
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("modernadvancedfindfiltering");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ModernAdvancedFindFiltering");
+				this.SetAttributeValue("modernadvancedfindfiltering", value);
+				this.OnPropertyChanged("ModernAdvancedFindFiltering");
 			}
 		}
 		
@@ -26882,6 +26922,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("LastAlertsViewedTime");
 				this.SetAttributeValue("lastalertsviewedtime", value);
 				this.OnPropertyChanged("LastAlertsViewedTime");
+			}
+		}
+		
+		/// <summary>
+		/// Stores the timestamp for when the ViewPersonalizationSettings attribute was updated for this user in the UserEntityUISettings table.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("lastmodifiedtimeforviewpersonalizationsettings")]
+		public System.Nullable<System.DateTime> LastModifiedTimeForViewPersonalizationSettings
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("lastmodifiedtimeforviewpersonalizationsettings");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("LastModifiedTimeForViewPersonalizationSettings");
+				this.SetAttributeValue("lastmodifiedtimeforviewpersonalizationsettings", value);
+				this.OnPropertyChanged("LastModifiedTimeForViewPersonalizationSettings");
 			}
 		}
 		

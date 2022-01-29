@@ -1,0 +1,1 @@
+Microsoft.NET.Sdk.Functions	3.0.1
