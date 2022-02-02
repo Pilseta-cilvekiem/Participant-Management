@@ -1,26 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<customapi
-  uniquename="pc_ProcessTransaction">
+<customapi uniquename="pc_ProcessTransaction">
   <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
   <bindingtype>1</bindingtype>
   <boundentitylogicalname>pc_transaction</boundentitylogicalname>
-  <description
-    default="Process Transaction">
-    <label
-      description="Process Transaction"
-      languagecode="1033" />
-    <label
-      description="Procesēt transakciju"
-      languagecode="1062" />
+  <description default="Process Transaction">
+    <label description="Process Transaction" languagecode="1033" />
+    <label description="Procesēt transakciju" languagecode="1062" />
   </description>
-  <displayname
-    default="Process Transaction">
-    <label
-      description="Process Transaction"
-      languagecode="1033" />
-    <label
-      description="Procesēt transakciju"
-      languagecode="1062" />
+  <displayname default="Process Transaction">
+    <label description="Process Transaction" languagecode="1033" />
+    <label description="Procesēt transakciju" languagecode="1062" />
   </displayname>
   <executeprivilegename>prvCreatepc_Payment</executeprivilegename>
   <iscustomizable>1</iscustomizable>
