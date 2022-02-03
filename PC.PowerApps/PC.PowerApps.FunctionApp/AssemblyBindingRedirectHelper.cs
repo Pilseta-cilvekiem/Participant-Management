@@ -8,7 +8,7 @@ using System.Text;
 
 namespace PC.PowerApps.FunctionApp
 {
-    public static class AssemblyBindingRedirectHelper
+    internal static class AssemblyBindingRedirectHelper
     {
 
         ///<summary>
