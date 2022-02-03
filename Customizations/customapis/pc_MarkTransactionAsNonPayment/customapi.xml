@@ -2,11 +2,11 @@
   <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
   <bindingtype>1</bindingtype>
   <boundentitylogicalname>pc_transaction</boundentitylogicalname>
-  <description default="Mark Transaction as Non-Payment">
+  <description default="Atzīmēt transakciju kā ne maksājumu">
     <label description="Mark Transaction as Non-Payment" languagecode="1033" />
     <label description="Atzīmēt transakciju kā ne maksājumu" languagecode="1062" />
   </description>
-  <displayname default="Mark Transaction as Non-Payment">
+  <displayname default="Atzīmēt transakciju kā ne maksājumu">
     <label description="Mark Transaction as Non-Payment" languagecode="1033" />
     <label description="Atzīmēt transakciju kā ne maksājumu" languagecode="1062" />
   </displayname>
