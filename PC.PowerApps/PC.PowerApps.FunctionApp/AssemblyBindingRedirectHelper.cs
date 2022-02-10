@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Reflection;
-using System.Runtime.Serialization.Json;
-using System.Text;
 
 namespace PC.PowerApps.FunctionApp
 {
-    internal static class AssemblyBindingRedirectHelper
+    internal static partial class AssemblyBindingRedirectHelper
     {
 
         ///<summary>
@@ -25,12 +22,12 @@ namespace PC.PowerApps.FunctionApp
         private static List<BindingRedirect> GetBindingRedirects()
         {
             List<BindingRedirect> result = new();
-            string bindingRedirectListJson = Environment.GetEnvironmentVariable("BindingRedirects");
-            using (MemoryStream memoryStream = new(Encoding.Unicode.GetBytes(bindingRedirectListJson)))
-            {
-                DataContractJsonSerializer serializer = new(typeof(List<BindingRedirect>));
-                result = (List<BindingRedirect>)serializer.ReadObject(memoryStream);
-            }
+            result.Add(new BindingRedirect { ShortName = "Microsoft.Bcl.AsyncInterfaces", RedirectToVersion = "6.0.0.0", PublicKeyToken = "cc7b13ffcd2ddd51" });
+            result.Add(new BindingRedirect { ShortName = "Microsoft.IdentityModel.Clients.ActiveDirectory", RedirectToVersion = "5.2.9.0", PublicKeyToken = "31bf3856ad364e35" });
+            result.Add(new BindingRedirect { ShortName = "System.Diagnostics.DiagnosticSource", RedirectToVersion = "5.0.0.0", PublicKeyToken = "cc7b13ffcd2ddd51" });
+            result.Add(new BindingRedirect { ShortName = "Microsoft.Xrm.Sdk", RedirectToVersion = "9.0.0.0", PublicKeyToken = "31bf3856ad364e35" });
+            result.Add(new BindingRedirect { ShortName = "Newtonsoft.Json", RedirectToVersion = "13.0.0.0", PublicKeyToken = "30ad4fe6b2a6aeed" });
+            result.Add(new BindingRedirect { ShortName = "System.Threading.Tasks.Extensions", RedirectToVersion = "4.2.0.1", PublicKeyToken = "cc7b13ffcd2ddd51" });
             return result;
         }
 
@@ -43,7 +40,8 @@ namespace PC.PowerApps.FunctionApp
                 {
                     return null;
                 }
-                byte[] targetPublicKeyToken = new AssemblyName("x, PublicKeyToken=" + bindingRedirect.PublicKeyToken).GetPublicKeyToken();
+
+                byte[] targetPublicKeyToken = new AssemblyName($"x, PublicKeyToken={bindingRedirect.PublicKeyToken}").GetPublicKeyToken();
                 requestedAssembly.SetPublicKeyToken(targetPublicKeyToken);
                 requestedAssembly.Version = new Version(bindingRedirect.RedirectToVersion);
                 requestedAssembly.CultureInfo = CultureInfo.InvariantCulture;
@@ -53,13 +51,5 @@ namespace PC.PowerApps.FunctionApp
 
             AppDomain.CurrentDomain.AssemblyResolve += handler;
         }
-
-        public class BindingRedirect
-        {
-            public string ShortName { get; set; }
-            public string PublicKeyToken { get; set; }
-            public string RedirectToVersion { get; set; }
-        }
     }
-
 }
