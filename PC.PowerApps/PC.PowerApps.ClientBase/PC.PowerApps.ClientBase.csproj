@@ -215,6 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="appsettings.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
