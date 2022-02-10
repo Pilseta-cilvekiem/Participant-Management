@@ -24,9 +24,9 @@ namespace PC.PowerApps.FunctionApp
             List<BindingRedirect> result = new();
             result.Add(new BindingRedirect { ShortName = "Microsoft.Bcl.AsyncInterfaces", RedirectToVersion = "6.0.0.0", PublicKeyToken = "cc7b13ffcd2ddd51" });
             result.Add(new BindingRedirect { ShortName = "Microsoft.IdentityModel.Clients.ActiveDirectory", RedirectToVersion = "5.2.9.0", PublicKeyToken = "31bf3856ad364e35" });
-            result.Add(new BindingRedirect { ShortName = "System.Diagnostics.DiagnosticSource", RedirectToVersion = "5.0.0.0", PublicKeyToken = "cc7b13ffcd2ddd51" });
             result.Add(new BindingRedirect { ShortName = "Microsoft.Xrm.Sdk", RedirectToVersion = "9.0.0.0", PublicKeyToken = "31bf3856ad364e35" });
             result.Add(new BindingRedirect { ShortName = "Newtonsoft.Json", RedirectToVersion = "13.0.0.0", PublicKeyToken = "30ad4fe6b2a6aeed" });
+            result.Add(new BindingRedirect { ShortName = "System.Diagnostics.DiagnosticSource", RedirectToVersion = "5.0.0.0", PublicKeyToken = "cc7b13ffcd2ddd51" });
             result.Add(new BindingRedirect { ShortName = "System.Threading.Tasks.Extensions", RedirectToVersion = "4.2.0.1", PublicKeyToken = "cc7b13ffcd2ddd51" });
             return result;
         }
