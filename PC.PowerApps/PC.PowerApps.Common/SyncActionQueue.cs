@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace PC.PowerApps.Common
 {
-    public class ActionQueue
+    public class SyncActionQueue
     {
         private readonly Context context;
-        private readonly ConcurrentQueue<Func<Task>> queue = new ConcurrentQueue<Func<Task>>();
+        private readonly ConcurrentQueue<Action> queue = new();
 
-        public ActionQueue(Context context)
+        public SyncActionQueue(Context context)
         {
             this.context = context;
         }
 
-        public void Add(Func<Task> action)
+        public void Add(Action action)
         {
             queue.Enqueue(action);
         }
 
-        public void AddForAll<T>(IEnumerable<T> sequence, Func<T, Task> action)
+        public void AddForAll<T>(IEnumerable<T> sequence, Action<T> action)
         {
             foreach (T element in sequence)
             {
@@ -29,15 +29,15 @@ namespace PC.PowerApps.Common
             }
         }
 
-        public async Task ExecuteAll()
+        public void ExecuteAll()
         {
             List<Exception> exceptions = new();
 
-            while (queue.TryDequeue(out Func<Task> action))
+            while (queue.TryDequeue(out Action action))
             {
                 try
                 {
-                    await action();
+                    action();
                 }
                 catch (Exception e)
                 {
@@ -50,6 +50,13 @@ namespace PC.PowerApps.Common
             {
                 throw new AggregateException(exceptions);
             }
+        }
+
+        public static void ExecuteForAll<T>(Context context, IEnumerable<T> sequence, Action<T> action)
+        {
+            SyncActionQueue syncActionQueue = new(context);
+            syncActionQueue.AddForAll(sequence, action);
+            syncActionQueue.ExecuteAll();
         }
     }
 }

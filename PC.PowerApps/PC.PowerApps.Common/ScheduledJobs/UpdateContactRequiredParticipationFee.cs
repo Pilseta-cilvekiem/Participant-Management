@@ -5,9 +5,10 @@ namespace PC.PowerApps.Common.ScheduledJobs
 {
     public class UpdateContactRequiredParticipationFee : ScheduledJob
     {
-        public override async Task Execute()
+        public override Task Execute()
         {
-            await ContactRepository.UpdateRequiredParticipationFee(Context);
+            ContactRepository.UpdateRequiredParticipationFee(Context);
+            return Task.CompletedTask;
         }
     }
 }
