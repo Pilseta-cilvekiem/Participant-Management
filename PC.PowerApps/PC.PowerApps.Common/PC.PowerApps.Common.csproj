@@ -92,9 +92,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SyncActionQueue.cs" />
     <Compile Include="CommonConstants.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="ActionQueue.cs" />
+    <Compile Include="AsyncActionQueue.cs" />
     <Compile Include="Entities\DataverseEntities.cs" />
     <Compile Include="Entities\DataverseOptionSets.cs" />
     <Compile Include="Entities\Fidavista.cs" />

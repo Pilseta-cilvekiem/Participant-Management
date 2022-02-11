@@ -6,7 +6,6 @@ using PC.PowerApps.Common.ScheduledJobs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PC.PowerApps.Common.Repositories
 {
@@ -99,7 +98,7 @@ namespace PC.PowerApps.Common.Repositories
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
-        public static async Task UpdateRequiredParticipationFee(Context context)
+        public static void UpdateRequiredParticipationFee(Context context)
         {
             List<pc_ParticipationFeeRule> participationFeeRules = context.ServiceContext.pc_ParticipationFeeRuleSet
                 .Select(pfr => new pc_ParticipationFeeRule
@@ -116,13 +115,7 @@ namespace PC.PowerApps.Common.Repositories
                     pc_RequiredParticipationFee = c.pc_RequiredParticipationFee,
                 });
 
-            ActionQueue actionQueue = new(context);
-            actionQueue.AddForAll(contacts, contact =>
-            {
-                UpdateRequiredParticipationFee(context, contact, participationFeeRules);
-                return Task.CompletedTask;
-            });
-            await actionQueue.ExecuteAll();
+            SyncActionQueue.ExecuteForAll(context, contacts, contact => UpdateRequiredParticipationFee(context, contact, participationFeeRules));
         }
 
         public static void UpdateRequiredParticipationFee(Context context, Contact contact, List<pc_ParticipationFeeRule> participationFeeRules)
@@ -164,9 +157,8 @@ namespace PC.PowerApps.Common.Repositories
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
-        public static async void UpdateParticipationLevels(Context context)
+        public static void UpdateParticipationLevels(Context context)
         {
-            ActionQueue actionQueue = new(context);
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
                 {
@@ -174,12 +166,7 @@ namespace PC.PowerApps.Common.Repositories
                     pc_ParticipationLevel = c.pc_ParticipationLevel,
                 });
 
-            actionQueue.AddForAll(contacts, contact =>
-            {
-                UpdateParticipationLevel(context, contact);
-                return Task.CompletedTask;
-            });
-            await actionQueue.ExecuteAll();
+            SyncActionQueue.ExecuteForAll(context, contacts, contact => UpdateParticipationLevel(context, contact));
         }
 
         public static void SendDebtReminder(Context context, Guid contactId)
