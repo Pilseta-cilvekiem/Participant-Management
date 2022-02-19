@@ -21,6 +21,7 @@ namespace PC.PowerApps.Common
         private readonly Lazy<UserSettings> lazyInitiatingUserSettings;
         private readonly Lazy<Dictionary<string, string>> lazyResource;
         private readonly Lazy<Organization> lazyOrganization;
+        private readonly Lazy<List<pc_ParticipationFeeRule>> lazyParticipationFeeRules;
         private readonly Lazy<ServiceContext> lazyServiceContext;
         private readonly Lazy<pc_Settings> lazySettings;
         private readonly Lazy<TimeZoneInfo> lazyTimeZoneInfo = new(() => TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
@@ -33,6 +34,7 @@ namespace PC.PowerApps.Common
         protected Organization Organization => lazyOrganization.Value;
         private CultureInfo OrganizationCultureInfo { get; }
         public abstract IOrganizationService OrganizationService { get; }
+        public List<pc_ParticipationFeeRule> ParticipationFeeRules => lazyParticipationFeeRules.Value;
         private Dictionary<string, string> Resource => lazyResource.Value;
         public ServiceContext ServiceContext => lazyServiceContext.Value;
         public pc_Settings Settings => lazySettings.Value;
@@ -59,6 +61,14 @@ namespace PC.PowerApps.Common
                 return resource;
             });
             lazyOrganization = new(() => ServiceContext.OrganizationSet.TakeSingle());
+            lazyParticipationFeeRules = new(() => ServiceContext.pc_ParticipationFeeRuleSet
+                .Select(pfr => new pc_ParticipationFeeRule
+                {
+                    pc_Amount = pfr.pc_Amount,
+                    pc_From = pfr.pc_From,
+                    pc_Till = pfr.pc_Till,
+                })
+                .ToList());
             lazyServiceContext = new(() => new(OrganizationService));
             lazySettings = new(() => ServiceContext.pc_SettingsSet
                 .Where(s => s.StateCode == pc_SettingsState.Active)

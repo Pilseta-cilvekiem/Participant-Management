@@ -100,14 +100,6 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void UpdateRequiredParticipationFee(Context context)
         {
-            List<pc_ParticipationFeeRule> participationFeeRules = context.ServiceContext.pc_ParticipationFeeRuleSet
-                .Select(pfr => new pc_ParticipationFeeRule
-                {
-                    pc_Amount = pfr.pc_Amount,
-                    pc_From = pfr.pc_From,
-                    pc_Till = pfr.pc_Till,
-                })
-                .ToList();
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
                 {
@@ -115,10 +107,10 @@ namespace PC.PowerApps.Common.Repositories
                     pc_RequiredParticipationFee = c.pc_RequiredParticipationFee,
                 });
 
-            SyncActionQueue.ExecuteForAll(context, contacts, contact => UpdateRequiredParticipationFee(context, contact, participationFeeRules));
+            SyncActionQueue.ExecuteForAll(context, contacts, contact => UpdateRequiredParticipationFee(context, contact));
         }
 
-        public static void UpdateRequiredParticipationFee(Context context, Contact contact, List<pc_ParticipationFeeRule> participationFeeRules)
+        public static void UpdateRequiredParticipationFee(Context context, Contact contact)
         {
             DateTime toDate = context.GetCurrentOrganizationTime().GetFirstDayOfMonth().AddDays(-1);
             Period calculationPeriod = new(null, toDate);
@@ -144,7 +136,7 @@ namespace PC.PowerApps.Common.Repositories
             List<Period> mergedParticipationsWithoutFeeExemptionsWholeMonths = Period.Merge(participationsWithoutFeeExemptionsWholeMonths);
 
             contact.pc_RequiredParticipationFee = new();
-            foreach (pc_ParticipationFeeRule participationFeeRule in participationFeeRules)
+            foreach (pc_ParticipationFeeRule participationFeeRule in context.ParticipationFeeRules)
             {
                 Period participationFeePeriod = new(participationFeeRule.pc_From, participationFeeRule.pc_Till);
                 List<Period> contactParticipationFeePeriod = Period.Intersect(mergedParticipationsWithoutFeeExemptionsWholeMonths, participationFeePeriod);
