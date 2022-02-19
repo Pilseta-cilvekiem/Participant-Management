@@ -6,11 +6,11 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 // </auto-generated>
-// Created via this command line: "C:\Users\Mihails\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator\crmsvcutil.exe" /namespace:"PC.PowerApps.Common.Entities.Dataverse" /SuppressGeneratedCodeAttribute /out:"C:\Users\Mihails\source\repos\Power-Apps\PC.PowerApps\PC.PowerApps.Common\Entities\DataverseEntities.cs" /servicecontextname:"ServiceContextBase" /codecustomization:"DLaB.CrmSvcUtilExtensions.Entity.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.Entity.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.Entity.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.Entity.MetadataProviderService,DLaB.CrmSvcUtilExtensions" /connectionstring:"AuthType=OAuth;Username=mihails.simvulidi@pilsetacilvekiem.lv;Url=https://pilsetacilvekiem.api.crm4.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145b91-0c36-4500-8554-080854f2ac97/;TokenCacheStorePath=C:\Users\Mihails\AppData\Local\Temp\{bba94f33-cdc2-4ed2-9161-9b8bc593c537};LoginPrompt=Auto" 
+// Created via this command line: "C:\Users\Mihails\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator\crmsvcutil.exe" /namespace:"PC.PowerApps.Common.Entities.Dataverse" /SuppressGeneratedCodeAttribute /out:"C:\Users\Mihails\source\repos\Participant-Management\PC.PowerApps\PC.PowerApps.Common\Entities\DataverseEntities.cs" /servicecontextname:"ServiceContextBase" /codecustomization:"DLaB.CrmSvcUtilExtensions.Entity.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.Entity.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.Entity.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.Entity.MetadataProviderService,DLaB.CrmSvcUtilExtensions" /connectionstring:"AuthType=OAuth;Username=mihails.simvulidi@pilsetacilvekiem.lv;Url=https://pilsetacilvekiem.api.crm4.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145b91-0c36-4500-8554-080854f2ac97/;TokenCacheStorePath=C:\Users\Mihails\AppData\Local\Temp\{bba94f33-cdc2-4ed2-9161-9b8bc593c537};LoginPrompt=Auto" 
 //------------------------------------------------------------------------------
 
 [assembly: Microsoft.Xrm.Sdk.Client.ProxyTypesAssemblyAttribute()]
-[assembly: System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.93")]
+[assembly: System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "9.1.0.95")]
 
 namespace PC.PowerApps.Common.Entities.Dataverse
 {
@@ -4364,6 +4364,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_calledon")]
+		public System.Nullable<System.DateTime> pc_CalledOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_calledon");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_CalledOn");
+				this.SetAttributeValue("pc_calledon", value);
+				this.OnPropertyChanged("pc_CalledOn");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_debt")]
 		public Microsoft.Xrm.Sdk.Money pc_Debt
 		{
@@ -4709,6 +4729,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("pc_WelcomeMeetingStatus");
 				this.SetAttributeValue("pc_welcomemeetingstatus", value.HasValue ? new Microsoft.Xrm.Sdk.OptionSetValue((int)value) : null);
 				this.OnPropertyChanged("pc_WelcomeMeetingStatus");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_willcall")]
+		public Microsoft.Xrm.Sdk.EntityReference pc_WillCall
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("pc_willcall");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_WillCall");
+				this.SetAttributeValue("pc_willcall", value);
+				this.OnPropertyChanged("pc_WillCall");
 			}
 		}
 		
@@ -5367,6 +5407,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// 1:N pc_Contact_WillCall_Contact
+		/// </summary>
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("pc_Contact_WillCall_Contact", Microsoft.Xrm.Sdk.EntityRole.Referenced)]
+		public System.Collections.Generic.IEnumerable<PC.PowerApps.Common.Entities.Dataverse.Contact> Referencedpc_Contact_WillCall_Contact
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.Contact>("pc_Contact_WillCall_Contact", Microsoft.Xrm.Sdk.EntityRole.Referenced);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("Referencedpc_Contact_WillCall_Contact");
+				this.SetRelatedEntities<PC.PowerApps.Common.Entities.Dataverse.Contact>("pc_Contact_WillCall_Contact", Microsoft.Xrm.Sdk.EntityRole.Referenced, value);
+				this.OnPropertyChanged("Referencedpc_Contact_WillCall_Contact");
+			}
+		}
+		
+		/// <summary>
 		/// 1:N pc_Payment_Contact_Contact
 		/// </summary>
 		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("pc_Payment_Contact_Contact")]
@@ -5542,6 +5602,27 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 			get
 			{
 				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.SystemUser>("lk_contactbase_modifiedby", null);
+			}
+		}
+		
+		/// <summary>
+		/// N:1 pc_Contact_WillCall_Contact
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_willcall")]
+		[Microsoft.Xrm.Sdk.RelationshipSchemaNameAttribute("pc_Contact_WillCall_Contact", Microsoft.Xrm.Sdk.EntityRole.Referencing)]
+		public PC.PowerApps.Common.Entities.Dataverse.Contact Referencingpc_Contact_WillCall_Contact
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.Contact>("pc_Contact_WillCall_Contact", Microsoft.Xrm.Sdk.EntityRole.Referencing);
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("Referencingpc_Contact_WillCall_Contact");
+				this.SetRelatedEntity<PC.PowerApps.Common.Entities.Dataverse.Contact>("pc_Contact_WillCall_Contact", Microsoft.Xrm.Sdk.EntityRole.Referencing, value);
+				this.OnPropertyChanged("Referencingpc_Contact_WillCall_Contact");
 			}
 		}
 		
@@ -7967,6 +8048,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// Information on whether filtering activity based on entity in app.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("activitytypefilter")]
+		public System.Nullable<bool> ActivityTypeFilter
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("activitytypefilter");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ActivityTypeFilter");
+				this.SetAttributeValue("activitytypefilter", value);
+				this.OnPropertyChanged("ActivityTypeFilter");
+			}
+		}
+		
+		/// <summary>
 		/// Flag to indicate if the display column options on a view in model-driven apps is enabled
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("advancedcolumneditorenabled")]
@@ -8443,6 +8544,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("AppointmentRichEditorExperience");
 				this.SetAttributeValue("appointmentricheditorexperience", value);
 				this.OnPropertyChanged("AppointmentRichEditorExperience");
+			}
+		}
+		
+		/// <summary>
+		/// Information on whether Teams meeting experience for Appointment is enabled.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("appointmentwithteamsmeeting")]
+		public System.Nullable<bool> AppointmentWithTeamsMeeting
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("appointmentwithteamsmeeting");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("AppointmentWithTeamsMeeting");
+				this.SetAttributeValue("appointmentwithteamsmeeting", value);
+				this.OnPropertyChanged("AppointmentWithTeamsMeeting");
 			}
 		}
 		
