@@ -193,7 +193,6 @@
     <Content Include="webpack.config.js" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe.config" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.config" />
-    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.example.config" />
     <Content Include="XrmDefinitelyTyped\Run.ps1" />
     <Content Include="XrmDefinitelyTyped\Run.fsx" />
   </ItemGroup>
