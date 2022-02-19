@@ -195,6 +195,7 @@
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.config" />
     <Content Include="XrmDefinitelyTyped\Run.ps1" />
     <Content Include="XrmDefinitelyTyped\Run.fsx" />
+    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.example.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
