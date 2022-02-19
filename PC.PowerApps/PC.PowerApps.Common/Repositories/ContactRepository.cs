@@ -218,9 +218,12 @@ namespace PC.PowerApps.Common.Repositories
             contact.Description = "Bijušais dalībnieks.";
             contact.EMailAddress1 = null;
             contact.MobilePhone = null;
+            contact.pc_CalledOn = null;
             contact.pc_ForceAddToGoogleGroup = false;
             contact.pc_Neighbourhood = null;
+            contact.pc_WelcomeMeetingStatus = null;
             contact.pc_WishesToBeActive = false;
+            contact.pc_WillCall = null;
         }
 
         public static bool IsValidForGoogleSupporterGroup(Contact contact)
@@ -248,6 +251,16 @@ namespace PC.PowerApps.Common.Repositories
                 Context = context,
             };
             deleteContactChangeHistory.Schedule(allowDuplicates: false);
+        }
+
+        public static void ClearWillCall(Contact contact)
+        {
+            if (contact.pc_CalledOn == null)
+            {
+                return;
+            }
+
+            contact.pc_WillCall = null;
         }
     }
 }

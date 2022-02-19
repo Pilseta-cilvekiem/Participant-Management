@@ -6,7 +6,7 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 // </auto-generated>
-// Created via this command line: "C:\Users\Mihails\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator\crmsvcutil.exe" /namespace:"PC.PowerApps.Common.Entities.Dataverse" /SuppressGeneratedCodeAttribute /out:"C:\Users\Mihails\source\repos\Power-Apps\PC.PowerApps\PC.PowerApps.Common\Entities\DataverseOptionSets.cs" /codecustomization:"DLaB.CrmSvcUtilExtensions.OptionSet.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.OptionSet.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.OptionSet.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.BaseMetadataProviderService,DLaB.CrmSvcUtilExtensions" /connectionstring:"AuthType=OAuth;Username=mihails.simvulidi@pilsetacilvekiem.lv;Url=https://pilsetacilvekiem.api.crm4.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145b91-0c36-4500-8554-080854f2ac97/;TokenCacheStorePath=C:\Users\Mihails\AppData\Local\Temp\{bba94f33-cdc2-4ed2-9161-9b8bc593c537};LoginPrompt=Auto" 
+// Created via this command line: "C:\Users\Mihails\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\DLaB.EarlyBoundGenerator\crmsvcutil.exe" /namespace:"PC.PowerApps.Common.Entities.Dataverse" /SuppressGeneratedCodeAttribute /out:"C:\Users\Mihails\source\repos\Participant-Management\PC.PowerApps\PC.PowerApps.Common\Entities\DataverseOptionSets.cs" /codecustomization:"DLaB.CrmSvcUtilExtensions.OptionSet.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.OptionSet.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.OptionSet.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.BaseMetadataProviderService,DLaB.CrmSvcUtilExtensions" /connectionstring:"AuthType=OAuth;Username=mihails.simvulidi@pilsetacilvekiem.lv;Url=https://pilsetacilvekiem.api.crm4.dynamics.com;AppId=51f81489-12ee-4a9e-aaae-a2591f45987d;RedirectUri=app://58145b91-0c36-4500-8554-080854f2ac97/;TokenCacheStorePath=C:\Users\Mihails\AppData\Local\Temp\{bba94f33-cdc2-4ed2-9161-9b8bc593c537};LoginPrompt=Auto" 
 //------------------------------------------------------------------------------
 
 namespace PC.PowerApps.Common.Entities.Dataverse
@@ -1635,5 +1635,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		[System.Runtime.Serialization.EnumMemberAttribute()]
 		[OptionSetMetadataAttribute("Mail App", 2, "#0000ff")]
 		MailApp = 2,
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	public enum msdyn_knowledgemanagementsetting_msdyn_actionlist
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Link / unlink article", 0, "#0000ff")]
+		Linkunlinkarticle = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Copy URL", 1, "#0000ff")]
+		CopyURL = 1,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Link article and email URL", 2, "#0000ff")]
+		LinkarticleandemailURL = 2,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		[OptionSetMetadataAttribute("Link article and send article content", 3, "#0000ff")]
+		Linkarticleandsendarticlecontent = 3,
 	}
 }

@@ -22,6 +22,11 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
             {
                 ContactRepository.ClearParticipantInfo(contact);
             }
+
+            if (context.GetIsAnyAttributeModified(c => c.pc_CalledOn))
+            {
+                ContactRepository.ClearWillCall(contact);
+            }
         }
     }
 }
