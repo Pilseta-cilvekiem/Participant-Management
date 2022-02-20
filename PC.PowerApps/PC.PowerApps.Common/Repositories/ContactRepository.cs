@@ -13,21 +13,22 @@ namespace PC.PowerApps.Common.Repositories
     {
         private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
 
-        internal static void Recalculate(Context context, bool participationLevel, bool requiredParticipationFee)
+        internal static void Recalculate(Context context, bool participantTill, bool participationLevel, bool requiredParticipationFee)
         {
             IQueryable<Contact> contacts = context.ServiceContext.ContactSet
                 .Select(c => new Contact
                 {
                     ContactId = c.ContactId,
+                    pc_ParticipantTill = c.pc_ParticipantTill,
                     pc_ParticipationLevel = c.pc_ParticipationLevel,
                     pc_RequiredParticipationFee = c.pc_RequiredParticipationFee,
                 });
-            SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participationLevel, requiredParticipationFee));
+            SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participantTill, participationLevel, requiredParticipationFee));
         }
 
         private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
 
-        public static void Recalculate(Context context, Guid? contactId, bool participationLevel, bool requiredParticipationFee)
+        public static void Recalculate(Context context, Guid? contactId, bool participantTill, bool participationLevel, bool requiredParticipationFee)
         {
             if (contactId == null)
             {
@@ -35,22 +36,28 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
-            Recalculate(context, contact, participationLevel, requiredParticipationFee);
+            Recalculate(context, contact, participantTill, participationLevel, requiredParticipationFee);
         }
 
-        public static void ScheduleRecalculate(Context context, bool participationLevel, bool requiredParticipationFee)
+        public static void ScheduleRecalculate(Context context, bool participantTill, bool participationLevel, bool requiredParticipationFee)
         {
             RecalculateContact recalculateContact = new()
             {
                 Context = context,
+                ParticipantTill = participantTill,
                 ParticipationLevel = participationLevel,
                 RequiredParticipationFee = requiredParticipationFee
             };
             recalculateContact.Schedule(allowDuplicates: false);
         }
 
-        private static void Recalculate(Context context, Contact contact, bool participationLevel, bool requiredParticipationFee)
+        private static void Recalculate(Context context, Contact contact, bool participantTill, bool participationLevel, bool requiredParticipationFee)
         {
+            if (participantTill)
+            {
+                UpdateParticipantTill(context, contact);
+            }
+
             if (participationLevel)
             {
                 UpdateParticipationLevel(context, contact);
@@ -134,6 +141,17 @@ namespace PC.PowerApps.Common.Repositories
                 .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
                 .FirstOrDefault();
             contact.pc_ParticipationLevel = participation?.pc_Level;
+        }
+
+        private static void UpdateParticipantTill(Context context, Contact contact)
+        {
+            context.Logger.LogInformation($"Calculating Participant Till for the Contact {contact.Id}...");
+            DateTime localNow = context.GetCurrentOrganizationTime();
+            pc_Participation lastParticipation = context.ServiceContext.pc_ParticipationSet
+                .Where(p => p.pc_Contact.Id == contact.Id)
+                .OrderByDescending(p => p.pc_From)
+                .FirstOrDefault();
+            contact.pc_ParticipantTill = lastParticipation.pc_Till;
         }
 
         public static void UpdateRequiredParticipationFee(Context context, Contact contact)
