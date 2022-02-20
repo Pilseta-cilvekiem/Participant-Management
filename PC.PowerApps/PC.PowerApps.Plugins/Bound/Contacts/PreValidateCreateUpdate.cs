@@ -16,7 +16,7 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
                 return;
             }
 
-            context.EnsureAttributesNotModified(c => new { c.pc_PaidParticipationFee, c.pc_ParticipantTill, c.pc_ParticipationLevel, c.pc_RequiredParticipationFee, c.pc_SentDebtReminderOn, c.pc_SentSupporterWelcomeEmailOn });
+            context.EnsureAttributesNotModified(c => new { c.pc_PaidParticipationFee, c.pc_ParticipantTill, c.pc_ParticipationLevel, c.pc_RequiredParticipationFee, c.pc_SentDebtReminderOn, c.pc_SentMemberWelcomeEmailOn, c.pc_SentSupporterWelcomeEmailOn });
             Contact contact = context.PostImage;
 
             if (contact.StatusCode != Contact_StatusCode.Active && contact.pc_ParticipantTill == null)
