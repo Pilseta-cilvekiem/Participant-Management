@@ -112,6 +112,8 @@
     <Compile Include="Bound\ParticipationFeeExemptions\PostDelete.cs" />
     <Compile Include="Bound\ParticipationFeeExemptions\PreCreateUpdate.cs" />
     <Compile Include="Bound\ParticipationFeeExemptions\PreValidateCreateUpdate.cs" />
+    <Compile Include="Bound\ParticipationFeeRules\PostCreateUpdate.cs" />
+    <Compile Include="Bound\ParticipationFeeRules\PostDelete.cs" />
     <Compile Include="Bound\ParticipationFeeRules\PreCreateUpdate.cs" />
     <Compile Include="Bound\ParticipationFeeRules\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Participations\PreCreateUpdate.cs" />

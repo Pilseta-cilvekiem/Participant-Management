@@ -98,6 +98,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ScheduledJobs\RecalculateContact.cs" />
     <Compile Include="SyncActionQueue.cs" />
     <Compile Include="CommonConstants.cs" />
     <Compile Include="Context.cs" />
@@ -134,8 +135,6 @@
     <Compile Include="ScheduledJobs\DeleteContactChangeHistory.cs" />
     <Compile Include="ScheduledJobs\ImportTransactions.cs" />
     <Compile Include="ScheduledJobs\SynchronizeGoogleSupporterGroupMembersBase.cs" />
-    <Compile Include="ScheduledJobs\UpdateContactParticipationLevels.cs" />
-    <Compile Include="ScheduledJobs\UpdateContactRequiredParticipationFee.cs" />
     <Compile Include="ServiceContext.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>

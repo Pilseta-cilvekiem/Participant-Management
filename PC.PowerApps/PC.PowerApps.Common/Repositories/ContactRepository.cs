@@ -12,6 +12,19 @@ namespace PC.PowerApps.Common.Repositories
     public static class ContactRepository
     {
         private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
+
+        internal static void Recalculate(Context context, bool participationLevel, bool requiredParticipationFee)
+        {
+            IQueryable<Contact> contacts = context.ServiceContext.ContactSet
+                .Select(c => new Contact
+                {
+                    ContactId = c.ContactId,
+                    pc_ParticipationLevel = c.pc_ParticipationLevel,
+                    pc_RequiredParticipationFee = c.pc_RequiredParticipationFee,
+                });
+            SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participationLevel, requiredParticipationFee));
+        }
+
         private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
 
         public static void Recalculate(Context context, Guid? contactId, bool participationLevel, bool requiredParticipationFee)
@@ -23,6 +36,17 @@ namespace PC.PowerApps.Common.Repositories
 
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
             Recalculate(context, contact, participationLevel, requiredParticipationFee);
+        }
+
+        public static void ScheduleRecalculate(Context context, bool participationLevel, bool requiredParticipationFee)
+        {
+            RecalculateContact recalculateContact = new()
+            {
+                Context = context,
+                ParticipationLevel = participationLevel,
+                RequiredParticipationFee = requiredParticipationFee
+            };
+            recalculateContact.Schedule(allowDuplicates: false);
         }
 
         private static void Recalculate(Context context, Contact contact, bool participationLevel, bool requiredParticipationFee)
@@ -112,18 +136,6 @@ namespace PC.PowerApps.Common.Repositories
             contact.pc_ParticipationLevel = participation?.pc_Level;
         }
 
-        public static void UpdateRequiredParticipationFee(Context context)
-        {
-            IQueryable<Contact> contacts = context.ServiceContext.ContactSet
-                .Select(c => new Contact
-                {
-                    ContactId = c.ContactId,
-                    pc_RequiredParticipationFee = c.pc_RequiredParticipationFee,
-                });
-
-            SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participationLevel: false, requiredParticipationFee: true));
-        }
-
         public static void UpdateRequiredParticipationFee(Context context, Contact contact)
         {
             DateTime toDate = context.GetCurrentOrganizationTime().GetFirstDayOfMonth().AddDays(-1);
@@ -162,18 +174,6 @@ namespace PC.PowerApps.Common.Repositories
             }
         }
 
-        public static void UpdateParticipationLevels(Context context)
-        {
-            IQueryable<Contact> contacts = context.ServiceContext.ContactSet
-                .Select(c => new Contact
-                {
-                    ContactId = c.ContactId,
-                    pc_ParticipationLevel = c.pc_ParticipationLevel,
-                });
-
-            SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participationLevel: true, requiredParticipationFee: false));
-        }
-
         public static void SendDebtReminder(Context context, Guid contactId)
         {
             context.EnsureAttributesNotEmpty(context.Settings, s => new { s.pc_EmailSender });
@@ -204,7 +204,7 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void SetDefaults(Contact contact)
         {
-            contact.pc_PaidParticipationFee ??= new();
+            contact.pc_PaidParticipationFee ??= new Money();
         }
 
         public static void ClearParticipantInfo(Contact contact)
