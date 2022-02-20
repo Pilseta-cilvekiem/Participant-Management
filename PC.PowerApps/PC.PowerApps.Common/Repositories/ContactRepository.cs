@@ -12,6 +12,7 @@ namespace PC.PowerApps.Common.Repositories
     public static class ContactRepository
     {
         private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
+        private static readonly Guid memberWelcomeEmailTemplateId = new("6e1e1045-7492-ec11-b400-000d3a2b1acc");
         private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
 
         internal static void Recalculate(Context context, bool participantTill, bool participationLevel, bool requiredParticipationFee)
@@ -78,20 +79,44 @@ namespace PC.PowerApps.Common.Repositories
 
         public static void SendWelcomeEmail(Context context, Contact contact)
         {
-            if (contact.pc_ParticipationLevel != pc_ParticipationLevel.Supporter || contact.pc_SentSupporterWelcomeEmailOn != null)
+            Guid emailTemplateId;
+            pc_EmailCategory emailCategory;
+
+            switch (contact.pc_ParticipationLevel)
             {
-                return;
+                case pc_ParticipationLevel.Member:
+                    if (contact.pc_SentMemberWelcomeEmailOn != null)
+                    {
+                        return;
+                    }
+
+                    emailCategory = pc_EmailCategory.MemberWelcomeEmail;
+                    emailTemplateId = memberWelcomeEmailTemplateId;
+                    break;
+
+                case pc_ParticipationLevel.Supporter:
+                    if (contact.pc_SentSupporterWelcomeEmailOn != null)
+                    {
+                        return;
+                    }
+
+                    emailCategory = pc_EmailCategory.SupporterWelcomeEmail;
+                    emailTemplateId = supporterWelcomeEmailTemplateId;
+                    break;
+
+                default:
+                    return;
             }
 
             pc_Participation participation = context.ServiceContext.pc_ParticipationSet
-                .Where(p => p.pc_Contact.Id == contact.Id && p.pc_Level == pc_ParticipationLevel.Supporter)
+                .Where(p => p.pc_Contact.Id == contact.Id && p.pc_Level == contact.pc_ParticipationLevel)
                 .OrderByDescending(p => p.pc_From)
                 .TakeSingle();
             EntityReference contactReference = contact.ToEntityReference();
-            Email email = Utils.CreateEmailFromTemplate(context, supporterWelcomeEmailTemplateId, contactReference);
+            Email email = Utils.CreateEmailFromTemplate(context, emailTemplateId, contactReference);
             string supporterFrom = participation.GetFormattedValue(p => p.pc_From);
-            email.Description = email.Description.Replace("{!SupporterFrom;}", supporterFrom);
-            email.pc_Category = pc_EmailCategory.SupporterWelcomeEmail;
+            email.Description = email.Description.Replace("{!ParticipationFrom;}", supporterFrom);
+            email.pc_Category = emailCategory;
             email.RegardingObjectId = contactReference;
             email.To = new List<ActivityParty> { new() { PartyId = contactReference } };
             context.OrganizationService.CreateWithoutNulls(email);
@@ -115,7 +140,7 @@ namespace PC.PowerApps.Common.Repositories
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
-        public static void SetSentDebtReminderOn(Context context, Email email)
+        public static void SetSentEmailOn(Context context, Email email)
         {
             if (email.StatusCode != Email_StatusCode.PendingSend)
             {
@@ -128,6 +153,12 @@ namespace PC.PowerApps.Common.Repositories
                     Contact debtReminderContact = context.ServiceContext.Retrieve<Contact>(email.RegardingObjectId);
                     debtReminderContact.pc_SentDebtReminderOn = email.ModifiedOn;
                     _ = context.ServiceContext.UpdateModifiedAttributes(debtReminderContact);
+                    break;
+
+                case pc_EmailCategory.MemberWelcomeEmail:
+                    Contact memberWelcomeEmailContact = context.ServiceContext.Retrieve<Contact>(email.RegardingObjectId);
+                    memberWelcomeEmailContact.pc_SentMemberWelcomeEmailOn = email.ModifiedOn;
+                    _ = context.ServiceContext.UpdateModifiedAttributes(memberWelcomeEmailContact);
                     break;
 
                 case pc_EmailCategory.SupporterWelcomeEmail:
@@ -156,7 +187,7 @@ namespace PC.PowerApps.Common.Repositories
                 .Where(p => p.pc_Contact.Id == contact.Id)
                 .OrderByDescending(p => p.pc_From)
                 .FirstOrDefault();
-            contact.pc_ParticipantTill = lastParticipation.pc_Till;
+            contact.pc_ParticipantTill = lastParticipation?.pc_Till;
         }
 
         public static void UpdateRequiredParticipationFee(Context context, Contact contact)

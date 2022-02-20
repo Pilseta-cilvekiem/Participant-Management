@@ -15,7 +15,7 @@ namespace PC.PowerApps.Plugins.Bound.Emails
 
             if (context.GetIsAnyAttributeModified(e => e.StatusCode))
             {
-                ContactRepository.SetSentDebtReminderOn(context, email);
+                ContactRepository.SetSentEmailOn(context, email);
             }
         }
     }

@@ -4735,6 +4735,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_sentmemberwelcomeemailon")]
+		public System.Nullable<System.DateTime> pc_SentMemberWelcomeEmailOn
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_sentmemberwelcomeemailon");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_SentMemberWelcomeEmailOn");
+				this.SetAttributeValue("pc_sentmemberwelcomeemailon", value);
+				this.OnPropertyChanged("pc_SentMemberWelcomeEmailOn");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_sentsupporterwelcomeemailon")]
 		public System.Nullable<System.DateTime> pc_SentSupporterWelcomeEmailOn
 		{
