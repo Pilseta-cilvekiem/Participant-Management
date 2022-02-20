@@ -16,7 +16,7 @@ namespace PC.PowerApps.Plugins.Bound.Participations
 
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(participation.pc_Contact) != true)
             {
-                ContactRepository.UpdateParticipationLevel(context, participation.pc_Contact?.Id);
+                ContactRepository.Recalculate(context, participation.pc_Contact?.Id, participationLevel: true, requiredParticipationFee: true);
             }
         }
     }
