@@ -242,6 +242,7 @@ namespace PC.PowerApps.Common.Repositories
             contact.EMailAddress1 = null;
             contact.MobilePhone = null;
             contact.pc_CalledOn = null;
+            contact.pc_CallResults = null;
             contact.pc_ForceAddToGoogleGroup = false;
             contact.pc_Neighbourhood = null;
             contact.pc_WelcomeMeetingStatus = null;

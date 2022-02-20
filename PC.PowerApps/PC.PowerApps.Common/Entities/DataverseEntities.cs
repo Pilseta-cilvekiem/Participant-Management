@@ -4384,6 +4384,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_callresults")]
+		public string pc_CallResults
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_callresults");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_CallResults");
+				this.SetAttributeValue("pc_callresults", value);
+				this.OnPropertyChanged("pc_CallResults");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_debt")]
 		public Microsoft.Xrm.Sdk.Money pc_Debt
 		{
