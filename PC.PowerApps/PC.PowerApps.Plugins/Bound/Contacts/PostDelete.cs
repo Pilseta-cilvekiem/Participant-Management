@@ -13,10 +13,9 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
             DeletePluginContext<Contact> context = new(serviceProvider, User.System, User.User);
             Contact contact = context.PreImage;
 
-            if (ContactRepository.IsValidForGoogleSupporterGroup(contact))
-            {
-                ContactRepository.ScheduleSynchronizeGoogleSupporterGroupMembers(context);
-            }
+            bool synchronizeMembers = ContactRepository.IsValidForGoogleMemberGroup(contact);
+            bool synchronizeSupporters = ContactRepository.IsValidForGoogleSupporterGroup(contact);
+            ContactRepository.ScheduleSynchronizeGoogleParticipantGroupMembers(context, synchronizeMembers, synchronizeSupporters);
         }
     }
 }

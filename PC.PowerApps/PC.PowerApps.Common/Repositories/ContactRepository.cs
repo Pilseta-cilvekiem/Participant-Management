@@ -12,6 +12,7 @@ namespace PC.PowerApps.Common.Repositories
     public static class ContactRepository
     {
         private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
+        private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
 
         internal static void Recalculate(Context context, bool participantTill, bool participationLevel, bool requiredParticipationFee)
         {
@@ -26,7 +27,11 @@ namespace PC.PowerApps.Common.Repositories
             SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participantTill, participationLevel, requiredParticipationFee));
         }
 
-        private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
+        public static bool IsValidForGoogleMemberGroup(Contact contact)
+        {
+            bool isValidForGoogleMemberGroup = contact != null && CommonConstants.IsValidForGoogleMemberGroupFunc(contact);
+            return isValidForGoogleMemberGroup;
+        }
 
         public static void Recalculate(Context context, Guid? contactId, bool participantTill, bool participationLevel, bool requiredParticipationFee)
         {
@@ -211,13 +216,21 @@ namespace PC.PowerApps.Common.Repositories
             Utils.SendEmail(context, email);
         }
 
-        public static void ScheduleSynchronizeGoogleSupporterGroupMembers(Context context)
+        public static void ScheduleSynchronizeGoogleParticipantGroupMembers(Context context, bool members, bool supporters)
         {
-            SynchronizeGoogleSupporterGroupMembersBase synchronizeGoogleSupporterGroupMembersBase = new()
+            if ((!members || string.IsNullOrEmpty(context.Settings.pc_GoogleMemberGroup)) &&
+                (!supporters || string.IsNullOrEmpty(context.Settings.pc_GoogleSupporterGroup)))
+            {
+                return;
+            }
+
+            SynchronizeGoogleParticipantGroupMembersBase synchronizeGoogleParticipantGroupMembersBase = new()
             {
                 Context = context,
+                Members = members,
+                Supporters = supporters,
             };
-            synchronizeGoogleSupporterGroupMembersBase.Schedule(allowDuplicates: false);
+            synchronizeGoogleParticipantGroupMembersBase.Schedule(allowDuplicates: false);
         }
 
         public static void SetDefaults(Contact contact)
@@ -285,6 +298,32 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             contact.pc_WillCall = null;
+        }
+
+        public static string GetEmail(Contact contact)
+        {
+            if (contact == null)
+            {
+                return null;
+            }
+
+            if (!string.IsNullOrEmpty(contact.EMailAddress2))
+            {
+                return contact.EMailAddress2;
+            }
+
+            return contact.EMailAddress1;
+        }
+
+        public static void SetEmail(Contact contact, string email)
+        {
+            if (!string.IsNullOrEmpty(contact.EMailAddress2))
+            {
+                contact.EMailAddress2 = email;
+                return;
+            }
+
+            contact.EMailAddress1 = email;
         }
     }
 }
