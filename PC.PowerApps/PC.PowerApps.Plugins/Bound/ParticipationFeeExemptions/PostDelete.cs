@@ -16,7 +16,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemptions
 
             if (context.PluginExecutionContext.ParentContext?.IsDeleteOf(participationFeeExemption.pc_Contact) != true)
             {
-                ContactRepository.Recalculate(context, participationFeeExemption.pc_Contact?.Id, participationLevel: false, requiredParticipationFee: true);
+                ContactRepository.Recalculate(context, participationFeeExemption.pc_Contact?.Id, participantTill: false, participationLevel: false, requiredParticipationFee: true);
             }
         }
     }

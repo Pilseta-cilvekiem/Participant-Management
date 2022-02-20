@@ -17,10 +17,10 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeExemptions
             {
                 if (context.GetIsAnyAttributeModified(p => p.pc_Contact))
                 {
-                    ContactRepository.Recalculate(context, context.PreImage?.pc_Contact?.Id, participationLevel: false, requiredParticipationFee: true);
+                    ContactRepository.Recalculate(context, context.PreImage?.pc_Contact?.Id, participantTill: false, participationLevel: false, requiredParticipationFee: true);
                 }
 
-                ContactRepository.Recalculate(context, participationFeeExemption.pc_Contact?.Id, participationLevel: false, requiredParticipationFee: true);
+                ContactRepository.Recalculate(context, participationFeeExemption.pc_Contact?.Id, participantTill: false, participationLevel: false, requiredParticipationFee: true);
             }
         }
     }

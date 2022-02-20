@@ -35,7 +35,7 @@ namespace PC.PowerApps.Plugins.Bound.ScheduledJobs
 
             if (context.Message != PluginMessage.Create)
             {
-                context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => new { sj.pc_ExecuteOn, sj.pc_PostponeUntil });
+                context.EnsureCreatedOrUpdatedAttributesNotEmpty(sj => new { sj.pc_ExecuteOn });
             }
 
             if (scheduledJob.pc_ExecuteEvery != null || scheduledJob.pc_Recurrence != null)

@@ -4602,6 +4602,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_participanttill")]
+		public System.Nullable<System.DateTime> pc_ParticipantTill
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("pc_participanttill");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_ParticipantTill");
+				this.SetAttributeValue("pc_participanttill", value);
+				this.OnPropertyChanged("pc_ParticipantTill");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_participationlevel")]
 		public virtual pc_ParticipationLevel? pc_ParticipationLevel
 		{

@@ -17,7 +17,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeRules
 
             if (participationFeeRule.pc_From < firstDayOfCurrentMonth)
             {
-                ContactRepository.ScheduleRecalculate(context, participationLevel: false, requiredParticipationFee: true);
+                ContactRepository.ScheduleRecalculate(context, participantTill: false, participationLevel: false, requiredParticipationFee: true);
             }
         }
     }

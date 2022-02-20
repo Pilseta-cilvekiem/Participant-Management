@@ -27,7 +27,7 @@ namespace PC.PowerApps.Plugins.Bound.ParticipationFeeRules
                 if ((context.GetIsAnyAttributeModified(pfr => pfr.pc_Amount) && (prePeriodPastMonths != null || postPeriodPastMonths != null)) ||
                     prePeriodPastMonths != postPeriodPastMonths)
                 {
-                    ContactRepository.ScheduleRecalculate(context, participationLevel: false, requiredParticipationFee: true);
+                    ContactRepository.ScheduleRecalculate(context, participantTill: false, participationLevel: false, requiredParticipationFee: true);
                 }
             }
         }
