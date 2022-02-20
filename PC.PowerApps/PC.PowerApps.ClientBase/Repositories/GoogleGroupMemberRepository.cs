@@ -5,16 +5,19 @@ using Google.Apis.Services;
 using Microsoft.Extensions.Logging;
 using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Repositories;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.ClientBase.Repositories
 {
     public static class GoogleGroupMemberRepository
     {
-        public static async Task SynchronizeSupporters(Context context)
+        public static async Task SynchronizeParticipants(Context context, bool members, bool supporters)
         {
             context.EnsureAttributesNotEmpty(context.Settings, s => new { s.pc_GoogleAdminEmail, s.pc_GoogleServiceAccountKey, s.pc_GoogleSupporterGroup });
 
@@ -30,56 +33,86 @@ namespace PC.PowerApps.ClientBase.Repositories
             {
                 HttpClientInitializer = googleCredential,
             };
-            using DirectoryService service = new(initializer);
-            MembersResource.ListRequest listRequest = service.Members.List(context.Settings.pc_GoogleSupporterGroup);
-            Members members = await listRequest.ExecuteAsync();
-            HashSet<string> groupMemberEmails = members.MembersValue
+            using DirectoryService directoryService = new(initializer);
+
+            AsyncActionQueue asyncActionQueue = new(context);
+
+            if (members)
+            {
+                asyncActionQueue.Add(async () => await SynchronizeParticipants(context, directoryService, CommonConstants.IsValidForGoogleMemberGroupExpression, context.Settings.pc_GoogleMemberGroup));
+            }
+
+            if (supporters)
+            {
+                asyncActionQueue.Add(async () => await SynchronizeParticipants(context, directoryService, CommonConstants.IsValidForGoogleSupporterGroupExpression, context.Settings.pc_GoogleSupporterGroup));
+            }
+
+            await asyncActionQueue.ExecuteAll();
+        }
+
+        private static async Task SynchronizeParticipants(Context context, DirectoryService directoryService, Expression<Func<Contact, bool>> contactFilterExpression, string group)
+        {
+            if (string.IsNullOrEmpty(group))
+            {
+                return;
+            }
+
+            MembersResource.ListRequest listRequest = directoryService.Members.List(group);
+            Members groupMembers = await listRequest.ExecuteAsync();
+            HashSet<string> groupMemberEmails = groupMembers.MembersValue
                 .Select(m => m.Email)
                 .ToHashSet();
-            List<Contact> activeSupporters = context.ServiceContext.ContactSet
-                .Where(CommonConstants.IsValidForGoogleSupporterGroupExpression)
+            List<Contact> contacts = context.ServiceContext.ContactSet
+                .Where(contactFilterExpression)
                 .Select(c => new Contact
                 {
                     ContactId = c.ContactId,
                     EMailAddress1 = c.EMailAddress1,
+                    EMailAddress2 = c.EMailAddress2,
                 })
                 .ToList();
-            List<string> activeSupporterEmails = activeSupporters
-                .Select(c => c.EMailAddress1)
+            List<string> contactEmails = contacts
+                .Select(c => ContactRepository.GetEmail(c))
                 .ToList();
-            List<string> emailsToRemove = groupMemberEmails.Except(activeSupporterEmails).ToList();
+            List<string> emailsToRemove = groupMemberEmails.Except(contactEmails).ToList();
 
-            foreach (string emailToRemove in emailsToRemove)
+            AsyncActionQueue asyncActionQueue = new(context);
+
+            asyncActionQueue.AddForAll(emailsToRemove, async emailToRemove =>
             {
-                context.Logger.LogInformation($"Removing {emailToRemove} from the supporter group.");
-                MembersResource.DeleteRequest deleteRequest = service.Members.Delete(context.Settings.pc_GoogleSupporterGroup, emailToRemove);
+                context.Logger.LogInformation($"Removing {emailToRemove} from the group {group}.");
+                MembersResource.DeleteRequest deleteRequest = directoryService.Members.Delete(group, emailToRemove);
                 _ = await deleteRequest.ExecuteAsync();
-            }
+            });
 
-            foreach (Contact activeSupporter in activeSupporters)
+            asyncActionQueue.AddForAll(contacts, async contact =>
             {
-                if (groupMemberEmails.Contains(activeSupporter.EMailAddress1))
+                string email = ContactRepository.GetEmail(contact);
+
+                if (groupMemberEmails.Contains(email))
                 {
-                    continue;
+                    return;
                 }
 
-                context.Logger.LogInformation($"Adding {activeSupporter.EMailAddress1} to the supporter group.");
+                context.Logger.LogInformation($"Adding {email} to the group {group}.");
                 Member member = new()
                 {
-                    Email = activeSupporter.EMailAddress1,
+                    Email = email,
                 };
-                MembersResource.InsertRequest insertRequest = service.Members.Insert(member, context.Settings.pc_GoogleSupporterGroup);
+                MembersResource.InsertRequest insertRequest = directoryService.Members.Insert(member, group);
                 Member insertResult = await insertRequest.ExecuteAsync();
-                MembersResource.GetRequest getRequest = service.Members.Get(context.Settings.pc_GoogleSupporterGroup, insertResult.Id);
+                MembersResource.GetRequest getRequest = directoryService.Members.Get(group, insertResult.Id);
                 Member getResult = await getRequest.ExecuteAsync();
 
-                if (getResult.Email != activeSupporter.EMailAddress1)
+                if (getResult.Email != email)
                 {
-                    context.Logger.LogInformation($"Updating Contact {activeSupporter.Id} Email from {activeSupporter.EMailAddress1} to {getResult.Email}.");
-                    activeSupporter.EMailAddress1 = getResult.Email;
-                    _ = context.ServiceContext.UpdateModifiedAttributes(activeSupporter);
+                    context.Logger.LogInformation($"Updating Contact {contact.Id} Email from {email} to {getResult.Email}.");
+                    ContactRepository.SetEmail(contact, getResult.Email);
+                    _ = context.ServiceContext.UpdateModifiedAttributes(contact);
                 }
-            }
+            });
+
+            await asyncActionQueue.ExecuteAll();
         }
     }
 }

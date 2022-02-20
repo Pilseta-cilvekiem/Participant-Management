@@ -20085,6 +20085,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_googlemembergroup")]
+		public string pc_GoogleMemberGroup
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_googlemembergroup");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_GoogleMemberGroup");
+				this.SetAttributeValue("pc_googlemembergroup", value);
+				this.OnPropertyChanged("pc_GoogleMemberGroup");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_googleserviceaccountkey")]
 		public string pc_GoogleServiceAccountKey
 		{

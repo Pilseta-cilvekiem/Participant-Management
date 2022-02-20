@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace PC.PowerApps.ClientBase.ScheduledJobs
 {
-    public class SynchronizeGoogleSupporterGroupMembers : SynchronizeGoogleSupporterGroupMembersBase
+    public class SynchronizeGoogleParticipantGroupMembers : SynchronizeGoogleParticipantGroupMembersBase
     {
         public override async Task Execute()
         {
-            await GoogleGroupMemberRepository.SynchronizeSupporters(Context);
+            await GoogleGroupMemberRepository.SynchronizeParticipants(Context, Members, Supporters);
         }
     }
 }
