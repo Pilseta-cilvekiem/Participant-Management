@@ -108,6 +108,8 @@
     <Compile Include="Bound\BankAccounts\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Contacts\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\Emails\PreValidateCreateUpdate.cs" />
+    <Compile Include="Bound\ParticipationFeeExemptions\PostCreateUpdate.cs" />
+    <Compile Include="Bound\ParticipationFeeExemptions\PostDelete.cs" />
     <Compile Include="Bound\ParticipationFeeExemptions\PreCreateUpdate.cs" />
     <Compile Include="Bound\ParticipationFeeExemptions\PreValidateCreateUpdate.cs" />
     <Compile Include="Bound\ParticipationFeeRules\PreCreateUpdate.cs" />
