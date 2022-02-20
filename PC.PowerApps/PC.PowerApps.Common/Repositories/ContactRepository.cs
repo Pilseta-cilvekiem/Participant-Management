@@ -14,7 +14,7 @@ namespace PC.PowerApps.Common.Repositories
         private static readonly Guid debtReminderEmailTemplateId = new("f190362f-cdf3-eb11-94ef-002248834145");
         private static readonly Guid supporterWelcomeEmailTemplateId = new("227d1abb-95f6-eb11-94ef-002248834145");
 
-        public static void UpdateParticipationLevel(Context context, Guid? contactId)
+        public static void Recalculate(Context context, Guid? contactId, bool participationLevel, bool requiredParticipationFee)
         {
             if (contactId == null)
             {
@@ -22,7 +22,22 @@ namespace PC.PowerApps.Common.Repositories
             }
 
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
-            UpdateParticipationLevel(context, contact);
+            Recalculate(context, contact, participationLevel, requiredParticipationFee);
+        }
+
+        private static void Recalculate(Context context, Contact contact, bool participationLevel, bool requiredParticipationFee)
+        {
+            if (participationLevel)
+            {
+                UpdateParticipationLevel(context, contact);
+            }
+
+            if (requiredParticipationFee)
+            {
+                UpdateRequiredParticipationFee(context, contact);
+            }
+
+            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
         public static void SendWelcomeEmail(Context context, Contact contact)
@@ -95,7 +110,6 @@ namespace PC.PowerApps.Common.Repositories
                 .Where(p => p.pc_Contact.Id == contact.Id && p.pc_From <= localNow.Date && (p.pc_Till == null || p.pc_Till >= localNow.Date))
                 .FirstOrDefault();
             contact.pc_ParticipationLevel = participation?.pc_Level;
-            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
         public static void UpdateRequiredParticipationFee(Context context)
@@ -107,7 +121,7 @@ namespace PC.PowerApps.Common.Repositories
                     pc_RequiredParticipationFee = c.pc_RequiredParticipationFee,
                 });
 
-            SyncActionQueue.ExecuteForAll(context, contacts, contact => UpdateRequiredParticipationFee(context, contact));
+            SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participationLevel: false, requiredParticipationFee: true));
         }
 
         public static void UpdateRequiredParticipationFee(Context context, Contact contact)
@@ -146,7 +160,6 @@ namespace PC.PowerApps.Common.Repositories
                 int contactParticipationFeePeriodTotalLength = contactParticipationFeePeriodLengths.Sum();
                 contact.pc_RequiredParticipationFee.Value += contactParticipationFeePeriodTotalLength * Utils.GetAmountOrZero(participationFeeRule.pc_Amount);
             }
-            _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 
         public static void UpdateParticipationLevels(Context context)
@@ -158,7 +171,7 @@ namespace PC.PowerApps.Common.Repositories
                     pc_ParticipationLevel = c.pc_ParticipationLevel,
                 });
 
-            SyncActionQueue.ExecuteForAll(context, contacts, contact => UpdateParticipationLevel(context, contact));
+            SyncActionQueue.ExecuteForAll(context, contacts, contact => Recalculate(context, contact, participationLevel: true, requiredParticipationFee: false));
         }
 
         public static void SendDebtReminder(Context context, Guid contactId)

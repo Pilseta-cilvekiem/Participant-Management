@@ -17,10 +17,10 @@ namespace PC.PowerApps.Plugins.Bound.Participations
             {
                 if (context.GetIsAnyAttributeModified(p => p.pc_Contact))
                 {
-                    ContactRepository.UpdateParticipationLevel(context, context.PreImage?.pc_Contact?.Id);
+                    ContactRepository.Recalculate(context, context.PreImage?.pc_Contact?.Id, participationLevel: true, requiredParticipationFee: true);
                 }
 
-                ContactRepository.UpdateParticipationLevel(context, participation.pc_Contact?.Id);
+                ContactRepository.Recalculate(context, participation.pc_Contact?.Id, participationLevel: true, requiredParticipationFee: true);
             }
         }
     }
