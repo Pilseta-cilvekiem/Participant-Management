@@ -126,7 +126,7 @@ namespace PC.PowerApps.Common
             return subtractAllResults;
         }
 
-        private Period Intersect(Period otherPeriod)
+        public Period Intersect(Period otherPeriod)
         {
             if (otherPeriod.Till < From || otherPeriod.From > Till)
             {
@@ -144,6 +144,31 @@ namespace PC.PowerApps.Common
                 .Select(p => p.Intersect(otherPeriod))
                 .Where(p => p != null)
                 .ToList();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Period period &&
+                   From == period.From &&
+                   Till == period.Till;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 1321290443;
+            hashCode = hashCode * -1521134295 + From.GetHashCode();
+            hashCode = hashCode * -1521134295 + Till.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(Period left, Period right)
+        {
+            return EqualityComparer<Period>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(Period left, Period right)
+        {
+            return !(left == right);
         }
     }
 }
