@@ -2,11 +2,11 @@
   <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
   <bindingtype>1</bindingtype>
   <boundentitylogicalname>contact</boundentitylogicalname>
-  <description default="Nosūtīt atgādinājumu par parādu kontaktpersonai">
+  <description default="Send Debt Reminder to Contact">
     <label description="Send Debt Reminder to Contact" languagecode="1033" />
     <label description="Nosūtīt atgādinājumu par parādu kontaktpersonai" languagecode="1062" />
   </description>
-  <displayname default="Nosūtīt atgādinājumu par parādu kontaktpersonai">
+  <displayname default="Send Debt Reminder to Contact">
     <label description="Send Debt Reminder to Contact" languagecode="1033" />
     <label description="Nosūtīt atgādinājumu par parādu kontaktpersonai" languagecode="1062" />
   </displayname>
