@@ -41,8 +41,8 @@
     <Reference Include="Google.Apis, Version=1.56.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.56.0\lib\net45\Google.Apis.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Apis.Admin.Directory.directory_v1, Version=1.56.0.2602, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Apis.Admin.Directory.directory_v1.1.56.0.2602\lib\net45\Google.Apis.Admin.Directory.directory_v1.dll</HintPath>
+    <Reference Include="Google.Apis.Admin.Directory.directory_v1, Version=1.56.0.2609, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Admin.Directory.directory_v1.1.56.0.2609\lib\net45\Google.Apis.Admin.Directory.directory_v1.dll</HintPath>
     </Reference>
     <Reference Include="Google.Apis.Auth, Version=1.56.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Auth.1.56.0\lib\net461\Google.Apis.Auth.dll</HintPath>
