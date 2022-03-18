@@ -8,7 +8,7 @@ const entries = {};
 for (const fileName of fileNames) {
     if (fileName.endsWith(".js")) {
         const fileNameBase = fileName.replace(/.js$/, "");
-        entries[fileNameBase] = ["idempotent-babel-polyfill", `./src/${fileName}`];
+        entries[fileNameBase] = [`./src/${fileName}`];
     }
 }
 
