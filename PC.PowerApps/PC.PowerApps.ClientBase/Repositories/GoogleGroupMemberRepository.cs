@@ -1,4 +1,6 @@
-﻿using Google.Apis.Admin.Directory.directory_v1;
+﻿using Azure;
+using Azure.Security.KeyVault.Secrets;
+using Google.Apis.Admin.Directory.directory_v1;
 using Google.Apis.Admin.Directory.directory_v1.Data;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
@@ -17,13 +19,14 @@ namespace PC.PowerApps.ClientBase.Repositories
 {
     public static class GoogleGroupMemberRepository
     {
-        public static async Task SynchronizeParticipants(Context context, bool members, bool supporters)
+        public static async Task SynchronizeParticipants(CrmServiceClientContext context, bool members, bool supporters)
         {
-            context.EnsureAttributesNotEmpty(context.Settings, s => new { s.pc_GoogleAdminEmail, s.pc_GoogleServiceAccountKey, s.pc_GoogleSupporterGroup });
+            context.EnsureAttributesNotEmpty(context.Settings, s => new { s.pc_GoogleAdminEmail, s.pc_GoogleSupporterGroup });
 
             using MemoryStream memoryStream = new();
             using StreamWriter streamWriter = new(memoryStream);
-            await streamWriter.WriteAsync(context.Settings.pc_GoogleServiceAccountKey);
+            Response<KeyVaultSecret> response = await context.SecretClient.GetSecretAsync("GoogleServiceAccountKey");
+            await streamWriter.WriteAsync(response.Value.Value);
             await streamWriter.FlushAsync();
             memoryStream.Position = 0;
             GoogleCredential googleCredential = GoogleCredential.FromStream(memoryStream)

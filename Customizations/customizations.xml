@@ -15973,47 +15973,6 @@
                 <Description description="" languagecode="1033" />
               </Descriptions>
             </attribute>
-            <attribute PhysicalName="pc_GoogleServiceAccountKey">
-              <Type>ntext</Type>
-              <Name>pc_googleserviceaccountkey</Name>
-              <LogicalName>pc_googleserviceaccountkey</LogicalName>
-              <RequiredLevel>none</RequiredLevel>
-              <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-              <ImeMode>auto</ImeMode>
-              <ValidForUpdateApi>1</ValidForUpdateApi>
-              <ValidForReadApi>1</ValidForReadApi>
-              <ValidForCreateApi>1</ValidForCreateApi>
-              <IsCustomField>1</IsCustomField>
-              <IsAuditEnabled>1</IsAuditEnabled>
-              <IsSecured>1</IsSecured>
-              <IntroducedVersion>1.0.0.0</IntroducedVersion>
-              <IsCustomizable>1</IsCustomizable>
-              <IsRenameable>1</IsRenameable>
-              <CanModifySearchSettings>1</CanModifySearchSettings>
-              <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-              <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-              <SourceType>0</SourceType>
-              <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-              <IsSortableEnabled>0</IsSortableEnabled>
-              <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-              <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-              <IsDataSourceSecret>0</IsDataSourceSecret>
-              <AutoNumberFormat></AutoNumberFormat>
-              <IsSearchable>0</IsSearchable>
-              <IsFilterable>0</IsFilterable>
-              <IsRetrievable>0</IsRetrievable>
-              <IsLocalizable>0</IsLocalizable>
-              <Format></Format>
-              <MaxLength>5000</MaxLength>
-              <displaynames>
-                <displayname description="Google Service Account Key" languagecode="1033" />
-                <displayname description="Google servisa konta atslēga" languagecode="1062" />
-              </displaynames>
-              <Descriptions>
-                <Description description="" languagecode="1033" />
-                <Description description="" languagecode="1062" />
-              </Descriptions>
-            </attribute>
             <attribute PhysicalName="pc_GoogleSupporterGroup">
               <Type>nvarchar</Type>
               <Name>pc_googlesupportergroup</Name>
@@ -16054,6 +16013,46 @@
               <Descriptions>
                 <Description description="" languagecode="1033" />
                 <Description description="" languagecode="1062" />
+              </Descriptions>
+            </attribute>
+            <attribute PhysicalName="pc_KeyVaultUrl">
+              <Type>nvarchar</Type>
+              <Name>pc_keyvaulturl</Name>
+              <LogicalName>pc_keyvaulturl</LogicalName>
+              <RequiredLevel>none</RequiredLevel>
+              <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+              <ImeMode>auto</ImeMode>
+              <ValidForUpdateApi>1</ValidForUpdateApi>
+              <ValidForReadApi>1</ValidForReadApi>
+              <ValidForCreateApi>1</ValidForCreateApi>
+              <IsCustomField>1</IsCustomField>
+              <IsAuditEnabled>1</IsAuditEnabled>
+              <IsSecured>0</IsSecured>
+              <IntroducedVersion>1.0.0.14</IntroducedVersion>
+              <IsCustomizable>1</IsCustomizable>
+              <IsRenameable>1</IsRenameable>
+              <CanModifySearchSettings>1</CanModifySearchSettings>
+              <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+              <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+              <SourceType>0</SourceType>
+              <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+              <IsSortableEnabled>0</IsSortableEnabled>
+              <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+              <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+              <IsDataSourceSecret>0</IsDataSourceSecret>
+              <AutoNumberFormat></AutoNumberFormat>
+              <IsSearchable>0</IsSearchable>
+              <IsFilterable>0</IsFilterable>
+              <IsRetrievable>0</IsRetrievable>
+              <IsLocalizable>0</IsLocalizable>
+              <Format>url</Format>
+              <MaxLength>100</MaxLength>
+              <Length>200</Length>
+              <displaynames>
+                <displayname description="Key Vault URL" languagecode="1033" />
+              </displaynames>
+              <Descriptions>
+                <Description description="" languagecode="1033" />
               </Descriptions>
             </attribute>
             <attribute PhysicalName="pc_Name">
@@ -16702,6 +16701,14 @@
                             <row />
                             <row />
                             <row>
+                              <cell id="{412f503a-49fa-4491-a661-ff69132524f2}" locklevel="0" colspan="1" rowspan="1">
+                                <labels>
+                                  <label description="Key Vault URL" languagecode="1033" />
+                                </labels>
+                                <control id="pc_keyvaulturl" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="pc_keyvaulturl" disabled="false" />
+                              </cell>
+                            </row>
+                            <row>
                               <cell id="{b5080125-849d-480f-85bb-a7628d6c8566}" locklevel="0">
                                 <labels>
                                   <label description="Google Admin Email" languagecode="1033" />
@@ -16725,34 +16732,6 @@
                                   <label description="Google atbalstītāju grupa" languagecode="1062" />
                                 </labels>
                                 <control id="pc_googlesupportergroup" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pc_googlesupportergroup" disabled="false" uniqueid="{ca4a29ae-000a-7aa4-b3d0-3704d66b8c64}" />
-                              </cell>
-                            </row>
-                          </rows>
-                        </section>
-                      </sections>
-                    </column>
-                  </columns>
-                </tab>
-                <tab name="tab_2" id="6949ea7b-2335-4f0e-a623-262df48c6916" IsUserDefined="0" locklevel="0" showlabel="true">
-                  <labels>
-                    <label description="Google Service Account Key" languagecode="1033" />
-                    <label description="Google servisa konta atslēga" languagecode="1062" />
-                  </labels>
-                  <columns>
-                    <column width="100%">
-                      <sections>
-                        <section name="tab_2_section_1" id="0dee9202-84fb-4f04-b610-282721f008e7" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
-                          <labels>
-                            <label description="New Section" languagecode="1033" />
-                          </labels>
-                          <rows>
-                            <row>
-                              <cell id="{7bfefa01-a514-4482-bb0b-c407780a92b1}" locklevel="0" rowspan="1" auto="true">
-                                <labels>
-                                  <label description="Google Service Account Key" languagecode="1033" />
-                                  <label description="Google servisa konta atslēga" languagecode="1062" />
-                                </labels>
-                                <control id="pc_googleserviceaccountkey" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="pc_googleserviceaccountkey" disabled="false" />
                               </cell>
                             </row>
                           </rows>
@@ -20481,15 +20460,7 @@
   <Workflows></Workflows>
   <FieldSecurityProfiles>
     <FieldSecurityProfile name="City for People Function App" fieldsecurityprofileid="{7ec34827-30f2-eb11-94ef-002248834145}">
-      <FieldPermissions>
-        <FieldPermission>
-          <EntityName>pc_settings</EntityName>
-          <AttributeName>pc_googleserviceaccountkey</AttributeName>
-          <CanRead>4</CanRead>
-          <CanUpdate>0</CanUpdate>
-          <CanCreate>0</CanCreate>
-        </FieldPermission>
-      </FieldPermissions>
+      <FieldPermissions />
     </FieldSecurityProfile>
     <FieldSecurityProfile name="City for People Read-only" fieldsecurityprofileid="{ad6d2dde-29ee-eb11-bacb-000d3abf0cde}">
       <FieldPermissions />
