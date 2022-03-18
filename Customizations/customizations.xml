@@ -15946,7 +15946,7 @@
               <IsCustomField>1</IsCustomField>
               <IsAuditEnabled>1</IsAuditEnabled>
               <IsSecured>0</IsSecured>
-              <IntroducedVersion>1.0.0.10</IntroducedVersion>
+              <IntroducedVersion>1.0.0.15</IntroducedVersion>
               <IsCustomizable>1</IsCustomizable>
               <IsRenameable>1</IsRenameable>
               <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -15963,7 +15963,7 @@
               <IsFilterable>0</IsFilterable>
               <IsRetrievable>0</IsRetrievable>
               <IsLocalizable>0</IsLocalizable>
-              <Format>text</Format>
+              <Format>email</Format>
               <MaxLength>100</MaxLength>
               <Length>200</Length>
               <displaynames>
@@ -15986,7 +15986,7 @@
               <IsCustomField>1</IsCustomField>
               <IsAuditEnabled>1</IsAuditEnabled>
               <IsSecured>0</IsSecured>
-              <IntroducedVersion>1.0.0.0</IntroducedVersion>
+              <IntroducedVersion>1.0.0.15</IntroducedVersion>
               <IsCustomizable>1</IsCustomizable>
               <IsRenameable>1</IsRenameable>
               <CanModifySearchSettings>1</CanModifySearchSettings>
@@ -16003,16 +16003,14 @@
               <IsFilterable>0</IsFilterable>
               <IsRetrievable>0</IsRetrievable>
               <IsLocalizable>0</IsLocalizable>
-              <Format>text</Format>
+              <Format>email</Format>
               <MaxLength>100</MaxLength>
               <Length>200</Length>
               <displaynames>
                 <displayname description="Google Supporter Group" languagecode="1033" />
-                <displayname description="Google atbalstītāju grupa" languagecode="1062" />
               </displaynames>
               <Descriptions>
                 <Description description="" languagecode="1033" />
-                <Description description="" languagecode="1062" />
               </Descriptions>
             </attribute>
             <attribute PhysicalName="pc_KeyVaultUrl">
@@ -16718,20 +16716,19 @@
                               </cell>
                             </row>
                             <row>
-                              <cell id="{637a29ba-16d7-44dc-80a0-de88b04038b1}" locklevel="0" colspan="1" rowspan="1">
+                              <cell id="{9aa9dc35-0bd6-4899-8dba-e9eb3f4247fe}" locklevel="0" colspan="1" rowspan="1">
                                 <labels>
                                   <label description="Google Member Group" languagecode="1033" />
                                 </labels>
-                                <control id="pc_googlemembergroup" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pc_googlemembergroup" disabled="false" />
+                                <control id="pc_googlemembergroup" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="pc_googlemembergroup" disabled="false" />
                               </cell>
                             </row>
                             <row>
-                              <cell id="{c9a16b0d-a210-4450-8be3-1a809564f16f}" locklevel="0" showlabel="true">
+                              <cell id="{3c4f6532-39c9-4061-83aa-2ca66b441a3d}" locklevel="0" colspan="1" rowspan="1">
                                 <labels>
                                   <label description="Google Supporter Group" languagecode="1033" />
-                                  <label description="Google atbalstītāju grupa" languagecode="1062" />
                                 </labels>
-                                <control id="pc_googlesupportergroup" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pc_googlesupportergroup" disabled="false" uniqueid="{ca4a29ae-000a-7aa4-b3d0-3704d66b8c64}" />
+                                <control id="pc_googlesupportergroup" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="pc_googlesupportergroup" disabled="false" />
                               </cell>
                             </row>
                           </rows>
