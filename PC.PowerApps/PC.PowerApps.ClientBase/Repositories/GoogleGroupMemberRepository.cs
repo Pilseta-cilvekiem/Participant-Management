@@ -21,7 +21,7 @@ namespace PC.PowerApps.ClientBase.Repositories
     {
         public static async Task SynchronizeParticipants(CrmServiceClientContext context, bool members, bool supporters)
         {
-            context.EnsureAttributesNotEmpty(context.Settings, s => new { s.pc_GoogleAdminEmail, s.pc_GoogleSupporterGroup });
+            context.EnsureAttributesNotEmpty(context.Settings, s => s.pc_GoogleAdminEmail);
 
             using MemoryStream memoryStream = new();
             using StreamWriter streamWriter = new(memoryStream);
