@@ -1,4 +1,4 @@
-<ImportExportXml version="9.2.22022.134" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22023.140" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>CityForPeople</UniqueName>
     <LocalizedNames>
@@ -6,7 +6,7 @@
       <LocalizedName description="Pilsēta cilvēkiem" languagecode="1062" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.16</Version>
+    <Version>1.0.0.17</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>PilsetaCilvekiem</UniqueName>
@@ -248,19 +248,19 @@
         <Dependent type="80" schemaName="pc_CityForPeople" displayName="City for People" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2202.2009)" />
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2202.3012)" />
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2202.2009)" />
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2202.3012)" />
         <Dependent type="60" displayName="Kontaktpersona" parentDisplayName="Contact" id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2202.2009)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2202.3012)" />
         <Dependent type="60" displayName="Kontaktpersona" parentDisplayName="Contact" id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2202.2009)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2202.3012)" />
         <Dependent type="60" displayName="Informācija" parentDisplayName="Settings" id="{e2520334-c210-46a4-81ab-2ebabd648e46}" />
       </MissingDependency>
       <MissingDependency>

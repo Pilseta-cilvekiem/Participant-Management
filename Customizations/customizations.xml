@@ -19955,6 +19955,7 @@
         <RolePrivilege name="prvAppendMailbox" level="Basic" />
         <RolePrivilege name="prvAppendMailboxTrackingFolder" level="Basic" />
         <RolePrivilege name="prvAppendMailMergeTemplate" level="Basic" />
+        <RolePrivilege name="prvAppendmsdyn_AIBFeedbackLoop" level="Basic" />
         <RolePrivilege name="prvAppendmsdyn_kbattachment" level="Global" />
         <RolePrivilege name="prvAppendNewProcess" level="Global" />
         <RolePrivilege name="prvAppendNote" level="Basic" />
@@ -19992,6 +19993,7 @@
         <RolePrivilege name="prvAppendToKnowledgeBaseRecord" level="Global" />
         <RolePrivilege name="prvAppendToLanguageLocale" level="Global" />
         <RolePrivilege name="prvAppendToMailMergeTemplate" level="Basic" />
+        <RolePrivilege name="prvAppendTomsdyn_AIModel" level="Basic" />
         <RolePrivilege name="prvAppendTomsdyn_kbattachment" level="Global" />
         <RolePrivilege name="prvAppendToNewProcess" level="Global" />
         <RolePrivilege name="prvAppendToNote" level="Basic" />
@@ -20070,6 +20072,7 @@
         <RolePrivilege name="prvCreateKnowledgeArticleViews" level="Global" />
         <RolePrivilege name="prvCreateMailboxTrackingFolder" level="Basic" />
         <RolePrivilege name="prvCreateMailMergeTemplate" level="Basic" />
+        <RolePrivilege name="prvCreatemsdyn_AIBFeedbackLoop" level="Basic" />
         <RolePrivilege name="prvCreateNewProcess" level="Global" />
         <RolePrivilege name="prvCreateNote" level="Basic" />
         <RolePrivilege name="prvCreatePersonalDocumentTemplate" level="Basic" />
@@ -20193,6 +20196,7 @@
         <RolePrivilege name="prvReadMailMergeTemplate" level="Basic" />
         <RolePrivilege name="prvReadMetric" level="Global" />
         <RolePrivilege name="prvReadMobileOfflineProfile" level="Global" />
+        <RolePrivilege name="prvReadmsdyn_AIBFeedbackLoop" level="Basic" />
         <RolePrivilege name="prvReadmsdyn_AIModel" level="Basic" />
         <RolePrivilege name="prvReadmsdyn_AIOdLabel" level="Global" />
         <RolePrivilege name="prvReadmsdyn_AITemplate" level="Global" />
