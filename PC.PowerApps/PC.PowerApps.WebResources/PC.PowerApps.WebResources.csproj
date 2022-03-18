@@ -193,9 +193,9 @@
     <Content Include="webpack.config.js" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe.config" />
     <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.config" />
+    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.example.config" />
     <Content Include="XrmDefinitelyTyped\Run.ps1" />
     <Content Include="XrmDefinitelyTyped\Run.fsx" />
-    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.Environment.example.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -330,8 +330,8 @@
     <Reference Include="System.Workflow.Runtime" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="XrmDefinitelyTyped, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Delegate.XrmDefinitelyTyped.6.0.0\lib\net462\XrmDefinitelyTyped.exe</HintPath>
+    <Reference Include="XrmDefinitelyTyped, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Delegate.XrmDefinitelyTyped.6.1.0\lib\net462\XrmDefinitelyTyped.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

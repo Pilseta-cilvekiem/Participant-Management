@@ -53,7 +53,7 @@ declare namespace Xrm {
   /**
    * Interface for an entity reference for the Xrm.Page context.
    */
-  interface EntityReference<T extends string> {
+  interface EntityReference<T extends string|number> {
     id: string;
     entityType: T;
     name?: string | null;
@@ -550,6 +550,11 @@ declare namespace Xrm {
    */
   type AnyControl = BaseControl & Partial<Control<any> & WebResourceControl & IFrameControl & LookupControl<string> & SubGridControl<string> & DateControl & OptionSetControl<any>>;
 
+  const enum ViewTypeNumber {
+    SavedQuery = 1039,
+    UserQuery = 4230,
+  }
+
   /**
    * Remarks:
    * If the subgrid control is not configured to display the view selector, calling this method on the ViewSelector returned by the GridControl.getViewSelector will throw an error.
@@ -558,7 +563,7 @@ declare namespace Xrm {
     /**
      * Use this method to get a reference to the current view.
      */
-    getCurrentView(): Xrm.EntityReference<string>;
+    getCurrentView(): EntityReference<ViewTypeNumber>;
 
     /**
      * Use this method to determine whether the view selector is visible.
@@ -568,7 +573,7 @@ declare namespace Xrm {
     /**
      * Use this method to set the current view.
      */
-    setCurrentView(reference: Xrm.EntityReference<string>): void;
+    setCurrentView(reference: EntityReference<ViewTypeNumber>): void;
   }
 
   /**
@@ -3255,46 +3260,8 @@ declare namespace Xrm {
         Warning = 3,
         Information = 4,
     }
-    //TODO figure out how to implement the app side pane https://docs.microsoft.com/en-us/powerapps/developer/model-driven-apps/clientapi/reference/xrm-app-appsidepane
-    // should the methods take an input like paneID?
-    interface AppSidePane {
-        /**
-         * Closes the side pane and removes it from the side bar.
-         */
-        close(): any;
 
-        /**
-         * Specify whether the pane should be selected or expanded.
-         */
-        select(): any;
-
-        /**
-         * Opens a page within the selected pane. This is similar to the navigateTo method.
-         */
-        navigate(): any;
-    }
-    interface SidePanes {
-            /**
-             * Provides all the information to create side panes.
-             */
-            createPane(paneOptions?: SidePaneOptions): any;
-
-            /**
-             * returns the appSidePane object
-             */
-            getAllPanes(): Object;
-
-            /**
-             * returns the appSidePane object
-             */
-            getPane(paneId: string): Object;
-            /**
-             * returns the appSidePane object
-             */
-            getSelectedPane(): Object;
-    }
-    interface SidePaneOptions {
-
+    interface SidePaneProperties {
         /**
          * The title of the pane. Used in pane header and for tooltip.
          */
@@ -3316,17 +3283,6 @@ declare namespace Xrm {
         imageSrc?: string;
 
         /**
-         *  Hides the header pane, including the title and close button. Default value is false.
-         */
-        hideHeader?: boolean;
-
-        /**
-         * When set to false, the created pane is not selected and leaves the existing pane selected.
-         * It also does not expand the pane if collapsed.
-         */
-        isSelected?: boolean;
-
-        /**
          * The width of the pane in pixels.
          */
         width?: number;
@@ -3345,6 +3301,67 @@ declare namespace Xrm {
          * Prevents the badge from getting cleared when the pane becomes selected.
          */
         keepBadgeOnSelect?: boolean;
+    }
+
+    interface AppSidePane extends SidePaneProperties {
+        /**
+         * Closes the side pane and removes it from the side bar.
+         */
+        close(): Promise<undefined>;
+
+        /**
+         * Specify whether the pane should be selected or expanded.
+         */
+        select(): void;
+
+        /**
+         * Opens a page within the selected pane. This is similar to the navigateTo method.
+         */
+        navigate(pageInput: EntityRecord | EntityList | WebResource | Dashboard): Promise<undefined>;
+    }
+
+    const enum SidePaneState {
+        Collapsed = 0,
+        Expanded = 1,
+    }
+
+    interface SidePanes {
+        /**
+         * Provides all the information to create side panes.
+         */
+        createPane(paneOptions?: SidePaneOptions): Promise<AppSidePane>;
+
+        /**
+         * returns the appSidePane object
+         */
+        getAllPanes(): Collection<AppSidePane>;
+
+        /**
+         * returns the appSidePane object
+         */
+        getPane(paneId: string): AppSidePane;
+        /**
+         * returns the appSidePane object
+         */
+        getSelectedPane(): AppSidePane;
+
+        /**
+         * Returns whether the selected pane is collapsed or expanded.
+         */
+        state: SidePaneState
+    }
+
+    interface SidePaneOptions extends SidePaneProperties {
+        /**
+         *  Hides the header pane, including the title and close button. Default value is false.
+         */
+        hideHeader?: boolean;
+
+        /**
+         * When set to false, the created pane is not selected and leaves the existing pane selected.
+         * It also does not expand the pane if collapsed.
+         */
+        isSelected?: boolean;
     }
 
     /**
@@ -3901,5 +3918,8 @@ declare namespace Xrm {
          * singleComponent: Maximizes the content of the first component in the tab.
          */
         setContentType(contentType: TabsContentType): void;
+    }
+
+    interface OnRecordSelectEventContext extends ExecutionContext<UiModule<TabCollectionBase, ControlCollectionBase>, undefined> {
     }
 }

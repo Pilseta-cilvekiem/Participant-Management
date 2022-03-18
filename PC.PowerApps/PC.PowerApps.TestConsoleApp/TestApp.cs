@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PC.PowerApps.ClientBase;
+using PC.PowerApps.ClientBase.Repositories;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using PC.PowerApps.Common.Repositories;
@@ -68,7 +69,7 @@ namespace PC.PowerApps.TestConsoleApp
 
             //ContactRepository.SendDebtReminder(Context, new Guid("1a9490aa-40ed-eb11-bacb-000d3a3a2279"));
 
-            //await GoogleGroupMemberRepository.SynchronizeSupporters(Context);
+            await GoogleGroupMemberRepository.SynchronizeParticipants(Context, true, false);
 
             //List<Contact> contacts = Context.ServiceContext.ContactSet.ToList();
 
@@ -173,8 +174,8 @@ namespace PC.PowerApps.TestConsoleApp
 
             //throw Context.CreateException("AttributeCannotBeEmpty1", "123", "456");
 
-            pc_BankAccount bankAccount = Context.ServiceContext.pc_BankAccountSet.TakeSingle();
-            FileRepository.Download(Context, bankAccount, ba => ba.pc_TransactionImportFile);
+            //pc_BankAccount bankAccount = Context.ServiceContext.pc_BankAccountSet.TakeSingle();
+            //FileRepository.Download(Context, bankAccount, ba => ba.pc_TransactionImportFile);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Tooling.Connector;
@@ -10,33 +12,36 @@ namespace PC.PowerApps.ClientBase
     public class CrmServiceClientContext : Context
     {
         private bool disposedValue = false;
-        private readonly Lazy<CrmServiceClient> lazyCrmServiceClient;
-        private readonly Lazy<ILogger> lazyLogger;
-        private readonly Lazy<Guid> lazyUserId;
+        private readonly Lazy<CrmServiceClient> crmServiceClient;
+        private readonly Lazy<ILogger> logger;
+        private readonly Lazy<SecretClient> secretClient;
+        private readonly Lazy<Guid> userId;
 
-        protected override Guid InitiatingUserId => lazyUserId.Value;
-        public override ILogger Logger => lazyLogger.Value;
-        public override IOrganizationService OrganizationService => lazyCrmServiceClient.Value;
-        protected override Guid UserId => lazyUserId.Value;
+        protected override Guid InitiatingUserId => userId.Value;
+        public override ILogger Logger => logger.Value;
+        public override IOrganizationService OrganizationService => crmServiceClient.Value;
+        public SecretClient SecretClient => secretClient.Value;
+        protected override Guid UserId => userId.Value;
 
-        public CrmServiceClientContext(Lazy<IConfiguration> lazyConfiguration, Lazy<ILogger<CrmServiceClientContext>> lazyContextLogger) : this(lazyConfiguration, GetLazyLogger(lazyContextLogger))
+        public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger<CrmServiceClientContext>> contextLogger) : this(configuration, GetLazyLogger(contextLogger))
         {
         }
 
-        public CrmServiceClientContext(Lazy<IConfiguration> lazyConfiguration, Lazy<ILogger> lazyLogger)
+        public CrmServiceClientContext(Lazy<IConfiguration> configuration, Lazy<ILogger> logger)
         {
-            lazyCrmServiceClient = new Lazy<CrmServiceClient>(() =>
+            crmServiceClient = new Lazy<CrmServiceClient>(() =>
             {
-                string connectionString = lazyConfiguration.Value.GetConnectionString("Dataverse");
+                string connectionString = configuration.Value.GetConnectionString("Dataverse");
                 return new CrmServiceClient(connectionString);
             });
-            this.lazyLogger = new(() => lazyLogger.Value);
-            lazyUserId = new(() => lazyCrmServiceClient.Value.GetMyCrmUserId());
+            this.logger = new(() => logger.Value);
+            secretClient = new(() => new SecretClient(new Uri(Settings.pc_KeyVaultUrl), new DefaultAzureCredential()));
+            userId = new(() => crmServiceClient.Value.GetMyCrmUserId());
         }
 
-        private static Lazy<ILogger> GetLazyLogger(Lazy<ILogger<CrmServiceClientContext>> lazyContextLogger)
+        private static Lazy<ILogger> GetLazyLogger(Lazy<ILogger<CrmServiceClientContext>> contextLogger)
         {
-            return new(() => lazyContextLogger.Value);
+            return new(() => contextLogger.Value);
         }
 
         protected override void Dispose(bool disposing)
@@ -45,9 +50,9 @@ namespace PC.PowerApps.ClientBase
             {
                 if (disposing)
                 {
-                    if (lazyCrmServiceClient.IsValueCreated)
+                    if (crmServiceClient.IsValueCreated)
                     {
-                        lazyCrmServiceClient.Value.Dispose();
+                        crmServiceClient.Value.Dispose();
                     }
                 }
 

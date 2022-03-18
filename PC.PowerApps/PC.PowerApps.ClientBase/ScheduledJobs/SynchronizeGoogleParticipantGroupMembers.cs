@@ -6,6 +6,8 @@ namespace PC.PowerApps.ClientBase.ScheduledJobs
 {
     public class SynchronizeGoogleParticipantGroupMembers : SynchronizeGoogleParticipantGroupMembersBase
     {
+        protected new CrmServiceClientContext Context => (CrmServiceClientContext)base.Context;
+
         public override async Task Execute()
         {
             await GoogleGroupMemberRepository.SynchronizeParticipants(Context, Members, Supporters);

@@ -9074,6 +9074,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
+		/// CSP Policy configuration for Canvas apps.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contentsecuritypolicyconfigurationforcanvas")]
+		public string ContentSecurityPolicyConfigurationForCanvas
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("contentsecuritypolicyconfigurationforcanvas");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("ContentSecurityPolicyConfigurationForCanvas");
+				this.SetAttributeValue("contentsecuritypolicyconfigurationforcanvas", value);
+				this.OnPropertyChanged("ContentSecurityPolicyConfigurationForCanvas");
+			}
+		}
+		
+		/// <summary>
 		/// Prefix to use for all contracts throughout Microsoft Dynamics 365.
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("contractprefix")]
@@ -9918,6 +9938,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("EnableBingMapsIntegration");
 				this.SetAttributeValue("enablebingmapsintegration", value);
 				this.OnPropertyChanged("EnableBingMapsIntegration");
+			}
+		}
+		
+		/// <summary>
+		/// Note: By enabling this feature, you will also enable the automatic creation of enviornment variables when adding data sources for your apps.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("enablecanvasappsinsolutionsbydefault")]
+		public System.Nullable<bool> EnableCanvasAppsInSolutionsByDefault
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("enablecanvasappsinsolutionsbydefault");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("EnableCanvasAppsInSolutionsByDefault");
+				this.SetAttributeValue("enablecanvasappsinsolutionsbydefault", value);
+				this.OnPropertyChanged("EnableCanvasAppsInSolutionsByDefault");
 			}
 		}
 		
@@ -11344,6 +11384,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("IsContentSecurityPolicyEnabled");
 				this.SetAttributeValue("iscontentsecuritypolicyenabled", value);
 				this.OnPropertyChanged("IsContentSecurityPolicyEnabled");
+			}
+		}
+		
+		/// <summary>
+		/// Indicates whether Content Security Policy has been enabled for this organization's Canvas apps.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("iscontentsecuritypolicyenabledforcanvas")]
+		public System.Nullable<bool> IsContentSecurityPolicyEnabledForCanvas
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("iscontentsecuritypolicyenabledforcanvas");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("IsContentSecurityPolicyEnabledForCanvas");
+				this.SetAttributeValue("iscontentsecuritypolicyenabledforcanvas", value);
+				this.OnPropertyChanged("IsContentSecurityPolicyEnabledForCanvas");
 			}
 		}
 		
@@ -20125,26 +20185,6 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_googleserviceaccountkey")]
-		public string pc_GoogleServiceAccountKey
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("pc_googleserviceaccountkey");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("pc_GoogleServiceAccountKey");
-				this.SetAttributeValue("pc_googleserviceaccountkey", value);
-				this.OnPropertyChanged("pc_GoogleServiceAccountKey");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_googlesupportergroup")]
 		public string pc_GoogleSupporterGroup
 		{
@@ -20159,6 +20199,26 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 				this.OnPropertyChanging("pc_GoogleSupporterGroup");
 				this.SetAttributeValue("pc_googlesupportergroup", value);
 				this.OnPropertyChanged("pc_GoogleSupporterGroup");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_keyvaulturl")]
+		public string pc_KeyVaultUrl
+		{
+			[System.Diagnostics.DebuggerNonUserCode()]
+			get
+			{
+				return this.GetAttributeValue<string>("pc_keyvaulturl");
+			}
+			[System.Diagnostics.DebuggerNonUserCode()]
+			set
+			{
+				this.OnPropertyChanging("pc_KeyVaultUrl");
+				this.SetAttributeValue("pc_keyvaulturl", value);
+				this.OnPropertyChanged("pc_KeyVaultUrl");
 			}
 		}
 		
