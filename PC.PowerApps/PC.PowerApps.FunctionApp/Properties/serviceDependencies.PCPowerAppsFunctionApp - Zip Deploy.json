@@ -1,15 +1,15 @@
 {
   "dependencies": {
     "storage1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/pilsetacilvekiemcrm4dyna",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/pcpowerappsfunctionapp",
       "type": "storage.azure",
       "connectionId": "AzureWebJobsStorage"
     },
     "appInsights1": {
+      "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/microsoft.insights/components/PCPowerAppsFunctionApp",
       "type": "appInsights.azure",
-      "connectionId": "APPINSIGHTS_CONNECTIONSTRING",
-      "secretStore": "AzureAppSettings"
+      "connectionId": "APPLICATIONINSIGHTS_CONNECTION_STRING"
     }
   }
 }
