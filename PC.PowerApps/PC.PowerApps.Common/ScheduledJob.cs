@@ -16,7 +16,7 @@ namespace PC.PowerApps.Common
 
         public void Schedule(bool allowDuplicates)
         {
-            string name = GetType().FullName;
+            string name = GetType().Name;
             string parameters = JsonConvert.SerializeObject(this);
             pc_ScheduledJob scheduledJob;
 
