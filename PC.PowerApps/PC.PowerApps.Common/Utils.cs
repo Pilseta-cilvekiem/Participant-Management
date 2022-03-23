@@ -186,5 +186,14 @@ namespace PC.PowerApps.Common
             };
             _ = context.OrganizationService.Execute(deleteRecordChangeHistoryRequest);
         }
+
+        public static string Format(object state, Exception exception)
+        {
+            List<string> components = new List<object>() { state, exception }
+                .Where(o => o != null)
+                .Select(o => o.ToString())
+                .ToList();
+            return string.Join(" ", components);
+        }
     }
 }
