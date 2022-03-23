@@ -1,5 +1,6 @@
 ﻿using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using PC.PowerApps.Common;
 using System;
 
 namespace PC.PowerApps.FunctionApp
@@ -25,7 +26,7 @@ namespace PC.PowerApps.FunctionApp
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            Lazy<string> message = new(() => formatter(state, exception));
+            Lazy<string> message = new(() => Utils.Format(state, exception));
 
             switch (logLevel)
             {

@@ -23,6 +23,7 @@ namespace PC.PowerApps.ClientBase
         {
             while (true)
             {
+                context.ServiceContext.ClearChanges();
                 DateTime utcNow = DateTime.UtcNow;
                 pc_ScheduledJob scheduledJob = context.ServiceContext.pc_ScheduledJobSet
                     .Where(sj =>
@@ -55,7 +56,6 @@ namespace PC.PowerApps.ClientBase
                     .TakeSingleOrDefault() ?? scheduledJobBaseType;
                 ScheduledJob scheduledJob = (ScheduledJob)JsonConvert.DeserializeObject(scheduledJobRecord.pc_Parameters, scheduledJobDerivedType);
                 scheduledJob.Context = context;
-                context.ServiceContext.ClearChanges();
 
                 await scheduledJob.Execute();
 

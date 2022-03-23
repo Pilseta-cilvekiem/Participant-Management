@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
+using PC.PowerApps.Common;
 using System;
 
 namespace PC.PowerApps.Plugins
@@ -25,7 +26,7 @@ namespace PC.PowerApps.Plugins
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            tracingService.Trace($"{logLevel} {formatter(state, exception)}");
+            tracingService.Trace($"{logLevel} {Utils.Format(state, exception)}");
         }
     }
 }

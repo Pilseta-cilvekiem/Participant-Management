@@ -89,6 +89,11 @@ namespace PC.PowerApps.Common
             if (update)
             {
                 organizationService.Update(patchEntity);
+
+                foreach (KeyValuePair<string, object> attribute in patchEntity.Attributes)
+                {
+                    retrievedEntity[attribute.Key] = attribute.Value;
+                }
             }
 
             return update;
