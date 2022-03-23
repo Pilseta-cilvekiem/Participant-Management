@@ -49,7 +49,7 @@ namespace PC.PowerApps.ClientBase
                 scheduledJobRecord.StatusCode = pc_ScheduledJob_StatusCode.InProgress;
                 _ = context.ServiceContext.UpdateModifiedAttributes(scheduledJobRecord);
 
-                Type scheduledJobBaseType = typeof(ScheduledJob).Assembly.GetType(scheduledJobRecord.pc_Name);
+                Type scheduledJobBaseType = typeof(ScheduledJob).Assembly.GetType($"PC.PowerApps.Common.ScheduledJobs.{scheduledJobRecord.pc_Name}");
                 Type scheduledJobDerivedType = typeof(ScheduledJobProcessor).Assembly.GetTypes()
                     .Where(t => scheduledJobBaseType.IsAssignableFrom(t))
                     .TakeSingleOrDefault() ?? scheduledJobBaseType;
