@@ -16,15 +16,13 @@ namespace PC.PowerApps.TestConsoleApp
     internal class TestApp
     {
         private readonly Lazy<CrmServiceClientContext> context;
-        private readonly Lazy<ScheduledJobProcessor> scheduledJobProcessor;
         private readonly IConfiguration configuration;
 
         private CrmServiceClientContext Context => context.Value;
 
-        public TestApp(Lazy<CrmServiceClientContext> context, Lazy<ScheduledJobProcessor> scheduledJobProcessor, IConfiguration configuration)
+        public TestApp(Lazy<CrmServiceClientContext> context, IConfiguration configuration)
         {
             this.context = context;
-            this.scheduledJobProcessor = scheduledJobProcessor;
             this.configuration = configuration;
         }
 

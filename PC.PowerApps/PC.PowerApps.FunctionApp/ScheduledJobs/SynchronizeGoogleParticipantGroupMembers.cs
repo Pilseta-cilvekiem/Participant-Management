@@ -1,8 +1,9 @@
-﻿using PC.PowerApps.ClientBase.Repositories;
+﻿using PC.PowerApps.ClientBase;
+using PC.PowerApps.ClientBase.Repositories;
 using PC.PowerApps.Common.ScheduledJobs;
 using System.Threading.Tasks;
 
-namespace PC.PowerApps.ClientBase.ScheduledJobs
+namespace PC.PowerApps.FunctionApp.ScheduledJobs
 {
     public class SynchronizeGoogleParticipantGroupMembers : SynchronizeGoogleParticipantGroupMembersBase
     {

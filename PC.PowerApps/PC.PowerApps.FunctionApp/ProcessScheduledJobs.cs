@@ -69,6 +69,7 @@ namespace PC.PowerApps.FunctionApp
             _ = containerBuilder.RegisterModule<ClientBaseModule>();
             _ = containerBuilder.RegisterInstance(configurationRoot).As<IConfiguration>();
             _ = containerBuilder.RegisterType<TraceWriterLogger>().As<ILogger>().SingleInstance();
+            _ = containerBuilder.RegisterType<ScheduledJobProcessor>().SingleInstance();
             _ = containerBuilder.RegisterInstance(traceWriter).As<TraceWriter>();
             using IContainer container = containerBuilder.Build();
 

@@ -72,7 +72,8 @@ namespace PC.PowerApps.Common
 
         private bool UpdateModifiedAttributesInternal(Entity modifiedEntity)
         {
-            Entity retrievedEntity = retrievedEntities[modifiedEntity.ToEntityReference()];
+            EntityReference modifiedEntityReference = modifiedEntity.ToEntityReference();
+            Entity retrievedEntity = retrievedEntities[modifiedEntityReference];
             Entity patchEntity = new Entity(modifiedEntity.LogicalName, modifiedEntity.Id);
             bool update = false;
 
@@ -89,11 +90,7 @@ namespace PC.PowerApps.Common
             if (update)
             {
                 organizationService.Update(patchEntity);
-
-                foreach (KeyValuePair<string, object> attribute in patchEntity.Attributes)
-                {
-                    retrievedEntity[attribute.Key] = attribute.Value;
-                }
+                Detach(modifiedEntity);
             }
 
             return update;
