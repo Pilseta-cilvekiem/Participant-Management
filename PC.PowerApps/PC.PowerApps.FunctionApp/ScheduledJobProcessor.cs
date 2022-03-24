@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using PC.PowerApps.ClientBase;
 using PC.PowerApps.Common;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
@@ -8,7 +9,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PC.PowerApps.ClientBase
+namespace PC.PowerApps.FunctionApp
 {
     public class ScheduledJobProcessor
     {
