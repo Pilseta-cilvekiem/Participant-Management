@@ -4,6 +4,6 @@
   "Values": {
     "AzureWebJobsDashboard": "Copy from Azure Function configuration",
     "AzureWebJobsStorage": "Copy from Azure Function configuration",
-    "ConnectionStrings:Dataverse": "AuthType=ClientSecret;Url=;ClientId=;ClientSecret="
+    "KeyVaultUrl": "Copy from Azure Function configuration"
   }
 }
