@@ -22,10 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Export Solution
         uses: microsoft/powerplatform-actions/export-solution@v0
         with:
@@ -39,16 +35,18 @@ jobs:
       - name: Unpack Solution
         uses: microsoft/powerplatform-actions/unpack-solution@v0
         with:
-#          overwrite-files: true
           solution-file: 'CityForPeople.zip'
-          solution-folder: "${{ github.workspace }}/Customizations"
-#          solution-type: 'Unmanaged'
+          solution-folder: 'Customizations'
 
       - name: Remove Solution
         run: rm CityForPeople.zip
         
-      - name: Set Git Name
-        run:   git config --global user.name "GitHub Actions"
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v3
+
+#       - name: Set Git Name
+#         run:   git config --global user.name "GitHub Actions"
 
       - name: Commit
         run: git commit -a -m 'Solution update'
