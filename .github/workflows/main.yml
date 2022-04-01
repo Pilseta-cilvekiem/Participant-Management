@@ -32,9 +32,6 @@ jobs:
           solution-file: 'CityForPeople.zip'
           solution-folder: 'Customizations'
 
-#       - name: Remove Solution
-#         run: rm CityForPeople.zip
-        
       - name: Set Git Name
         run:   git config --global user.name "GitHub Actions"
 
