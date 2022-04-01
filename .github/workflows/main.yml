@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  commit-solution:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Export Solution
+        uses: microsoft/powerplatform-actions/export-solution@v0
+        with:
+          app-id: ${{ secrets.DATAVERSE_APP_ID }}
+          client-secret: ${{ secrets.DATAVERSE_CLIENT_SECRET }}
+          environment-url: ${{ secrets.DATAVERSE_URL }}
+          solution-name: CityForPeople
+          solution-output-file: 'CityForPeople.zip'
+          tenant-id: ${{ secrets.MICROSOFT_TENANT_ID }}
+
+      - name: Unpack Solution
+        uses: microsoft/powerplatform-actions/unpack-solution@v0
+        with:
+          solution-file: 'CityForPeople.zip'
+          solution-folder: 'Customizations'
+
+      - name: Remove Solution
+        run: rm CityForPeople.zip
+        
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set Git Name
+        run:   git config --global user.name "GitHub Actions"
+
+      - name: Commit
+        run: git commit -a -m 'Solution update'
+
+      - name: Push
+        run: git push
