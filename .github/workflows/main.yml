@@ -44,8 +44,11 @@ jobs:
           solution-folder: "${{ github.workspace }}/Customizations"
 #          solution-type: 'Unmanaged'
 
+      - name: Remove Solution
+        run: rm CityForPeople.zip
+
       - name: Commit
-        run: git commit -C "${{ github.workspace }}"
+        run: git commit -m 'Solution update'
 
       - name: Push
-        run: git push -C "${{ github.workspace }}"
+        run: git push
