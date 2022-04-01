@@ -39,13 +39,13 @@ jobs:
       - name: Unpack Solution
         uses: microsoft/powerplatform-actions/unpack-solution@v0
         with:
-          overwrite-files: true
+#          overwrite-files: true
           solution-file: 'CityForPeople.zip'
-          solution-folder: "${{ env.GITHUB_WORKSPACE }}/Customizations"
-          solution-type: 'Unmanaged'
+          solution-folder: "${{ github.workspace }}/Customizations"
+#          solution-type: 'Unmanaged'
 
       - name: Commit
-        run: git commit -C "${{ env.GITHUB_WORKSPACE }}"
+        run: git commit -C "${{ github.workspace }}"
 
       - name: Push
-        run: git push -C "${{ env.GITHUB_WORKSPACE }}"
+        run: git push -C "${{ github.workspace }}"
