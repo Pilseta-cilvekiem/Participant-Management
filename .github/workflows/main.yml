@@ -51,7 +51,7 @@ jobs:
         run:   git config --global user.name "GitHub Actions"
 
       - name: Commit
-        run: git commit -m 'Solution update'
+        run: git commit -a -m 'Solution update'
 
       - name: Push
         run: git push
