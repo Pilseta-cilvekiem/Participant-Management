@@ -46,6 +46,9 @@ jobs:
 
       - name: Remove Solution
         run: rm CityForPeople.zip
+        
+      - name: Set Git Name
+        run:   git config --global user.name "GitHub Actions"
 
       - name: Commit
         run: git commit -m 'Solution update'
