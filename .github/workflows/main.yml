@@ -38,6 +38,8 @@ jobs:
       - name: Set Git Name
         run:   git config --global user.name "GitHub Actions"
 
+      - run: ls -alR
+
       - name: Commit
         run: git commit -a -m 'Solution update'
 
