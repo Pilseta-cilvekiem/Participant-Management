@@ -349,9 +349,14 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+# Custom
+/PC.PowerApps/PC.PowerApps.FunctionApp/Properties/serviceDependencies.json
+/PC.PowerApps/PC.PowerApps.FunctionApp/Properties/serviceDependencies.PCPowerAppsFunctionApp - Zip Deploy.json
+/PC.PowerApps/PC.PowerApps.FunctionApp/Properties/ServiceDependencies/PCPowerAppsFunctionApp - Zip Deploy/appInsights1.arm.json
+/PC.PowerApps/PC.PowerApps.FunctionApp/Properties/ServiceDependencies/PCPowerAppsFunctionApp - Zip Deploy/profile.arm.json
 /PC.PowerApps/PC.PowerApps.WebResources/dist
-/PC.PowerApps/PC.PowerApps.WebResources/src/lib/*.js
-/PC.PowerApps/PC.PowerApps.WebResources/src/lib/*.js.map
 /PC.PowerApps/PC.PowerApps.WebResources/src/*.js
 /PC.PowerApps/PC.PowerApps.WebResources/src/*.js.map
+/PC.PowerApps/PC.PowerApps.WebResources/src/lib/*.js
+/PC.PowerApps/PC.PowerApps.WebResources/src/lib/*.js.map
 /PC.PowerApps/PC.PowerApps.WebResources/XrmDefinitelyTyped/XrmDefinitelyTyped.Environment.config
