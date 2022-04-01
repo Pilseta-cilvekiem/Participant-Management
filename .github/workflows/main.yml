@@ -41,5 +41,11 @@ jobs:
         with:
           overwrite-files: true
           solution-file: 'CityForPeople.zip'
-          solution-folder: ${{ format('{0}/Customizations', env.GITHUB_WORKSPACE) }}
+          solution-folder: "${{ env.GITHUB_WORKSPACE }}/Customizations"
           solution-type: 'Unmanaged'
+
+      - name: Commit
+        run: git commit ${{ env.GITHUB_WORKSPACE }}
+
+      - name: Push
+        run: git push
