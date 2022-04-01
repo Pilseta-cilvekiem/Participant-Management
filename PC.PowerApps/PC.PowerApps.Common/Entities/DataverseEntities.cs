@@ -20203,26 +20203,6 @@ namespace PC.PowerApps.Common.Entities.Dataverse
 		}
 		
 		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_keyvaulturl")]
-		public string pc_KeyVaultUrl
-		{
-			[System.Diagnostics.DebuggerNonUserCode()]
-			get
-			{
-				return this.GetAttributeValue<string>("pc_keyvaulturl");
-			}
-			[System.Diagnostics.DebuggerNonUserCode()]
-			set
-			{
-				this.OnPropertyChanging("pc_KeyVaultUrl");
-				this.SetAttributeValue("pc_keyvaulturl", value);
-				this.OnPropertyChanged("pc_KeyVaultUrl");
-			}
-		}
-		
-		/// <summary>
 		/// Required name field
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("pc_name")]
