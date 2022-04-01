@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="pc.pc_transaction.Form.MarkAsNonPayment.Button.CustomAction" Location="Mscrm.Form.pc_transaction.MainTab.Actions.Controls._children" Sequence="20">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:pc.pc_transaction.Form.MarkAsNonPayment.Button.Alt" Command="pc.pc_transaction.Form.MarkAsNonPayment.Command" Id="pc.pc_transaction.Form.MarkAsNonPayment.Button" LabelText="$LocLabels:pc.pc_transaction.Form.MarkAsNonPayment.Button.LabelText" Sequence="20" TemplateAlias="isv" ToolTipTitle="$LocLabels:pc.pc_transaction.Form.MarkAsNonPayment.Button.ToolTipTitle" ToolTipDescription="$LocLabels:pc.pc_transaction.Form.MarkAsNonPayment.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="pc.pc_transaction.Form.Process.Button.CustomAction" Location="Mscrm.Form.pc_transaction.MainTab.Actions.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:pc.pc_transaction.Form.Process.Button.Alt" Command="pc.pc_transaction.Form.Process.Command" Id="pc.pc_transaction.Form.Process.Button" LabelText="$LocLabels:pc.pc_transaction.Form.Process.Button.LabelText" Sequence="15" TemplateAlias="isv" ToolTipTitle="$LocLabels:pc.pc_transaction.Form.Process.Button.ToolTipTitle" ToolTipDescription="$LocLabels:pc.pc_transaction.Form.Process.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.CustomAction" Location="Mscrm.HomepageGrid.pc_transaction.MainTab.Actions.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.Alt" Command="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Command" Id="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button" LabelText="$LocLabels:pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.LabelText" Sequence="10" TemplateAlias="isv" ToolTipTitle="$LocLabels:pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.ToolTipTitle" ToolTipDescription="$LocLabels:pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="pc.pc_transaction.HomepageGrid.Process.Button.CustomAction" Location="Mscrm.HomepageGrid.pc_transaction.MainTab.Actions.Controls._children" Sequence="5">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:pc.pc_transaction.HomepageGrid.Process.Button.Alt" Command="pc.pc_transaction.HomepageGrid.Process.Command" Id="pc.pc_transaction.HomepageGrid.Process.Button" LabelText="$LocLabels:pc.pc_transaction.HomepageGrid.Process.Button.LabelText" Sequence="5" TemplateAlias="isv" ToolTipTitle="$LocLabels:pc.pc_transaction.HomepageGrid.Process.Button.ToolTipTitle" ToolTipDescription="$LocLabels:pc.pc_transaction.HomepageGrid.Process.Button.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="pc.pc_transaction.Form.MarkAsNonPayment.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="transaction.markAsNonPaymentFromForm" Library="$webresource:pc_/transaction.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="pc.pc_transaction.Form.Process.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="transaction.processFromForm" Library="$webresource:pc_/transaction.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Command">
+      <EnableRules>
+        <EnableRule Id="pc.pc_transaction.SelectedAtLeastOneItem.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="transaction.markAsNonPaymentFromGrid" Library="$webresource:pc_/transaction.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemIds" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="pc.pc_transaction.HomepageGrid.Process.Command">
+      <EnableRules>
+        <EnableRule Id="pc.pc_transaction.SelectedAtLeastOneItem.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="transaction.processFromGrid" Library="$webresource:pc_/transaction.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemIds" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules>
+      <EnableRule Id="pc.pc_transaction.SelectedAtLeastOneItem.EnableRule">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="pc.pc_transaction.Form.MarkAsNonPayment.Button.Alt">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.Form.MarkAsNonPayment.Button.LabelText">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.Form.MarkAsNonPayment.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.Form.MarkAsNonPayment.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.Form.Process.Button.Alt">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.Form.Process.Button.LabelText">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.Form.Process.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.Form.Process.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.Alt">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.LabelText">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.MarkAsNonPayment.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Mark as Non-Payment" languagecode="1033" />
+        <Title description="Atzīmēt kā ne maksājumu" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.Process.Button.Alt">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.Process.Button.LabelText">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.Process.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="pc.pc_transaction.HomepageGrid.Process.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Process" languagecode="1033" />
+        <Title description="Procesēt" languagecode="1062" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

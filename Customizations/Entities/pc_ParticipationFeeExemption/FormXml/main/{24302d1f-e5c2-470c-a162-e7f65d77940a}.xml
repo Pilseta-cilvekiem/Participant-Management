@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{24302d1f-e5c2-470c-a162-e7f65d77940a}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{ce344727-1a0d-4751-85b6-3eab42be8635}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Vispārīgi" languagecode="1062" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{aebbd7bd-0a4b-44d8-af7f-e739a81d3a6d}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Vispārīgi" languagecode="1062" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0231fe7a-0a7b-42dd-9808-12cd7af98faf}" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                          <label description="Nosaukums" languagecode="1062" />
+                        </labels>
+                        <control id="pc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="pc_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8fcf5ae4-e4ac-4ca5-9291-5c38574b1a3a}" locklevel="0">
+                        <labels>
+                          <label description="Contact" languagecode="1033" />
+                          <label description="Kontaktpersona" languagecode="1062" />
+                        </labels>
+                        <control id="pc_contact" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="pc_contact" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{579395b9-6252-4d65-bd29-201cec4a1f68}" locklevel="0">
+                        <labels>
+                          <label description="From" languagecode="1033" />
+                          <label description="No" languagecode="1062" />
+                        </labels>
+                        <control id="pc_from" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="pc_from" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{dae2343d-1638-4ff4-9b5a-23ffe63a9291}" locklevel="0">
+                        <labels>
+                          <label description="Till" languagecode="1033" />
+                          <label description="Līdz" languagecode="1062" />
+                        </labels>
+                        <control id="pc_till" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="pc_till" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5589c8c6-7780-4167-bf86-0791204b0e11}" locklevel="0">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                          <label description="Apraksts" languagecode="1062" />
+                        </labels>
+                        <control id="pc_description" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="pc_description" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a3ac01f3-fa7c-43da-8955-c4caf4f0ac42}" locklevel="0">
+                        <labels>
+                          <label description="Created By" languagecode="1033" />
+                          <label description="Izveidoja" languagecode="1062" />
+                        </labels>
+                        <control id="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f5fda40b-1a49-44b7-a405-3e823b1f53a5}" locklevel="0">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                          <label description="Izveides laiks" languagecode="1062" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f5eec708-018c-4761-9b0c-7094353de24c}" locklevel="0">
+                        <labels>
+                          <label description="Modified By" languagecode="1033" />
+                          <label description="Modificēja" languagecode="1062" />
+                        </labels>
+                        <control id="modifiedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="modifiedby" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8df96cb7-623b-4a45-aa1c-12be2ca1bac4}" locklevel="0">
+                        <labels>
+                          <label description="Modified On" languagecode="1033" />
+                          <label description="Modificēšanas laiks" languagecode="1062" />
+                        </labels>
+                        <control id="modifiedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{3753e861-5924-4d7b-b4a3-4ded7fab11a7}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{025304bc-25fa-42d8-aaa1-26b57910ecba}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e6bd19ab-4f6a-46e7-9a61-8c77dec8f1ec}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{66428e2e-e8f4-418b-8fb8-1d42cba638a0}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{2c250b49-1cbb-4305-8efe-bcef7fd473df}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{0121e6af-1340-42ac-8fc4-600652f39dd6}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a6ac0665-6f70-4889-b395-20f96001ce2f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b06af226-fa63-453e-82f9-3c49121099ea}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+      <LocalizedName description="Informācija" languagecode="1062" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+      <Description description="Šīs entītijas forma." languagecode="1062" />
+    </Descriptions>
+  </systemform>
+</forms>

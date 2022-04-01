@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="PC.PowerApps.Plugins.Bound.ParticipationFeeRules.PreValidateCreateUpdate: Update of pc_participationfeerule" SdkMessageProcessingStepId="{6aa31e57-43fc-eb11-94ef-000d3a4bfac3}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>PC.PowerApps.Plugins.Bound.ParticipationFeeRules.PreValidateCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92</PluginTypeName>
+  <PluginTypeId>c6b46400-8449-4295-b969-1b9cfb102e4b</PluginTypeId>
+  <PrimaryEntity>pc_participationfeerule</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>pc_amount,pc_from,pc_name,pc_till,statuscode</FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>10</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="">
+      <SdkMessageProcessingStepImageId>{ad4f385d-43fc-eb11-94ef-000d3a4bfac3}</SdkMessageProcessingStepImageId>
+      <Attributes></Attributes>
+      <EntityAlias>Image</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>
