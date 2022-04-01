@@ -39,6 +39,6 @@ jobs:
         uses: microsoft/powerplatform-actions/unpack-solution@v0
         with:
           solution-file: 'CityForPeople.zip'
-          solution-folder: ${{ format('{0}/Customizations', github.workspace }}
+          solution-folder: ${{ format('{0}/Customizations', env.GITHUB_WORKSPACE }}
           solution-type: 'Unmanaged'
           overwrite-files: true
