@@ -39,7 +39,7 @@ jobs:
         run: git add Customizations
 
       - name: Commit
-        run: git commit -m 'Solution update'
+        run: git diff-index --quiet HEAD || git commit -m 'Solution update'
 
       - name: Push
         run: git push
