@@ -1,4 +1,5 @@
-﻿using Azure.Identity;
+﻿using Azure;
+using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -31,11 +32,18 @@ namespace PC.PowerApps.ClientBase
         {
             crmServiceClient = new Lazy<CrmServiceClient>(() =>
             {
-                string connectionString = configuration.Value.GetConnectionString("Dataverse");
-                return new CrmServiceClient(connectionString);
+                Response<KeyVaultSecret> response = SecretClient.GetSecret("DataverseConnectionString");
+                CrmServiceClient crmServiceClient = new(response.Value.Value);
+                return crmServiceClient;
             });
             this.logger = new(() => logger.Value);
-            secretClient = new(() => new SecretClient(new Uri(Settings.pc_KeyVaultUrl), new DefaultAzureCredential()));
+            secretClient = new(() =>
+            {
+                string keyVaultUrl = configuration.Value["KeyVaultUrl"];
+                Uri keyVaultUri = new(keyVaultUrl);
+                DefaultAzureCredential defaultAzureCredential = new();
+                return new SecretClient(keyVaultUri, defaultAzureCredential);
+            });
             userId = new(() => crmServiceClient.Value.GetMyCrmUserId());
         }
 
