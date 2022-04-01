@@ -15968,6 +15968,7 @@
               <Length>200</Length>
               <displaynames>
                 <displayname description="Google Member Group" languagecode="1033" />
+                <displayname description="Google biedru grupa" languagecode="1062" />
               </displaynames>
               <Descriptions>
                 <Description description="" languagecode="1033" />
@@ -16008,46 +16009,7 @@
               <Length>200</Length>
               <displaynames>
                 <displayname description="Google Supporter Group" languagecode="1033" />
-              </displaynames>
-              <Descriptions>
-                <Description description="" languagecode="1033" />
-              </Descriptions>
-            </attribute>
-            <attribute PhysicalName="pc_KeyVaultUrl">
-              <Type>nvarchar</Type>
-              <Name>pc_keyvaulturl</Name>
-              <LogicalName>pc_keyvaulturl</LogicalName>
-              <RequiredLevel>none</RequiredLevel>
-              <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
-              <ImeMode>auto</ImeMode>
-              <ValidForUpdateApi>1</ValidForUpdateApi>
-              <ValidForReadApi>1</ValidForReadApi>
-              <ValidForCreateApi>1</ValidForCreateApi>
-              <IsCustomField>1</IsCustomField>
-              <IsAuditEnabled>1</IsAuditEnabled>
-              <IsSecured>0</IsSecured>
-              <IntroducedVersion>1.0.0.14</IntroducedVersion>
-              <IsCustomizable>1</IsCustomizable>
-              <IsRenameable>1</IsRenameable>
-              <CanModifySearchSettings>1</CanModifySearchSettings>
-              <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
-              <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
-              <SourceType>0</SourceType>
-              <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
-              <IsSortableEnabled>0</IsSortableEnabled>
-              <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
-              <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
-              <IsDataSourceSecret>0</IsDataSourceSecret>
-              <AutoNumberFormat></AutoNumberFormat>
-              <IsSearchable>0</IsSearchable>
-              <IsFilterable>0</IsFilterable>
-              <IsRetrievable>0</IsRetrievable>
-              <IsLocalizable>0</IsLocalizable>
-              <Format>url</Format>
-              <MaxLength>100</MaxLength>
-              <Length>200</Length>
-              <displaynames>
-                <displayname description="Key Vault URL" languagecode="1033" />
+                <displayname description="Google atbalstītāju grupa" languagecode="1062" />
               </displaynames>
               <Descriptions>
                 <Description description="" languagecode="1033" />
@@ -16699,14 +16661,6 @@
                             <row />
                             <row />
                             <row>
-                              <cell id="{412f503a-49fa-4491-a661-ff69132524f2}" locklevel="0" colspan="1" rowspan="1">
-                                <labels>
-                                  <label description="Key Vault URL" languagecode="1033" />
-                                </labels>
-                                <control id="pc_keyvaulturl" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="pc_keyvaulturl" disabled="false" />
-                              </cell>
-                            </row>
-                            <row>
                               <cell id="{b5080125-849d-480f-85bb-a7628d6c8566}" locklevel="0">
                                 <labels>
                                   <label description="Google Admin Email" languagecode="1033" />
@@ -16719,6 +16673,7 @@
                               <cell id="{9aa9dc35-0bd6-4899-8dba-e9eb3f4247fe}" locklevel="0" colspan="1" rowspan="1">
                                 <labels>
                                   <label description="Google Member Group" languagecode="1033" />
+                                  <label description="Google biedru grupa" languagecode="1062" />
                                 </labels>
                                 <control id="pc_googlemembergroup" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="pc_googlemembergroup" disabled="false" />
                               </cell>
@@ -16727,6 +16682,7 @@
                               <cell id="{3c4f6532-39c9-4061-83aa-2ca66b441a3d}" locklevel="0" colspan="1" rowspan="1">
                                 <labels>
                                   <label description="Google Supporter Group" languagecode="1033" />
+                                  <label description="Google atbalstītāju grupa" languagecode="1062" />
                                 </labels>
                                 <control id="pc_googlesupportergroup" classid="{ADA2203E-B4CD-49BE-9DDF-234642B43B52}" datafieldname="pc_googlesupportergroup" disabled="false" />
                               </cell>
