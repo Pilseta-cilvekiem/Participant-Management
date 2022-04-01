@@ -32,16 +32,17 @@ jobs:
           solution-file: 'CityForPeople.zip'
           solution-folder: 'Customizations'
 
-      - name: Remove Solution
-        run: rm CityForPeople.zip
+#       - name: Remove Solution
+#         run: rm CityForPeople.zip
         
       - name: Set Git Name
         run:   git config --global user.name "GitHub Actions"
 
-      - run: ls -alR
+      - name: Track Customizations
+        run: git add Customizations
 
       - name: Commit
-        run: git commit -a -m 'Solution update'
+        run: git commit -m 'Solution update'
 
       - name: Push
         run: git push
