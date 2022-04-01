@@ -45,7 +45,7 @@ jobs:
           solution-type: 'Unmanaged'
 
       - name: Commit
-        run: git commit ${{ env.GITHUB_WORKSPACE }}
+        run: git commit -C "${{ env.GITHUB_WORKSPACE }}"
 
       - name: Push
-        run: git push
+        run: git push -C "${{ env.GITHUB_WORKSPACE }}"
