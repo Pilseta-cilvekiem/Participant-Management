@@ -28,7 +28,7 @@ jobs:
           tenant-id: ${{ secrets.MICROSOFT_TENANT_ID }}
 
       - name: Set Git Name
-        run: git config --global user.name "GitHub Actions"
+        run: git config --global user.name 'GitHub Actions'
 
       - name: Checkout
         uses: actions/checkout@v3
