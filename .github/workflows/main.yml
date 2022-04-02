@@ -23,7 +23,7 @@ jobs:
           client-secret: ${{ secrets.DATAVERSE_CLIENT_SECRET }}
           environment-url: ${{ secrets.DATAVERSE_URL }}
           solution-name: CityForPeople
-          solution-output-file: 'CityForPeople.zip'
+          solution-output-file: "${{ env.RUNNER_TEMP }}/CityForPeople.zip"
           tenant-id: ${{ secrets.MICROSOFT_TENANT_ID }}
 
       - name: Set Git Name
@@ -32,7 +32,7 @@ jobs:
       - name: Unpack Solution
         uses: microsoft/powerplatform-actions/unpack-solution@v0
         with:
-          solution-file: 'CityForPeople.zip'
+          solution-file: "${{ env.RUNNER_TEMP }}/CityForPeople.zip"
           solution-folder: 'Customizations'
 
       - name: Track Customizations
