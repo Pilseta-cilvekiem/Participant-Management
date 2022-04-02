@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Export Solution
         uses: microsoft/powerplatform-actions/export-solution@v0
         with:
@@ -23,16 +20,19 @@ jobs:
           client-secret: ${{ secrets.DATAVERSE_CLIENT_SECRET }}
           environment-url: ${{ secrets.DATAVERSE_URL }}
           solution-name: CityForPeople
-          solution-output-file: "${{ env.RUNNER_TEMP }}/CityForPeople.zip"
+          solution-output-file: "${{ runner.temp }}/CityForPeople.zip"
           tenant-id: ${{ secrets.MICROSOFT_TENANT_ID }}
 
       - name: Set Git Name
         run:   git config --global user.name "GitHub Actions"
 
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Unpack Solution
         uses: microsoft/powerplatform-actions/unpack-solution@v0
         with:
-          solution-file: "${{ env.RUNNER_TEMP }}/CityForPeople.zip"
+          solution-file: "${{ runner.temp }}/CityForPeople.zip"
           solution-folder: 'Customizations'
 
       - name: Track Customizations
