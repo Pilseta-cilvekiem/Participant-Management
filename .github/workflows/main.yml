@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Export Solution
         uses: microsoft/powerplatform-actions/export-solution@v0
         with:
@@ -34,6 +31,11 @@ jobs:
 
       - name: Set Git Name
         run:   git config --global user.name "GitHub Actions"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - run: ls -al
 
       - name: Track Customizations
         run: git add Customizations
