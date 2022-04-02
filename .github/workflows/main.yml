@@ -10,7 +10,7 @@ on:
 
 env:
   CUSTOMIZATIONS_DIR: 'Customizations'
-  ZIP_FILE: "$RUNNER_TEMP/CityForPeople.zip"
+  ZIP_FILE: "${{ runner.temp }}/CityForPeople.zip"
 
 jobs:
   commit-solution:
