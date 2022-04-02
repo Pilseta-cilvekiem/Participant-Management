@@ -23,19 +23,17 @@ jobs:
           solution-output-file: 'CityForPeople.zip'
           tenant-id: ${{ secrets.MICROSOFT_TENANT_ID }}
 
-      - name: Unpack Solution
-        uses: microsoft/powerplatform-actions/unpack-solution@v0
-        with:
-          solution-file: 'CityForPeople.zip'
-          solution-folder: 'Customizations'
-
       - name: Set Git Name
         run:   git config --global user.name "GitHub Actions"
 
       - name: Checkout
         uses: actions/checkout@v3
 
-      - run: ls -al
+      - name: Unpack Solution
+        uses: microsoft/powerplatform-actions/unpack-solution@v0
+        with:
+          solution-file: 'CityForPeople.zip'
+          solution-folder: 'Customizations'
 
       - name: Track Customizations
         run: git add Customizations
