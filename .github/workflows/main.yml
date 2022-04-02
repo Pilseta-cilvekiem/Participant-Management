@@ -35,11 +35,14 @@ jobs:
         
       - name: Pull
         run: git pull
+        
+      - name: Delete Customizations
+        run: rm -rf ${{ env.CUSTOMIZATIONS_DIR }}
 
       - name: Unpack Solution
         uses: microsoft/powerplatform-actions/unpack-solution@v0
         with:
-          solution-file: "${{ runner.temp }}${{ env.ZIP_FILE }}"
+          solution-file: ${{ runner.temp }}${{ env.ZIP_FILE }}
           solution-folder: ${{ env.CUSTOMIZATIONS_DIR }}
 
       - name: Track Customizations
