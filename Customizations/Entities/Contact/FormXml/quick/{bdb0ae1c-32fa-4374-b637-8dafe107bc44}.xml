@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{bdb0ae1c-32fa-4374-b637-8dafe107bc44}</formid>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form hasmargin="false" shownavigationbar="false">
+      <tabs showlabels="false">
+        <tab name="general" verticallayout="true" id="{6fd9013a-2c88-4593-b364-c9f21e572640}" IsUserDefined="0" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="information" id="{a9d2c4bb-9863-4712-b13c-f27c88331597}" IsUserDefined="0" showlabel="false" showbar="false" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{c7d58014-ca91-7338-a507-25cd221ab7ab}" showlabel="true" locklevel="0" ordinalvalue="10002">
+                        <labels>
+                          <label description="Privātais e-pasts" languagecode="1062" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Contact Quick Form" languagecode="1033" />
+      <LocalizedName description="" languagecode="1062" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="This is the form that is displayed for the contact Quick Form." languagecode="1033" />
+      <Description description="Šī ir veidlapa, kas tiek parādīta ātrajai kontaktpersonas veidlapai." languagecode="1062" />
+    </Descriptions>
+  </systemform>
+</forms>

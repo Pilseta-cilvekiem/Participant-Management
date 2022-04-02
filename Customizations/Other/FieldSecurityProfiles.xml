@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FieldSecurityProfiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FieldSecurityProfile name="City for People Function App" fieldsecurityprofileid="{7ec34827-30f2-eb11-94ef-002248834145}">
+    <FieldPermissions />
+  </FieldSecurityProfile>
+  <FieldSecurityProfile name="City for People Read-only" fieldsecurityprofileid="{ad6d2dde-29ee-eb11-bacb-000d3abf0cde}">
+    <FieldPermissions />
+  </FieldSecurityProfile>
+</FieldSecurityProfiles>

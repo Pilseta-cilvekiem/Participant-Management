@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a2d479c5-53e3-4c69-addd-802327e67a0d}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="fullname" select="1" preview="0" icon="1">
+        <row name="result" id="contactid">
+          <cell name="fullname" width="300" />
+          <cell name="pc_participationlevel" width="100" />
+          <cell name="pc_wishestobeactive" width="100" />
+          <cell name="pc_paidparticipationfee" width="100" />
+          <cell name="pc_participantfrom" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="contact">
+          <attribute name="fullname" />
+          <attribute name="contactid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="pc_participationlevel" />
+          <attribute name="pc_participantfrom" />
+          <attribute name="pc_wishestobeactive" />
+          <attribute name="pc_paidparticipationfee" />
+          <order attribute="fullname" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Contacts Lookup View" languagecode="1033" />
+      <LocalizedName description="Kontaktpersonu uzmeklēšanas skats" languagecode="1062" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

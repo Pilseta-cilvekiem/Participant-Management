@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="PC.PowerApps.Plugins.Bound.Transactions.PreCreateUpdate: Update of pc_transaction" SdkMessageProcessingStepId="{84bb80ea-03f9-eb11-94ef-000d3a4bfac3}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>PC.PowerApps.Plugins.Bound.Transactions.PreCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92</PluginTypeName>
+  <PluginTypeId>50ad95a4-9a1b-4ac4-bdb6-28d5c84692fc</PluginTypeId>
+  <PrimaryEntity>pc_transaction</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>pc_amount,pc_nonpaymentamount,pc_paymenttotalamount,pc_remainingamount</FilteringAttributes>
+  <InvocationSource>1</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>20</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="">
+      <SdkMessageProcessingStepImageId>{633cb4f6-03f9-eb11-94ef-000d3a4bfac3}</SdkMessageProcessingStepImageId>
+      <Attributes></Attributes>
+      <EntityAlias>Image</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

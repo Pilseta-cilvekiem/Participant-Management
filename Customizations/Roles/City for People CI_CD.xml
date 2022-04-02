@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{3280aa50-03b2-ec11-983f-00224883c2f5}" name="City for People CI/CD" isinherited="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvExportCustomization" level="Global" />
+    <RolePrivilege name="prvReadArticleTemplate" level="Global" />
+    <RolePrivilege name="prvReadAttribute" level="Global" />
+    <RolePrivilege name="prvReadAttributeMap" level="Global" />
+    <RolePrivilege name="prvReadBusinessUnit" level="Local" />
+    <RolePrivilege name="prvReadConnectionRole" level="Global" />
+    <RolePrivilege name="prvReadCustomAPI" level="Local" />
+    <RolePrivilege name="prvReadCustomization" level="Global" />
+    <RolePrivilege name="prvReadEmailTemplate" level="Local" />
+    <RolePrivilege name="prvReadEntity" level="Global" />
+    <RolePrivilege name="prvReadEntityDataProvider" level="Global" />
+    <RolePrivilege name="prvReadEntityMap" level="Global" />
+    <RolePrivilege name="prvReadFieldSecurityProfile" level="Global" />
+    <RolePrivilege name="prvReadHierarchyRule" level="Global" />
+    <RolePrivilege name="prvReadLicense" level="Global" />
+    <RolePrivilege name="prvReadOrganization" level="Global" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadPublisher" level="Global" />
+    <RolePrivilege name="prvReadQuery" level="Global" />
+    <RolePrivilege name="prvReadRelationship" level="Global" />
+    <RolePrivilege name="prvReadRole" level="Local" />
+    <RolePrivilege name="prvReadSavedQueryVisualizations" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvReadSolution" level="Global" />
+    <RolePrivilege name="prvReadSystemForm" level="Global" />
+    <RolePrivilege name="prvReadTeam" level="Local" />
+    <RolePrivilege name="prvReadUser" level="Local" />
+    <RolePrivilege name="prvReadUserSettings" level="Local" />
+    <RolePrivilege name="prvReadWebResource" level="Global" />
+    <RolePrivilege name="prvReadWorkflow" level="Basic" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

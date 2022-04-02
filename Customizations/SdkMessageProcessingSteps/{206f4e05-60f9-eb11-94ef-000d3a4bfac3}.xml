@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="PC.PowerApps.Plugins.Bound.Contacts.PreValidateCreateUpdate: Update of contact" SdkMessageProcessingStepId="{206f4e05-60f9-eb11-94ef-000d3a4bfac3}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>20bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>PC.PowerApps.Plugins.Bound.Contacts.PreValidateCreateUpdate, PC.PowerApps.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e289f6c1abbb0b92</PluginTypeName>
+  <PluginTypeId>7f97b433-a2fd-4574-8d53-48f09d788168</PluginTypeId>
+  <PrimaryEntity>contact</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <FilteringAttributes>address1_city,address1_county,address1_country,address1_line1,address1_postalcode,address1_stateorprovince,description,emailaddress1,emailaddress2,firstname,lastname,mobilephone,pc_calledon,pc_debt,pc_forceaddtogooglegroup,pc_neighbourhood,pc_paidparticipationfee,pc_participationlevel,pc_personalidentitynumber,pc_requiredparticipationfee,pc_sentdebtreminderon,pc_sentsupporterwelcomeemailon,pc_welcomemeetingstatus,pc_willcall,pc_wishestobeactive,statuscode</FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>10</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages>
+    <SdkMessageProcessingStepImage Name="">
+      <SdkMessageProcessingStepImageId>{d9446f0b-60f9-eb11-94ef-000d3a4bfac3}</SdkMessageProcessingStepImageId>
+      <Attributes></Attributes>
+      <EntityAlias>Image</EntityAlias>
+      <ImageType>0</ImageType>
+      <MessagePropertyName>Target</MessagePropertyName>
+      <IsCustomizable>1</IsCustomizable>
+    </SdkMessageProcessingStepImage>
+  </SdkMessageProcessingStepImages>
+</SdkMessageProcessingStep>

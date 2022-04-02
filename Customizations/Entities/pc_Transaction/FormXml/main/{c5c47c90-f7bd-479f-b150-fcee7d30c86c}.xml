@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c5c47c90-f7bd-479f-b150-fcee7d30c86c}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{4fb59310-c58e-4ae4-849d-0fc2c8f16f7e}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+            <label description="Vispārīgi" languagecode="1062" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{fd10a686-cc4b-460e-b801-3609c57382f1}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                    <label description="Vispārīgi" languagecode="1062" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{b8fe6810-4d5f-4449-bd90-33ff1ff6556d}" visible="false">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                          <label description="Nosaukums" languagecode="1062" />
+                        </labels>
+                        <control id="pc_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="pc_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d16b9a97-5feb-4503-9d7b-9aa9c0c99444}" locklevel="0">
+                        <labels>
+                          <label description="Bank Account" languagecode="1033" />
+                          <label description="Bankas konts" languagecode="1062" />
+                        </labels>
+                        <control id="pc_bankaccount" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="pc_bankaccount" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c34f7f6f-3188-4dc6-88de-51c37b823da8}" locklevel="0">
+                        <labels>
+                          <label description="Payer Name" languagecode="1033" />
+                          <label description="Maksātāja vārds" languagecode="1062" />
+                        </labels>
+                        <control id="pc_payername" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pc_payername" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ce5d6517-9cb7-4365-9097-55dc268ad7f7}" locklevel="0">
+                        <labels>
+                          <label description="Payer ID" languagecode="1033" />
+                          <label description="Maksātāja ID" languagecode="1062" />
+                        </labels>
+                        <control id="pc_payerid" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pc_payerid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eeea59b0-73b0-44e9-9b97-70c61cb07fa0}" locklevel="0">
+                        <labels>
+                          <label description="Amount" languagecode="1033" />
+                          <label description="Summa" languagecode="1062" />
+                        </labels>
+                        <control id="pc_amount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="pc_amount" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a77ff55f-6de5-453d-99c7-aa8f3a5f72d7}" locklevel="0">
+                        <labels>
+                          <label description="Currency" languagecode="1033" />
+                          <label description="Valūta" languagecode="1062" />
+                        </labels>
+                        <control id="transactioncurrencyid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="transactioncurrencyid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{64c02b72-485e-4d97-a570-bc2025fbb078}" locklevel="0">
+                        <labels>
+                          <label description="Date" languagecode="1033" />
+                          <label description="Datums" languagecode="1062" />
+                        </labels>
+                        <control id="pc_date" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="pc_date" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c7a3e324-b2fa-442d-bd8e-57e2e303def2}" locklevel="0">
+                        <labels>
+                          <label description="Details" languagecode="1033" />
+                          <label description="Detalizēta informācija" languagecode="1062" />
+                        </labels>
+                        <control id="pc_details" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="pc_details" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7fd5036c-f4c6-4ff4-8279-23f2c130058b}" locklevel="0">
+                        <labels>
+                          <label description="Payment Total Amount" languagecode="1033" />
+                          <label description="Maksājumu kopsumma" languagecode="1062" />
+                        </labels>
+                        <control id="pc_paymenttotalamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="pc_paymenttotalamount" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{86f3375e-72d3-4b1d-8e47-e360cda0b224}" locklevel="0">
+                        <labels>
+                          <label description="Non-Payment Amount" languagecode="1033" />
+                          <label description="Ne maksājumu summa" languagecode="1062" />
+                        </labels>
+                        <control id="pc_nonpaymentamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="pc_nonpaymentamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f12bfc8f-3d49-4791-9693-99db8781ee5d}" locklevel="0">
+                        <labels>
+                          <label description="Remaining Amount" languagecode="1033" />
+                          <label description="Atlikusī summa" languagecode="1062" />
+                        </labels>
+                        <control id="pc_remainingamount" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="pc_remainingamount" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6cb019fb-a812-4ed9-a470-4ff8daab0d2c}" locklevel="0">
+                        <labels>
+                          <label description="Created On" languagecode="1033" />
+                          <label description="Izveides laiks" languagecode="1062" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="a1a9c139-2adf-44bc-9877-fe2a49495712" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Payments" languagecode="1033" />
+            <label description="Maksājumi" languagecode="1062" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="19fa9a3f-318e-47bf-bd9c-525d82f49006" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{2a6b660e-2372-4aaa-a917-940a17f05424}" rowspan="1" colspan="1" showlabel="false">
+                        <labels>
+                          <label description="New SG control 1627783439510" languagecode="1033" />
+                          <label description="Maksājumi" languagecode="1062" />
+                        </labels>
+                        <control id="Subgrid_1" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                          <parameters>
+                            <TargetEntityType>pc_payment</TargetEntityType>
+                            <ViewId>{B3D61A82-6CF2-EB11-94EF-002248834B5D}</ViewId>
+                            <ViewIds>{62AB8A1A-B40E-48A4-AFF5-D75891CEE4A1},{B3D61A82-6CF2-EB11-94EF-002248834B5D}</ViewIds>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <RelationshipName>pc_Payment_Transaction_Transaction</RelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{c79f6050-78eb-449c-819d-483ec2dd75ad}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{3cb55e67-b373-4eb2-a44c-9b48425200ae}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{0743eba0-d439-4e5d-9365-9ac8cc9363f2}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{14f3c4bc-34b5-4eb8-99e5-6df95786cf83}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{ef0c3692-b785-4f83-85de-f5893ec0fe6d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{d837a894-6954-4822-9533-cbf8a1bc9ee7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{41894525-106f-4a59-94a7-c14df607326d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e99fed2e-f09a-4c8e-8504-da3efe1b963d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+      <LocalizedName description="Informācija" languagecode="1062" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+      <Description description="Šīs entītijas forma." languagecode="1062" />
+    </Descriptions>
+  </systemform>
+</forms>

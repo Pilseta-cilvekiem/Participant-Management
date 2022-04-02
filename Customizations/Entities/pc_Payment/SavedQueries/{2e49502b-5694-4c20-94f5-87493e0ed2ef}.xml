@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{2e49502b-5694-4c20-94f5-87493e0ed2ef}</savedqueryid>
+    <layoutxml>
+      <grid name="pc_payments" jump="pc_name" select="1" icon="1" preview="1">
+        <row name="pc_payment" id="pc_paymentid">
+          <cell name="pc_contact" width="100" />
+          <cell name="pc_date" width="100" />
+          <cell name="pc_amount" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="pc_payment">
+          <attribute name="pc_paymentid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="pc_contact" />
+          <attribute name="pc_date" />
+          <attribute name="pc_amount" />
+          <order attribute="pc_date" descending="true" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Payment Associated View" languagecode="1033" />
+      <LocalizedName description="Maksājumu saistītais skats" languagecode="1062" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

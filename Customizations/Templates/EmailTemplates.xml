@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EmailTemplates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{227d1abb-95f6-eb11-94ef-002248834145}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>2</templatetypecode>
+    <body></body>
+    <title>Atbalstītāja sagaidīšanas e-pasts</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{f190362f-cdf3-eb11-94ef-002248834145}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>2</templatetypecode>
+    <body></body>
+    <title>Atgādinājums par parādu</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{6e1e1045-7492-ec11-b400-000d3a2b1acc}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>2</templatetypecode>
+    <body></body>
+    <title>Biedra sagaidīšanas e-pasts</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+  </emailtemplate>
+</EmailTemplates>

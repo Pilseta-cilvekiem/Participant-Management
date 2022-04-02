@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{1e4c9350-5fff-410b-a401-3c45c37eee24}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="pc_name" select="1" icon="1" preview="1">
+        <row name="result" id="pc_participationfeeexemptionid">
+          <cell name="pc_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="pc_participationfeeexemption">
+          <attribute name="pc_participationfeeexemptionid" />
+          <attribute name="pc_name" />
+          <attribute name="createdon" />
+          <order attribute="pc_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="pc_name" operator="like" value="{0}" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Participation Fee Exemptions" languagecode="1033" />
+      <LocalizedName description="Atbrīvojumu no dalībnieka naudas ātrā atrašana" languagecode="1062" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
