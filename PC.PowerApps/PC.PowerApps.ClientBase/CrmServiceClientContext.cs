@@ -32,8 +32,13 @@ namespace PC.PowerApps.ClientBase
         {
             crmServiceClient = new Lazy<CrmServiceClient>(() =>
             {
-                Response<KeyVaultSecret> response = SecretClient.GetSecret("DataverseConnectionString");
-                CrmServiceClient crmServiceClient = new(response.Value.Value);
+                string connectionString = configuration.Value.GetConnectionString("Dataverse");
+                if (connectionString == null)
+                {
+                    Response<KeyVaultSecret> response = SecretClient.GetSecret("DataverseConnectionString");
+                    connectionString = response.Value.Value;
+                }
+                CrmServiceClient crmServiceClient = new(connectionString);
                 return crmServiceClient;
             });
             this.logger = new(() => logger.Value);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Client;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
 using System;
@@ -194,6 +195,13 @@ namespace PC.PowerApps.Common
                 .Select(o => o.ToString())
                 .ToList();
             return string.Join(" ", components);
+        }
+
+        public static string GetEntityLogicalName<TEntity>() where TEntity : Entity
+        {
+            Type type = typeof(TEntity);
+            EntityLogicalNameAttribute entityLogicalNameAttribute = type.GetCustomAttribute<EntityLogicalNameAttribute>();
+            return entityLogicalNameAttribute.LogicalName;
         }
     }
 }

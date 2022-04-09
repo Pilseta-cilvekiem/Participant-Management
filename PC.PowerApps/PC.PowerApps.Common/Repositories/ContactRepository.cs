@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Entities.Fetch;
 using PC.PowerApps.Common.Extensions;
+using PC.PowerApps.Common.FetchXmlBuilder;
 using PC.PowerApps.Common.ScheduledJobs;
 using System;
 using System.Collections.Generic;
@@ -130,13 +132,16 @@ namespace PC.PowerApps.Common.Repositories
                 return;
             }
 
-            context.Logger.LogInformation($"Calculating a Paid Participation Fee for the Contact {contactId}.");
+            context.Logger.LogInformation($"Calculating a Paid Participation Fee for the Contact {contactId.Value}.");
             Contact contact = context.ServiceContext.Retrieve<Contact>(contactId.Value);
-            contact.pc_PaidParticipationFee = new(context.ServiceContext.pc_PaymentSet
-                .Where(p => p.pc_Contact.Id == contactId && p.pc_Amount != null)
-                .Select(p => p.pc_Amount.Value)
-                .ToList()
-                .Sum());
+            const string AmountAlias = "amount";
+            FetchXmlBuilder<pc_Payment> paymentQuery = new FetchXmlBuilder<pc_Payment>(aggregate: true)
+                .AddAttribute(p => p.pc_Amount, AmountAlias, AggregateType.sum)
+                .AddFilter(filterType.and, f => f
+                    .AddCondition(p => p.pc_Contact, @operator.eq, contactId.Value)
+                );
+            pc_Payment aggregate = context.OrganizationService.RetrieveMultiple(paymentQuery).TakeSingle();
+            contact.pc_PaidParticipationFee = aggregate.GetAliasedValue<Money>(AmountAlias);
             _ = context.ServiceContext.UpdateModifiedAttributes(contact);
         }
 

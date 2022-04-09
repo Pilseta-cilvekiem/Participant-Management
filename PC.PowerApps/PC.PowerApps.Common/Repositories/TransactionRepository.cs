@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
 using PC.PowerApps.Common.Entities.Dataverse;
+using PC.PowerApps.Common.Entities.Fetch;
 using PC.PowerApps.Common.Entities.Fidavista;
 using PC.PowerApps.Common.Extensions;
+using PC.PowerApps.Common.FetchXmlBuilder;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -79,11 +81,14 @@ namespace PC.PowerApps.Common.Repositories
 
             pc_Transaction transaction = context.ServiceContext.Retrieve<pc_Transaction>(transactionId.Value);
             context.Logger.LogInformation($"Calculating a Payment Total Amount for the Transaction {transaction.pc_Name}.");
-            transaction.pc_PaymentTotalAmount = new(context.ServiceContext.pc_PaymentSet
-                .Where(p => p.pc_Transaction.Id == transactionId && p.pc_Amount != null)
-                .Select(p => p.pc_Amount.Value)
-                .ToList()
-                .Sum());
+            const string AmountAlias = "amount";
+            FetchXmlBuilder<pc_Payment> paymentQuery = new FetchXmlBuilder<pc_Payment>(aggregate: true)
+                .AddAttribute(p => p.pc_Amount, AmountAlias, AggregateType.sum)
+                .AddFilter(filterType.and, f => f
+                    .AddCondition(p => p.pc_Transaction, @operator.eq, transactionId.Value)
+                );
+            pc_Payment aggregate = context.OrganizationService.RetrieveMultiple(paymentQuery).TakeSingle();
+            transaction.pc_PaymentTotalAmount = aggregate.GetAliasedValue<Money>(AmountAlias);
             _ = context.ServiceContext.UpdateModifiedAttributes(transaction);
         }
 

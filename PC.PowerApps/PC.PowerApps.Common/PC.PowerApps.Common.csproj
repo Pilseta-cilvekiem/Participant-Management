@@ -98,6 +98,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Fetch.cs" />
+    <Compile Include="FetchXmlBuilder\FetchEntityBuilder.cs" />
+    <Compile Include="FetchXmlBuilder\FetchFilterBuilder.cs" />
+    <Compile Include="FetchXmlBuilder\FetchLinkEntityBuilder.cs" />
+    <Compile Include="FetchXmlBuilder\FetchXmlBuilder.cs" />
+    <Compile Include="FetchXmlBuilder\IFetchLinkEntityBuilder.cs" />
     <Compile Include="ScheduledJobs\RecalculateContact.cs" />
     <Compile Include="SyncActionQueue.cs" />
     <Compile Include="CommonConstants.cs" />
@@ -157,6 +163,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

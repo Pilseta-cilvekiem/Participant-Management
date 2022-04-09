@@ -1,11 +1,15 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Xrm.Sdk.Query;
 using PC.PowerApps.ClientBase;
 using PC.PowerApps.ClientBase.Repositories;
 using PC.PowerApps.Common.Entities.Dataverse;
 using PC.PowerApps.Common.Extensions;
+using PC.PowerApps.Common.FetchXmlBuilder;
 using PC.PowerApps.Common.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PC.PowerApps.TestConsoleApp
@@ -67,7 +71,7 @@ namespace PC.PowerApps.TestConsoleApp
 
             //ContactRepository.SendDebtReminder(Context, new Guid("1a9490aa-40ed-eb11-bacb-000d3a3a2279"));
 
-            await GoogleGroupMemberRepository.SynchronizeParticipants(Context, true, false);
+            //await GoogleGroupMemberRepository.SynchronizeParticipants(Context, true, false);
 
             //List<Contact> contacts = Context.ServiceContext.ContactSet.ToList();
 
@@ -174,6 +178,11 @@ namespace PC.PowerApps.TestConsoleApp
 
             //pc_BankAccount bankAccount = Context.ServiceContext.pc_BankAccountSet.TakeSingle();
             //FileRepository.Download(Context, bankAccount, ba => ba.pc_TransactionImportFile);
+
+            //TransactionRepository.CalculatePaymentTotalAmount(Context, new Guid("0e2e110b-04b5-ec11-983f-00224883c2f5"));
+
+            //FetchXmlBuilder<pc_Transaction> transactionQuery = new FetchXmlBuilder<pc_Transaction>(aggregate: false);
+            //List<pc_Transaction> transactions = Context.OrganizationService.RetrieveMultiple(transactionQuery).ToList();
         }
     }
 }

@@ -19,9 +19,9 @@ namespace PC.PowerApps.FunctionApp
         {
             List<string> bindingRedirects = new()
             {
-                "Azure.Core, Version=1.23.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8",
+                "Azure.Core, Version=1.24.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8",
                 "Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
-                "Microsoft.Identity.Client, Version=4.42.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae",
+                "Microsoft.Identity.Client, Version=4.43.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae",
                 "Microsoft.IdentityModel.Clients.ActiveDirectory, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35",
                 "System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
                 "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",

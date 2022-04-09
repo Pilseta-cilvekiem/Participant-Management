@@ -17,5 +17,11 @@ namespace PC.PowerApps.Common.Extensions
 
             return value;
         }
+
+        public static T GetAliasedValue<T>(this Entity entity, string alias)
+        {
+            AliasedValue aliasedValue = entity.GetAttributeValue<AliasedValue>(alias);
+            return (T)aliasedValue.Value;
+        }
     }
 }
