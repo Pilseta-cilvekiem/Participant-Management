@@ -9,8 +9,8 @@ on:
   workflow_dispatch:
 
 env:
-  CUSTOMIZATIONS_DIR: 'Customizations'
-  ZIP_FILE: '/CityForPeople.zip'
+  CUSTOMIZATIONS_DIR: Customizations
+  ZIP_FILE: /CityForPeople.zip
 
 jobs:
   commit-solution:
@@ -24,7 +24,7 @@ jobs:
           client-secret: ${{ secrets.DATAVERSE_CLIENT_SECRET }}
           environment-url: ${{ secrets.DATAVERSE_URL }}
           solution-name: CityForPeople
-          solution-output-file: "${{ runner.temp }}${{ env.ZIP_FILE }}"
+          solution-output-file: ${{ runner.temp }}${{ env.ZIP_FILE }}
           tenant-id: ${{ secrets.MICROSOFT_TENANT_ID }}
 
       - name: Set Git Name
