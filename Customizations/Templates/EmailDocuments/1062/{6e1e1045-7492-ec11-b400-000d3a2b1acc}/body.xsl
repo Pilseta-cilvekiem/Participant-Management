@@ -13,4 +13,5 @@ Tev jau sen ir skaidrs, ka Rīga, tie esam mēs - cilvēki, un mums ir spēks ie
 <div>&nbsp;</div>
 <div><span style="font-size:small">Tava “Pilsēta cilvēkiem” komanda</span></div>
 </div>
-</div>]]></xsl:template></xsl:stylesheet>
+</div>
+]]></xsl:template></xsl:stylesheet>
