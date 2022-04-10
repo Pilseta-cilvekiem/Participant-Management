@@ -24,7 +24,7 @@
     </layoutxml>
     <querytype>0</querytype>
     <fetchxml>
-      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
         <entity name="contact">
           <attribute name="fullname" />
           <attribute name="pc_participationlevel" />
@@ -34,19 +34,23 @@
           <attribute name="pc_sentdebtreminderon" />
           <attribute name="pc_lastpaymentdate" />
           <attribute name="pc_participantfrom" />
-          <filter type="and">
-            <condition attribute="pc_debt" operator="ge" value="20" />
-            <condition attribute="pc_participationlevel" operator="not-null" />
-          </filter>
           <attribute name="pc_wishestobeactive" />
           <attribute name="contactid" />
           <attribute name="pc_paidparticipationfee" />
+          <filter type="and">
+            <condition attribute="pc_debt" operator="ge" value="20" />
+            <condition attribute="pc_participationlevel" operator="not-null" />
+            <filter type="or">
+              <condition attribute="pc_sentdebtreminderon" operator="null" />
+              <condition attribute="pc_sentdebtreminderon" operator="olderthan-x-months" value="2" />
+            </filter>
+          </filter>
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Contacts To Send Debt Reminders" languagecode="1033" />
+      <LocalizedName description="Kontakti atgādinājumu par parādiem nosūtīšanai" languagecode="1033" />
       <LocalizedName description="Kontakti atgādinājumu par parādiem nosūtīšanai" languagecode="1062" />
     </LocalizedNames>
   </savedquery>
