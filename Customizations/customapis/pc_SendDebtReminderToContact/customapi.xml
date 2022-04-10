@@ -10,7 +10,7 @@
     <label description="Send Debt Reminder to Contact" languagecode="1033" />
     <label description="Nosūtīt atgādinājumu par parādu kontaktpersonai" languagecode="1062" />
   </displayname>
-  <executeprivilegename>prvCreateActivity</executeprivilegename>
+  <executeprivilegename>prvCreatepc_Payment</executeprivilegename>
   <iscustomizable>1</iscustomizable>
   <isfunction>0</isfunction>
   <isprivate>0</isprivate>
