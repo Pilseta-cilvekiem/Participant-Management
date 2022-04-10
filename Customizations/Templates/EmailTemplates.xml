@@ -9,7 +9,7 @@
     <body></body>
     <title>Atbalstītāja sagaidīšanas e-pasts</title>
     <presentationxml></presentationxml>
-    <languagecode>1033</languagecode>
+    <languagecode>1062</languagecode>
     <generationtypecode>0</generationtypecode>
     <IntroducedVersion>1.0</IntroducedVersion>
   </emailtemplate>
@@ -22,7 +22,7 @@
     <body></body>
     <title>Atgādinājums par parādu</title>
     <presentationxml></presentationxml>
-    <languagecode>1033</languagecode>
+    <languagecode>1062</languagecode>
     <generationtypecode>0</generationtypecode>
     <IntroducedVersion>1.0</IntroducedVersion>
   </emailtemplate>
@@ -35,7 +35,7 @@
     <body></body>
     <title>Biedra sagaidīšanas e-pasts</title>
     <presentationxml></presentationxml>
-    <languagecode>1033</languagecode>
+    <languagecode>1062</languagecode>
     <generationtypecode>0</generationtypecode>
     <IntroducedVersion>1.0</IntroducedVersion>
   </emailtemplate>
