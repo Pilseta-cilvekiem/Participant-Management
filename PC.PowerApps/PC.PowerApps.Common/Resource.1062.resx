@@ -189,6 +189,12 @@
   <data name="SendingDebtReminderToContact" xml:space="preserve">
     <value>Nosūtu atgādinājumu par parādu kontaktam...</value>
   </data>
+  <data name="ShouldSendDebtReminderToContact" xml:space="preserve">
+    <value>Nosūtīt atgādinājumu par parādu kontaktam?</value>
+  </data>
+  <data name="ShouldSendDebtReminderToContacts" xml:space="preserve">
+    <value>Nosūtīt atgādinājumus par parādiem {0} kontaktiem?</value>
+  </data>
   <data name="TransactionRemainingAmountNegative" xml:space="preserve">
     <value>Transakcijas Maksājumu kopsummas un Nemaksājumu summas summa nevar būt lielāka par Summu.</value>
   </data>

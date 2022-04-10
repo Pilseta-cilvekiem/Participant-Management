@@ -189,6 +189,12 @@
   <data name="SendingDebtReminderToContact" xml:space="preserve">
     <value>Sending a debt reminder to the contact...</value>
   </data>
+  <data name="ShouldSendDebtReminderToContact" xml:space="preserve">
+    <value>Send a debt reminder to the contact?</value>
+  </data>
+  <data name="ShouldSendDebtReminderToContacts" xml:space="preserve">
+    <value>Send debt reminders to {0} contacts?</value>
+  </data>
   <data name="TransactionRemainingAmountNegative" xml:space="preserve">
     <value>Sum of Transaction Payment Total Amount and Non-Payment Amount cannot be greater than Amount.</value>
   </data>

@@ -19,7 +19,7 @@ namespace PC.PowerApps.Common {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resource {
@@ -273,6 +273,24 @@ namespace PC.PowerApps.Common {
         public static string SendingDebtReminderToContact {
             get {
                 return ResourceManager.GetString("SendingDebtReminderToContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send a debt reminder to the contact?.
+        /// </summary>
+        public static string ShouldSendDebtReminderToContact {
+            get {
+                return ResourceManager.GetString("ShouldSendDebtReminderToContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send debt reminders to {0} contacts?.
+        /// </summary>
+        public static string ShouldSendDebtReminderToContacts {
+            get {
+                return ResourceManager.GetString("ShouldSendDebtReminderToContacts", resourceCulture);
             }
         }
         
