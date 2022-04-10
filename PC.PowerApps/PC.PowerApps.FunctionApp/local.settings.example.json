@@ -2,7 +2,7 @@
 {
   "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsDashboard": "Copy from Azure Function configuration",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "Copy from Azure Function configuration",
     "AzureWebJobsStorage": "Copy from Azure Function configuration",
     "KeyVaultUrl": "Copy from Azure Function configuration"
   }
