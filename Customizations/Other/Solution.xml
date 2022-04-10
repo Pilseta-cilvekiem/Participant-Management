@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22024.143" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22031.140" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>CityForPeople</UniqueName>
     <LocalizedNames>
@@ -170,7 +170,7 @@
     <MissingDependencies>
       <MissingDependency>
         <Required type="26" schemaName="All Contacts" displayName="All Contacts" parentSchemaName="contact" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="26" schemaName="All Contacts" displayName="All Contacts" parentSchemaName="contact" parentDisplayName="Contact" id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" />
       </MissingDependency>
@@ -180,67 +180,67 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Update Contact" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{26843818-6508-4afe-9342-5fae2ebf15ca}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Update Contact" parentDisplayName="Contact" id="{26843818-6508-4afe-9342-5fae2ebf15ca}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="account contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="account contact card" parentDisplayName="Contact" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Quick Create" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact Quick Create" parentDisplayName="Contact" id="{661157fe-2fc9-4eaa-835f-5bfa2f7b64f7}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="contact card" parentDisplayName="Contact" id="{707fc57b-c5e6-471b-a180-e37ed28a38e2}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Information" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Contact" id="{894cc46a-b0cb-4ab0-8bf6-200544e46a2d}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Card form" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{bc0f68dd-a4b1-4a8f-bed3-c8f5db2f89cf}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact Card form" parentDisplayName="Contact" id="{bc0f68dd-a4b1-4a8f-bed3-c8f5db2f89cf}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Quick Form" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact Quick Form" parentDisplayName="Contact" id="{bdb0ae1c-32fa-4374-b637-8dafe107bc44}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact Reference Panel" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact Reference Panel" parentDisplayName="Contact" id="{d880c3cf-80e2-42f3-82f9-24d040d09f17}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="AppCommon/Contact/Contact_main_system_library.js" displayName="AppCommon/Contact/Contact_main_system_library.js" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package>msdynce_AppCommonAnchor (9.0.22024.10002)</package>
+          <package>msdynce_AppCommonAnchor (9.0.22032.10001)</package>
         </Required>
         <Dependent type="60" displayName="Kontaktpersona" parentDisplayName="Contact" id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
       </MissingDependency>
@@ -249,23 +249,23 @@
         <Dependent type="80" schemaName="pc_CityForPeople" displayName="City for People" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2202.4016)" />
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2203.1015)" />
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2202.4016)" />
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2203.1015)" />
         <Dependent type="60" displayName="Kontaktpersona" parentDisplayName="Contact" id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2202.4016)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2203.1015)" />
         <Dependent type="60" displayName="Kontaktpersona" parentDisplayName="Contact" id="{9355d354-fbe7-eb11-bacb-000d3abb9ce3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2202.4016)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2203.1015)" />
         <Dependent type="60" displayName="Informācija" parentDisplayName="Settings" id="{e2520334-c210-46a4-81ab-2ebabd648e46}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.1509)" />
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.1585)" />
         <Dependent type="60" displayName="Email" parentDisplayName="Email" id="{0d1e47ff-12b2-4f53-9090-bee951b98cb4}" />
       </MissingDependency>
     </MissingDependencies>
