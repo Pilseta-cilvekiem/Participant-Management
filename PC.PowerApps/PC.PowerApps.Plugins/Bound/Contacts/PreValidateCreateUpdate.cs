@@ -30,6 +30,11 @@ namespace PC.PowerApps.Plugins.Bound.Contacts
             }
 
             context.EnsureCreatedOrUpdatedAttributesNotEmpty(c => new { c.Description, c.FirstName, c.LastName, c.pc_ForceAddToGoogleGroup, c.pc_IsInvitedToSlack, c.pc_PersonalIdentityNumber, c.pc_WishesToBeActive });
+
+            if (context.GetIsAnyAttributeModified(c => new { c.Address1_Country, c.Address1_Line1, c.Address1_PostalCode, c.pc_ParticipationLevel }) && contact.pc_ParticipationLevel == pc_ParticipationLevel.Member)
+            {
+                context.EnsureAttributesNotEmpty(c => new { c.Address1_Country, c.Address1_Line1, c.Address1_PostalCode });
+            }
         }
     }
 }

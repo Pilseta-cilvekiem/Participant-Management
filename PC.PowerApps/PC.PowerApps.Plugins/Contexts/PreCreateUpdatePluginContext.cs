@@ -51,6 +51,15 @@ namespace PC.PowerApps.Plugins.Contexts
             EnsureNoAttributes(PluginExecutionContext.PrimaryEntityName, modifiedEmptyAttributeLogicalNames, nameof(Resource.AttributeCannotBeEmpty), nameof(Resource.AttributesCannotBeEmpty));
         }
 
+        public void EnsureAttributesNotEmpty(Expression<Func<TEntity, object>> attributeSelector)
+        {
+            HashSet<string> attributeLogicalNames = Utils.GetAttributeLogicalNames(attributeSelector);
+            List<string> emptyAttributeLogicalNames = attributeLogicalNames
+                .Where(aln => Utils.IsEmptyValue(PostImage.GetAttributeValue<object>(aln)))
+                .ToList();
+            EnsureNoAttributes(PluginExecutionContext.PrimaryEntityName, emptyAttributeLogicalNames, nameof(Resource.AttributeCannotBeEmpty), nameof(Resource.AttributesCannotBeEmpty));
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (!disposedValue)
