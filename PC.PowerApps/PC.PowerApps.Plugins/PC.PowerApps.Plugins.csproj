@@ -131,6 +131,7 @@
     <Compile Include="Contexts\PostCreateUpdatePluginContext.cs" />
     <Compile Include="Contexts\PreCreateUpdatePluginContext.cs" />
     <Compile Include="Enumerations\PluginMessage.cs" />
+    <Compile Include="Enumerations\User.cs" />
     <Compile Include="Extensions\IPluginExecutionContextExtensions.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="PluginConstants.cs" />
